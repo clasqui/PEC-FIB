@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus II 32-bit"
 -- VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
 
--- DATE "02/23/2021 15:55:11"
+-- DATE "02/23/2021 20:30:19"
 
 -- 
 -- Device: Altera EP2C20F484C7 Package FBGA484
@@ -66,6 +66,7 @@ SIGNAL \Mux0~0_combout\ : std_logic;
 SIGNAL \Mux0~1_combout\ : std_logic;
 SIGNAL \SW~combout\ : std_logic_vector(1 DOWNTO 0);
 SIGNAL \KEY~combout\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \ALT_INV_Mux0~1_combout\ : std_logic;
 
 BEGIN
 
@@ -75,6 +76,7 @@ LEDR <= ww_LEDR;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
 ww_devpor <= devpor;
+\ALT_INV_Mux0~1_combout\ <= NOT \Mux0~1_combout\;
 
 -- Location: PIN_R22,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 \KEY[0]~I\ : cycloneii_io
@@ -285,7 +287,7 @@ GENERIC MAP (
 	output_sync_reset => "none")
 -- pragma translate_on
 PORT MAP (
-	datain => \Mux0~1_combout\,
+	datain => \ALT_INV_Mux0~1_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	devoe => ww_devoe,

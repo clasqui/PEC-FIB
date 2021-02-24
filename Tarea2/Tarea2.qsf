@@ -498,3 +498,7 @@ set_location_assignment PIN_T8 -to SRAM_OE_N
 set_location_assignment PIN_W7 -to SRAM_UB_N
 set_location_assignment PIN_AA10 -to SRAM_WE_N
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
+set_global_assignment -name SIMULATION_MODE TIMING
+set_global_assignment -name VECTOR_OUTPUT_FORMAT VWF
+set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE "Z:/PEC/Tarea2/Waveform.vwf"

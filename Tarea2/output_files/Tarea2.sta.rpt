@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for Tarea2
-Tue Feb 23 15:55:10 2021
+Tue Feb 23 20:30:17 2021
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -116,8 +116,8 @@ No paths to report.
 +------------+-------------+--------+--------+--------+--------+
 ; KEY[0]     ; LEDR[0]     ; 10.457 ; 10.457 ; 10.457 ; 10.457 ;
 ; KEY[1]     ; LEDR[0]     ; 10.060 ; 10.060 ; 10.060 ; 10.060 ;
-; KEY[2]     ; LEDR[0]     ; 9.983  ;        ;        ; 9.983  ;
-; KEY[3]     ; LEDR[0]     ; 9.603  ;        ;        ; 9.603  ;
+; KEY[2]     ; LEDR[0]     ;        ; 9.983  ; 9.983  ;        ;
+; KEY[3]     ; LEDR[0]     ;        ; 9.603  ; 9.603  ;        ;
 ; SW[0]      ; LEDR[0]     ; 6.527  ; 6.527  ; 6.527  ; 6.527  ;
 ; SW[1]      ; LEDR[0]     ; 6.349  ; 6.349  ; 6.349  ; 6.349  ;
 +------------+-------------+--------+--------+--------+--------+
@@ -130,8 +130,8 @@ No paths to report.
 +------------+-------------+--------+--------+--------+--------+
 ; KEY[0]     ; LEDR[0]     ; 10.457 ; 10.457 ; 10.457 ; 10.457 ;
 ; KEY[1]     ; LEDR[0]     ; 10.060 ; 10.060 ; 10.060 ; 10.060 ;
-; KEY[2]     ; LEDR[0]     ; 9.983  ;        ;        ; 9.983  ;
-; KEY[3]     ; LEDR[0]     ; 9.603  ;        ;        ; 9.603  ;
+; KEY[2]     ; LEDR[0]     ;        ; 9.983  ; 9.983  ;        ;
+; KEY[3]     ; LEDR[0]     ;        ; 9.603  ; 9.603  ;        ;
 ; SW[0]      ; LEDR[0]     ; 6.527  ; 6.527  ; 6.527  ; 6.527  ;
 ; SW[1]      ; LEDR[0]     ; 5.537  ; 5.537  ; 5.537  ; 5.537  ;
 +------------+-------------+--------+--------+--------+--------+
@@ -174,8 +174,8 @@ No paths to report.
 +------------+-------------+-------+-------+-------+-------+
 ; KEY[0]     ; LEDR[0]     ; 5.271 ; 5.271 ; 5.271 ; 5.271 ;
 ; KEY[1]     ; LEDR[0]     ; 5.138 ; 5.138 ; 5.138 ; 5.138 ;
-; KEY[2]     ; LEDR[0]     ; 5.121 ;       ;       ; 5.121 ;
-; KEY[3]     ; LEDR[0]     ; 4.997 ;       ;       ; 4.997 ;
+; KEY[2]     ; LEDR[0]     ;       ; 5.121 ; 5.121 ;       ;
+; KEY[3]     ; LEDR[0]     ;       ; 4.997 ; 4.997 ;       ;
 ; SW[0]      ; LEDR[0]     ; 2.959 ; 2.959 ; 2.959 ; 2.959 ;
 ; SW[1]      ; LEDR[0]     ; 2.900 ; 2.900 ; 2.900 ; 2.900 ;
 +------------+-------------+-------+-------+-------+-------+
@@ -188,8 +188,8 @@ No paths to report.
 +------------+-------------+-------+-------+-------+-------+
 ; KEY[0]     ; LEDR[0]     ; 5.271 ; 5.271 ; 5.271 ; 5.271 ;
 ; KEY[1]     ; LEDR[0]     ; 5.138 ; 5.138 ; 5.138 ; 5.138 ;
-; KEY[2]     ; LEDR[0]     ; 5.121 ;       ;       ; 5.121 ;
-; KEY[3]     ; LEDR[0]     ; 4.997 ;       ;       ; 4.997 ;
+; KEY[2]     ; LEDR[0]     ;       ; 5.121 ; 5.121 ;       ;
+; KEY[3]     ; LEDR[0]     ;       ; 4.997 ; 4.997 ;       ;
 ; SW[0]      ; LEDR[0]     ; 2.959 ; 2.959 ; 2.959 ; 2.959 ;
 ; SW[1]      ; LEDR[0]     ; 2.618 ; 2.618 ; 2.618 ; 2.618 ;
 +------------+-------------+-------+-------+-------+-------+
@@ -212,8 +212,8 @@ No paths to report.
 +------------+-------------+--------+--------+--------+--------+
 ; KEY[0]     ; LEDR[0]     ; 10.457 ; 10.457 ; 10.457 ; 10.457 ;
 ; KEY[1]     ; LEDR[0]     ; 10.060 ; 10.060 ; 10.060 ; 10.060 ;
-; KEY[2]     ; LEDR[0]     ; 9.983  ;        ;        ; 9.983  ;
-; KEY[3]     ; LEDR[0]     ; 9.603  ;        ;        ; 9.603  ;
+; KEY[2]     ; LEDR[0]     ;        ; 9.983  ; 9.983  ;        ;
+; KEY[3]     ; LEDR[0]     ;        ; 9.603  ; 9.603  ;        ;
 ; SW[0]      ; LEDR[0]     ; 6.527  ; 6.527  ; 6.527  ; 6.527  ;
 ; SW[1]      ; LEDR[0]     ; 6.349  ; 6.349  ; 6.349  ; 6.349  ;
 +------------+-------------+--------+--------+--------+--------+
@@ -226,8 +226,8 @@ No paths to report.
 +------------+-------------+-------+-------+-------+-------+
 ; KEY[0]     ; LEDR[0]     ; 5.271 ; 5.271 ; 5.271 ; 5.271 ;
 ; KEY[1]     ; LEDR[0]     ; 5.138 ; 5.138 ; 5.138 ; 5.138 ;
-; KEY[2]     ; LEDR[0]     ; 5.121 ;       ;       ; 5.121 ;
-; KEY[3]     ; LEDR[0]     ; 4.997 ;       ;       ; 4.997 ;
+; KEY[2]     ; LEDR[0]     ;       ; 5.121 ; 5.121 ;       ;
+; KEY[3]     ; LEDR[0]     ;       ; 4.997 ; 4.997 ;       ;
 ; SW[0]      ; LEDR[0]     ; 2.959 ; 2.959 ; 2.959 ; 2.959 ;
 ; SW[1]      ; LEDR[0]     ; 2.618 ; 2.618 ; 2.618 ; 2.618 ;
 +------------+-------------+-------+-------+-------+-------+
@@ -271,7 +271,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 32-bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Tue Feb 23 15:55:09 2021
+    Info: Processing started: Tue Feb 23 20:30:17 2021
 Info: Command: quartus_sta Tarea2 -c Tarea2
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -305,8 +305,8 @@ Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 32-bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
     Info: Peak virtual memory: 294 megabytes
-    Info: Processing ended: Tue Feb 23 15:55:10 2021
-    Info: Elapsed time: 00:00:01
+    Info: Processing ended: Tue Feb 23 20:30:17 2021
+    Info: Elapsed time: 00:00:00
     Info: Total CPU time (on all processors): 00:00:01
 
 

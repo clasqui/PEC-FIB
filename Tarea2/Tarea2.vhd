@@ -17,6 +17,6 @@ WITH SW SELECT tmp <=
 	KEY(2) when "10",
 	KEY(3) when "11";
 
-LEDR(0) <= tmp;
+LEDR(0) <= not tmp;
 	
 END Structure; 
