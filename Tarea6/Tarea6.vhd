@@ -34,31 +34,37 @@ BEGIN
 	 PORT MAP(codigoCaracter => codi3, bitsCaracter => HEX2);
 	 SEG4 : driver7Segmentos
 	 PORT MAP(codigoCaracter => codi4, bitsCaracter => HEX3);
-	 with contador select codi1 <=
-		"000" when "101",
-		"001" when "110",
-		"010" when "111",
-		"011" when "000",
-		"100" when others;
-	 with contador select codi2 <=
-		"000" when "110",
-		"001" when "111",
-		"010" when "000",
-		"011" when "001",
-		"100" when others;
-	 with contador select codi3 <=
-		"000" when "111",
-		"001" when "000",
-		"010" when "001",
-		"011" when "010",
-		"100" when others;
-	 with contador select codi4 <=
-		"000" when "000",
-		"001" when "001",
-		"010" when "010",
-		"011" when "011",
-		"100" when others;
-		contador <= (contador + 1) when rising_edge(KEY(0));
+--	 with contador select codi1 <=
+--		"000" when "101",
+--		"001" when "110",
+--		"010" when "111",
+--		"011" when "000",
+--		"100" when others;
+--	 with contador select codi2 <=
+--		"000" when "110",
+--		"001" when "111",
+--		"010" when "000",
+--		"011" when "001",
+--		"100" when others;
+--	 with contador select codi3 <=
+--		"000" when "111",
+--		"001" when "000",
+--		"010" when "001",
+--		"011" when "010",
+--		"100" when others;
+--	 with contador select codi4 <=
+--		"000" when "000",
+--		"001" when "001",
+--		"010" when "010",
+--		"011" when "011",
+--		"100" when others;
+		
+		codi4 <= contador;
+		codi3 <= contador+1;
+		codi2 <= contador+2;
+		codi1 <= contador+3;
+		
+		contador <= (contador + 1) when rising_edge(KEY(0)) and SW(0) = '0' else (contador - 1) when rising_edge(KEY(0)) and SW(0) = '1';
 		LEDR(0) <= contador(0);
 		LEDR(1) <= contador(1);
 		LEDR(2) <= contador(2);

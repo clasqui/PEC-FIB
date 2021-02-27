@@ -1,12 +1,12 @@
-Fitter Status : Successful - Fri Feb 26 14:32:18 2021
-Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+Fitter Status : Successful - Sat Feb 27 19:37:04 2021
+Quartus II 32-bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
 Revision Name : Tarea6
 Top-level Entity Name : Tarea6
 Family : Cyclone II
 Device : EP2C20F484C7
 Timing Models : Final
-Total logic elements : 17 / 18,752 ( < 1 % )
-    Total combinational functions : 17 / 18,752 ( < 1 % )
+Total logic elements : 18 / 18,752 ( < 1 % )
+    Total combinational functions : 18 / 18,752 ( < 1 % )
     Dedicated logic registers : 3 / 18,752 ( < 1 % )
 Total registers : 3
 Total pins : 33 / 315 ( 10 % )

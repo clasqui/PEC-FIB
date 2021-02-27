@@ -1,6 +1,6 @@
 TimeQuest Timing Analyzer report for Tarea6
-Fri Feb 26 14:32:24 2021
-Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+Sat Feb 27 19:37:09 2021
+Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
 ---------------------
@@ -8,38 +8,43 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
 ---------------------
   1. Legal Notice
   2. TimeQuest Timing Analyzer Summary
-  3. Parallel Compilation
-  4. Clocks
-  5. Slow Model Fmax Summary
-  6. Slow Model Setup Summary
-  7. Slow Model Hold Summary
-  8. Slow Model Recovery Summary
-  9. Slow Model Removal Summary
- 10. Slow Model Minimum Pulse Width Summary
- 11. Slow Model Setup: 'KEY[0]'
- 12. Slow Model Hold: 'KEY[0]'
- 13. Slow Model Minimum Pulse Width: 'KEY[0]'
- 14. Clock to Output Times
- 15. Minimum Clock to Output Times
- 16. Fast Model Setup Summary
- 17. Fast Model Hold Summary
- 18. Fast Model Recovery Summary
- 19. Fast Model Removal Summary
- 20. Fast Model Minimum Pulse Width Summary
- 21. Fast Model Setup: 'KEY[0]'
- 22. Fast Model Hold: 'KEY[0]'
- 23. Fast Model Minimum Pulse Width: 'KEY[0]'
- 24. Clock to Output Times
- 25. Minimum Clock to Output Times
- 26. Multicorner Timing Analysis Summary
+  3. Clocks
+  4. Slow Model Fmax Summary
+  5. Slow Model Setup Summary
+  6. Slow Model Hold Summary
+  7. Slow Model Recovery Summary
+  8. Slow Model Removal Summary
+  9. Slow Model Minimum Pulse Width Summary
+ 10. Slow Model Setup: 'KEY[0]'
+ 11. Slow Model Hold: 'KEY[0]'
+ 12. Slow Model Minimum Pulse Width: 'KEY[0]'
+ 13. Setup Times
+ 14. Hold Times
+ 15. Clock to Output Times
+ 16. Minimum Clock to Output Times
+ 17. Fast Model Setup Summary
+ 18. Fast Model Hold Summary
+ 19. Fast Model Recovery Summary
+ 20. Fast Model Removal Summary
+ 21. Fast Model Minimum Pulse Width Summary
+ 22. Fast Model Setup: 'KEY[0]'
+ 23. Fast Model Hold: 'KEY[0]'
+ 24. Fast Model Minimum Pulse Width: 'KEY[0]'
+ 25. Setup Times
+ 26. Hold Times
  27. Clock to Output Times
  28. Minimum Clock to Output Times
- 29. Setup Transfers
- 30. Hold Transfers
- 31. Report TCCS
- 32. Report RSKM
- 33. Unconstrained Paths
- 34. TimeQuest Timing Analyzer Messages
+ 29. Multicorner Timing Analysis Summary
+ 30. Setup Times
+ 31. Hold Times
+ 32. Clock to Output Times
+ 33. Minimum Clock to Output Times
+ 34. Setup Transfers
+ 35. Hold Transfers
+ 36. Report TCCS
+ 37. Report RSKM
+ 38. Unconstrained Paths
+ 39. TimeQuest Timing Analyzer Messages
 
 
 
@@ -75,17 +80,6 @@ applicable agreement for further details.
 +--------------------+-------------------------------------------------------------------+
 
 
-Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
-+-------------------------------------+
-; Parallel Compilation                ;
-+----------------------------+--------+
-; Processors                 ; Number ;
-+----------------------------+--------+
-; Number detected on machine ; 2      ;
-; Maximum allowed            ; 1      ;
-+----------------------------+--------+
-
-
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Clocks                                                                                                                                                                             ;
 +------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------+
@@ -100,7 +94,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +------------+-----------------+------------+---------------------------------------------------------------+
 ; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
 +------------+-----------------+------------+---------------------------------------------------------------+
-; 542.59 MHz ; 405.02 MHz      ; KEY[0]     ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 821.69 MHz ; 405.02 MHz      ; KEY[0]     ; limit due to minimum period restriction (max I/O toggle rate) ;
 +------------+-----------------+------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -110,7 +104,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------+--------+---------------+
 ; Clock  ; Slack  ; End Point TNS ;
 +--------+--------+---------------+
-; KEY[0] ; -0.843 ; -1.143        ;
+; KEY[0] ; -0.217 ; -0.217        ;
 +--------+--------+---------------+
 
 
@@ -149,11 +143,11 @@ No paths to report.
 +--------+-------------+-------------+--------------+-------------+--------------+------------+------------+
 ; Slack  ; From Node   ; To Node     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +--------+-------------+-------------+--------------+-------------+--------------+------------+------------+
-; -0.843 ; contador[2] ; contador[2] ; KEY[0]       ; KEY[0]      ; 1.000        ; 0.000      ; 1.881      ;
-; -0.645 ; contador[0] ; contador[2] ; KEY[0]       ; KEY[0]      ; 1.000        ; 0.000      ; 1.683      ;
-; -0.492 ; contador[1] ; contador[2] ; KEY[0]       ; KEY[0]      ; 1.000        ; 0.000      ; 1.530      ;
-; -0.300 ; contador[0] ; contador[1] ; KEY[0]       ; KEY[0]      ; 1.000        ; 0.000      ; 1.338      ;
+; -0.217 ; contador[1] ; contador[2] ; KEY[0]       ; KEY[0]      ; 1.000        ; 0.000      ; 1.255      ;
+; 0.066  ; contador[0] ; contador[1] ; KEY[0]       ; KEY[0]      ; 1.000        ; 0.000      ; 0.972      ;
+; 0.068  ; contador[0] ; contador[2] ; KEY[0]       ; KEY[0]      ; 1.000        ; 0.000      ; 0.970      ;
 ; 0.307  ; contador[0] ; contador[0] ; KEY[0]       ; KEY[0]      ; 1.000        ; 0.000      ; 0.731      ;
+; 0.307  ; contador[2] ; contador[2] ; KEY[0]       ; KEY[0]      ; 1.000        ; 0.000      ; 0.731      ;
 ; 0.307  ; contador[1] ; contador[1] ; KEY[0]       ; KEY[0]      ; 1.000        ; 0.000      ; 0.731      ;
 +--------+-------------+-------------+--------------+-------------+--------------+------------+------------+
 
@@ -165,10 +159,10 @@ No paths to report.
 +-------+-------------+-------------+--------------+-------------+--------------+------------+------------+
 ; 0.445 ; contador[0] ; contador[0] ; KEY[0]       ; KEY[0]      ; 0.000        ; 0.000      ; 0.731      ;
 ; 0.445 ; contador[1] ; contador[1] ; KEY[0]       ; KEY[0]      ; 0.000        ; 0.000      ; 0.731      ;
-; 1.052 ; contador[0] ; contador[1] ; KEY[0]       ; KEY[0]      ; 0.000        ; 0.000      ; 1.338      ;
-; 1.244 ; contador[1] ; contador[2] ; KEY[0]       ; KEY[0]      ; 0.000        ; 0.000      ; 1.530      ;
-; 1.397 ; contador[0] ; contador[2] ; KEY[0]       ; KEY[0]      ; 0.000        ; 0.000      ; 1.683      ;
-; 1.595 ; contador[2] ; contador[2] ; KEY[0]       ; KEY[0]      ; 0.000        ; 0.000      ; 1.881      ;
+; 0.445 ; contador[2] ; contador[2] ; KEY[0]       ; KEY[0]      ; 0.000        ; 0.000      ; 0.731      ;
+; 0.684 ; contador[0] ; contador[2] ; KEY[0]       ; KEY[0]      ; 0.000        ; 0.000      ; 0.970      ;
+; 0.686 ; contador[0] ; contador[1] ; KEY[0]       ; KEY[0]      ; 0.000        ; 0.000      ; 0.972      ;
+; 0.969 ; contador[1] ; contador[2] ; KEY[0]       ; KEY[0]      ; 0.000        ; 0.000      ; 1.255      ;
 +-------+-------------+-------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -195,47 +189,67 @@ No paths to report.
 +--------+--------------+----------------+------------------+--------+------------+-----------------+
 
 
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; SW[*]     ; KEY[0]     ; 0.184 ; 0.184 ; Rise       ; KEY[0]          ;
+;  SW[0]    ; KEY[0]     ; 0.184 ; 0.184 ; Rise       ; KEY[0]          ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Hold Times                                                            ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; SW[*]     ; KEY[0]     ; 0.373 ; 0.373 ; Rise       ; KEY[0]          ;
+;  SW[0]    ; KEY[0]     ; 0.373 ; 0.373 ; Rise       ; KEY[0]          ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
 +-------------------------------------------------------------------------+
 ; Clock to Output Times                                                   ;
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; HEX0[*]   ; KEY[0]     ; 9.735  ; 9.735  ; Rise       ; KEY[0]          ;
-;  HEX0[0]  ; KEY[0]     ; 9.718  ; 9.718  ; Rise       ; KEY[0]          ;
-;  HEX0[1]  ; KEY[0]     ; 9.735  ; 9.735  ; Rise       ; KEY[0]          ;
-;  HEX0[2]  ; KEY[0]     ; 9.725  ; 9.725  ; Rise       ; KEY[0]          ;
-;  HEX0[3]  ; KEY[0]     ; 9.735  ; 9.735  ; Rise       ; KEY[0]          ;
-;  HEX0[4]  ; KEY[0]     ; 9.704  ; 9.704  ; Rise       ; KEY[0]          ;
-;  HEX0[5]  ; KEY[0]     ; 9.704  ; 9.704  ; Rise       ; KEY[0]          ;
-;  HEX0[6]  ; KEY[0]     ; 9.524  ; 9.524  ; Rise       ; KEY[0]          ;
-; HEX1[*]   ; KEY[0]     ; 9.744  ; 9.744  ; Rise       ; KEY[0]          ;
-;  HEX1[0]  ; KEY[0]     ; 9.744  ; 9.744  ; Rise       ; KEY[0]          ;
-;  HEX1[1]  ; KEY[0]     ; 9.355  ; 9.355  ; Rise       ; KEY[0]          ;
-;  HEX1[2]  ; KEY[0]     ; 9.355  ; 9.355  ; Rise       ; KEY[0]          ;
-;  HEX1[3]  ; KEY[0]     ; 9.365  ; 9.365  ; Rise       ; KEY[0]          ;
-;  HEX1[4]  ; KEY[0]     ; 9.374  ; 9.374  ; Rise       ; KEY[0]          ;
-;  HEX1[5]  ; KEY[0]     ; 9.614  ; 9.614  ; Rise       ; KEY[0]          ;
-;  HEX1[6]  ; KEY[0]     ; 9.731  ; 9.731  ; Rise       ; KEY[0]          ;
-; HEX2[*]   ; KEY[0]     ; 9.931  ; 9.931  ; Rise       ; KEY[0]          ;
-;  HEX2[0]  ; KEY[0]     ; 9.708  ; 9.708  ; Rise       ; KEY[0]          ;
-;  HEX2[1]  ; KEY[0]     ; 9.695  ; 9.695  ; Rise       ; KEY[0]          ;
-;  HEX2[2]  ; KEY[0]     ; 9.735  ; 9.735  ; Rise       ; KEY[0]          ;
-;  HEX2[3]  ; KEY[0]     ; 9.931  ; 9.931  ; Rise       ; KEY[0]          ;
-;  HEX2[4]  ; KEY[0]     ; 9.309  ; 9.309  ; Rise       ; KEY[0]          ;
-;  HEX2[5]  ; KEY[0]     ; 9.299  ; 9.299  ; Rise       ; KEY[0]          ;
-;  HEX2[6]  ; KEY[0]     ; 9.926  ; 9.926  ; Rise       ; KEY[0]          ;
-; HEX3[*]   ; KEY[0]     ; 9.903  ; 9.903  ; Rise       ; KEY[0]          ;
-;  HEX3[0]  ; KEY[0]     ; 9.724  ; 9.724  ; Rise       ; KEY[0]          ;
-;  HEX3[1]  ; KEY[0]     ; 9.903  ; 9.903  ; Rise       ; KEY[0]          ;
-;  HEX3[2]  ; KEY[0]     ; 9.903  ; 9.903  ; Rise       ; KEY[0]          ;
-;  HEX3[3]  ; KEY[0]     ; 9.726  ; 9.726  ; Rise       ; KEY[0]          ;
-;  HEX3[4]  ; KEY[0]     ; 8.732  ; 8.732  ; Rise       ; KEY[0]          ;
-;  HEX3[5]  ; KEY[0]     ; 8.732  ; 8.732  ; Rise       ; KEY[0]          ;
-;  HEX3[6]  ; KEY[0]     ; 9.748  ; 9.748  ; Rise       ; KEY[0]          ;
-; LEDR[*]   ; KEY[0]     ; 12.732 ; 12.732 ; Rise       ; KEY[0]          ;
-;  LEDR[0]  ; KEY[0]     ; 12.732 ; 12.732 ; Rise       ; KEY[0]          ;
-;  LEDR[1]  ; KEY[0]     ; 11.031 ; 11.031 ; Rise       ; KEY[0]          ;
-;  LEDR[2]  ; KEY[0]     ; 11.553 ; 11.553 ; Rise       ; KEY[0]          ;
+; HEX0[*]   ; KEY[0]     ; 9.660  ; 9.660  ; Rise       ; KEY[0]          ;
+;  HEX0[0]  ; KEY[0]     ; 9.631  ; 9.631  ; Rise       ; KEY[0]          ;
+;  HEX0[1]  ; KEY[0]     ; 9.660  ; 9.660  ; Rise       ; KEY[0]          ;
+;  HEX0[2]  ; KEY[0]     ; 9.651  ; 9.651  ; Rise       ; KEY[0]          ;
+;  HEX0[3]  ; KEY[0]     ; 9.512  ; 9.512  ; Rise       ; KEY[0]          ;
+;  HEX0[4]  ; KEY[0]     ; 9.653  ; 9.653  ; Rise       ; KEY[0]          ;
+;  HEX0[5]  ; KEY[0]     ; 9.653  ; 9.653  ; Rise       ; KEY[0]          ;
+;  HEX0[6]  ; KEY[0]     ; 9.301  ; 9.301  ; Rise       ; KEY[0]          ;
+; HEX1[*]   ; KEY[0]     ; 9.670  ; 9.670  ; Rise       ; KEY[0]          ;
+;  HEX1[0]  ; KEY[0]     ; 9.670  ; 9.670  ; Rise       ; KEY[0]          ;
+;  HEX1[1]  ; KEY[0]     ; 9.279  ; 9.279  ; Rise       ; KEY[0]          ;
+;  HEX1[2]  ; KEY[0]     ; 9.279  ; 9.279  ; Rise       ; KEY[0]          ;
+;  HEX1[3]  ; KEY[0]     ; 9.299  ; 9.299  ; Rise       ; KEY[0]          ;
+;  HEX1[4]  ; KEY[0]     ; 9.624  ; 9.624  ; Rise       ; KEY[0]          ;
+;  HEX1[5]  ; KEY[0]     ; 9.657  ; 9.657  ; Rise       ; KEY[0]          ;
+;  HEX1[6]  ; KEY[0]     ; 9.664  ; 9.664  ; Rise       ; KEY[0]          ;
+; HEX2[*]   ; KEY[0]     ; 9.668  ; 9.668  ; Rise       ; KEY[0]          ;
+;  HEX2[0]  ; KEY[0]     ; 9.385  ; 9.385  ; Rise       ; KEY[0]          ;
+;  HEX2[1]  ; KEY[0]     ; 9.628  ; 9.628  ; Rise       ; KEY[0]          ;
+;  HEX2[2]  ; KEY[0]     ; 9.668  ; 9.668  ; Rise       ; KEY[0]          ;
+;  HEX2[3]  ; KEY[0]     ; 9.437  ; 9.437  ; Rise       ; KEY[0]          ;
+;  HEX2[4]  ; KEY[0]     ; 9.653  ; 9.653  ; Rise       ; KEY[0]          ;
+;  HEX2[5]  ; KEY[0]     ; 9.643  ; 9.643  ; Rise       ; KEY[0]          ;
+;  HEX2[6]  ; KEY[0]     ; 9.433  ; 9.433  ; Rise       ; KEY[0]          ;
+; HEX3[*]   ; KEY[0]     ; 9.811  ; 9.811  ; Rise       ; KEY[0]          ;
+;  HEX3[0]  ; KEY[0]     ; 9.435  ; 9.435  ; Rise       ; KEY[0]          ;
+;  HEX3[1]  ; KEY[0]     ; 9.811  ; 9.811  ; Rise       ; KEY[0]          ;
+;  HEX3[2]  ; KEY[0]     ; 9.811  ; 9.811  ; Rise       ; KEY[0]          ;
+;  HEX3[3]  ; KEY[0]     ; 9.655  ; 9.655  ; Rise       ; KEY[0]          ;
+;  HEX3[4]  ; KEY[0]     ; 8.475  ; 8.475  ; Rise       ; KEY[0]          ;
+;  HEX3[5]  ; KEY[0]     ; 8.487  ; 8.487  ; Rise       ; KEY[0]          ;
+;  HEX3[6]  ; KEY[0]     ; 9.667  ; 9.667  ; Rise       ; KEY[0]          ;
+; LEDR[*]   ; KEY[0]     ; 13.431 ; 13.431 ; Rise       ; KEY[0]          ;
+;  LEDR[0]  ; KEY[0]     ; 12.679 ; 12.679 ; Rise       ; KEY[0]          ;
+;  LEDR[1]  ; KEY[0]     ; 13.431 ; 13.431 ; Rise       ; KEY[0]          ;
+;  LEDR[2]  ; KEY[0]     ; 11.367 ; 11.367 ; Rise       ; KEY[0]          ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
@@ -244,42 +258,42 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; HEX0[*]   ; KEY[0]     ; 8.757  ; 8.757  ; Rise       ; KEY[0]          ;
-;  HEX0[0]  ; KEY[0]     ; 8.757  ; 8.757  ; Rise       ; KEY[0]          ;
-;  HEX0[1]  ; KEY[0]     ; 9.615  ; 9.615  ; Rise       ; KEY[0]          ;
-;  HEX0[2]  ; KEY[0]     ; 9.605  ; 9.605  ; Rise       ; KEY[0]          ;
-;  HEX0[3]  ; KEY[0]     ; 9.652  ; 9.652  ; Rise       ; KEY[0]          ;
-;  HEX0[4]  ; KEY[0]     ; 9.585  ; 9.585  ; Rise       ; KEY[0]          ;
-;  HEX0[5]  ; KEY[0]     ; 9.585  ; 9.585  ; Rise       ; KEY[0]          ;
-;  HEX0[6]  ; KEY[0]     ; 9.441  ; 9.441  ; Rise       ; KEY[0]          ;
-; HEX1[*]   ; KEY[0]     ; 9.217  ; 9.217  ; Rise       ; KEY[0]          ;
-;  HEX1[0]  ; KEY[0]     ; 9.608  ; 9.608  ; Rise       ; KEY[0]          ;
-;  HEX1[1]  ; KEY[0]     ; 9.217  ; 9.217  ; Rise       ; KEY[0]          ;
-;  HEX1[2]  ; KEY[0]     ; 9.217  ; 9.217  ; Rise       ; KEY[0]          ;
-;  HEX1[3]  ; KEY[0]     ; 9.238  ; 9.238  ; Rise       ; KEY[0]          ;
-;  HEX1[4]  ; KEY[0]     ; 9.254  ; 9.254  ; Rise       ; KEY[0]          ;
-;  HEX1[5]  ; KEY[0]     ; 9.494  ; 9.494  ; Rise       ; KEY[0]          ;
-;  HEX1[6]  ; KEY[0]     ; 9.604  ; 9.604  ; Rise       ; KEY[0]          ;
-; HEX2[*]   ; KEY[0]     ; 8.948  ; 8.948  ; Rise       ; KEY[0]          ;
-;  HEX2[0]  ; KEY[0]     ; 9.570  ; 9.570  ; Rise       ; KEY[0]          ;
-;  HEX2[1]  ; KEY[0]     ; 9.575  ; 9.575  ; Rise       ; KEY[0]          ;
-;  HEX2[2]  ; KEY[0]     ; 9.615  ; 9.615  ; Rise       ; KEY[0]          ;
-;  HEX2[3]  ; KEY[0]     ; 9.856  ; 9.856  ; Rise       ; KEY[0]          ;
-;  HEX2[4]  ; KEY[0]     ; 8.958  ; 8.958  ; Rise       ; KEY[0]          ;
-;  HEX2[5]  ; KEY[0]     ; 8.948  ; 8.948  ; Rise       ; KEY[0]          ;
-;  HEX2[6]  ; KEY[0]     ; 9.851  ; 9.851  ; Rise       ; KEY[0]          ;
-; HEX3[*]   ; KEY[0]     ; 8.732  ; 8.732  ; Rise       ; KEY[0]          ;
-;  HEX3[0]  ; KEY[0]     ; 9.585  ; 9.585  ; Rise       ; KEY[0]          ;
-;  HEX3[1]  ; KEY[0]     ; 9.775  ; 9.775  ; Rise       ; KEY[0]          ;
-;  HEX3[2]  ; KEY[0]     ; 9.775  ; 9.775  ; Rise       ; KEY[0]          ;
-;  HEX3[3]  ; KEY[0]     ; 9.593  ; 9.593  ; Rise       ; KEY[0]          ;
-;  HEX3[4]  ; KEY[0]     ; 8.732  ; 8.732  ; Rise       ; KEY[0]          ;
-;  HEX3[5]  ; KEY[0]     ; 8.732  ; 8.732  ; Rise       ; KEY[0]          ;
-;  HEX3[6]  ; KEY[0]     ; 9.615  ; 9.615  ; Rise       ; KEY[0]          ;
-; LEDR[*]   ; KEY[0]     ; 11.031 ; 11.031 ; Rise       ; KEY[0]          ;
-;  LEDR[0]  ; KEY[0]     ; 12.732 ; 12.732 ; Rise       ; KEY[0]          ;
-;  LEDR[1]  ; KEY[0]     ; 11.031 ; 11.031 ; Rise       ; KEY[0]          ;
-;  LEDR[2]  ; KEY[0]     ; 11.553 ; 11.553 ; Rise       ; KEY[0]          ;
+; HEX0[*]   ; KEY[0]     ; 9.036  ; 9.036  ; Rise       ; KEY[0]          ;
+;  HEX0[0]  ; KEY[0]     ; 9.036  ; 9.036  ; Rise       ; KEY[0]          ;
+;  HEX0[1]  ; KEY[0]     ; 9.061  ; 9.061  ; Rise       ; KEY[0]          ;
+;  HEX0[2]  ; KEY[0]     ; 9.052  ; 9.052  ; Rise       ; KEY[0]          ;
+;  HEX0[3]  ; KEY[0]     ; 9.400  ; 9.400  ; Rise       ; KEY[0]          ;
+;  HEX0[4]  ; KEY[0]     ; 9.057  ; 9.057  ; Rise       ; KEY[0]          ;
+;  HEX0[5]  ; KEY[0]     ; 9.057  ; 9.057  ; Rise       ; KEY[0]          ;
+;  HEX0[6]  ; KEY[0]     ; 9.189  ; 9.189  ; Rise       ; KEY[0]          ;
+; HEX1[*]   ; KEY[0]     ; 8.683  ; 8.683  ; Rise       ; KEY[0]          ;
+;  HEX1[0]  ; KEY[0]     ; 9.074  ; 9.074  ; Rise       ; KEY[0]          ;
+;  HEX1[1]  ; KEY[0]     ; 8.683  ; 8.683  ; Rise       ; KEY[0]          ;
+;  HEX1[2]  ; KEY[0]     ; 8.683  ; 8.683  ; Rise       ; KEY[0]          ;
+;  HEX1[3]  ; KEY[0]     ; 8.704  ; 8.704  ; Rise       ; KEY[0]          ;
+;  HEX1[4]  ; KEY[0]     ; 9.515  ; 9.515  ; Rise       ; KEY[0]          ;
+;  HEX1[5]  ; KEY[0]     ; 9.548  ; 9.548  ; Rise       ; KEY[0]          ;
+;  HEX1[6]  ; KEY[0]     ; 9.069  ; 9.069  ; Rise       ; KEY[0]          ;
+; HEX2[*]   ; KEY[0]     ; 9.028  ; 9.028  ; Rise       ; KEY[0]          ;
+;  HEX2[0]  ; KEY[0]     ; 9.028  ; 9.028  ; Rise       ; KEY[0]          ;
+;  HEX2[1]  ; KEY[0]     ; 9.030  ; 9.030  ; Rise       ; KEY[0]          ;
+;  HEX2[2]  ; KEY[0]     ; 9.070  ; 9.070  ; Rise       ; KEY[0]          ;
+;  HEX2[3]  ; KEY[0]     ; 9.087  ; 9.087  ; Rise       ; KEY[0]          ;
+;  HEX2[4]  ; KEY[0]     ; 9.055  ; 9.055  ; Rise       ; KEY[0]          ;
+;  HEX2[5]  ; KEY[0]     ; 9.045  ; 9.045  ; Rise       ; KEY[0]          ;
+;  HEX2[6]  ; KEY[0]     ; 9.083  ; 9.083  ; Rise       ; KEY[0]          ;
+; HEX3[*]   ; KEY[0]     ; 8.475  ; 8.475  ; Rise       ; KEY[0]          ;
+;  HEX3[0]  ; KEY[0]     ; 9.036  ; 9.036  ; Rise       ; KEY[0]          ;
+;  HEX3[1]  ; KEY[0]     ; 9.245  ; 9.245  ; Rise       ; KEY[0]          ;
+;  HEX3[2]  ; KEY[0]     ; 9.245  ; 9.245  ; Rise       ; KEY[0]          ;
+;  HEX3[3]  ; KEY[0]     ; 9.058  ; 9.058  ; Rise       ; KEY[0]          ;
+;  HEX3[4]  ; KEY[0]     ; 8.475  ; 8.475  ; Rise       ; KEY[0]          ;
+;  HEX3[5]  ; KEY[0]     ; 8.487  ; 8.487  ; Rise       ; KEY[0]          ;
+;  HEX3[6]  ; KEY[0]     ; 9.070  ; 9.070  ; Rise       ; KEY[0]          ;
+; LEDR[*]   ; KEY[0]     ; 11.367 ; 11.367 ; Rise       ; KEY[0]          ;
+;  LEDR[0]  ; KEY[0]     ; 12.679 ; 12.679 ; Rise       ; KEY[0]          ;
+;  LEDR[1]  ; KEY[0]     ; 13.431 ; 13.431 ; Rise       ; KEY[0]          ;
+;  LEDR[2]  ; KEY[0]     ; 11.367 ; 11.367 ; Rise       ; KEY[0]          ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
@@ -288,7 +302,7 @@ No paths to report.
 +--------+-------+---------------+
 ; Clock  ; Slack ; End Point TNS ;
 +--------+-------+---------------+
-; KEY[0] ; 0.270 ; 0.000         ;
+; KEY[0] ; 0.522 ; 0.000         ;
 +--------+-------+---------------+
 
 
@@ -327,11 +341,11 @@ No paths to report.
 +-------+-------------+-------------+--------------+-------------+--------------+------------+------------+
 ; Slack ; From Node   ; To Node     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +-------+-------------+-------------+--------------+-------------+--------------+------------+------------+
-; 0.270 ; contador[2] ; contador[2] ; KEY[0]       ; KEY[0]      ; 1.000        ; 0.000      ; 0.762      ;
-; 0.338 ; contador[0] ; contador[2] ; KEY[0]       ; KEY[0]      ; 1.000        ; 0.000      ; 0.694      ;
-; 0.389 ; contador[1] ; contador[2] ; KEY[0]       ; KEY[0]      ; 1.000        ; 0.000      ; 0.643      ;
-; 0.446 ; contador[0] ; contador[1] ; KEY[0]       ; KEY[0]      ; 1.000        ; 0.000      ; 0.586      ;
+; 0.522 ; contador[1] ; contador[2] ; KEY[0]       ; KEY[0]      ; 1.000        ; 0.000      ; 0.510      ;
+; 0.606 ; contador[0] ; contador[1] ; KEY[0]       ; KEY[0]      ; 1.000        ; 0.000      ; 0.426      ;
+; 0.608 ; contador[0] ; contador[2] ; KEY[0]       ; KEY[0]      ; 1.000        ; 0.000      ; 0.424      ;
 ; 0.665 ; contador[0] ; contador[0] ; KEY[0]       ; KEY[0]      ; 1.000        ; 0.000      ; 0.367      ;
+; 0.665 ; contador[2] ; contador[2] ; KEY[0]       ; KEY[0]      ; 1.000        ; 0.000      ; 0.367      ;
 ; 0.665 ; contador[1] ; contador[1] ; KEY[0]       ; KEY[0]      ; 1.000        ; 0.000      ; 0.367      ;
 +-------+-------------+-------------+--------------+-------------+--------------+------------+------------+
 
@@ -343,10 +357,10 @@ No paths to report.
 +-------+-------------+-------------+--------------+-------------+--------------+------------+------------+
 ; 0.215 ; contador[0] ; contador[0] ; KEY[0]       ; KEY[0]      ; 0.000        ; 0.000      ; 0.367      ;
 ; 0.215 ; contador[1] ; contador[1] ; KEY[0]       ; KEY[0]      ; 0.000        ; 0.000      ; 0.367      ;
-; 0.434 ; contador[0] ; contador[1] ; KEY[0]       ; KEY[0]      ; 0.000        ; 0.000      ; 0.586      ;
-; 0.491 ; contador[1] ; contador[2] ; KEY[0]       ; KEY[0]      ; 0.000        ; 0.000      ; 0.643      ;
-; 0.542 ; contador[0] ; contador[2] ; KEY[0]       ; KEY[0]      ; 0.000        ; 0.000      ; 0.694      ;
-; 0.610 ; contador[2] ; contador[2] ; KEY[0]       ; KEY[0]      ; 0.000        ; 0.000      ; 0.762      ;
+; 0.215 ; contador[2] ; contador[2] ; KEY[0]       ; KEY[0]      ; 0.000        ; 0.000      ; 0.367      ;
+; 0.272 ; contador[0] ; contador[2] ; KEY[0]       ; KEY[0]      ; 0.000        ; 0.000      ; 0.424      ;
+; 0.274 ; contador[0] ; contador[1] ; KEY[0]       ; KEY[0]      ; 0.000        ; 0.000      ; 0.426      ;
+; 0.358 ; contador[1] ; contador[2] ; KEY[0]       ; KEY[0]      ; 0.000        ; 0.000      ; 0.510      ;
 +-------+-------------+-------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -373,47 +387,67 @@ No paths to report.
 +--------+--------------+----------------+------------------+--------+------------+-----------------+
 
 
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; SW[*]     ; KEY[0]     ; -0.123 ; -0.123 ; Rise       ; KEY[0]          ;
+;  SW[0]    ; KEY[0]     ; -0.123 ; -0.123 ; Rise       ; KEY[0]          ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Hold Times                                                            ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; SW[*]     ; KEY[0]     ; 0.348 ; 0.348 ; Rise       ; KEY[0]          ;
+;  SW[0]    ; KEY[0]     ; 0.348 ; 0.348 ; Rise       ; KEY[0]          ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
 +-----------------------------------------------------------------------+
 ; Clock to Output Times                                                 ;
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; HEX0[*]   ; KEY[0]     ; 4.549 ; 4.549 ; Rise       ; KEY[0]          ;
-;  HEX0[0]  ; KEY[0]     ; 4.529 ; 4.529 ; Rise       ; KEY[0]          ;
-;  HEX0[1]  ; KEY[0]     ; 4.549 ; 4.549 ; Rise       ; KEY[0]          ;
-;  HEX0[2]  ; KEY[0]     ; 4.540 ; 4.540 ; Rise       ; KEY[0]          ;
-;  HEX0[3]  ; KEY[0]     ; 4.502 ; 4.502 ; Rise       ; KEY[0]          ;
-;  HEX0[4]  ; KEY[0]     ; 4.540 ; 4.540 ; Rise       ; KEY[0]          ;
-;  HEX0[5]  ; KEY[0]     ; 4.540 ; 4.540 ; Rise       ; KEY[0]          ;
-;  HEX0[6]  ; KEY[0]     ; 4.438 ; 4.438 ; Rise       ; KEY[0]          ;
-; HEX1[*]   ; KEY[0]     ; 4.559 ; 4.559 ; Rise       ; KEY[0]          ;
-;  HEX1[0]  ; KEY[0]     ; 4.559 ; 4.559 ; Rise       ; KEY[0]          ;
-;  HEX1[1]  ; KEY[0]     ; 4.385 ; 4.385 ; Rise       ; KEY[0]          ;
-;  HEX1[2]  ; KEY[0]     ; 4.385 ; 4.385 ; Rise       ; KEY[0]          ;
-;  HEX1[3]  ; KEY[0]     ; 4.390 ; 4.390 ; Rise       ; KEY[0]          ;
-;  HEX1[4]  ; KEY[0]     ; 4.401 ; 4.401 ; Rise       ; KEY[0]          ;
-;  HEX1[5]  ; KEY[0]     ; 4.495 ; 4.495 ; Rise       ; KEY[0]          ;
-;  HEX1[6]  ; KEY[0]     ; 4.544 ; 4.544 ; Rise       ; KEY[0]          ;
-; HEX2[*]   ; KEY[0]     ; 4.635 ; 4.635 ; Rise       ; KEY[0]          ;
-;  HEX2[0]  ; KEY[0]     ; 4.519 ; 4.519 ; Rise       ; KEY[0]          ;
-;  HEX2[1]  ; KEY[0]     ; 4.513 ; 4.513 ; Rise       ; KEY[0]          ;
-;  HEX2[2]  ; KEY[0]     ; 4.553 ; 4.553 ; Rise       ; KEY[0]          ;
-;  HEX2[3]  ; KEY[0]     ; 4.635 ; 4.635 ; Rise       ; KEY[0]          ;
-;  HEX2[4]  ; KEY[0]     ; 4.357 ; 4.357 ; Rise       ; KEY[0]          ;
-;  HEX2[5]  ; KEY[0]     ; 4.347 ; 4.347 ; Rise       ; KEY[0]          ;
-;  HEX2[6]  ; KEY[0]     ; 4.629 ; 4.629 ; Rise       ; KEY[0]          ;
-; HEX3[*]   ; KEY[0]     ; 4.678 ; 4.678 ; Rise       ; KEY[0]          ;
-;  HEX3[0]  ; KEY[0]     ; 4.543 ; 4.543 ; Rise       ; KEY[0]          ;
-;  HEX3[1]  ; KEY[0]     ; 4.678 ; 4.678 ; Rise       ; KEY[0]          ;
-;  HEX3[2]  ; KEY[0]     ; 4.678 ; 4.678 ; Rise       ; KEY[0]          ;
-;  HEX3[3]  ; KEY[0]     ; 4.545 ; 4.545 ; Rise       ; KEY[0]          ;
-;  HEX3[4]  ; KEY[0]     ; 4.150 ; 4.150 ; Rise       ; KEY[0]          ;
-;  HEX3[5]  ; KEY[0]     ; 4.154 ; 4.154 ; Rise       ; KEY[0]          ;
-;  HEX3[6]  ; KEY[0]     ; 4.565 ; 4.565 ; Rise       ; KEY[0]          ;
-; LEDR[*]   ; KEY[0]     ; 5.713 ; 5.713 ; Rise       ; KEY[0]          ;
-;  LEDR[0]  ; KEY[0]     ; 5.713 ; 5.713 ; Rise       ; KEY[0]          ;
-;  LEDR[1]  ; KEY[0]     ; 5.197 ; 5.197 ; Rise       ; KEY[0]          ;
-;  LEDR[2]  ; KEY[0]     ; 5.438 ; 5.438 ; Rise       ; KEY[0]          ;
+; HEX0[*]   ; KEY[0]     ; 4.508 ; 4.508 ; Rise       ; KEY[0]          ;
+;  HEX0[0]  ; KEY[0]     ; 4.483 ; 4.483 ; Rise       ; KEY[0]          ;
+;  HEX0[1]  ; KEY[0]     ; 4.508 ; 4.508 ; Rise       ; KEY[0]          ;
+;  HEX0[2]  ; KEY[0]     ; 4.499 ; 4.499 ; Rise       ; KEY[0]          ;
+;  HEX0[3]  ; KEY[0]     ; 4.434 ; 4.434 ; Rise       ; KEY[0]          ;
+;  HEX0[4]  ; KEY[0]     ; 4.503 ; 4.503 ; Rise       ; KEY[0]          ;
+;  HEX0[5]  ; KEY[0]     ; 4.503 ; 4.503 ; Rise       ; KEY[0]          ;
+;  HEX0[6]  ; KEY[0]     ; 4.370 ; 4.370 ; Rise       ; KEY[0]          ;
+; HEX1[*]   ; KEY[0]     ; 4.519 ; 4.519 ; Rise       ; KEY[0]          ;
+;  HEX1[0]  ; KEY[0]     ; 4.519 ; 4.519 ; Rise       ; KEY[0]          ;
+;  HEX1[1]  ; KEY[0]     ; 4.345 ; 4.345 ; Rise       ; KEY[0]          ;
+;  HEX1[2]  ; KEY[0]     ; 4.345 ; 4.345 ; Rise       ; KEY[0]          ;
+;  HEX1[3]  ; KEY[0]     ; 4.360 ; 4.360 ; Rise       ; KEY[0]          ;
+;  HEX1[4]  ; KEY[0]     ; 4.483 ; 4.483 ; Rise       ; KEY[0]          ;
+;  HEX1[5]  ; KEY[0]     ; 4.515 ; 4.515 ; Rise       ; KEY[0]          ;
+;  HEX1[6]  ; KEY[0]     ; 4.514 ; 4.514 ; Rise       ; KEY[0]          ;
+; HEX2[*]   ; KEY[0]     ; 4.518 ; 4.518 ; Rise       ; KEY[0]          ;
+;  HEX2[0]  ; KEY[0]     ; 4.406 ; 4.406 ; Rise       ; KEY[0]          ;
+;  HEX2[1]  ; KEY[0]     ; 4.478 ; 4.478 ; Rise       ; KEY[0]          ;
+;  HEX2[2]  ; KEY[0]     ; 4.518 ; 4.518 ; Rise       ; KEY[0]          ;
+;  HEX2[3]  ; KEY[0]     ; 4.468 ; 4.468 ; Rise       ; KEY[0]          ;
+;  HEX2[4]  ; KEY[0]     ; 4.504 ; 4.504 ; Rise       ; KEY[0]          ;
+;  HEX2[5]  ; KEY[0]     ; 4.494 ; 4.494 ; Rise       ; KEY[0]          ;
+;  HEX2[6]  ; KEY[0]     ; 4.462 ; 4.462 ; Rise       ; KEY[0]          ;
+; HEX3[*]   ; KEY[0]     ; 4.647 ; 4.647 ; Rise       ; KEY[0]          ;
+;  HEX3[0]  ; KEY[0]     ; 4.416 ; 4.416 ; Rise       ; KEY[0]          ;
+;  HEX3[1]  ; KEY[0]     ; 4.647 ; 4.647 ; Rise       ; KEY[0]          ;
+;  HEX3[2]  ; KEY[0]     ; 4.647 ; 4.647 ; Rise       ; KEY[0]          ;
+;  HEX3[3]  ; KEY[0]     ; 4.503 ; 4.503 ; Rise       ; KEY[0]          ;
+;  HEX3[4]  ; KEY[0]     ; 4.053 ; 4.053 ; Rise       ; KEY[0]          ;
+;  HEX3[5]  ; KEY[0]     ; 4.065 ; 4.065 ; Rise       ; KEY[0]          ;
+;  HEX3[6]  ; KEY[0]     ; 4.514 ; 4.514 ; Rise       ; KEY[0]          ;
+; LEDR[*]   ; KEY[0]     ; 6.081 ; 6.081 ; Rise       ; KEY[0]          ;
+;  LEDR[0]  ; KEY[0]     ; 5.704 ; 5.704 ; Rise       ; KEY[0]          ;
+;  LEDR[1]  ; KEY[0]     ; 6.081 ; 6.081 ; Rise       ; KEY[0]          ;
+;  LEDR[2]  ; KEY[0]     ; 5.323 ; 5.323 ; Rise       ; KEY[0]          ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -422,42 +456,42 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; HEX0[*]   ; KEY[0]     ; 4.190 ; 4.190 ; Rise       ; KEY[0]          ;
-;  HEX0[0]  ; KEY[0]     ; 4.190 ; 4.190 ; Rise       ; KEY[0]          ;
-;  HEX0[1]  ; KEY[0]     ; 4.529 ; 4.529 ; Rise       ; KEY[0]          ;
-;  HEX0[2]  ; KEY[0]     ; 4.520 ; 4.520 ; Rise       ; KEY[0]          ;
-;  HEX0[3]  ; KEY[0]     ; 4.494 ; 4.494 ; Rise       ; KEY[0]          ;
-;  HEX0[4]  ; KEY[0]     ; 4.507 ; 4.507 ; Rise       ; KEY[0]          ;
-;  HEX0[5]  ; KEY[0]     ; 4.507 ; 4.507 ; Rise       ; KEY[0]          ;
-;  HEX0[6]  ; KEY[0]     ; 4.430 ; 4.430 ; Rise       ; KEY[0]          ;
-; HEX1[*]   ; KEY[0]     ; 4.352 ; 4.352 ; Rise       ; KEY[0]          ;
-;  HEX1[0]  ; KEY[0]     ; 4.525 ; 4.525 ; Rise       ; KEY[0]          ;
-;  HEX1[1]  ; KEY[0]     ; 4.352 ; 4.352 ; Rise       ; KEY[0]          ;
-;  HEX1[2]  ; KEY[0]     ; 4.352 ; 4.352 ; Rise       ; KEY[0]          ;
-;  HEX1[3]  ; KEY[0]     ; 4.367 ; 4.367 ; Rise       ; KEY[0]          ;
-;  HEX1[4]  ; KEY[0]     ; 4.380 ; 4.380 ; Rise       ; KEY[0]          ;
-;  HEX1[5]  ; KEY[0]     ; 4.474 ; 4.474 ; Rise       ; KEY[0]          ;
-;  HEX1[6]  ; KEY[0]     ; 4.521 ; 4.521 ; Rise       ; KEY[0]          ;
-; HEX2[*]   ; KEY[0]     ; 4.228 ; 4.228 ; Rise       ; KEY[0]          ;
-;  HEX2[0]  ; KEY[0]     ; 4.486 ; 4.486 ; Rise       ; KEY[0]          ;
-;  HEX2[1]  ; KEY[0]     ; 4.493 ; 4.493 ; Rise       ; KEY[0]          ;
-;  HEX2[2]  ; KEY[0]     ; 4.533 ; 4.533 ; Rise       ; KEY[0]          ;
-;  HEX2[3]  ; KEY[0]     ; 4.615 ; 4.615 ; Rise       ; KEY[0]          ;
-;  HEX2[4]  ; KEY[0]     ; 4.238 ; 4.238 ; Rise       ; KEY[0]          ;
-;  HEX2[5]  ; KEY[0]     ; 4.228 ; 4.228 ; Rise       ; KEY[0]          ;
-;  HEX2[6]  ; KEY[0]     ; 4.609 ; 4.609 ; Rise       ; KEY[0]          ;
-; HEX3[*]   ; KEY[0]     ; 4.150 ; 4.150 ; Rise       ; KEY[0]          ;
-;  HEX3[0]  ; KEY[0]     ; 4.505 ; 4.505 ; Rise       ; KEY[0]          ;
-;  HEX3[1]  ; KEY[0]     ; 4.650 ; 4.650 ; Rise       ; KEY[0]          ;
-;  HEX3[2]  ; KEY[0]     ; 4.650 ; 4.650 ; Rise       ; KEY[0]          ;
-;  HEX3[3]  ; KEY[0]     ; 4.511 ; 4.511 ; Rise       ; KEY[0]          ;
-;  HEX3[4]  ; KEY[0]     ; 4.150 ; 4.150 ; Rise       ; KEY[0]          ;
-;  HEX3[5]  ; KEY[0]     ; 4.154 ; 4.154 ; Rise       ; KEY[0]          ;
-;  HEX3[6]  ; KEY[0]     ; 4.531 ; 4.531 ; Rise       ; KEY[0]          ;
-; LEDR[*]   ; KEY[0]     ; 5.197 ; 5.197 ; Rise       ; KEY[0]          ;
-;  LEDR[0]  ; KEY[0]     ; 5.713 ; 5.713 ; Rise       ; KEY[0]          ;
-;  LEDR[1]  ; KEY[0]     ; 5.197 ; 5.197 ; Rise       ; KEY[0]          ;
-;  LEDR[2]  ; KEY[0]     ; 5.438 ; 5.438 ; Rise       ; KEY[0]          ;
+; HEX0[*]   ; KEY[0]     ; 4.270 ; 4.270 ; Rise       ; KEY[0]          ;
+;  HEX0[0]  ; KEY[0]     ; 4.270 ; 4.270 ; Rise       ; KEY[0]          ;
+;  HEX0[1]  ; KEY[0]     ; 4.294 ; 4.294 ; Rise       ; KEY[0]          ;
+;  HEX0[2]  ; KEY[0]     ; 4.285 ; 4.285 ; Rise       ; KEY[0]          ;
+;  HEX0[3]  ; KEY[0]     ; 4.401 ; 4.401 ; Rise       ; KEY[0]          ;
+;  HEX0[4]  ; KEY[0]     ; 4.289 ; 4.289 ; Rise       ; KEY[0]          ;
+;  HEX0[5]  ; KEY[0]     ; 4.289 ; 4.289 ; Rise       ; KEY[0]          ;
+;  HEX0[6]  ; KEY[0]     ; 4.337 ; 4.337 ; Rise       ; KEY[0]          ;
+; HEX1[*]   ; KEY[0]     ; 4.131 ; 4.131 ; Rise       ; KEY[0]          ;
+;  HEX1[0]  ; KEY[0]     ; 4.306 ; 4.306 ; Rise       ; KEY[0]          ;
+;  HEX1[1]  ; KEY[0]     ; 4.131 ; 4.131 ; Rise       ; KEY[0]          ;
+;  HEX1[2]  ; KEY[0]     ; 4.131 ; 4.131 ; Rise       ; KEY[0]          ;
+;  HEX1[3]  ; KEY[0]     ; 4.147 ; 4.147 ; Rise       ; KEY[0]          ;
+;  HEX1[4]  ; KEY[0]     ; 4.433 ; 4.433 ; Rise       ; KEY[0]          ;
+;  HEX1[5]  ; KEY[0]     ; 4.465 ; 4.465 ; Rise       ; KEY[0]          ;
+;  HEX1[6]  ; KEY[0]     ; 4.301 ; 4.301 ; Rise       ; KEY[0]          ;
+; HEX2[*]   ; KEY[0]     ; 4.262 ; 4.262 ; Rise       ; KEY[0]          ;
+;  HEX2[0]  ; KEY[0]     ; 4.262 ; 4.262 ; Rise       ; KEY[0]          ;
+;  HEX2[1]  ; KEY[0]     ; 4.264 ; 4.264 ; Rise       ; KEY[0]          ;
+;  HEX2[2]  ; KEY[0]     ; 4.304 ; 4.304 ; Rise       ; KEY[0]          ;
+;  HEX2[3]  ; KEY[0]     ; 4.315 ; 4.315 ; Rise       ; KEY[0]          ;
+;  HEX2[4]  ; KEY[0]     ; 4.290 ; 4.290 ; Rise       ; KEY[0]          ;
+;  HEX2[5]  ; KEY[0]     ; 4.280 ; 4.280 ; Rise       ; KEY[0]          ;
+;  HEX2[6]  ; KEY[0]     ; 4.309 ; 4.309 ; Rise       ; KEY[0]          ;
+; HEX3[*]   ; KEY[0]     ; 4.053 ; 4.053 ; Rise       ; KEY[0]          ;
+;  HEX3[0]  ; KEY[0]     ; 4.271 ; 4.271 ; Rise       ; KEY[0]          ;
+;  HEX3[1]  ; KEY[0]     ; 4.433 ; 4.433 ; Rise       ; KEY[0]          ;
+;  HEX3[2]  ; KEY[0]     ; 4.433 ; 4.433 ; Rise       ; KEY[0]          ;
+;  HEX3[3]  ; KEY[0]     ; 4.289 ; 4.289 ; Rise       ; KEY[0]          ;
+;  HEX3[4]  ; KEY[0]     ; 4.053 ; 4.053 ; Rise       ; KEY[0]          ;
+;  HEX3[5]  ; KEY[0]     ; 4.065 ; 4.065 ; Rise       ; KEY[0]          ;
+;  HEX3[6]  ; KEY[0]     ; 4.300 ; 4.300 ; Rise       ; KEY[0]          ;
+; LEDR[*]   ; KEY[0]     ; 5.323 ; 5.323 ; Rise       ; KEY[0]          ;
+;  LEDR[0]  ; KEY[0]     ; 5.704 ; 5.704 ; Rise       ; KEY[0]          ;
+;  LEDR[1]  ; KEY[0]     ; 6.081 ; 6.081 ; Rise       ; KEY[0]          ;
+;  LEDR[2]  ; KEY[0]     ; 5.323 ; 5.323 ; Rise       ; KEY[0]          ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -466,11 +500,31 @@ No paths to report.
 +------------------+--------+-------+----------+---------+---------------------+
 ; Clock            ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +------------------+--------+-------+----------+---------+---------------------+
-; Worst-case Slack ; -0.843 ; 0.215 ; N/A      ; N/A     ; -1.469              ;
-;  KEY[0]          ; -0.843 ; 0.215 ; N/A      ; N/A     ; -1.469              ;
-; Design-wide TNS  ; -1.143 ; 0.0   ; 0.0      ; 0.0     ; -5.135              ;
-;  KEY[0]          ; -1.143 ; 0.000 ; N/A      ; N/A     ; -5.135              ;
+; Worst-case Slack ; -0.217 ; 0.215 ; N/A      ; N/A     ; -1.469              ;
+;  KEY[0]          ; -0.217 ; 0.215 ; N/A      ; N/A     ; -1.469              ;
+; Design-wide TNS  ; -0.217 ; 0.0   ; 0.0      ; 0.0     ; -5.135              ;
+;  KEY[0]          ; -0.217 ; 0.000 ; N/A      ; N/A     ; -5.135              ;
 +------------------+--------+-------+----------+---------+---------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; SW[*]     ; KEY[0]     ; 0.184 ; 0.184 ; Rise       ; KEY[0]          ;
+;  SW[0]    ; KEY[0]     ; 0.184 ; 0.184 ; Rise       ; KEY[0]          ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Hold Times                                                            ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; SW[*]     ; KEY[0]     ; 0.373 ; 0.373 ; Rise       ; KEY[0]          ;
+;  SW[0]    ; KEY[0]     ; 0.373 ; 0.373 ; Rise       ; KEY[0]          ;
++-----------+------------+-------+-------+------------+-----------------+
 
 
 +-------------------------------------------------------------------------+
@@ -478,42 +532,42 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; HEX0[*]   ; KEY[0]     ; 9.735  ; 9.735  ; Rise       ; KEY[0]          ;
-;  HEX0[0]  ; KEY[0]     ; 9.718  ; 9.718  ; Rise       ; KEY[0]          ;
-;  HEX0[1]  ; KEY[0]     ; 9.735  ; 9.735  ; Rise       ; KEY[0]          ;
-;  HEX0[2]  ; KEY[0]     ; 9.725  ; 9.725  ; Rise       ; KEY[0]          ;
-;  HEX0[3]  ; KEY[0]     ; 9.735  ; 9.735  ; Rise       ; KEY[0]          ;
-;  HEX0[4]  ; KEY[0]     ; 9.704  ; 9.704  ; Rise       ; KEY[0]          ;
-;  HEX0[5]  ; KEY[0]     ; 9.704  ; 9.704  ; Rise       ; KEY[0]          ;
-;  HEX0[6]  ; KEY[0]     ; 9.524  ; 9.524  ; Rise       ; KEY[0]          ;
-; HEX1[*]   ; KEY[0]     ; 9.744  ; 9.744  ; Rise       ; KEY[0]          ;
-;  HEX1[0]  ; KEY[0]     ; 9.744  ; 9.744  ; Rise       ; KEY[0]          ;
-;  HEX1[1]  ; KEY[0]     ; 9.355  ; 9.355  ; Rise       ; KEY[0]          ;
-;  HEX1[2]  ; KEY[0]     ; 9.355  ; 9.355  ; Rise       ; KEY[0]          ;
-;  HEX1[3]  ; KEY[0]     ; 9.365  ; 9.365  ; Rise       ; KEY[0]          ;
-;  HEX1[4]  ; KEY[0]     ; 9.374  ; 9.374  ; Rise       ; KEY[0]          ;
-;  HEX1[5]  ; KEY[0]     ; 9.614  ; 9.614  ; Rise       ; KEY[0]          ;
-;  HEX1[6]  ; KEY[0]     ; 9.731  ; 9.731  ; Rise       ; KEY[0]          ;
-; HEX2[*]   ; KEY[0]     ; 9.931  ; 9.931  ; Rise       ; KEY[0]          ;
-;  HEX2[0]  ; KEY[0]     ; 9.708  ; 9.708  ; Rise       ; KEY[0]          ;
-;  HEX2[1]  ; KEY[0]     ; 9.695  ; 9.695  ; Rise       ; KEY[0]          ;
-;  HEX2[2]  ; KEY[0]     ; 9.735  ; 9.735  ; Rise       ; KEY[0]          ;
-;  HEX2[3]  ; KEY[0]     ; 9.931  ; 9.931  ; Rise       ; KEY[0]          ;
-;  HEX2[4]  ; KEY[0]     ; 9.309  ; 9.309  ; Rise       ; KEY[0]          ;
-;  HEX2[5]  ; KEY[0]     ; 9.299  ; 9.299  ; Rise       ; KEY[0]          ;
-;  HEX2[6]  ; KEY[0]     ; 9.926  ; 9.926  ; Rise       ; KEY[0]          ;
-; HEX3[*]   ; KEY[0]     ; 9.903  ; 9.903  ; Rise       ; KEY[0]          ;
-;  HEX3[0]  ; KEY[0]     ; 9.724  ; 9.724  ; Rise       ; KEY[0]          ;
-;  HEX3[1]  ; KEY[0]     ; 9.903  ; 9.903  ; Rise       ; KEY[0]          ;
-;  HEX3[2]  ; KEY[0]     ; 9.903  ; 9.903  ; Rise       ; KEY[0]          ;
-;  HEX3[3]  ; KEY[0]     ; 9.726  ; 9.726  ; Rise       ; KEY[0]          ;
-;  HEX3[4]  ; KEY[0]     ; 8.732  ; 8.732  ; Rise       ; KEY[0]          ;
-;  HEX3[5]  ; KEY[0]     ; 8.732  ; 8.732  ; Rise       ; KEY[0]          ;
-;  HEX3[6]  ; KEY[0]     ; 9.748  ; 9.748  ; Rise       ; KEY[0]          ;
-; LEDR[*]   ; KEY[0]     ; 12.732 ; 12.732 ; Rise       ; KEY[0]          ;
-;  LEDR[0]  ; KEY[0]     ; 12.732 ; 12.732 ; Rise       ; KEY[0]          ;
-;  LEDR[1]  ; KEY[0]     ; 11.031 ; 11.031 ; Rise       ; KEY[0]          ;
-;  LEDR[2]  ; KEY[0]     ; 11.553 ; 11.553 ; Rise       ; KEY[0]          ;
+; HEX0[*]   ; KEY[0]     ; 9.660  ; 9.660  ; Rise       ; KEY[0]          ;
+;  HEX0[0]  ; KEY[0]     ; 9.631  ; 9.631  ; Rise       ; KEY[0]          ;
+;  HEX0[1]  ; KEY[0]     ; 9.660  ; 9.660  ; Rise       ; KEY[0]          ;
+;  HEX0[2]  ; KEY[0]     ; 9.651  ; 9.651  ; Rise       ; KEY[0]          ;
+;  HEX0[3]  ; KEY[0]     ; 9.512  ; 9.512  ; Rise       ; KEY[0]          ;
+;  HEX0[4]  ; KEY[0]     ; 9.653  ; 9.653  ; Rise       ; KEY[0]          ;
+;  HEX0[5]  ; KEY[0]     ; 9.653  ; 9.653  ; Rise       ; KEY[0]          ;
+;  HEX0[6]  ; KEY[0]     ; 9.301  ; 9.301  ; Rise       ; KEY[0]          ;
+; HEX1[*]   ; KEY[0]     ; 9.670  ; 9.670  ; Rise       ; KEY[0]          ;
+;  HEX1[0]  ; KEY[0]     ; 9.670  ; 9.670  ; Rise       ; KEY[0]          ;
+;  HEX1[1]  ; KEY[0]     ; 9.279  ; 9.279  ; Rise       ; KEY[0]          ;
+;  HEX1[2]  ; KEY[0]     ; 9.279  ; 9.279  ; Rise       ; KEY[0]          ;
+;  HEX1[3]  ; KEY[0]     ; 9.299  ; 9.299  ; Rise       ; KEY[0]          ;
+;  HEX1[4]  ; KEY[0]     ; 9.624  ; 9.624  ; Rise       ; KEY[0]          ;
+;  HEX1[5]  ; KEY[0]     ; 9.657  ; 9.657  ; Rise       ; KEY[0]          ;
+;  HEX1[6]  ; KEY[0]     ; 9.664  ; 9.664  ; Rise       ; KEY[0]          ;
+; HEX2[*]   ; KEY[0]     ; 9.668  ; 9.668  ; Rise       ; KEY[0]          ;
+;  HEX2[0]  ; KEY[0]     ; 9.385  ; 9.385  ; Rise       ; KEY[0]          ;
+;  HEX2[1]  ; KEY[0]     ; 9.628  ; 9.628  ; Rise       ; KEY[0]          ;
+;  HEX2[2]  ; KEY[0]     ; 9.668  ; 9.668  ; Rise       ; KEY[0]          ;
+;  HEX2[3]  ; KEY[0]     ; 9.437  ; 9.437  ; Rise       ; KEY[0]          ;
+;  HEX2[4]  ; KEY[0]     ; 9.653  ; 9.653  ; Rise       ; KEY[0]          ;
+;  HEX2[5]  ; KEY[0]     ; 9.643  ; 9.643  ; Rise       ; KEY[0]          ;
+;  HEX2[6]  ; KEY[0]     ; 9.433  ; 9.433  ; Rise       ; KEY[0]          ;
+; HEX3[*]   ; KEY[0]     ; 9.811  ; 9.811  ; Rise       ; KEY[0]          ;
+;  HEX3[0]  ; KEY[0]     ; 9.435  ; 9.435  ; Rise       ; KEY[0]          ;
+;  HEX3[1]  ; KEY[0]     ; 9.811  ; 9.811  ; Rise       ; KEY[0]          ;
+;  HEX3[2]  ; KEY[0]     ; 9.811  ; 9.811  ; Rise       ; KEY[0]          ;
+;  HEX3[3]  ; KEY[0]     ; 9.655  ; 9.655  ; Rise       ; KEY[0]          ;
+;  HEX3[4]  ; KEY[0]     ; 8.475  ; 8.475  ; Rise       ; KEY[0]          ;
+;  HEX3[5]  ; KEY[0]     ; 8.487  ; 8.487  ; Rise       ; KEY[0]          ;
+;  HEX3[6]  ; KEY[0]     ; 9.667  ; 9.667  ; Rise       ; KEY[0]          ;
+; LEDR[*]   ; KEY[0]     ; 13.431 ; 13.431 ; Rise       ; KEY[0]          ;
+;  LEDR[0]  ; KEY[0]     ; 12.679 ; 12.679 ; Rise       ; KEY[0]          ;
+;  LEDR[1]  ; KEY[0]     ; 13.431 ; 13.431 ; Rise       ; KEY[0]          ;
+;  LEDR[2]  ; KEY[0]     ; 11.367 ; 11.367 ; Rise       ; KEY[0]          ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
@@ -522,42 +576,42 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; HEX0[*]   ; KEY[0]     ; 4.190 ; 4.190 ; Rise       ; KEY[0]          ;
-;  HEX0[0]  ; KEY[0]     ; 4.190 ; 4.190 ; Rise       ; KEY[0]          ;
-;  HEX0[1]  ; KEY[0]     ; 4.529 ; 4.529 ; Rise       ; KEY[0]          ;
-;  HEX0[2]  ; KEY[0]     ; 4.520 ; 4.520 ; Rise       ; KEY[0]          ;
-;  HEX0[3]  ; KEY[0]     ; 4.494 ; 4.494 ; Rise       ; KEY[0]          ;
-;  HEX0[4]  ; KEY[0]     ; 4.507 ; 4.507 ; Rise       ; KEY[0]          ;
-;  HEX0[5]  ; KEY[0]     ; 4.507 ; 4.507 ; Rise       ; KEY[0]          ;
-;  HEX0[6]  ; KEY[0]     ; 4.430 ; 4.430 ; Rise       ; KEY[0]          ;
-; HEX1[*]   ; KEY[0]     ; 4.352 ; 4.352 ; Rise       ; KEY[0]          ;
-;  HEX1[0]  ; KEY[0]     ; 4.525 ; 4.525 ; Rise       ; KEY[0]          ;
-;  HEX1[1]  ; KEY[0]     ; 4.352 ; 4.352 ; Rise       ; KEY[0]          ;
-;  HEX1[2]  ; KEY[0]     ; 4.352 ; 4.352 ; Rise       ; KEY[0]          ;
-;  HEX1[3]  ; KEY[0]     ; 4.367 ; 4.367 ; Rise       ; KEY[0]          ;
-;  HEX1[4]  ; KEY[0]     ; 4.380 ; 4.380 ; Rise       ; KEY[0]          ;
-;  HEX1[5]  ; KEY[0]     ; 4.474 ; 4.474 ; Rise       ; KEY[0]          ;
-;  HEX1[6]  ; KEY[0]     ; 4.521 ; 4.521 ; Rise       ; KEY[0]          ;
-; HEX2[*]   ; KEY[0]     ; 4.228 ; 4.228 ; Rise       ; KEY[0]          ;
-;  HEX2[0]  ; KEY[0]     ; 4.486 ; 4.486 ; Rise       ; KEY[0]          ;
-;  HEX2[1]  ; KEY[0]     ; 4.493 ; 4.493 ; Rise       ; KEY[0]          ;
-;  HEX2[2]  ; KEY[0]     ; 4.533 ; 4.533 ; Rise       ; KEY[0]          ;
-;  HEX2[3]  ; KEY[0]     ; 4.615 ; 4.615 ; Rise       ; KEY[0]          ;
-;  HEX2[4]  ; KEY[0]     ; 4.238 ; 4.238 ; Rise       ; KEY[0]          ;
-;  HEX2[5]  ; KEY[0]     ; 4.228 ; 4.228 ; Rise       ; KEY[0]          ;
-;  HEX2[6]  ; KEY[0]     ; 4.609 ; 4.609 ; Rise       ; KEY[0]          ;
-; HEX3[*]   ; KEY[0]     ; 4.150 ; 4.150 ; Rise       ; KEY[0]          ;
-;  HEX3[0]  ; KEY[0]     ; 4.505 ; 4.505 ; Rise       ; KEY[0]          ;
-;  HEX3[1]  ; KEY[0]     ; 4.650 ; 4.650 ; Rise       ; KEY[0]          ;
-;  HEX3[2]  ; KEY[0]     ; 4.650 ; 4.650 ; Rise       ; KEY[0]          ;
-;  HEX3[3]  ; KEY[0]     ; 4.511 ; 4.511 ; Rise       ; KEY[0]          ;
-;  HEX3[4]  ; KEY[0]     ; 4.150 ; 4.150 ; Rise       ; KEY[0]          ;
-;  HEX3[5]  ; KEY[0]     ; 4.154 ; 4.154 ; Rise       ; KEY[0]          ;
-;  HEX3[6]  ; KEY[0]     ; 4.531 ; 4.531 ; Rise       ; KEY[0]          ;
-; LEDR[*]   ; KEY[0]     ; 5.197 ; 5.197 ; Rise       ; KEY[0]          ;
-;  LEDR[0]  ; KEY[0]     ; 5.713 ; 5.713 ; Rise       ; KEY[0]          ;
-;  LEDR[1]  ; KEY[0]     ; 5.197 ; 5.197 ; Rise       ; KEY[0]          ;
-;  LEDR[2]  ; KEY[0]     ; 5.438 ; 5.438 ; Rise       ; KEY[0]          ;
+; HEX0[*]   ; KEY[0]     ; 4.270 ; 4.270 ; Rise       ; KEY[0]          ;
+;  HEX0[0]  ; KEY[0]     ; 4.270 ; 4.270 ; Rise       ; KEY[0]          ;
+;  HEX0[1]  ; KEY[0]     ; 4.294 ; 4.294 ; Rise       ; KEY[0]          ;
+;  HEX0[2]  ; KEY[0]     ; 4.285 ; 4.285 ; Rise       ; KEY[0]          ;
+;  HEX0[3]  ; KEY[0]     ; 4.401 ; 4.401 ; Rise       ; KEY[0]          ;
+;  HEX0[4]  ; KEY[0]     ; 4.289 ; 4.289 ; Rise       ; KEY[0]          ;
+;  HEX0[5]  ; KEY[0]     ; 4.289 ; 4.289 ; Rise       ; KEY[0]          ;
+;  HEX0[6]  ; KEY[0]     ; 4.337 ; 4.337 ; Rise       ; KEY[0]          ;
+; HEX1[*]   ; KEY[0]     ; 4.131 ; 4.131 ; Rise       ; KEY[0]          ;
+;  HEX1[0]  ; KEY[0]     ; 4.306 ; 4.306 ; Rise       ; KEY[0]          ;
+;  HEX1[1]  ; KEY[0]     ; 4.131 ; 4.131 ; Rise       ; KEY[0]          ;
+;  HEX1[2]  ; KEY[0]     ; 4.131 ; 4.131 ; Rise       ; KEY[0]          ;
+;  HEX1[3]  ; KEY[0]     ; 4.147 ; 4.147 ; Rise       ; KEY[0]          ;
+;  HEX1[4]  ; KEY[0]     ; 4.433 ; 4.433 ; Rise       ; KEY[0]          ;
+;  HEX1[5]  ; KEY[0]     ; 4.465 ; 4.465 ; Rise       ; KEY[0]          ;
+;  HEX1[6]  ; KEY[0]     ; 4.301 ; 4.301 ; Rise       ; KEY[0]          ;
+; HEX2[*]   ; KEY[0]     ; 4.262 ; 4.262 ; Rise       ; KEY[0]          ;
+;  HEX2[0]  ; KEY[0]     ; 4.262 ; 4.262 ; Rise       ; KEY[0]          ;
+;  HEX2[1]  ; KEY[0]     ; 4.264 ; 4.264 ; Rise       ; KEY[0]          ;
+;  HEX2[2]  ; KEY[0]     ; 4.304 ; 4.304 ; Rise       ; KEY[0]          ;
+;  HEX2[3]  ; KEY[0]     ; 4.315 ; 4.315 ; Rise       ; KEY[0]          ;
+;  HEX2[4]  ; KEY[0]     ; 4.290 ; 4.290 ; Rise       ; KEY[0]          ;
+;  HEX2[5]  ; KEY[0]     ; 4.280 ; 4.280 ; Rise       ; KEY[0]          ;
+;  HEX2[6]  ; KEY[0]     ; 4.309 ; 4.309 ; Rise       ; KEY[0]          ;
+; HEX3[*]   ; KEY[0]     ; 4.053 ; 4.053 ; Rise       ; KEY[0]          ;
+;  HEX3[0]  ; KEY[0]     ; 4.271 ; 4.271 ; Rise       ; KEY[0]          ;
+;  HEX3[1]  ; KEY[0]     ; 4.433 ; 4.433 ; Rise       ; KEY[0]          ;
+;  HEX3[2]  ; KEY[0]     ; 4.433 ; 4.433 ; Rise       ; KEY[0]          ;
+;  HEX3[3]  ; KEY[0]     ; 4.289 ; 4.289 ; Rise       ; KEY[0]          ;
+;  HEX3[4]  ; KEY[0]     ; 4.053 ; 4.053 ; Rise       ; KEY[0]          ;
+;  HEX3[5]  ; KEY[0]     ; 4.065 ; 4.065 ; Rise       ; KEY[0]          ;
+;  HEX3[6]  ; KEY[0]     ; 4.300 ; 4.300 ; Rise       ; KEY[0]          ;
+; LEDR[*]   ; KEY[0]     ; 5.323 ; 5.323 ; Rise       ; KEY[0]          ;
+;  LEDR[0]  ; KEY[0]     ; 5.704 ; 5.704 ; Rise       ; KEY[0]          ;
+;  LEDR[1]  ; KEY[0]     ; 6.081 ; 6.081 ; Rise       ; KEY[0]          ;
+;  LEDR[2]  ; KEY[0]     ; 5.323 ; 5.323 ; Rise       ; KEY[0]          ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -600,8 +654,8 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 0     ; 0    ;
-; Unconstrained Input Port Paths  ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 1     ; 1    ;
+; Unconstrained Input Port Paths  ; 2     ; 2    ;
 ; Unconstrained Output Ports      ; 31    ; 31   ;
 ; Unconstrained Output Port Paths ; 75    ; 75   ;
 +---------------------------------+-------+------+
@@ -611,9 +665,9 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 ; TimeQuest Timing Analyzer Messages ;
 +------------------------------------+
 Info: *******************************************************************
-Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+Info: Running Quartus II 32-bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Fri Feb 26 14:32:22 2021
+    Info: Processing started: Sat Feb 27 19:37:08 2021
 Info: Command: quartus_sta Tarea6 -c Tarea6
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -626,10 +680,10 @@ Info (332105): Deriving Clocks
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow Model
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -0.843
+Info (332146): Worst-case setup slack is -0.217
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):    -0.843        -1.143 KEY[0] 
+    Info (332119):    -0.217        -0.217 KEY[0] 
 Info (332146): Worst-case hold slack is 0.445
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
@@ -642,10 +696,10 @@ Info (332146): Worst-case minimum pulse width slack is -1.469
     Info (332119):    -1.469        -5.135 KEY[0] 
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info: Analyzing Fast Model
-Info (332146): Worst-case setup slack is 0.270
+Info (332146): Worst-case setup slack is 0.522
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):     0.270         0.000 KEY[0] 
+    Info (332119):     0.522         0.000 KEY[0] 
 Info (332146): Worst-case hold slack is 0.215
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
@@ -660,10 +714,10 @@ Info (332146): Worst-case minimum pulse width slack is -1.222
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
-Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 4549 megabytes
-    Info: Processing ended: Fri Feb 26 14:32:24 2021
-    Info: Elapsed time: 00:00:02
+Info: Quartus II 32-bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 294 megabytes
+    Info: Processing ended: Sat Feb 27 19:37:09 2021
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 

@@ -2,7 +2,12 @@
 KEY[0] => contador[0].CLK
 KEY[0] => contador[1].CLK
 KEY[0] => contador[2].CLK
-SW[0] => ~NO_FANOUT~
+SW[0] => contador[0].OUTPUTSELECT
+SW[0] => contador[1].OUTPUTSELECT
+SW[0] => contador[2].OUTPUTSELECT
+SW[0] => contador[0].OUTPUTSELECT
+SW[0] => contador[1].OUTPUTSELECT
+SW[0] => contador[2].OUTPUTSELECT
 HEX0[0] <= driver7Segmentos:SEG1.bitsCaracter[0]
 HEX0[1] <= driver7Segmentos:SEG1.bitsCaracter[1]
 HEX0[2] <= driver7Segmentos:SEG1.bitsCaracter[2]
