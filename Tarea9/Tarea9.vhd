@@ -17,8 +17,8 @@ architecture Comportament of Tarea9 is
 COMPONENT Controlador IS
 	PORT (
 		Clk  : IN std_logic;
-		KEY0 : IN std_logic_vector(0 DOWNTO 0);
-		KEY1 : IN std_logic_vector(0 DOWNTO 0);
+		KEY0 : IN std_logic;
+		KEY1 : IN std_logic;
 		acabat: IN std_logic;
 		LEDG : OUT std_logic;
 		run  : OUT std_logic;
@@ -31,9 +31,9 @@ COMPONENT CamiDades IS
 		Clk  : IN std_logic;
 		SW	  : IN std_logic_vector(2 DOWNTO 0);
 		run  : IN std_logic;
-		parar: IN std_logic	
+		parar: IN std_logic;	
 		acabat: OUT std_logic;
-		LEDR : OUT std_logic;
+		LEDR : OUT std_logic
 	);
 END COMPONENT;
 
@@ -53,13 +53,13 @@ signal parar: std_logic;
 signal acabat: std_logic;
 
 BEGIN
-controlador : Control   -- Instanciem un controlador
+control : Controlador   -- Instanciem un controlador
 	 PORT MAP(
 		Clk => tic,
-		KEY1 => KEY1,
-		KEY0 => KEY0,
+		KEY1 => KEY(1),
+		KEY0 => KEY(0),
 		acabat => acabat,
-		LEDG => LEDG,
+		LEDG => LEDG(0),
 		run => run,
 		parar => parar
 	);
@@ -73,7 +73,7 @@ cdd : CamiDades
 		run => run,
 		parar => parar,
 		acabat => acabat,
-		LEDR => LEDR
+		LEDR => LEDR(0)
 	 );
 
 end Comportament;

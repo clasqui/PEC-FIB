@@ -1,10 +1,11 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
+
 ENTITY Controlador IS
 	PORT (
 		Clk  : IN std_logic;
-		KEY0 : IN std_logic_vector(0 DOWNTO 0);
-		KEY1 : IN std_logic_vector(0 DOWNTO 0);
+		KEY0 : IN std_logic;
+		KEY1 : IN std_logic;
 		acabat: IN std_logic;
 		LEDG : OUT std_logic;
 		run  : OUT std_logic;
@@ -15,10 +16,12 @@ ARCHITECTURE Structure OF Controlador IS
 type tipoestat is (REPOS, IMPRIMINT);
 signal estat, prxestat : tipoestat := REPOS;
 BEGIN
-	
--- Logica de proxim estat  --> RECORDAR QUE ELS BOTONS VAN AL REVÉS.
-	prxestat <= IMPRIMINT when estat = REPOS and falling_edge(KEY1(0))
-		else REPOS when estat = IMPRIMINT and (falling_edge (KEY0(0)) or rising_edge(acabat));
+
+-- Logica de proxim estat
+	prxestat <= IMPRIMINT when estat = REPOS and KEY1 = '1' else 
+					REPOS when estat = IMPRIMINT and (KEY0 = '1' or acabat = '1') else
+					IMPRIMINT when estat = IMPRIMINT and acabat = '1' else
+					REPOS;
 
 -- Accions d'estat 
 	LEDG <= '1' when estat = REPOS else '0' when estat = IMPRIMINT;
@@ -26,5 +29,5 @@ BEGIN
 	parar <= '1' when estat = REPOS else '0' when estat = IMPRIMINT;
 	
 
-	estat <= proximestat when rising_edge(Clk);
+	estat <= prxestat when rising_edge(Clk);
 END Structure;
