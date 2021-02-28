@@ -18,7 +18,21 @@ COMPONENT driverHex7Segmentos IS
 		bitsCaracter : OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
 	);
 END COMPONENT;
+
+COMPONENT Traductor IS
+	PORT (
+		SW	  : IN std_logic_vector(2 DOWNTO 0);
+		llarg: OUT std_logic_vector(3 DOWNTO 0);	-- Per passar un numero del 0 a l'11
+		pols : OUT std_logic_vector(10 DOWNTO 0);
+	);
+END COMPONENT;
+
+signal llarg : std_logic_vector(3 DOWNTO 0);
+signal pols : std_logic_vector(10 DOWNTO 0);
+
 BEGIN
  driver : driverHex7Segmentos 
 	PORT MAP (codigoCaracter => SW, bitsCaracter => HEX0);
+ trad : Traductor
+	PORT MAP (SW => SW, llarg => llarg, pols => pols);
 END Structure;
