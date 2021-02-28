@@ -7,7 +7,8 @@ port ( SW : IN std_logic_vector(2 downto 0);
 			KEY : IN std_logic_vector(1 downto 0);
 			HEX0 : OUT std_logic_vector(6 downto 0);
 			LEDR : OUT std_logic_vector(0 downto 0);
-			LEDG : OUT std_logic_vector(0 downto 0)
+			LEDG : OUT std_logic_vector(0 downto 0);
+			CLOCK_50 : IN std_logic
 			);
 end Tarea9;
 
@@ -19,16 +20,27 @@ COMPONENT driverHex7Segmentos IS
 	);
 END COMPONENT;
 
-type tipoestat is (
-				REPOS,
-				A1,A2,A3,
-				B1,B2,B3);
+COMPONENT Rellotge IS
+	GENERIC (micros : integer := 1000000);
+	PORT (
+		CLOCK_50 : IN std_logic;
+		rellotge : OUT std_logic
+	);
+END COMPONENT;
+
+type tipoestat is (REPOS, IMPRIMINT);
+signal estat, proximestat: tipoestat;
+
+signal tic: std_logic;
 
 begin
 
 SEG1 : driverHex7Segmentos
 	 PORT MAP(codigoCaracter => SW, bitsCaracter => HEX0);
 	 
+	 clk_05 : Rellotge GENERIC MAP (micros=> 500000) PORT MAP (CLOCK_50 => CLOCK_50,  rellotge=>tic); -- Tick cada 0.5s
+	 
+estat <= proximestat when rising_edge(tic);
 
 
 
