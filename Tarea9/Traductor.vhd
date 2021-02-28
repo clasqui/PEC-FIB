@@ -9,6 +9,7 @@ ENTITY Traductor IS
 END Traductor;
 ARCHITECTURE Structure OF CamiDades IS
 BEGIN
+	
 	with SW select pols <=
 		"10111000000" when "000",
 		"11101010100" when "001",
