@@ -16,9 +16,9 @@ type tipoestat is (REPOS, IMPRIMINT);
 signal estat, prxestat : tipoestat := REPOS;
 BEGIN
 	
--- Logica de proxim estat
-	prxestat <= IMPRIMINT when estat = REPOS and rising_edge(KEY1(0))
-		else REPOS when estat = IMPRIMINT and (rising_edge KEY0(0) or rising_edge(acabat));
+-- Logica de proxim estat  --> RECORDAR QUE ELS BOTONS VAN AL REVÉS.
+	prxestat <= IMPRIMINT when estat = REPOS and falling_edge(KEY1(0))
+		else REPOS when estat = IMPRIMINT and (falling_edge (KEY0(0)) or rising_edge(acabat));
 
 -- Accions d'estat 
 	LEDG <= '1' when estat = REPOS else '0' when estat = IMPRIMINT;

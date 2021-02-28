@@ -12,14 +12,13 @@ ENTITY CamiDades IS
 END CamiDades;
 ARCHITECTURE Structure OF CamiDades IS
 
---COMPONENT driverHex7Segmentos IS
---	PORT (
---		codigoCaracter : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
---		bitsCaracter : OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
---	);
---END COMPONENT;
-
-
+COMPONENT driverHex7Segmentos IS
+	PORT (
+		codigoCaracter : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+		bitsCaracter : OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
+	);
+END COMPONENT;
 BEGIN
- -- Buit
+ driver : driverHex7Segmentos 
+	PORT MAP (codigoCaracter => SW, bitsCaracter => HEX0);
 END Structure;
