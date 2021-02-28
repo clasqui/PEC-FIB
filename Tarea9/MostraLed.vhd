@@ -1,22 +1,25 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
+
 ENTITY MostraLed IS
 	PORT (
 		pols	  : IN std_logic_vector(10 DOWNTO 0);
 		llarg	  : IN std_logic_vector(3 DOWNTO 0);	-- Per passar un numero del 0 a l'11
 		Clk     : IN std_logic;
 		ini	  : IN std_logic;
-		fi		  : IN std_logic;	
 		acabat  : OUT std_logic;
 		LEDR	  : OUT std_logic
 	);
 END MostraLed;
 
 ARCHITECTURE Structure OF MostraLed IS
-signal it : integer := to_integer(unsigned(llarg));
+signal it : integer := to_integer(unsigned(llarg))-1;
 BEGIN
-	LEDR <= pols(it) when ini = '1';
+	LEDR <= pols(it) when ini = '1' else '0';
 	acabat <= '1' when it = 0;
-	it <= (it - 1) when ini = '1' when rising_edge(Clk) else 0 when parar='1'; --Cardem fora parar i ho fem tot amb ini?
+	it <= (it - 1) when ini = '1' and rising_edge(Clk) else
+		to_integer(unsigned(llarg))-1 when ini = '0' and rising_edge(Clk); --Cardem fora parar i ho fem tot amb ini?
 		-- Podem pensar de treure la senyar parar.
+		-- Fet.
 END Structure;

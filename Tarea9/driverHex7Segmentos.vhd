@@ -9,11 +9,11 @@ END driverHex7Segmentos;
 ARCHITECTURE Structure OF driverHex7Segmentos IS BEGIN
 	with codigoCaracter select bitsCaracter <=
 		"0001000" when "000",
-		"0000001" when "001",
+		"0000011" when "001",
 		"1000110" when "010",
 		"0100001" when "011",
 		"0000110" when "100",
 		"0001110" when "101",
-		"0001000" when "110",
+		"0000100" when "110",
 		"0001001" when "111";
 END Structure;

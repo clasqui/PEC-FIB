@@ -1,10 +1,12 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
+
 ENTITY Traductor IS
 	PORT (
 		SW	  : IN std_logic_vector(2 DOWNTO 0);
 		llarg: OUT std_logic_vector(3 DOWNTO 0);	-- Per passar un numero del 0 a l'11
-		pols : OUT std_logic_vector(10 DOWNTO 0);
+		pols : OUT std_logic_vector(10 DOWNTO 0)
 	);
 END Traductor;
 ARCHITECTURE Structure OF Traductor IS

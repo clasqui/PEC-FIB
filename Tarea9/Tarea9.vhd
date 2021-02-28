@@ -21,17 +21,16 @@ COMPONENT Controlador IS
 		KEY1 : IN std_logic;
 		acabat: IN std_logic;
 		LEDG : OUT std_logic;
-		run  : OUT std_logic;
-		parar: OUT std_logic	
+		run  : OUT std_logic
 	);
 END COMPONENT;
 
 COMPONENT CamiDades IS
 	PORT (
 		Clk  : IN std_logic;
+		HEX0 : OUT std_logic_vector(6 downto 0);
 		SW	  : IN std_logic_vector(2 DOWNTO 0);
 		run  : IN std_logic;
-		parar: IN std_logic;	
 		acabat: OUT std_logic;
 		LEDR : OUT std_logic
 	);
@@ -49,7 +48,6 @@ type tipoestat is (REPOS, IMPRIMINT);
 
 signal tic: std_logic;
 signal run: std_logic;
-signal parar: std_logic;
 signal acabat: std_logic;
 
 BEGIN
@@ -60,8 +58,7 @@ control : Controlador   -- Instanciem un controlador
 		KEY0 => KEY(0),
 		acabat => acabat,
 		LEDG => LEDG(0),
-		run => run,
-		parar => parar
+		run => run
 	);
 
 clk_05 : Rellotge GENERIC MAP (micros=> 500000) PORT MAP (CLOCK_50 => CLOCK_50,  rellotge=>tic); -- Tic cada 0.5s
@@ -69,9 +66,9 @@ clk_05 : Rellotge GENERIC MAP (micros=> 500000) PORT MAP (CLOCK_50 => CLOCK_50, 
 cdd : CamiDades
 	 PORT MAP (
 		Clk => tic,
+		HEX0 => HEX0,
 		SW => SW,
 		run => run,
-		parar => parar,
 		acabat => acabat,
 		LEDR => LEDR(0)
 	 );
