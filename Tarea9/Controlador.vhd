@@ -20,7 +20,7 @@ BEGIN
 -- Logica de proxim estat
 	prxestat <= IMPRIMINT when estat = REPOS and KEY1 = '1' else 
 					REPOS when estat = IMPRIMINT and (KEY0 = '1' or acabat = '1') else
-					IMPRIMINT when estat = IMPRIMINT and acabat = '1' else
+					IMPRIMINT when estat = IMPRIMINT and acabat = '0' else
 					REPOS;
 
 -- Accions d'estat 
