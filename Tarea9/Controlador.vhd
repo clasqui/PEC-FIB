@@ -18,8 +18,8 @@ signal estat, prxestat : tipoestat := REPOS;
 BEGIN
 	
 -- Logica de proxim estat
-	prxestat <= IMPRIMINT when estat = REPOS and rising_edge(KEY1) else 
-					REPOS when estat = IMPRIMINT and (rising_edge(KEY0) or rising_edge(acabat));
+	prxestat <= IMPRIMINT when estat = REPOS and KEY1 = '1' else 
+					REPOS when estat = IMPRIMINT and (KEY0 = '1' or acabat = '1');
 
 -- Accions d'estat 
 	LEDG <= '1' when estat = REPOS else '0' when estat = IMPRIMINT;
