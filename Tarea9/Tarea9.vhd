@@ -13,10 +13,27 @@ port ( SW : IN std_logic_vector(2 downto 0);
 end Tarea9;
 
 architecture Comportament of Tarea9 is
-COMPONENT driverHex7Segmentos IS
+
+COMPONENT Controlador IS
 	PORT (
-		codigoCaracter : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-		bitsCaracter : OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
+		Clk  : IN std_logic;
+		KEY0 : IN std_logic_vector(0 DOWNTO 0);
+		KEY1 : IN std_logic_vector(0 DOWNTO 0);
+		acabat: IN std_logic;
+		LEDG : OUT std_logic;
+		run  : OUT std_logic;
+		parar: OUT std_logic	
+	);
+END COMPONENT;
+
+COMPONENT CamiDades IS
+	PORT (
+		Clk  : IN std_logic;
+		SW	  : IN std_logic_vector(2 DOWNTO 0);
+		run  : IN std_logic;
+		parar: IN std_logic	
+		acabat: OUT std_logic;
+		LEDR : OUT std_logic;
 	);
 END COMPONENT;
 
@@ -29,18 +46,34 @@ COMPONENT Rellotge IS
 END COMPONENT;
 
 type tipoestat is (REPOS, IMPRIMINT);
-signal estat, proximestat: tipoestat;
 
 signal tic: std_logic;
+signal run: std_logic;
+signal parar: std_logic;
+signal acabat: std_logic;
 
-begin
+BEGIN
+controlador : Control   -- Instanciem un controlador
+	 PORT MAP(
+		Clk => tic,
+		KEY1 => KEY1,
+		KEY0 => KEY0,
+		acabat => acabat,
+		LEDG => LEDG,
+		run => run,
+		parar => parar
+	);
 
-controlador : Control
-	 PORT MAP(codigoCaracter => SW, bitsCaracter => HEX0);
 clk_05 : Rellotge GENERIC MAP (micros=> 500000) PORT MAP (CLOCK_50 => CLOCK_50,  rellotge=>tic); -- Tic cada 0.5s
 	
 cdd : CamiDades
-	 PORT MAP
-	
+	 PORT MAP (
+		Clk => tic,
+		SW => SW,
+		run => run,
+		parar => parar,
+		acabat => acabat,
+		LEDR => LEDR
+	 );
 
 end Comportament;

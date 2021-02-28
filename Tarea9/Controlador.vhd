@@ -5,13 +5,10 @@ ENTITY Controlador IS
 		Clk  : IN std_logic;
 		KEY0 : IN std_logic_vector(0 DOWNTO 0);
 		KEY1 : IN std_logic_vector(0 DOWNTO 0);
-		Len  : IN integer;
 		acabat: IN std_logic;
 		LEDG : OUT std_logic;
 		run  : OUT std_logic;
-		parar: OUT std_logic;
-		
-		
+		parar: OUT std_logic	
 	);
 END Controlador;
 ARCHITECTURE Structure OF Controlador IS
