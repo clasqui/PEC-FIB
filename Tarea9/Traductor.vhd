@@ -7,7 +7,7 @@ ENTITY Traductor IS
 		pols : OUT std_logic_vector(10 DOWNTO 0);
 	);
 END Traductor;
-ARCHITECTURE Structure OF CamiDades IS
+ARCHITECTURE Structure OF Traductor IS
 BEGIN
 	
 	with SW select pols <=
