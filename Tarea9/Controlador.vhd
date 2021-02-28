@@ -16,7 +16,7 @@ ARCHITECTURE Structure OF Controlador IS
 type tipoestat is (REPOS, IMPRIMINT);
 signal estat, prxestat : tipoestat := REPOS;
 BEGIN
-	
+
 -- Logica de proxim estat
 	prxestat <= IMPRIMINT when estat = REPOS and KEY1 = '1' else 
 					REPOS when estat = IMPRIMINT and (KEY0 = '1' or acabat = '1') else
