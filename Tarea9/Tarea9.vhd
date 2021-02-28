@@ -35,13 +35,12 @@ signal tic: std_logic;
 
 begin
 
-SEG1 : driverHex7Segmentos
+controlador : Control
 	 PORT MAP(codigoCaracter => SW, bitsCaracter => HEX0);
-	 
-	 clk_05 : Rellotge GENERIC MAP (micros=> 500000) PORT MAP (CLOCK_50 => CLOCK_50,  rellotge=>tic); -- Tick cada 0.5s
-	 
-estat <= proximestat when rising_edge(tic);
-
-
+clk_05 : Rellotge GENERIC MAP (micros=> 500000) PORT MAP (CLOCK_50 => CLOCK_50,  rellotge=>tic); -- Tic cada 0.5s
+	
+cdd : CamiDades
+	 PORT MAP
+	
 
 end Comportament;
