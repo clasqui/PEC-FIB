@@ -12,23 +12,23 @@ END Traductor;
 ARCHITECTURE Structure OF Traductor IS
 BEGIN
 	with SW select pols <=
-		"10111000000" when "000",
-		"11101010100" when "001",
+		"00000010111" when "000", -- Test.
+		"00111010101" when "001",
 		"11101011101" when "010",
-		"11101010000" when "011",
-		"10000000000" when "100",
-		"10101110100" when "101",
-		"11101110100" when "110",
-		"10101010000" when "111";
+		"00001110101" when "011",
+		"00000000001" when "100",
+		"00101011101" when "101",
+		"00111011101" when "110",
+		"00001010101" when "111";
 	
 	with SW select llarg <=
-		std_logic_vector(to_unsigned(5,llarg'length)) when "000",
-		std_logic_vector(to_unsigned(9,llarg'length)) when "001",
-		std_logic_vector(to_unsigned(11,llarg'length)) when "010",
-		std_logic_vector(to_unsigned(7,llarg'length)) when "011",
-		std_logic_vector(to_unsigned(1,llarg'length)) when "100",
-		std_logic_vector(to_unsigned(9,llarg'length)) when "101",
-		std_logic_vector(to_unsigned(9,llarg'length)) when "110",
-		std_logic_vector(to_unsigned(7,llarg'length)) when "111";
+		"0101" when "000", --5
+		"1001" when "001", --9
+		"1011" when "010", --11
+		"0111" when "011", --7
+		"0001" when "100", --1
+		"1001" when "101", --9
+		"1001" when "110", --9
+		"0111" when "111"; --7
 		
 END Structure;
