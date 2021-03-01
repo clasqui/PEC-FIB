@@ -17,9 +17,7 @@ ARCHITECTURE Structure OF MostraLed IS
 signal it : integer := to_integer(unsigned(llarg))-1;
 BEGIN
 	LEDR <= pols(it) when ini = '1' else '0';
-	acabat <= '1' when it = 0;
+	acabat <= '1' when it = 0 else '0';
 	it <= (it - 1) when ini = '1' and rising_edge(Clk) else
-		to_integer(unsigned(llarg))-1 when ini = '0' and rising_edge(Clk); --Cardem fora parar i ho fem tot amb ini?
-		-- Podem pensar de treure la senyar parar.
-		-- Fet.
+		to_integer(unsigned(llarg))-1 when ini = '0' and rising_edge(Clk);
 END Structure;
