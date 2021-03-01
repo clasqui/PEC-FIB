@@ -14,6 +14,7 @@ END Controlador;
 ARCHITECTURE Structure OF Controlador IS
 type tipoestat is (REPOS, IMPRIMINT);
 signal estat, prxestat : tipoestat := REPOS;
+--signal prxKEY0, prxKEY1 : std_logic;
 
 BEGIN
 
@@ -27,5 +28,8 @@ prxestat <= IMPRIMINT when estat = REPOS and KEY1 = '0' else
 LEDG <= '1' when estat = REPOS else '0' when estat = IMPRIMINT;
 run <= '0'	when estat = REPOS else '1' when estat = IMPRIMINT;	
 
+
+--prxKEY0 <= '1' when KEY0='1' else '0' when rising_edge(Clk);
+--prxKEY1 <= '1' when KEY1='1' else '0' when rising_edge(Clk);
 estat <= prxestat when rising_edge(Clk);
 END Structure;
