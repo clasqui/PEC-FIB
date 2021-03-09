@@ -1,0 +1,17 @@
+vendor_name = ModelSim
+source_file = 1, Z:/PEC/Tarea2/Tarea2.vhd
+source_file = 1, Z:/PEC/Tarea2/db/Tarea2.cbx.xml
+source_file = 1, e:/altera/13.0sp1/quartus/libraries/vhdl/ieee/prmtvs_b.vhd
+source_file = 1, e:/altera/13.0sp1/quartus/libraries/vhdl/ieee/prmtvs_p.vhd
+source_file = 1, e:/altera/13.0sp1/quartus/libraries/vhdl/ieee/timing_b.vhd
+source_file = 1, e:/altera/13.0sp1/quartus/libraries/vhdl/ieee/timing_p.vhd
+design_name = Tarea2
+instance = comp, \KEY[0]~I\, KEY[0], Tarea2, 1
+instance = comp, \KEY[2]~I\, KEY[2], Tarea2, 1
+instance = comp, \SW[0]~I\, SW[0], Tarea2, 1
+instance = comp, \SW[1]~I\, SW[1], Tarea2, 1
+instance = comp, \KEY[1]~I\, KEY[1], Tarea2, 1
+instance = comp, \Mux0~0\, Mux0~0, Tarea2, 1
+instance = comp, \KEY[3]~I\, KEY[3], Tarea2, 1
+instance = comp, \Mux0~1\, Mux0~1, Tarea2, 1
+instance = comp, \LEDR[0]~I\, LEDR[0], Tarea2, 1
