@@ -14,8 +14,17 @@ END control_l;
 
 
 ARCHITECTURE Structure OF control_l IS
+
+signal PC: std_LOGIC_VECTOR(15 downto 0);
+
 BEGIN
 
     -- Aqui iria la generacion de las senales de control del datapath
-
+	 ldpc <= '0' when ir = "1111111111111111" else '1';
+	 op <= ir(8);
+	 addr_d <= ir(11 downto 9);
+	 addr_a <= ir(11 downto 9);
+	 wrd <= '1' when ir(15) = '0' else '0';
+	 
+	 immed <= ir(7 downto 0);
 END Structure;
