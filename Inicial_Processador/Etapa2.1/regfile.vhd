@@ -15,10 +15,14 @@ END regfile;
 
 ARCHITECTURE Structure OF regfile IS
     -- Aqui iria la definicion de los registros
+	 type regfile_t is array (0 to 7) of std_logic_vector(15 downto 0);
+	 signal registres: regfile_t; 
 BEGIN
 
     -- Aqui iria la definicion del comportamiento del banco de registros
     -- Os puede ser util usar la funcion "conv_integer" o "to_integer"
-    -- Una buena (y limpia) implementacion no deberia ocupar más de 7 o 8 lineas
-
+    -- Una buena (y limpia) implementacion no deberia ocupar mï¿½s de 7 o 8 lineas
+	 a <= registres(to_integer(unsigned(addr_a)));
+	 registres(to_integer(unsigned(addr_d))) <= d when rising_edge(clk) and wrd = '1';
+	 
 END Structure;
