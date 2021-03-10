@@ -26,5 +26,5 @@ BEGIN
 	 addr_a <= ir(11 downto 9);
 	 wrd <= '1' when ir(15) = '0' else '0';
 	 
-	 immed <= ir(7 downto 0);
+	 immed <= std_logic_vector(resize(signed(ir(7 downto 0)), 16));
 END Structure;
