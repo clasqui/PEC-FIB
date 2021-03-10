@@ -16,6 +16,4 @@ BEGIN
 		y when '0',											-- MOVI
 		y(7 DOWNTO 0) & x(7 DOWNTO 0) when '1';	-- MOVHI
 
-    
-
 END Structure;
