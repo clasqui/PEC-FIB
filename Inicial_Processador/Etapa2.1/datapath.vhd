@@ -14,13 +14,32 @@ END datapath;
 
 ARCHITECTURE Structure OF datapath IS
 
-    -- Aqui iria la declaracion de las entidades que vamos a usar
-    -- Usaremos la palabra reservada COMPONENT ...
-    -- Tambien crearemos los cables/buses (signals) necesarios para unir las entidades
+COMPONENT alu IS
+    PORT (x  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+          y  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+          op : IN  STD_LOGIC;
+          w  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+END COMPONENT;
+
+COMPONENT regfile IS
+    PORT (clk    : IN  STD_LOGIC;
+          wrd    : IN  STD_LOGIC;
+          d      : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+          addr_a : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+          addr_d : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+          a      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+END COMPONENT;
+
+signal d : STD_LOGIC_VECTOR(15 DOWNTO 0);
+signal a : STD_LOGIC_VECTOR(15 DOWNTO 0);
+signal b : STD_LOGIC_VECTOR(15 DOWNTO 0);  -- la poso aqui perque despres ens serà util quan tinguem dos operands
 
 BEGIN
 
-    -- Aqui iria la declaracion del "mapeo" (PORT MAP) de los nombres de las entradas/salidas de los componentes
-    -- En los esquemas de la documentacion a la instancia del banco de registros le hemos llamado reg0 y a la de la alu le hemos llamado alu0
-
+	reg0 : regfile
+		PORT MAP (clk => clk, wrd => wrd, addr_a => addr_a, addr_d => addr_d, d => d, a => a);
+	alu0 : alu
+		PORT MAP (x => a, y => b, op => op, w => d);
+	
+	b <= immed;  -- Aqui anirà un multiplexor.
 END Structure;
