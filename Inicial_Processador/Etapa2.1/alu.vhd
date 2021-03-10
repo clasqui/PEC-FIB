@@ -12,7 +12,10 @@ END alu;
 
 ARCHITECTURE Structure OF alu IS
 BEGIN
+	with op select w <=
+		y when '0',
+		x(7 DOWNTO 0) & y(7 DOWNTO 0) when '1';
 
-    -- Aqui iria la definicion del comportamiento de la ALU
+    
 
 END Structure;
