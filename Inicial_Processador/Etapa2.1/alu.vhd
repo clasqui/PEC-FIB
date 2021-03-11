@@ -14,6 +14,7 @@ ARCHITECTURE Structure OF alu IS
 BEGIN
 	with op select w <=
 		y when '0',											-- MOVI
-		y(7 DOWNTO 0) & x(7 DOWNTO 0) when '1';	-- MOVHI
+		y(7 DOWNTO 0) & x(7 DOWNTO 0) when '1',
+		(others=>'0') when others;	-- MOVHI
 
 END Structure;

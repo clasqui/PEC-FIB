@@ -1,0 +1,309 @@
+m255
+K3
+13
+cModel Technology
+dE:\altera\13.0sp1
+Ealu
+Z0 w1615489064
+Z1 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z4 dZ:\PEC\Inicial_Processador\Etapa2.1
+Z5 8Z:\PEC\Inicial_Processador\Etapa2.1\alu.vhd
+Z6 FZ:\PEC\Inicial_Processador\Etapa2.1\alu.vhd
+l0
+L5
+V5?nQ[Y0^B_z0FNINh`@i_3
+Z7 OV;C;10.1d;51
+32
+Z8 !s108 1615490906.484000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:\PEC\Inicial_Processador\Etapa2.1\alu.vhd|
+Z10 !s107 Z:\PEC\Inicial_Processador\Etapa2.1\alu.vhd|
+Z11 o-work work -2002 -explicit -O0
+Z12 tExplicit 1
+!s100 lfPNoc;T8l_<1g1oSjG8d0
+!i10b 1
+Astructure
+R1
+R2
+R3
+DEx4 work 3 alu 0 22 5?nQ[Y0^B_z0FNINh`@i_3
+l14
+L13
+V[LOKe327E8BXdFHg7QhhO2
+R7
+32
+R8
+R9
+R10
+R11
+R12
+!s100 `:c13M8Gi1]`cMcfW]@7?2
+!i10b 1
+Econtrol_l
+Z13 w1615380205
+R1
+R2
+R3
+R4
+Z14 8Z:/PEC/Inicial_Processador/Etapa2.1/control_l.vhd
+Z15 FZ:/PEC/Inicial_Processador/Etapa2.1/control_l.vhd
+l0
+L5
+Vo7F:IoFDP;@lML_e9Ccog0
+R7
+32
+Z16 !s108 1615490906.593000
+Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/PEC/Inicial_Processador/Etapa2.1/control_l.vhd|
+Z18 !s107 Z:/PEC/Inicial_Processador/Etapa2.1/control_l.vhd|
+R11
+R12
+!s100 5QE7QOFOzKW8=n`;?<Ilb3
+!i10b 1
+Astructure
+R1
+R2
+R3
+DEx4 work 9 control_l 0 22 o7F:IoFDP;@lML_e9Ccog0
+l20
+L16
+VnnC8KX[BkckJY`0;KF>eQ2
+R7
+32
+R16
+R17
+R18
+R11
+R12
+!s100 :jZ`;H>=DF2MiNCdG7ZR^2
+!i10b 1
+Edatapath
+Z19 w1615379713
+R1
+R2
+R3
+R4
+Z20 8Z:/PEC/Inicial_Processador/Etapa2.1/datapath.vhd
+Z21 FZ:/PEC/Inicial_Processador/Etapa2.1/datapath.vhd
+l0
+L5
+VWd5_lNZzjUmXkY5@`5=T32
+R7
+32
+Z22 !s108 1615490906.703000
+Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/PEC/Inicial_Processador/Etapa2.1/datapath.vhd|
+Z24 !s107 Z:/PEC/Inicial_Processador/Etapa2.1/datapath.vhd|
+R11
+R12
+!s100 GZ`SS236MKH?nAYk_d:Vj0
+!i10b 1
+Astructure
+R1
+R2
+R3
+DEx4 work 8 datapath 0 22 Wd5_lNZzjUmXkY5@`5=T32
+l37
+L15
+VC09TDXBS>BL[3M^5CHP7]3
+R7
+32
+R22
+R23
+R24
+R11
+R12
+!s100 7ZF?M2_Dg0I2I2hegmXO03
+!i10b 1
+Ememory
+Z25 w1615305190
+Z26 DPx4 ieee 16 std_logic_textio 0 22 ?Il0a149GV276[?[UMDWh2
+Z27 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z28 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+R2
+R3
+R4
+Z29 8Z:/PEC/Inicial_Processador/Etapa2.1/memory.vhd
+Z30 FZ:/PEC/Inicial_Processador/Etapa2.1/memory.vhd
+l0
+L8
+VezVj_W<TQA0lnlE844kA:3
+R7
+32
+Z31 !s108 1615490906.812000
+Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/PEC/Inicial_Processador/Etapa2.1/memory.vhd|
+Z33 !s107 Z:/PEC/Inicial_Processador/Etapa2.1/memory.vhd|
+R11
+R12
+!s100 6`[ncjZncnKIIQlJ;Qz4a2
+!i10b 1
+Acomportament
+R26
+R27
+R28
+R2
+R3
+DEx4 work 6 memory 0 22 ezVj_W<TQA0lnlE844kA:3
+l48
+L20
+VPkAg]G57>]66WXLfTgc2g1
+R7
+32
+R31
+R32
+R33
+R11
+R12
+!s100 ^2]_]@0E]lMjXY_dJce3b3
+!i10b 1
+Eproc
+Z34 w1615380939
+R2
+R3
+R4
+Z35 8Z:/PEC/Inicial_Processador/Etapa2.1/proc.vhd
+Z36 FZ:/PEC/Inicial_Processador/Etapa2.1/proc.vhd
+l0
+L4
+VV[^C@`ZKHFP1Fh1HzI]b=1
+R7
+32
+Z37 !s108 1615490906.921000
+Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/PEC/Inicial_Processador/Etapa2.1/proc.vhd|
+Z39 !s107 Z:/PEC/Inicial_Processador/Etapa2.1/proc.vhd|
+R11
+R12
+!s100 :DYC`>><kI`Nfe7naBeNJ2
+!i10b 1
+Astructure
+R2
+R3
+DEx4 work 4 proc 0 22 V[^C@`ZKHFP1Fh1HzI]b=1
+l44
+L12
+VmKUi?0:E?D9N0REYWC=g[3
+R7
+32
+R37
+R38
+R39
+R11
+R12
+!s100 ZKcILAZPiJ@b_U[ZRdAH=0
+!i10b 1
+Eregfile
+Z40 w1615490665
+R27
+R28
+R1
+R2
+R3
+R4
+Z41 8Z:/PEC/Inicial_Processador/Etapa2.1/regfile.vhd
+Z42 FZ:/PEC/Inicial_Processador/Etapa2.1/regfile.vhd
+l0
+L6
+V=VQ=@azTK:E71e;a?nWnT3
+R7
+32
+Z43 !s108 1615490907.031000
+Z44 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/PEC/Inicial_Processador/Etapa2.1/regfile.vhd|
+Z45 !s107 Z:/PEC/Inicial_Processador/Etapa2.1/regfile.vhd|
+R11
+R12
+!s100 hf3maH1YKjXckh6YBfMM71
+!i10b 1
+Astructure
+R27
+R28
+R1
+R2
+R3
+DEx4 work 7 regfile 0 22 =VQ=@azTK:E71e;a?nWnT3
+l21
+L16
+VZE6ePC;EQDKSiffin39h22
+R7
+32
+R43
+R44
+R45
+R11
+R12
+!s100 fd:6nmLz>L1PTdY]`HnRn1
+!i10b 1
+Etest_sisa
+R25
+R2
+R3
+R4
+Z46 8Z:\PEC\Inicial_Processador\Etapa2.1\test_sisa.vhd
+Z47 FZ:\PEC\Inicial_Processador\Etapa2.1\test_sisa.vhd
+l0
+L5
+VkAdhfn89W5`mY_=KPlfV]3
+R7
+32
+Z48 !s108 1615490907.140000
+Z49 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:\PEC\Inicial_Processador\Etapa2.1\test_sisa.vhd|
+Z50 !s107 Z:\PEC\Inicial_Processador\Etapa2.1\test_sisa.vhd|
+R11
+R12
+!s100 688X_8OZ0BkG::B3fT5kf3
+!i10b 1
+Acomportament
+R2
+R3
+DEx4 work 9 test_sisa 0 22 kAdhfn89W5`mY_=KPlfV]3
+l38
+L8
+V4k4aJ72YP_Wzj`TVJaQ?l2
+!s100 M^2H7oCBH9I:<O?Y4:zDd1
+R7
+32
+R48
+R49
+R50
+R11
+R12
+!i10b 1
+Eunidad_control
+Z51 w1615379559
+R27
+R28
+R1
+R2
+R3
+R4
+Z52 8Z:/PEC/Inicial_Processador/Etapa2.1/unidad_control.vhd
+Z53 FZ:/PEC/Inicial_Processador/Etapa2.1/unidad_control.vhd
+l0
+L6
+V_Y]DBnN:<i[HFb=_4f`Yb0
+!s100 6H_<TKhAoAYfPDmD@`iU40
+R7
+32
+!i10b 1
+Z54 !s108 1615490907.250000
+Z55 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/PEC/Inicial_Processador/Etapa2.1/unidad_control.vhd|
+Z56 !s107 Z:/PEC/Inicial_Processador/Etapa2.1/unidad_control.vhd|
+R11
+R12
+Astructure
+R27
+R28
+R1
+R2
+R3
+Z57 DEx4 work 14 unidad_control 0 22 _Y]DBnN:<i[HFb=_4f`Yb0
+l38
+L18
+Z58 Vo:_c6TM>nMVALgGOfedJK3
+Z59 !s100 K[B;HnJS]VOa6Q6_M_5LV1
+R7
+32
+!i10b 1
+R54
+R55
+R56
+R11
+R12
