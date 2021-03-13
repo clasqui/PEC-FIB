@@ -14,7 +14,7 @@ ARCHITECTURE Structure OF proc IS
     -- Aqui iria la declaracion de las entidades que vamos a usar
     -- Usaremos la palabra reservada COMPONENT ...
     -- Tambien crearemos los cables/buses (signals) necesarios para unir las entidades
-	 signal op: std_logic;
+	 signal op: std_logic_vector(1 downto 0);
 	 signal wrd: std_logic;
 	 signal addr_a: std_lOGIC_VECTOR(2 downto 0);
 	 signal addr_d: std_logic_vector(2 downto 0);
@@ -22,7 +22,7 @@ ARCHITECTURE Structure OF proc IS
 	 
 	 COMPONENT datapath IS
     PORT (clk    : IN STD_LOGIC;
-          op     : IN STD_LOGIC;
+          op     : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
           wrd    : IN STD_LOGIC;
           addr_a : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
           addr_d : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -33,7 +33,7 @@ ARCHITECTURE Structure OF proc IS
     PORT (boot   : IN  STD_LOGIC;
           clk    : IN  STD_LOGIC;
           ir     : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-          op     : OUT STD_LOGIC;
+          op     : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
           wrd    : OUT STD_LOGIC;
           addr_a : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
           addr_d : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
