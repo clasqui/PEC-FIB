@@ -23,7 +23,10 @@ architecture comportament of test_sisa is
          clk          : in std_logic;
          boot         : in std_logic;
          datard_m     : in std_logic_vector(15 downto 0);
-         addr_m       : out std_logic_vector(15 downto 0)
+         addr_m       : out std_logic_vector(15 downto 0);
+         data_wr       : out std_logic_vector(15 downto 0);
+         wr_m         : out std_logic;
+         word_byte    : out std_logic
       );
    end component;
    
@@ -34,26 +37,32 @@ architecture comportament of test_sisa is
    signal wr_data      : std_logic_vector(15 downto 0);
    signal reset_ram    : std_logic := '0';
    signal reset_proc   : std_logic := '1';
+   signal we               : std_logic;
+   signal byte_m           : std_logic;
 	
 begin
    
    -- Instanciacions de moduls
    proc0 : proc
       port map (
-         clk       => clk,
-         boot      => reset_proc,
-         datard_m  => rd_data,
-         addr_m    => addr
+         clk        => clk,
+         boot       => reset_proc,
+         datard_m   => rd_data,
+         addr_m     => addr,
+         
+         data_wr     => wr_data,
+         wr_m       => we,
+         word_byte  => byte_m
       );
-   
+
    mem0 : memory
       port map (
          clk      => clk,
          addr     => addr,
          wr_data  => wr_data,
          rd_data  => rd_data,
-         we       => '0',
-         byte_m   => '0',
+         we       => we,
+         byte_m   => byte_m,
          boot     => reset_ram
       );
    
@@ -63,7 +72,7 @@ begin
 	clk <= not clk after 10 ns;
 	reset_ram <= '1' after 5 ns, '0' after 15 ns;    -- reseteamos la Ram en el primer ciclo
 	reset_proc <= '1' after 25 ns, '0' after 35 ns;  -- reseteamos el procesador en el segundo ciclo
-
+	
 --    process
 --	begin
 --		reset_ram <= '1' after 5 ns, '0' after 15 ns;    -- reseteamos la Ram en el primer ciclo
