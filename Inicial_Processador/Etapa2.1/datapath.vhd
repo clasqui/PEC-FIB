@@ -47,11 +47,13 @@ signal alu_out : STD_LOGIC_VECTOR(15 DOWNTO 0);
 BEGIN
 
 	reg0 : regfile
-		PORT MAP (clk => clk, wrd => wrd, addr_a => addr_a, addr_b => addr_b, addr_d => addr_d, d => d, a => a, b => b);
+		PORT MAP (clk => clk, wrd => wrd, addr_a => addr_a, addr_b => addr_b, addr_d => addr_d, d => d, a => a, b => data_wr);
 	alu0 : alu
 		PORT MAP (x => a, y => b, op => op, w => alu_out);
 	
 	d <= datard_m when ins_dad = '1' else alu_out when ins_dad = '0' else (others=>'0');
-	b <= immed when immed_x2 = '0' else immed(14 DOWNTO 0) & '0' when immed_x2 = '1' else (others=>'0'); -- oju amb el sll que podria donar problemes (https://stackoverflow.com/questions/9018087/shift-a-std-logic-vector-of-n-bit-to-right-or-left)
+	b <= immed when immed_x2 = '0' else 
+			immed(14 DOWNTO 0) & '0' when immed_x2 = '1' else 
+			(others=>'0'); -- oju amb el sll que podria donar problemes (https://stackoverflow.com/questions/9018087/shift-a-std-logic-vector-of-n-bit-to-right-or-left)
 	addr_m <= alu_out when ins_dad = '0' else pc when ins_dad = '1' else (others=>'0');
 END Structure;

@@ -8,8 +8,10 @@ ENTITY regfile IS
           wrd    : IN  STD_LOGIC;
           d      : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           addr_a : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+			 addr_b : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
           addr_d : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
-          a      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+          a      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 b      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
 END regfile;
 
 
@@ -34,5 +36,6 @@ BEGIN
 		end if;
 	end process;
 	a <= registres(conv_integer(addr_a));
+	b <= registres(conv_integer(addr_b));
 	 
 END Structure;
