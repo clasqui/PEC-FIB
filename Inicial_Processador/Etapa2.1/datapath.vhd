@@ -51,7 +51,7 @@ BEGIN
 	alu0 : alu
 		PORT MAP (x => a, y => b, op => op, w => alu_out);
 	
-	d <= datard_m when ins_dad = '1' else alu_out when ins_dad = '0' else (others=>'0');
+	d <= datard_m when in_d = '1' else alu_out when in_d = '0' else (others=>'0');
 	b <= immed when immed_x2 = '0' else 
 			immed(14 DOWNTO 0) & '0' when immed_x2 = '1' else 
 			(others=>'0'); -- oju amb el sll que podria donar problemes (https://stackoverflow.com/questions/9018087/shift-a-std-logic-vector-of-n-bit-to-right-or-left)
