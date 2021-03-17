@@ -38,7 +38,7 @@ BEGIN
 	 
 	 in_d <= '1' when ir(15 downto 12) = "0011" or ir(15 downto 12) = "1101" else '0';
 	 
-	 immed_x2 <= not ir(15);
+	 immed_x2 <= '1' when ir(15 downto 12) = "0011" or ir(15 downto 12) = "0100" else '0';
 	 
 	 word_byte <= ir(15);
 	 
