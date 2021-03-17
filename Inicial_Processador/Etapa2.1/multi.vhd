@@ -43,7 +43,8 @@ begin
 		end if;
 	end process;
 
-
+	
+	
 	process (estat)
 	begin
 		case estat is

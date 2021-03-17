@@ -29,7 +29,7 @@ ARCHITECTURE Structure OF unidad_control IS
     -- Aqui iria la definicion del program counter
 	 
 COMPONENT control_l IS
-    PORT (ir     : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+    PORT (ir   	  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           op        : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
           ldpc      : OUT STD_LOGIC;
           wrd       : OUT STD_LOGIC;
