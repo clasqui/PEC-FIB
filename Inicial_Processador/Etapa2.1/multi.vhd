@@ -45,25 +45,34 @@ begin
 
 	
 	
-	process (estat)
-	begin
-		case estat is
-			when FETCH =>
-				ldpc <= '0';
-				wrd <= '0';
-				wr_m <= '0';
-				word_byte <= '0';
-				ins_dad <= '0';
-				ldir <= '1';
-			when DEMW =>
-				ldpc <= ldpc_l;
-				wrd <= wrd_l;
-				wr_m <= wr_m_l;
-				word_byte <= w_b;
-				ins_dad <= '1';
-				ldir <= '0';
-		end case;
-	end process;
+--	process (clk)
+--	begin
+--		case estat is
+--			when FETCH =>
+--				ldpc <= '0';
+--				wrd <= '0';
+--				wr_m <= '0';
+--				word_byte <= '0';
+--				ins_dad <= '0';
+--				ldir <= '1';
+--			when DEMW =>
+--				ldpc <= ldpc_l;
+--				wrd <= wrd_l;
+--				wr_m <= wr_m_l;
+--				word_byte <= w_b;
+--				ins_dad <= '1';
+--				ldir <= '0';
+--		end case;
+--	end process;
+	
+	ldpc <= '0' when estat = FETCH else ldpc_l;
+	wrd <= '0' when estat = FETCH else wrd_l;
+	wr_m <= '0' when estat = FETCH else wr_m_l;
+	word_byte <= '0' when estat = FETCH else w_b;
+	ins_dad <= '0' when estat = FETCH else '1';
+	ldir <= '1' when estat = FETCH else '0';
+	
+	
 	
     -- Aqui iria la máquina de estados del modelos de Moore que gestiona el multiciclo
     -- Aqui irian la generacion de las senales de control que su valor depende del ciclo en que se esta.

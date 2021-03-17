@@ -114,20 +114,20 @@ BEGIN
 	 pc <= nou_pc;
 	 
 	 
-	 process (clk)
-	 begin
-		if(rising_edge(clk)) then
-			if boot = '1' then
-				ir_actual <= x"0000";
-			elsif ldir = '1' then
-				ir_actual <= datard_m;
-			end if;
-		end if;
-	 end process;
+--	 process (clk)
+--	 begin
+--		if(rising_edge(clk)) then
+--			if boot = '1' then
+--				ir_actual <= x"0000";
+--			elsif ldir = '1' then
+--				ir_actual <= datard_m;
+--			end if;
+--		end if;
+--	 end process;
 	 
-	 --ir_actual <= x"0000" when rising_edge(clk) and boot = '1'
-		--			else datard_m when rising_edge(clk) and ldir = '1'
-		--			else ir_actual when rising_edge(clk);
+	 ir_actual <= x"0000" when rising_edge(clk) and boot = '1'
+					else datard_m when rising_edge(clk) and ldir = '1';
+					--else ir_actual when rising_edge(clk);
 	 
 
 END Structure;
