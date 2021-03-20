@@ -1,15 +1,20 @@
-/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/regfile.vhd {1 {vcom -work work -2002 -explicit /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/regfile.vhd
+Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/test_sisa.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/test_sisa.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity regfile
--- Compiling architecture Structure of regfile
+-- Compiling entity test_sisa
+-- Compiling architecture comportament of test_sisa
 
-} {} {}} /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/datapath.vhd {1 {vcom -work work -2002 -explicit /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/datapath.vhd
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/multi.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/multi.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity multi
+-- Compiling architecture Structure of multi
+
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/datapath.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/datapath.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -18,23 +23,7 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity datapath
 -- Compiling architecture Structure of datapath
 
-} {} {}} /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/test_sisa.vhd {1 {vcom -work work -2002 -explicit /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/test_sisa.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity test_sisa
--- Compiling architecture comportament of test_sisa
-
-} {} {}} /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/multi.vhd {1 {vcom -work work -2002 -explicit /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/multi.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity multi
--- Compiling architecture Structure of multi
-
-} {} {}} /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/control_l.vhd {1 {vcom -work work -2002 -explicit /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/control_l.vhd
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/control_l.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/control_l.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -43,7 +32,7 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity control_l
 -- Compiling architecture Structure of control_l
 
-} {} {}} /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/proc.vhd {1 {vcom -work work -2002 -explicit /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/proc.vhd
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/proc.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/proc.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -51,7 +40,28 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity proc
 -- Compiling architecture Structure of proc
 
-} {} {}} /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/memory.vhd {1 {vcom -work work -2002 -explicit /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/memory.vhd
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/unidad_control.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/unidad_control.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity unidad_control
+-- Compiling architecture Structure of unidad_control
+
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/test_rom.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/test_rom.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity test_rom
+-- Compiling architecture test of test_rom
+
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/memory.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/memory.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -62,17 +72,7 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity memory
 -- Compiling architecture comportament of memory
 
-} {} {}} /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/test_rom.vhd {1 {vcom -work work -2002 -explicit /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/test_rom.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity test_rom
--- Compiling architecture test of test_rom
-
-} {} {}} /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/unidad_control.vhd {1 {vcom -work work -2002 -explicit /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/unidad_control.vhd
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/regfile.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/regfile.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -80,7 +80,16 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package NUMERIC_STD
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity unidad_control
--- Compiling architecture Structure of unidad_control
+-- Compiling entity regfile
+-- Compiling architecture Structure of regfile
+
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/alu.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/alu.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity alu
+-- Compiling architecture Structure of alu
 
 } {} {}}
