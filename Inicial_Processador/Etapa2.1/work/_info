@@ -4,7 +4,7 @@ K3
 cModel Technology
 dE:\altera\13.0sp1
 Ealu
-Z0 w1615803761
+Z0 w1616270958
 Z1 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
 Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
 Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
@@ -16,7 +16,7 @@ L5
 V342dKO42oZ]KSj]gR757T2
 Z7 OV;C;10.1d;51
 32
-Z8 !s108 1615992873.169078
+Z8 !s108 1616270980.541197
 Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/alu.vhd|
 Z10 !s107 /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/alu.vhd|
 Z11 o-work work -2002 -explicit -O0
@@ -30,7 +30,7 @@ R3
 DEx4 work 3 alu 0 22 342dKO42oZ]KSj]gR757T2
 l14
 L13
-VzS?d<zbF3mD1PJZ6AY7[S3
+VhEXII;>IEcje5^fe13c>Z1
 R7
 32
 R8
@@ -38,10 +38,10 @@ R9
 R10
 R11
 R12
-!s100 P_oUdzdH0[^fDadTe;fY70
+!s100 ]@:]]NE<^4bho07]n9hPM3
 !i10b 1
 Econtrol_l
-Z13 w1615989889
+Z13 w1616270607
 R1
 R2
 R3
@@ -53,7 +53,7 @@ L5
 VLT2J2dSfT6[?TbJe1J;7P2
 R7
 32
-Z16 !s108 1615992873.205668
+Z16 !s108 1616270980.597733
 Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/control_l.vhd|
 Z18 !s107 /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/control_l.vhd|
 R11
@@ -67,7 +67,7 @@ R3
 DEx4 work 9 control_l 0 22 LT2J2dSfT6[?TbJe1J;7P2
 l25
 L21
-VKLnm5BK>ZB=VP12gUDP;H3
+VNXWInoW18oid==XP1R9S`2
 R7
 32
 R16
@@ -75,7 +75,7 @@ R17
 R18
 R11
 R12
-!s100 ?YXTLC^`3m^Zf;k:ZH3Rl2
+!s100 bjCldQoWocRYeA98zNmDM1
 !i10b 1
 Edatapath
 Z19 w1615987800
@@ -90,7 +90,7 @@ L5
 V<KkCMdkNEo@PzeR[Uaa_;2
 R7
 32
-Z22 !s108 1615992873.260031
+Z22 !s108 1616270980.660026
 Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/datapath.vhd|
 Z24 !s107 /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/datapath.vhd|
 R11
@@ -129,7 +129,7 @@ L8
 VezVj_W<TQA0lnlE844kA:3
 R7
 32
-Z31 !s108 1615992873.301896
+Z31 !s108 1616270980.706537
 Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/memory.vhd|
 Z33 !s107 /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/memory.vhd|
 R11
@@ -167,7 +167,7 @@ L4
 V14NBh5f7z`nUY<]C1Om_?2
 R7
 32
-Z37 !s108 1615992873.361908
+Z37 !s108 1616270980.765647
 Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/multi.vhd|
 Z39 !s107 /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/multi.vhd|
 R11
@@ -202,7 +202,7 @@ L4
 VE07>PX[gFbcoX5M:Gg6jG0
 R7
 32
-Z43 !s108 1615992873.404167
+Z43 !s108 1616270980.807356
 Z44 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/proc.vhd|
 Z45 !s107 /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/proc.vhd|
 R11
@@ -240,7 +240,7 @@ L6
 VB9TYiE64XkLY?K`=7b@:X1
 R7
 32
-Z49 !s108 1615992873.448033
+Z49 !s108 1616270980.849987
 Z50 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/regfile.vhd|
 Z51 !s107 /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/regfile.vhd|
 R11
@@ -267,22 +267,22 @@ R12
 !s100 ?f;NlFK9?bc7GOHCiBGXU0
 !i10b 1
 Etest_rom
-R13
+Z52 w1615989889
 R28
 R27
 R2
 R3
 R4
-Z52 8/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/test_rom.vhd
-Z53 F/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/test_rom.vhd
+Z53 8/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/test_rom.vhd
+Z54 F/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/test_rom.vhd
 l0
 L9
 VD9fodWGHm4i^UA=oK=`;80
 R7
 32
-Z54 !s108 1615992873.507944
-Z55 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/test_rom.vhd|
-Z56 !s107 /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/test_rom.vhd|
+Z55 !s108 1616270980.921347
+Z56 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/test_rom.vhd|
+Z57 !s107 /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/test_rom.vhd|
 R11
 R12
 !s100 R?3ldFXTVHfb;`LC1n9SY0
@@ -298,9 +298,9 @@ L11
 Vef8E`oVSP3;4mQESTBnZ72
 R7
 32
-R54
 R55
 R56
+R57
 R11
 R12
 !s100 ;0j7a4lSedR7I>bdU]3[13
@@ -310,16 +310,16 @@ R25
 R2
 R3
 R4
-Z57 8/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/test_sisa.vhd
-Z58 F/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/test_sisa.vhd
+Z58 8/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/test_sisa.vhd
+Z59 F/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/test_sisa.vhd
 l0
 L5
 VkAdhfn89W5`mY_=KPlfV]3
 R7
 32
-Z59 !s108 1615992873.547961
-Z60 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/test_sisa.vhd|
-Z61 !s107 /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/test_sisa.vhd|
+Z60 !s108 1616270980.964390
+Z61 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/test_sisa.vhd|
+Z62 !s107 /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/test_sisa.vhd|
 R11
 R12
 !s100 688X_8OZ0BkG::B3fT5kf3
@@ -334,22 +334,22 @@ VLd_@hjJdKdB_B:Z451_3;1
 !s100 ]b?:JEO9n;bIzX3F>gCKB0
 R7
 32
-R59
 R60
 R61
+R62
 R11
 R12
 !i10b 1
 Eunidad_control
-Z62 w1615992181
+Z63 w1615992181
 R27
 R28
 R1
 R2
 R3
 R4
-Z63 8/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/unidad_control.vhd
-Z64 F/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/unidad_control.vhd
+Z64 8/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/unidad_control.vhd
+Z65 F/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/unidad_control.vhd
 l0
 L6
 VckeOI?8oP7Uk^obI8;0a[3
@@ -357,9 +357,9 @@ VckeOI?8oP7Uk^obI8;0a[3
 R7
 32
 !i10b 1
-Z65 !s108 1615992873.600435
-Z66 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/unidad_control.vhd|
-Z67 !s107 /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/unidad_control.vhd|
+Z66 !s108 1616270981.001216
+Z67 !s90 -reportprogress|300|-work|work|-2002|-explicit|/home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/unidad_control.vhd|
+Z68 !s107 /home/marc/Documents/VirtualBox/Compartida/PEC/Inicial_Processador/Etapa2.1/unidad_control.vhd|
 R11
 R12
 Astructure
@@ -368,16 +368,16 @@ R28
 R1
 R2
 R3
-Z68 DEx4 work 14 unidad_control 0 22 ckeOI?8oP7Uk^obI8;0a[3
+Z69 DEx4 work 14 unidad_control 0 22 ckeOI?8oP7Uk^obI8;0a[3
 l72
 L24
-Z69 VEXe42OgXQoz`C>Jz2=KM11
-Z70 !s100 gAYN6?;43X?[c[UdYP4033
+Z70 VEXe42OgXQoz`C>Jz2=KM11
+Z71 !s100 gAYN6?;43X?[c[UdYP4033
 R7
 32
 !i10b 1
-R65
 R66
 R67
+R68
 R11
 R12

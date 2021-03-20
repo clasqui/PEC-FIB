@@ -26,8 +26,15 @@ BEGIN
 
     -- Aqui iria la generacion de las senales de control del datapath
 	 ldpc <= '0' when ir = "1111111111111111" else '1';
-	 op <= "01" when ir(15 downto 12) = "0011" or ir(15 downto 12) = "0100" or ir(15 downto 12) = "1101" or ir(15 downto 12) = "1110"
-				else "0"&ir(8);   
+	 --op <= "01" when ir(15 downto 12) = "0011" or ir(15 downto 12) = "0100" or ir(15 downto 12) = "1101" or ir(15 downto 12) = "1110"
+				--else "0"&ir(8);
+	
+	-- TODO: fer signal 
+	 with ir(15 downto 12) select op <=
+		'0'&ir(8) when "0101", --	 ARREGLAR AIXO EN UN FUTUR (CAS MOVI / MOVHI)
+		"10" when others; -- CASOS ST LD
+	 
+	 
 	 addr_d <= ir(11 downto 9);
 	 addr_a <= ir(11 downto 9) when ir(15 downto 12) = "0101" -- EN LES dimmediat, la a esta aqui
 					else ir(8 downto 6);

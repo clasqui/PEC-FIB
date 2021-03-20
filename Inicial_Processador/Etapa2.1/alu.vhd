@@ -15,7 +15,7 @@ BEGIN
 	with op select w <=
 		y when "00",											-- MOVI
 		y(7 DOWNTO 0) & x(7 DOWNTO 0) when "01",		-- MOVHI
-		std_logic_vector(unsigned(y)+unsigned(x)) when "10",	-- ADD
+		std_logic_vector(signed(y)+signed(x)) when "10",	-- ADD
 		(others=>'0') when others;	
 
 END Structure;
