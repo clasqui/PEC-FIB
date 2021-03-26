@@ -5,7 +5,7 @@ use ieee.std_logic_unsigned.all;
 
 entity SRAMController is
     port (clk         : in    std_logic;
-          -- señales para la placa de desarrollo
+          -- seï¿½ales para la placa de desarrollo
           SRAM_ADDR   : out   std_logic_vector(17 downto 0);
           SRAM_DQ     : inout std_logic_vector(15 downto 0);
           SRAM_UB_N   : out   std_logic;
@@ -13,7 +13,7 @@ entity SRAMController is
           SRAM_CE_N   : out   std_logic := '1';
           SRAM_OE_N   : out   std_logic := '1';
           SRAM_WE_N   : out   std_logic := '1';
-          -- señales internas del procesador
+          -- seï¿½ales internas del procesador
           address     : in    std_logic_vector(15 downto 0) := "0000000000000000";
           dataReaded  : out   std_logic_vector(15 downto 0);
           dataToWrite : in    std_logic_vector(15 downto 0);
@@ -21,7 +21,26 @@ entity SRAMController is
           byte_m      : in    std_logic := '0');
 end SRAMController;
 
+signal dataRD : std_logic_vector(15 downto 0);
+signal dataWR : std_logic_vector(15 downto 0);
+
 architecture comportament of SRAMController is
 begin
 
+-- senyals de lectura i escriptura a memoria.
+	dataWR <= "ZZZZZZZZ" & dataToWrite(7 DOWNTO 0) when byte_m = '1' else dataToWrite; -- Si byte o word
+	dataReaded <= SRAM_DQ when byte_m = '0'  
+							else (7 downto 0 => SRAM_DQ(7 DOWNTO 0), others => SRAM_DQ(7)) when address(0) and byte_m = '1'
+							else (7 downto 0 => SRAM_DQ(15 DOWNTO 8), others => SRAM_DQ(7)); -- Agafem una part o l'alta del que ens dona la mem
+
+-- https://www.digchip.com/datasheets/parts/datasheet/211/IS61LV25616-10T-pdf.php
+-- Senyals que van a la placa.
+	SRAM_ADDR <= "000" & address(15 downto 1); -- Van 17 bits a la placa. Hi va address/2. 
+	SRAM_DQ <= dataWR when WR = '1' else "ZZZZZZZZZZZZZZZZ";
+	SRAM_UB_N <= '1' when WR = 1 and address(0) = '1' else '0'; -- Nomes es 1 quan escric byte alt		
+	SRAM_LB_N <= '1' when WR = 1 and address(0) = '0' else '0'; -- Nomes es 1 quan escric byte baix						
+	SRAM_CE_N <= '0'; -- Baix sempre
+	SRAM_OE_N <= '0'; -- Baix a la lectura i a l'escriptura dona igual.
+	SRAM_WE_N <= not WR; -- Alt a la lectura, baix a l'escriptura. AixÃ² Ã©s el permis d'esctiptura. Caldria sincronitzar-lo amb el clock.
+-- AQUI FALTA UNA MANERA INTELIGENT DE PENSAR COM SINCONITZAR L'ESCRIPTURA AMB EL RELLOTGE
 end comportament;
