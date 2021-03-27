@@ -39,8 +39,8 @@ begin
 -- Senyals que van a la placa.
 	SRAM_ADDR <= "000" & address(15 downto 1); -- Van 17 bits a la placa. Hi va address/2. 
 	SRAM_DQ <= dataWR when WR = '1' else "ZZZZZZZZZZZZZZZZ";
-	SRAM_UB_N <= '1' when WR = '1' and address(0) = '1' else '0'; -- Nomes es 1 quan escric byte alt		
-	SRAM_LB_N <= '1' when WR = '1' and address(0) = '0' else '0'; -- Nomes es 1 quan escric byte baix						
+	SRAM_LB_N <= '1' when WR = '1' and address(0) = '1' else '0'; -- Nomes es 1 quan escric byte alt		
+	SRAM_UB_N <= '1' when WR = '1' and address(0) = '0' else '0'; -- Nomes es 1 quan escric byte baix						
 	SRAM_CE_N <= '0'; -- Baix sempre
 	SRAM_OE_N <= '0'; -- Baix a la lectura i a l'escriptura dona igual.
 	SRAM_WE_N <= not WR; -- Alt a la lectura, baix a l'escriptura. Això és el permis d'esctiptura. Caldria sincronitzar-lo amb el clock.

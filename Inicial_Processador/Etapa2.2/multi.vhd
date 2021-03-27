@@ -67,7 +67,7 @@ begin
 	
 	ldpc <= '0' when estat = FETCH else ldpc_l;
 	wrd <= '0' when estat = FETCH else wrd_l;
-	wr_m <= '0' when estat = FETCH else wr_m_l;
+	wr_m <= '0' when estat = FETCH else wr_m_l;  -- Veure que ens fa un pic estrany.
 	word_byte <= '0' when estat = FETCH else w_b;
 	ins_dad <= '0' when estat = FETCH else '1';
 	ldir <= '1' when estat = FETCH else '0';
