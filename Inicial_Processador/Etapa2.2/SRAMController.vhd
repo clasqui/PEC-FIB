@@ -27,19 +27,29 @@ architecture comportament of SRAMController is
 type estat_t is (wr0, wr1);
 signal estat: estat_t;
 
-signal dataRD 		: std_logic_vector(15 downto 0);
+-- signal dataRD 		: std_logic_vector(15 downto 0);
 signal dataWR 		: std_logic_vector(15 downto 0);
 signal espera 		: std_logic := '0';
 signal escrivint 	: std_logic := '0';
+signal high_data	: std_logic_vector(15 DOWNTO 0);
+signal low_data	: std_logic_vector(15 DOWNTO 0);
 -- signal ctrl 		: std_logic := '0';
 
 begin
 
 -- senyals de lectura i escriptura a memoria.
-	dataWR <= dataToWrite when byte_m = '1' else "ZZZZZZZZ" & dataToWrite(7 DOWNTO 0) when address(0) = '0' else dataToWrite(7 DOWNTO 0) & "ZZZZZZZZ"; -- Si byte o word
+	--high_data <= SRAM_DQ(15 DOWNTO 8);
+	--low_data <= SRAM_DQ(7 DOWNTO 0);
+	high_data <= std_logic_vector(resize(signed(SRAM_DQ(15 DOWNTO 8)),16));
+	low_data <= std_logic_vector(resize(signed(SRAM_DQ(7 DOWNTO 0)),16));
+	dataWR <= dataToWrite when byte_m = '0' else "ZZZZZZZZ" & dataToWrite(7 DOWNTO 0) when address(0) = '0' else dataToWrite(7 DOWNTO 0) & "ZZZZZZZZ"; -- Si byte o word
 	dataReaded <= SRAM_DQ when byte_m = '0'  
-							else std_logic_vector(resize(signed(SRAM_DQ(7 DOWNTO 0)),16)) when address(0) = '1' and byte_m = '1'
-							else std_logic_vector(resize(signed(SRAM_DQ(15 DOWNTO 8)),16)); -- Agafem una part o l'alta del que ens dona la mem
+							--else (7 downto 0 => low_data, others => SRAM_DQ(7)) when address(0) = '1'
+							--else (7 downto 0 => high_data, others => SRAM_DQ(7));
+							--else std_logic_vector(resize(signed(low_data),16)) when address(0) = '1'
+							--else std_logic_vector(resize(signed(high_data),16)); -- Agafem una part o l'alta del que ens dona la mem
+							else low_data when address(0) = '0'
+							else high_data;
 
 -- https://www.digchip.com/datasheets/parts/datasheet/211/IS61LV25616-10T-pdf.php
 -- Senyals que van a la placa.
