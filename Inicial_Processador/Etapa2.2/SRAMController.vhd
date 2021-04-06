@@ -24,8 +24,12 @@ end SRAMController;
 
 architecture comportament of SRAMController is
 
+type estat_t is (wr0, wr1);
+signal estat: estat_t;
+
 signal dataRD : std_logic_vector(15 downto 0);
 signal dataWR : std_logic_vector(15 downto 0);
+signal permiso_escritura : std_logic := '0';
 
 begin
 
@@ -39,10 +43,28 @@ begin
 -- Senyals que van a la placa.
 	SRAM_ADDR <= "000" & address(15 downto 1); -- Van 17 bits a la placa. Hi va address/2. 
 	SRAM_DQ <= dataWR when WR = '1' else "ZZZZZZZZZZZZZZZZ";
-	SRAM_LB_N <= '1' when WR = '1' and address(0) = '1' else '0'; -- Nomes es 1 quan escric byte alt		
-	SRAM_UB_N <= '1' when WR = '1' and address(0) = '0' else '0'; -- Nomes es 1 quan escric byte baix						
+	SRAM_LB_N <= '1' when WR = '1' and byte_m = '1' and address(0) = '1' else '0'; -- Nomes es 1 quan escric byte alt		
+	SRAM_UB_N <= '1' when WR = '1' and byte_m = '1' and address(0) = '0' else '0'; -- Nomes es 1 quan escric byte baix						
 	SRAM_CE_N <= '0'; -- Baix sempre
 	SRAM_OE_N <= '0'; -- Baix a la lectura i a l'escriptura dona igual.
-	SRAM_WE_N <= not WR; -- Alt a la lectura, baix a l'escriptura. Això és el permis d'esctiptura. Caldria sincronitzar-lo amb el clock.
+   SRAM_WE_N <= '0' when estat = wr1 else '1'; -- Alt a la lectura, baix a l'escriptura. Això és el permis d'esctiptura. Caldria sincronitzar-lo amb el clock.
 -- AQUI FALTA UNA MANERA INTELIGENT DE PENSAR COM SINCONITZAR L'ESCRIPTURA AMB EL RELLOTGE
+-- El cicle de rellotge del controlador son 20ns, mes que suficient per l'escriptura, que en necessita 10ns. Per tant amb dos estats (cicles)
+-- ja ho tindriem.
+	
+	process(clk)
+	begin
+		if rising_edge(clk) then
+		 case estat is
+			when wr0 =>
+				if(WR = '1') then
+					estat <= wr1;
+					permiso_escritura <= '1';
+				else estat <= wr0;
+				end if;
+			when others =>
+				estat <= wr0;
+		 end case;
+		end if;
+	end process;
 end comportament;
