@@ -8,7 +8,11 @@ ENTITY proc IS
           addr_m    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           data_wr   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           wr_m      : OUT STD_LOGIC;
-          word_byte : OUT STD_LOGIC);
+          word_byte : OUT STD_LOGIC;
+			 HEX0 	  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			 HEX1 	  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			 HEX2 	  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			 HEX3 	  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0));
 END proc;
 
 
@@ -28,6 +32,16 @@ ARCHITECTURE Structure OF proc IS
 	 signal in_d : std_logic;
 	 signal ins_dad : std_logic;
 	 
+	 
+	COMPONENT driver7Segmentos IS
+		PORT (
+			codiNum : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			HEX0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			HEX1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			HEX2 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			HEX3 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0));
+	 END COMPONENT;	
+		 
 	 COMPONENT datapath IS
     PORT (clk    : IN STD_LOGIC;
           op       : IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
@@ -68,6 +82,13 @@ BEGIN
     -- Aqui iria la declaracion del "mapeo" (PORT MAP) de los nombres de las entradas/salidas de los componentes
     -- En los esquemas de la documentacion a la instancia del DATAPATH le hemos llamado e0 y a la de la unidad de control le hemos llamado c0
 
+	driver : driver7Segmentos PORT MAP (
+		codiNum => pc, 
+		HEX0 => HEX0, 
+		HEX1 => HEX1, 
+		HEX2 => HEX2, 
+		HEX3 => HEX3);
+	
 	e0 : datapath PORT MAP (
 		clk => clk,
 		op => op,
