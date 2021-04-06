@@ -27,14 +27,16 @@ architecture comportament of SRAMController is
 type estat_t is (wr0, wr1);
 signal estat: estat_t;
 
-signal dataRD : std_logic_vector(15 downto 0);
-signal dataWR : std_logic_vector(15 downto 0);
-signal permiso_escritura : std_logic := '0';
+signal dataRD 		: std_logic_vector(15 downto 0);
+signal dataWR 		: std_logic_vector(15 downto 0);
+signal espera 		: std_logic := '0';
+signal escrivint 	: std_logic := '0';
+-- signal ctrl 		: std_logic := '0';
 
 begin
 
 -- senyals de lectura i escriptura a memoria.
-	dataWR <= "ZZZZZZZZ" & dataToWrite(7 DOWNTO 0) when byte_m = '1' else dataToWrite; -- Si byte o word
+	dataWR <= dataToWrite when byte_m = '1' else "ZZZZZZZZ" & dataToWrite(7 DOWNTO 0) when address(0) = '0' else dataToWrite(7 DOWNTO 0) & "ZZZZZZZZ"; -- Si byte o word
 	dataReaded <= SRAM_DQ when byte_m = '0'  
 							else std_logic_vector(resize(signed(SRAM_DQ(7 DOWNTO 0)),16)) when address(0) = '1' and byte_m = '1'
 							else std_logic_vector(resize(signed(SRAM_DQ(15 DOWNTO 8)),16)); -- Agafem una part o l'alta del que ens dona la mem
@@ -52,18 +54,32 @@ begin
 -- El cicle de rellotge del controlador son 20ns, mes que suficient per l'escriptura, que en necessita 10ns. Per tant amb dos estats (cicles)
 -- ja ho tindriem.
 	
-	process(clk)
+	
+	-- AIXO CAL REVISAR. SEGUR QUE POT SER MÉS SENZILL.
+	process(WR,clk)  -- No podem fer dos process diferents per WR i clk perque canvien a l'hora.
 	begin
-		if rising_edge(clk) then
+		if (WR = '0') then
+			espera <= '1';   -- Per fer una espera d'un cicle. Si no la fem podriem començar a escriure por ahí random.
+			estat <= wr0;
+			-- ctrl <= '0';  
+		elsif rising_edge(clk) then   -- Si hem entrat al process pq ha canviat el WR no hem d'executar això. 
 		 case estat is
 			when wr0 =>
-				if(WR = '1') then
+				if (WR = '1' and espera = '1') then
+					espera <= '0'; --s'acabó fer el vago.
+					-- ctrl <= '1';
+				elsif(WR = '1' and espera = '0') then   -- Només pot passar si s'ha fet el cicle d'espera
 					estat <= wr1;
-					permiso_escritura <= '1';
-				else estat <= wr0;
+					-- escrivint <= '1';
+					-- permiso_escritura <= '0'; -- ens quedarem en aquest estat fins que baixi la senyal d'escriptura.
 				end if;
 			when others =>
-				estat <= wr0;
+				estat <= estat;
+--				if (escrivint = '1') then --ja hem escrit. nomes cal un cicle.
+--					estat <= wr1;
+--				else 
+--					estat <= wr0;
+--				end if;
 		 end case;
 		end if;
 	end process;
