@@ -38,7 +38,7 @@ architecture comportament of test_sisa is
    signal reset_ram    : std_logic := '0';
    signal reset_proc   : std_logic := '1';
    signal we               : std_logic;
-   signal byte_m           : std_logic;
+   signal byte_m           : std_logic;	
 	
 begin
    
@@ -48,8 +48,7 @@ begin
          clk        => clk,
          boot       => reset_proc,
          datard_m   => rd_data,
-         addr_m     => addr,
-         
+         addr_m     => addr,  
          data_wr     => wr_data,
          wr_m       => we,
          word_byte  => byte_m

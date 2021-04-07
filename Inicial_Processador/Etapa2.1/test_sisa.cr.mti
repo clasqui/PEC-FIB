@@ -1,12 +1,13 @@
-Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/test_sisa.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/test_sisa.vhd
+Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/alu.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/alu.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity test_sisa
--- Compiling architecture comportament of test_sisa
+-- Loading package NUMERIC_STD
+-- Compiling entity alu
+-- Compiling architecture Structure of alu
 
-} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/multi.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/multi.vhd
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/multi.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/multi.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -14,16 +15,19 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity multi
 -- Compiling architecture Structure of multi
 
-} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/datapath.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/datapath.vhd
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/package_timing.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/package_timing.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity datapath
--- Compiling architecture Structure of datapath
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package std_logic_textio
+-- Compiling package package_timing
+-- Compiling package body package_timing
+-- Loading package package_timing
 
-} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/control_l.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/control_l.vhd
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/control_l.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/control_l.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -32,15 +36,7 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity control_l
 -- Compiling architecture Structure of control_l
 
-} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/proc.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/proc.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity proc
--- Compiling architecture Structure of proc
-
-} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/unidad_control.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/unidad_control.vhd
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/unidad_control.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/unidad_control.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -51,28 +47,7 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity unidad_control
 -- Compiling architecture Structure of unidad_control
 
-} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/test_rom.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/test_rom.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity test_rom
--- Compiling architecture test of test_rom
-
-} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/memory.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/memory.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Loading package std_logic_textio
--- Compiling entity memory
--- Compiling architecture comportament of memory
-
-} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/regfile.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/regfile.vhd
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/regfile.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/regfile.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -83,13 +58,95 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity regfile
 -- Compiling architecture Structure of regfile
 
-} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/alu.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/alu.vhd
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/test_sisa.vhd {2 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/test_sisa.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity test_sisa
+-- Compiling architecture comportament of test_sisa
+** Warning: [4] Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/test_sisa.vhd(66): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/SRAMController.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/SRAMController.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity SRAMController
+-- Compiling architecture comportament of SRAMController
+
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/datapath.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/datapath.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity alu
--- Compiling architecture Structure of alu
+-- Compiling entity datapath
+-- Compiling architecture Structure of datapath
+
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/async_64Kx16.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/async_64Kx16.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package std_logic_textio
+-- Loading package package_timing
+-- Loading package package_utility
+-- Compiling entity async_64Kx16
+-- Compiling architecture behave_arch of async_64Kx16
+
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/Reductora.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/Reductora.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity Reductora
+-- Compiling architecture Structure of Reductora
+
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/proc.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/proc.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity proc
+-- Compiling architecture Structure of proc
+
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/MemoryController.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/MemoryController.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity MemoryController
+-- Compiling architecture comportament of MemoryController
+
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/package_utility.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/package_utility.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package std_logic_textio
+-- Compiling package package_utility
+-- Compiling package body package_utility
+-- Loading package package_utility
+
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/sisa.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/sisa.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity sisa
+-- Compiling architecture Structure of sisa
 
 } {} {}}

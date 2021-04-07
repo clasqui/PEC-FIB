@@ -22,9 +22,9 @@ END control_l;
 ARCHITECTURE Structure OF control_l IS
 
 signal PC	: std_LOGIC_VECTOR(15 downto 0);
-signal arit	: std_LOGIC_VECTOR(2 downto 0);
-signal cmp	: std_LOGIC_VECTOR(2 downto 0);
-signal mult	: std_LOGIC_VECTOR(2 downto 0);
+signal arit	: std_LOGIC_VECTOR(4 downto 0);
+signal cmp	: std_LOGIC_VECTOR(4 downto 0);
+signal mult	: std_LOGIC_VECTOR(4 downto 0);
 
 BEGIN
 
@@ -82,7 +82,7 @@ BEGIN
 		"XXXXX" when "110", -- -
 		"XXXXX" when "111"; -- -
 		
-	with ir(5 downto 3) select mul <=
+	with ir(5 downto 3) select mult <=
 		"01111" when "000", -- MUL
 		"10000" when "001", -- MULH
 		"10001" when "010", -- MULHU
@@ -98,16 +98,19 @@ BEGIN
 		"0000"&ir(8) 	when "0101", -- MOVHI i MOVI
 		arit 				when "0000", -- Aritmeticologiques.
 		cmp				when "0001", -- Comparacions.
-		mult				when "1000"; -- Multiplicacions i divisions
+		mult				when "1000", -- Multiplicacions i divisions
 		"00110"			when others; -- ADDI, Loads, Stores i altres coses que passin per aquí.
 		
 	 -- ATENCIO QUE CAL LA SENYAL Rb_N !!!!
-	 Rb_N <= ;
+	 with ir(15 downto 12) select Rb_N <=
+		'1' when ("0010" or "0101" or "0011" or "0100" or "1101" or "1110"),   -- Ocasions en les que hi d'anar un immediat
+		'0' when others; 
 	 
-	 addr_d <= ir(11 downto 9);
+	 addr_d <= ir(11 downto 9);  -- Rd sempre està al mateix lloc
 	 addr_a <= ir(11 downto 9) when ir(15 downto 12) = "0101"
-					else ir(8 downto 6);
-	 addr_b <= ir(11 downto 9);
+					else ir(8 downto 6); 
+	 addr_b <= ir(2 downto 0) when ir(15 downto 12) = "0000" or ir(15 downto 12) = "0001" or ir(15 downto 12) = "1000" -- Esta al darrere en arit. cmp. i mul.
+					else ir(11 downto 9);  -- Rb canvia de lloc.
 	 
 	 -- wrd <= ir(12);
 	 wr_m <= '1' when ir(12) = '0' else '0';

@@ -81,10 +81,10 @@ pro0 : proc
       data_wr   => wr_data,
       wr_m      => we,
       word_byte => byte_m,
-		HEX0 => HEX0, 
-		HEX1 => HEX1, 
-		HEX2 => HEX2, 
-		HEX3 => HEX3
+		HEX0 		 => HEX0, 
+		HEX1 		 => HEX1, 
+		HEX2		 => HEX2, 
+		HEX3		 => HEX3
 	);
 
 mem0 : MemoryController
@@ -108,7 +108,7 @@ mem0 : MemoryController
 	
 -- Amb tres cicles ja tenim escrit. De fet podriem escriure en 2 segurament.
 red0 : Reductora
-	generic map (reductora => 8)
+	generic map (reductora => 4)
 	port map (CLOCK_50 => CLOCK_50, Rellotge => clk_proc);
 
 END Structure;

@@ -9,16 +9,16 @@ Z1 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
 Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
 Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
 Z4 dZ:\UPC\PEC\PEC-FIB\Inicial_Processador\Etapa2.1
-Z5 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/alu.vhd
-Z6 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/alu.vhd
+Z5 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/alu.vhd
+Z6 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/alu.vhd
 l0
 L5
 V342dKO42oZ]KSj]gR757T2
 Z7 OV;C;10.1d;51
 32
-Z8 !s108 1616278883.593000
-Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/alu.vhd|
-Z10 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/alu.vhd|
+Z8 !s108 1616861589.891000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/alu.vhd|
+Z10 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/alu.vhd|
 Z11 o-work work -2002 -explicit -O0
 Z12 tExplicit 1
 !s100 g[G[>>`H=nigkoYe<eeWV2
@@ -40,22 +40,67 @@ R11
 R12
 !s100 ]@:]]NE<^4bho07]n9hPM3
 !i10b 1
+Easync_64kx16
+Z13 w1616861312
+Z14 DPx4 work 15 package_utility 0 22 abW^FY0na:iFW@RR:Fofg0
+Z15 DPx4 work 14 package_timing 0 22 ]QljGNTG0EJQ?X:f3a>TX1
+Z16 DPx4 ieee 16 std_logic_textio 0 22 ?Il0a149GV276[?[UMDWh2
+Z17 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z18 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+R2
+R3
+R4
+Z19 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/async_64Kx16.vhd
+Z20 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/async_64Kx16.vhd
+l0
+L22
+Vz7=:g106kSL^?zZa1_k1i2
+R7
+32
+Z21 !s108 1616861590.305000
+Z22 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/async_64Kx16.vhd|
+Z23 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/async_64Kx16.vhd|
+R11
+R12
+!s100 >mUGlnEO[;>2_SQSo6jO>0
+!i10b 1
+Abehave_arch
+R14
+R15
+R16
+R17
+R18
+R2
+R3
+DEx4 work 12 async_64kx16 0 22 z7=:g106kSL^?zZa1_k1i2
+l86
+L50
+VAJ7N2U7Oz?8b=Rk:ei_Pn2
+R7
+32
+R21
+R22
+R23
+R11
+R12
+!s100 ;PMTN0Wle:CWX6W[Y:e7_2
+!i10b 1
 Econtrol_l
-Z13 w1616278858
+Z24 w1616278858
 R1
 R2
 R3
 R4
-Z14 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/control_l.vhd
-Z15 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/control_l.vhd
+Z25 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/control_l.vhd
+Z26 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/control_l.vhd
 l0
 L5
 VLT2J2dSfT6[?TbJe1J;7P2
 R7
 32
-Z16 !s108 1616278884.392000
-Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/control_l.vhd|
-Z18 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/control_l.vhd|
+Z27 !s108 1616861590.658000
+Z28 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/control_l.vhd|
+Z29 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/control_l.vhd|
 R11
 R12
 !s100 AK;ZYlc^akan@LIUh11oH0
@@ -70,29 +115,29 @@ L21
 V[2UgTFYZokd5EBKah0>Hl2
 R7
 32
-R16
-R17
-R18
+R27
+R28
+R29
 R11
 R12
 !s100 SN=LQk>YaP0igB4BFJfAk0
 !i10b 1
 Edatapath
-Z19 w1616010364
+Z30 w1616010364
 R1
 R2
 R3
 R4
-Z20 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/datapath.vhd
-Z21 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/datapath.vhd
+Z31 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/datapath.vhd
+Z32 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/datapath.vhd
 l0
 L5
 V<KkCMdkNEo@PzeR[Uaa_;2
 R7
 32
-Z22 !s108 1616278884.949000
-Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/datapath.vhd|
-Z24 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/datapath.vhd|
+Z33 !s108 1616861590.958000
+Z34 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/datapath.vhd|
+Z35 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/datapath.vhd|
 R11
 R12
 !s100 n`2^O48n@_8L7ITPSc73W1
@@ -107,39 +152,39 @@ L22
 V61<DG?4Cl_n?3PJ>c@1SG1
 R7
 32
-R22
-R23
-R24
+R33
+R34
+R35
 R11
 R12
 !s100 O@zoRWD8WTe^Xc8W;K76<1
 !i10b 1
 Ememory
-R19
-Z25 DPx4 ieee 16 std_logic_textio 0 22 ?Il0a149GV276[?[UMDWh2
-Z26 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
-Z27 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+R30
+R16
+R17
+R18
 R2
 R3
 R4
-Z28 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/memory.vhd
-Z29 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/memory.vhd
+Z36 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/memory.vhd
+Z37 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/memory.vhd
 l0
 L8
 VezVj_W<TQA0lnlE844kA:3
 R7
 32
-Z30 !s108 1616278885.445000
-Z31 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/memory.vhd|
-Z32 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/memory.vhd|
+Z38 !s108 1616278885.445000
+Z39 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/memory.vhd|
+Z40 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/memory.vhd|
 R11
 R12
 !s100 6`[ncjZncnKIIQlJ;Qz4a2
 !i10b 1
 Acomportament
-R25
-R26
-R27
+R16
+R17
+R18
 R2
 R3
 DEx4 work 6 memory 0 22 ezVj_W<TQA0lnlE844kA:3
@@ -148,28 +193,67 @@ L20
 VPkAg]G57>]66WXLfTgc2g1
 R7
 32
-R30
-R31
-R32
+R38
+R39
+R40
 R11
 R12
 !s100 ^2]_]@0E]lMjXY_dJce3b3
 !i10b 1
-Emulti
-Z33 w1615993651
+Ememorycontroller
+Z41 w1616781428
+R18
+R17
 R2
 R3
 R4
-Z34 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/multi.vhd
-Z35 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/multi.vhd
+Z42 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/MemoryController.vhd
+Z43 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/MemoryController.vhd
+l0
+L6
+VPLoMf0oj;RB<P=VUa6jkS2
+R7
+32
+Z44 !s108 1616861591.321000
+Z45 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/MemoryController.vhd|
+Z46 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/MemoryController.vhd|
+R11
+R12
+!s100 :K4;^k=AgYVOh=G_LZCm[3
+!i10b 1
+Acomportament
+R18
+R17
+R2
+R3
+DEx4 work 16 memorycontroller 0 22 PLoMf0oj;RB<P=VUa6jkS2
+l45
+L23
+V5KF80SM5HhN35NRAYnl?B2
+R7
+32
+R44
+R45
+R46
+R11
+R12
+!s100 Vi`5=DRYQlIhnM2SID6:50
+!i10b 1
+Emulti
+Z47 w1615993651
+R2
+R3
+R4
+Z48 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/multi.vhd
+Z49 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/multi.vhd
 l0
 L4
 V14NBh5f7z`nUY<]C1Om_?2
 R7
 32
-Z36 !s108 1616278886.061000
-Z37 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/multi.vhd|
-Z38 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/multi.vhd|
+Z50 !s108 1616861591.681000
+Z51 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/multi.vhd|
+Z52 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/multi.vhd|
 R11
 R12
 !s100 Vdh>l=a_@F>fVk^7NLZ710
@@ -183,28 +267,111 @@ L19
 VKe=nH<He@TH;7QP2Y_d873
 R7
 32
-R36
-R37
-R38
+R50
+R51
+R52
 R11
 R12
 !s100 gLnZ69_4^n:BJA2nhbe7?0
 !i10b 1
+Ppackage_timing
+R16
+R18
+R17
+R2
+R3
+R13
+R4
+Z53 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/package_timing.vhd
+Z54 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/package_timing.vhd
+l0
+L17
+V]QljGNTG0EJQ?X:f3a>TX1
+R7
+32
+Z55 !s108 1616861592.107000
+Z56 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/package_timing.vhd|
+Z57 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/package_timing.vhd|
+R11
+R12
+!s100 7[5MEfJ`HFPK=zP7G66<i1
+!i10b 1
+Bbody
+R15
+R16
+R18
+R17
+R2
+R3
+l0
+L59
+VfeQXi[8kmeXD5NlH1A^G91
+R7
+32
+R55
+R56
+R57
+R11
+R12
+nbody
+!s100 [;aAVGm330N:B:ZYX350a1
+!i10b 1
+Ppackage_utility
+R16
+R17
+R2
+R3
+R13
+R4
+Z58 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/package_utility.vhd
+Z59 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/package_utility.vhd
+l0
+L15
+VabW^FY0na:iFW@RR:Fofg0
+R7
+32
+b1
+Z60 !s108 1616861592.470000
+Z61 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/package_utility.vhd|
+Z62 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/package_utility.vhd|
+R11
+R12
+!s100 n9b5dM?H5oLDz7geaYPkN1
+!i10b 1
+Bbody
+R14
+R16
+R17
+R2
+R3
+l0
+L22
+V1dAT5_E6[=Q4>0kGEF5@]3
+R7
+32
+R60
+R61
+R62
+R11
+R12
+nbody
+!s100 =i4<XdWXU:J]Ih;Vo<NgP3
+!i10b 1
 Eproc
-R19
+R30
 R2
 R3
 R4
-Z39 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/proc.vhd
-Z40 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/proc.vhd
+Z63 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/proc.vhd
+Z64 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/proc.vhd
 l0
 L4
 VE07>PX[gFbcoX5M:Gg6jG0
 R7
 32
-Z41 !s108 1616278886.570000
-Z42 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/proc.vhd|
-Z43 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/proc.vhd|
+Z65 !s108 1616861592.790000
+Z66 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/proc.vhd|
+Z67 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/proc.vhd|
 R11
 R12
 !s100 =[42X6i88AZ<:DNoAz`4`2
@@ -218,38 +385,77 @@ L15
 VK`^9X4>?C4ojnCAcT2DkE1
 R7
 32
-R41
-R42
-R43
+R65
+R66
+R67
 R11
 R12
 !s100 1zJ@NiFjSP3UE`@3YbZkz1
 !i10b 1
+Ereductora
+Z68 w1616854703
+R18
+R17
+R2
+R3
+R4
+Z69 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/Reductora.vhd
+Z70 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/Reductora.vhd
+l0
+L8
+VWGdSb1<gZSbH77g>IhB[f0
+R7
+32
+Z71 !s108 1616861593.075000
+Z72 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/Reductora.vhd|
+Z73 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/Reductora.vhd|
+R11
+R12
+!s100 U^U9ZozAhZid78eG?gX<W3
+!i10b 1
+Astructure
+R18
+R17
+R2
+R3
+DEx4 work 9 reductora 0 22 WGdSb1<gZSbH77g>IhB[f0
+l20
+L18
+V8J4o^Vf5Sa=PmnTNjgaNL2
+R7
+32
+R71
+R72
+R73
+R11
+R12
+!s100 GkQ1k_jLE6NiFWaooQk6J1
+!i10b 1
 Eregfile
-R19
-R26
-R27
+R30
+R17
+R18
 R1
 R2
 R3
 R4
-Z44 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/regfile.vhd
-Z45 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/regfile.vhd
+Z74 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/regfile.vhd
+Z75 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/regfile.vhd
 l0
 L6
 VB9TYiE64XkLY?K`=7b@:X1
 R7
 32
-Z46 !s108 1616278887.106000
-Z47 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/regfile.vhd|
-Z48 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/regfile.vhd|
+Z76 !s108 1616861593.360000
+Z77 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/regfile.vhd|
+Z78 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/regfile.vhd|
 R11
 R12
 !s100 U^X[blXaCF;=PJALPN[Dl0
 !i10b 1
 Astructure
-R26
-R27
+R17
+R18
 R1
 R2
 R3
@@ -259,37 +465,117 @@ L18
 VN]3:AP`jDDiX5B6ESjeg12
 R7
 32
-R46
-R47
-R48
+R76
+R77
+R78
 R11
 R12
 !s100 ?f;NlFK9?bc7GOHCiBGXU0
 !i10b 1
-Etest_rom
-R19
-R27
-R26
+Esisa
+Z79 w1616860829
+R18
+R17
 R2
 R3
 R4
-Z49 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/test_rom.vhd
-Z50 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/test_rom.vhd
+Z80 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/sisa.vhd
+Z81 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/sisa.vhd
+l0
+L6
+V]?dIDgGAC;a^66WmSeQE?1
+R7
+32
+Z82 !s108 1616861593.647000
+Z83 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/sisa.vhd|
+Z84 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/sisa.vhd|
+R11
+R12
+!s100 nilQ`j3cP3H9IL5fb^dZN0
+!i10b 1
+Astructure
+R18
+R17
+R2
+R3
+DEx4 work 4 sisa 0 22 ]?dIDgGAC;a^66WmSeQE?1
+l64
+L18
+V03@[joNSk2QzGKBVoGY460
+R7
+32
+R82
+R83
+R84
+R11
+R12
+!s100 ZEBTeJe8JXV]W8j4Sd6j=0
+!i10b 1
+Esramcontroller
+Z85 w1616859893
+R1
+R17
+R18
+R2
+R3
+R4
+Z86 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/SRAMController.vhd
+Z87 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/SRAMController.vhd
+l0
+L7
+Vjjn044l<>f1hjRRH94@o;0
+R7
+32
+Z88 !s108 1616861593.965000
+Z89 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/SRAMController.vhd|
+Z90 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/SRAMController.vhd|
+R11
+R12
+!s100 <A;SB0z593Wa9j_X_TV5I2
+!i10b 1
+Acomportament
+R1
+R17
+R18
+R2
+R3
+DEx4 work 14 sramcontroller 0 22 jjn044l<>f1hjRRH94@o;0
+l30
+L25
+Vb72FAcld^?Gnd6a]bTFPY0
+R7
+32
+R88
+R89
+R90
+R11
+R12
+!s100 HeiN1P<HR1l8VKn^SGg3M0
+!i10b 1
+Etest_rom
+R30
+R18
+R17
+R2
+R3
+R4
+Z91 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/test_rom.vhd
+Z92 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/test_rom.vhd
 l0
 L9
 VD9fodWGHm4i^UA=oK=`;80
 R7
 32
-Z51 !s108 1616278887.854000
-Z52 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/test_rom.vhd|
-Z53 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/test_rom.vhd|
+Z93 !s108 1616278887.854000
+Z94 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/test_rom.vhd|
+Z95 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/test_rom.vhd|
 R11
 R12
 !s100 R?3ldFXTVHfb;`LC1n9SY0
 !i10b 1
 Atest
-R27
-R26
+R18
+R17
 R2
 R3
 DEx4 work 8 test_rom 0 22 D9fodWGHm4i^UA=oK=`;80
@@ -298,28 +584,28 @@ L11
 Vef8E`oVSP3;4mQESTBnZ72
 R7
 32
-R51
-R52
-R53
+R93
+R94
+R95
 R11
 R12
 !s100 ;0j7a4lSedR7I>bdU]3[13
 !i10b 1
 Etest_sisa
-R19
+R13
 R2
 R3
 R4
-Z54 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/test_sisa.vhd
-Z55 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/test_sisa.vhd
+Z96 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/test_sisa.vhd
+Z97 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/test_sisa.vhd
 l0
 L5
 VkAdhfn89W5`mY_=KPlfV]3
 R7
 32
-Z56 !s108 1616278888.521000
-Z57 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/test_sisa.vhd|
-Z58 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/test_sisa.vhd|
+Z98 !s108 1616861594.281000
+Z99 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/test_sisa.vhd|
+Z100 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/test_sisa.vhd|
 R11
 R12
 !s100 688X_8OZ0BkG::B3fT5kf3
@@ -328,28 +614,28 @@ Acomportament
 R2
 R3
 DEx4 work 9 test_sisa 0 22 kAdhfn89W5`mY_=KPlfV]3
-l43
+l64
 L8
-VLd_@hjJdKdB_B:Z451_3;1
-!s100 ]b?:JEO9n;bIzX3F>gCKB0
+V576VBR9h2?HGXLVMC^Jh03
+!s100 XXGF@>=RbSKKJ5V169il^3
 R7
 32
-R56
-R57
-R58
+R98
+R99
+R100
 R11
 R12
 !i10b 1
 Eunidad_control
-R33
-R26
-R27
+R47
+R17
+R18
 R1
 R2
 R3
 R4
-Z59 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/unidad_control.vhd
-Z60 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/unidad_control.vhd
+Z101 8Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/unidad_control.vhd
+Z102 FZ:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/unidad_control.vhd
 l0
 L6
 VckeOI?8oP7Uk^obI8;0a[3
@@ -357,27 +643,27 @@ VckeOI?8oP7Uk^obI8;0a[3
 R7
 32
 !i10b 1
-Z61 !s108 1616278889.029000
-Z62 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/unidad_control.vhd|
-Z63 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.1/unidad_control.vhd|
+Z103 !s108 1616861594.582000
+Z104 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/unidad_control.vhd|
+Z105 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa2.2/unidad_control.vhd|
 R11
 R12
 Astructure
-R26
-R27
+R17
+R18
 R1
 R2
 R3
-Z64 DEx4 work 14 unidad_control 0 22 ckeOI?8oP7Uk^obI8;0a[3
+Z106 DEx4 work 14 unidad_control 0 22 ckeOI?8oP7Uk^obI8;0a[3
 l72
 L24
-Z65 VEXe42OgXQoz`C>Jz2=KM11
-Z66 !s100 gAYN6?;43X?[c[UdYP4033
+Z107 VEXe42OgXQoz`C>Jz2=KM11
+Z108 !s100 gAYN6?;43X?[c[UdYP4033
 R7
 32
 !i10b 1
-R61
-R62
-R63
+R103
+R104
+R105
 R11
 R12

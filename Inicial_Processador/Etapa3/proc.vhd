@@ -21,7 +21,7 @@ ARCHITECTURE Structure OF proc IS
     -- Aqui iria la declaracion de las entidades que vamos a usar
     -- Usaremos la palabra reservada COMPONENT ...
     -- Tambien crearemos los cables/buses (signals) necesarios para unir las entidades
-	 signal op: std_logic_vector(1 downto 0);
+	 signal op: std_logic_vector(4 downto 0);
 	 signal wrd: std_logic;
 	 signal addr_a: std_lOGIC_VECTOR(2 downto 0);
 	 signal addr_d: std_logic_vector(2 downto 0);
@@ -31,6 +31,7 @@ ARCHITECTURE Structure OF proc IS
 	 signal pc : std_logic_vector(15 downto 0);
 	 signal in_d : std_logic;
 	 signal ins_dad : std_logic;
+	 signal Rb_N : std_LOGIC;
 	 
 	 
 	COMPONENT driver7Segmentos IS
@@ -56,7 +57,8 @@ ARCHITECTURE Structure OF proc IS
           pc       : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           in_d     : IN  STD_LOGIC;
           addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+          data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 Rb_N		 : IN STD_LOGIC);
 	END COMPONENT;
 	
 	COMPONENT unidad_control IS
@@ -74,7 +76,8 @@ ARCHITECTURE Structure OF proc IS
           in_d      : OUT STD_LOGIC;
           immed_x2  : OUT STD_LOGIC;
           wr_m      : OUT STD_LOGIC;
-          word_byte : OUT STD_LOGIC);
+          word_byte : OUT STD_LOGIC;
+			 Rb_N		  : OUT STD_LOGIC);
 END COMPONENT;
 
 BEGIN
@@ -103,7 +106,8 @@ BEGIN
 		in_d => in_d,
 		data_wr => data_wr,
 		immed_x2 => immed_x2,
-		addr_m => addr_m
+		addr_m => addr_m,
+		Rb_N => Rb_N
 	);
 	
 	c0 : unidad_control PORT MAP (
@@ -121,6 +125,7 @@ BEGIN
 		in_d => in_d,
 		wr_m => wr_m,
 		word_byte => word_byte,
-		immed_x2 => immed_x2
+		immed_x2 => immed_x2,
+		Rb_N => Rb_N
 	);
 END Structure;
