@@ -6,6 +6,7 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE IEEE.std_logic_arith.ALL;
 USE ieee.std_logic_unsigned.ALL;
+use ieee.numeric_std.all;
 
 ENTITY Reductora IS
 GENERIC (reductora : integer := 1);   -- Per defecte no hi ha reducciÃ³.
@@ -20,7 +21,7 @@ ARCHITECTURE Structure OF Reductora IS
 
 	type estat_t is (BAIX, ALT);
 
-	signal contador : integer := reductora-1;
+	signal contador : std_logic_vector(63 downto 0) := std_logic_vector(to_unsigned(reductora-1, 64));
 	signal estat : estat_t := BAIX;
 	signal pols : std_logic;
 BEGIN
@@ -30,7 +31,7 @@ BEGIN
 	process(CLOCK_50)
 	begin
 		if contador = 0 then
-			contador <= reductora-1;
+			contador <= std_logic_vector(to_unsigned(reductora-1, 64));
 			if estat = BAIX then
 				estat <= ALT;
 			else
