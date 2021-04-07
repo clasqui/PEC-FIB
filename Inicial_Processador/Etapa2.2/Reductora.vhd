@@ -21,15 +21,16 @@ ARCHITECTURE Structure OF Reductora IS
 	type estat_t is (BAIX, ALT);
 
 	signal contador : integer := reductora;
-	signal estat : estat_t := BAIX;
+	signal estat : estat_t := ALT;
 	signal pols : std_logic;
 BEGIN
 	pols <= '1' when contador = 0 else '0';
 	
+	
 	process(CLOCK_50)
 	begin
 		if contador = 0 then
-			contador <= reductora;
+			contador <= reductora-1;
 		else 
 			contador <= contador - 1;
 		end if;
