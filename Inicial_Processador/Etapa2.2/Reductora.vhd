@@ -31,7 +31,7 @@ BEGIN
 	
 	process(CLOCK_50)
 	begin
-	if rising_edge(CLOCK_50) then
+	if rising_edge(CLOCK_50) then   -- PERQUÈ NOMÉS FUNCIONA A LA PLACA SI HI HA EL IF RISING EDGE AQUEST ??!!
 			if contador = 0 then
 	--			if estat = BAIX then
 	--				estat <= ALT;
