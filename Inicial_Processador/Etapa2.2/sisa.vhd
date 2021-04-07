@@ -108,7 +108,7 @@ mem0 : MemoryController
 	
 -- Amb tres cicles ja tenim escrit. De fet podriem escriure en 2 segurament.
 red0 : Reductora
-	generic map (reductora => 8)
+	generic map (reductora => 4)
 	port map (CLOCK_50 => CLOCK_50, Rellotge => clk_proc);
 
 END Structure;
