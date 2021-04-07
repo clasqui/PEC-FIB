@@ -31,17 +31,19 @@ BEGIN
 	
 	process(CLOCK_50)
 	begin
-		if contador = 0 then
---			if estat = BAIX then
---				estat <= ALT;
---			else
---				estat <= BAIX;
---			end if;
-			rellotge_intern <= not rellotge_intern;
-			contador <= std_logic_vector(to_unsigned(reductora-1, 64));
-		else 
-			contador <= contador - 1;
-		end if;
+	if rising_edge(CLOCK_50) then
+			if contador = 0 then
+	--			if estat = BAIX then
+	--				estat <= ALT;
+	--			else
+	--				estat <= BAIX;
+	--			end if;
+				rellotge_intern <= not rellotge_intern;
+				contador <= std_logic_vector(to_unsigned(reductora-1, 64));
+			else 
+				contador <= contador - 1;
+			end if;
+	end if;
 	end process;
 	
 	--rellotge <= '1' when estat = ALT else '0';
