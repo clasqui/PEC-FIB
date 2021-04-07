@@ -1,6 +1,6 @@
--- Ã‰s el rellotge de la tarea7 convertit en una reductora.
+-- Ãƒâ€°s el rellotge de la tarea7 convertit en una reductora.
 
--- SERIA ESSENCIAL CANVIAR AIXÃ’ PER USAR EL PLL DE LA PLACA I NO UN CONTADOR PERO DE MOMENT TENIM AIXÃ’.
+-- SERIA ESSENCIAL CANVIAR AIXÃƒâ€™ PER USAR EL PLL DE LA PLACA I NO UN CONTADOR PERO DE MOMENT TENIM AIXÃƒâ€™.
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -9,7 +9,7 @@ USE ieee.std_logic_unsigned.ALL;
 use ieee.numeric_std.all;
 
 ENTITY Reductora IS
-GENERIC (reductora : integer := 1);   -- Per defecte no hi ha reducciÃ³.
+GENERIC (reductora : integer := 1);   -- Per defecte no hi ha reducciÃƒÂ³.
 PORT (
 		CLOCK_50 : IN std_logic;
 		rellotge : OUT std_logic
@@ -31,12 +31,12 @@ BEGIN
 	process(CLOCK_50)
 	begin
 		if contador = 0 then
-			contador <= std_logic_vector(to_unsigned(reductora-1, 64));
 			if estat = BAIX then
 				estat <= ALT;
 			else
 				estat <= BAIX;
 			end if;
+			contador <= std_logic_vector(to_unsigned(reductora-1, 64));
 		else 
 			contador <= contador - 1;
 		end if;
@@ -44,7 +44,7 @@ BEGIN
 	
 	rellotge <= '1' when estat = ALT else '0';
 	
---	-- LÃ²gica d'estat
+--	-- LÃƒÂ²gica d'estat
 --	process (pols)
 --	begin
 --		if rising_edge(pols) then
