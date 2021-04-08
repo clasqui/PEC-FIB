@@ -124,7 +124,7 @@ BEGIN
 					else ir(11 downto 9);  -- Rb canvia de lloc.
 	 
 	 -- wrd <= ir(12);
-	 wr_m <= '1' when ir(12) = '0' else '0';
+	 wr_m <= '1' when ir(15 downto 12) = "0100" or ir(15 downto 12) = "1110" else '0';  -- Nomes els store han d'escriure memoria
 	 
 	 in_d <= '1' when ir(15 downto 12) = "0011" or ir(15 downto 12) = "1101" else '0';
 	 

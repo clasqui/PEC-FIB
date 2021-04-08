@@ -28,15 +28,15 @@ add wave -noupdate -radix hexadecimal /test_sisa/SoC/SRAM_WE_N
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/mem0/sram/dataReaded
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/mem0/sram/dataToWrite
 add wave -noupdate -divider Datapath
-add wave -noupdate /test_sisa/SoC/pro0/e0/a
-add wave -noupdate /test_sisa/SoC/pro0/e0/b
-add wave -noupdate /test_sisa/SoC/pro0/e0/Rb_N
-add wave -noupdate /test_sisa/SoC/pro0/e0/x
-add wave -noupdate /test_sisa/SoC/pro0/e0/y
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/a
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/b
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/Rb_N
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/x
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/y
 add wave -noupdate -divider Alu
-add wave -noupdate /test_sisa/SoC/pro0/e0/alu0/x
-add wave -noupdate /test_sisa/SoC/pro0/e0/alu0/y
-add wave -noupdate /test_sisa/SoC/pro0/e0/alu0/w
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/alu0/x
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/alu0/y
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/alu0/w
 add wave -noupdate -divider {Banc de Registres}
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/reg0/wrd
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/reg0/d
@@ -63,4 +63,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {2191591 ps} {3340807 ps}
+WaveRestoreZoom {0 ps} {1149216 ps}
