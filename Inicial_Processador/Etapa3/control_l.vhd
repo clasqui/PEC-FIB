@@ -70,7 +70,8 @@ BEGIN
 		"00110" when "100", -- AND
 		"00111" when "101", -- SUB
 		"01000" when "110", -- SHA
-		"01001" when "111"; -- SHL
+		"01001" when "111", -- SHL
+		"XXXXX" when others; 
 		
 	with ir(5 downto 3) select cmp <=
 		"01010" when "000", -- CMPLT
@@ -80,7 +81,8 @@ BEGIN
 		"01101" when "100", -- CMPLTU
 		"01110" when "101", -- CMPLEU
 		"XXXXX" when "110", -- -
-		"XXXXX" when "111"; -- -
+		"XXXXX" when "111", -- -
+		"XXXXX" when others;
 		
 	with ir(5 downto 3) select mult <=
 		"01111" when "000", -- MUL
@@ -90,7 +92,8 @@ BEGIN
 		"10010" when "100", -- DIV
 		"10011" when "101", -- DIVU
 		"XXXXX" when "110", -- -
-		"XXXXX" when "111"; -- -
+		"XXXXX" when "111", -- -
+		"XXXXX" when others;
 	 
 
 -- Senyal op
@@ -102,9 +105,13 @@ BEGIN
 		"00110"			when others; -- ADDI, Loads, Stores i altres coses que passin per aquí.
 		
 	 -- ATENCIO QUE CAL LA SENYAL Rb_N !!!!
-	 with ir(15 downto 12) select Rb_N <=
-		'1' when ("0010" or "0101" or "0011" or "0100" or "1101" or "1110"),   -- Ocasions en les que hi d'anar un immediat
-		'0' when others; 
+	 Rb_N <= '0' when ir(15 downto 12) = "0010" 
+							or ir(15 downto 12) = "0101" 
+							or ir(15 downto 12) = "0011" 
+							or ir(15 downto 12) = "0100" 
+							or ir(15 downto 12) = "1101" 
+							or ir(15 downto 12) = "1110" 
+						else '1'; 
 	 
 	 addr_d <= ir(11 downto 9);  -- Rd sempre està al mateix lloc
 	 addr_a <= ir(11 downto 9) when ir(15 downto 12) = "0101"

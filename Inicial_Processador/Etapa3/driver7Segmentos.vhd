@@ -27,7 +27,8 @@ ARCHITECTURE Structure OF driver7Segmentos IS BEGIN
 		"1000110" when "1100",
 		"0100001" when "1101",
 		"0000110" when "1110",
-		"0001110" when "1111";
+		"0001110" when "1111",
+		"0000000" when others;
 		
 	with codiNum(7 DOWNTO 4) select HEX1 <=
 		"1000000" when "0000",
@@ -45,7 +46,8 @@ ARCHITECTURE Structure OF driver7Segmentos IS BEGIN
 		"1000110" when "1100",
 		"0100001" when "1101",
 		"0000110" when "1110",
-		"0001110" when "1111";
+		"0001110" when "1111",
+		"0000000" when others;
 		
 	with codiNum(11 DOWNTO 8) select HEX2 <=
 		"1000000" when "0000",
@@ -63,7 +65,8 @@ ARCHITECTURE Structure OF driver7Segmentos IS BEGIN
 		"1000110" when "1100",
 		"0100001" when "1101",
 		"0000110" when "1110",
-		"0001110" when "1111";
+		"0001110" when "1111",
+		"0000000" when others;
 		
 	with codiNum(15 DOWNTO 12) select HEX3 <=
 		"1000000" when "0000",
@@ -81,7 +84,8 @@ ARCHITECTURE Structure OF driver7Segmentos IS BEGIN
 		"1000110" when "1100",
 		"0100001" when "1101",
 		"0000110" when "1110",
-		"0001110" when "1111";
+		"0001110" when "1111",
+		"0000000" when others;
 	
 	
 	
