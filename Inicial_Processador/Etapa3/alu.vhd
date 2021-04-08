@@ -127,8 +127,8 @@ BEGIN
 		mult_baix when "01111", -- MUL
 		alt_sig when "10000", -- MULH
 		alt_unsig when "10001", -- MULHU
-		std_logic_vector(unsigned(x)/unsigned(y)) when "10010", -- DIV
-		std_LOGIC_VECTOR(signed(x)/signed(y)) when "10011", --DIVU
+		std_logic_vector(signed(x)/signed(y)) when "10010", -- DIV
+		std_LOGIC_VECTOR(unsigned(x)/unsigned(y)) when "10011", --DIVU
 		
 		(others=>'0') when others;	
 
