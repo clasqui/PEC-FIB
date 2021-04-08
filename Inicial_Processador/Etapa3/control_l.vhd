@@ -33,10 +33,14 @@ BEGIN
 	 --op <= "01" when ir(15 downto 12) = "0011" or ir(15 downto 12) = "0100" or ir(15 downto 12) = "1101" or ir(15 downto 12) = "1110"
 				--else "0"&ir(8);
 	
-	with ir(15 downto 12) select wrd <=
+	with ir(15 downto 12) select wrd <=      -- Marquem com a 1 els casos en els que s'esriu perque no hi hagi lios al implementar noves instructs
 		'1' when "0101", --	 MOVHI/MOVI
 		'1' when "0011", -- LD
 		'1' when "1101", -- LDB
+		'1' when "0000", -- aritmeticologiques
+		'1' when "0001", -- comparacions
+		'1' when "0010", -- ADDI
+		'1' when "1000", -- muls i divs
 		'0'when others; -- CASOS ST LD
 	
 -- CODIS D'OPERACIÓ
