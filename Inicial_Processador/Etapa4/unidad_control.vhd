@@ -19,15 +19,27 @@ ENTITY unidad_control IS
           immed_x2  : OUT STD_LOGIC;
           wr_m      : OUT STD_LOGIC;
           word_byte : OUT STD_LOGIC;
-			 Rb_N		  : OUT STD_LOGIC);
+			 Rb_N		  : OUT STD_LOGIC;
+			 z 		  : IN STD_LOGIC;
+			 aluout	  : IN STD_LOGIC_VECTOR(15 DOWNTO 0));
 END unidad_control;
 
 ARCHITECTURE Structure OF unidad_control IS
 
-    -- Aqui iria la declaracion de las entidades que vamos a usar
-    -- Usaremos la palabra reservada COMPONENT ...
-    -- Tambien crearemos los cables/buses (signals) necesarios para unir las entidades
-    -- Aqui iria la definicion del program counter
+type tknbr_t is (INI,PC_ACT,PC2,ALU_OUT,BR);
+
+signal ldpc: std_logic;
+signal nou_pc: std_logic_vector(15 downto 0);
+signal pc_saltat: std_logic_vector(15 downto 0);
+SIGNAL ir_actual: std_logic_vector(15 downto 0);
+signal ldpc_l : std_logic;
+signal wrd_l : std_logic;
+signal w_b : std_logic;
+signal wr_m_l : std_logic;
+signal ldir : std_logic;
+signal tknbr: tknbr_t := INI;
+signal jmp: tknbr_t;
+
 	 
 COMPONENT control_l IS
     PORT (ir   	  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -60,16 +72,6 @@ COMPONENT multi IS
          word_byte : OUT STD_LOGIC);
 END COMPONENT;
 
-signal ldpc: std_logic;
-signal nou_pc: std_logic_vector(15 downto 0);
-
-SIGNAL ir_actual: std_logic_vector(15 downto 0);
-
-signal ldpc_l : std_logic;
-signal wrd_l : std_logic;
-signal w_b : std_logic;
-signal wr_m_l : std_logic;
-signal ldir : std_logic;
 
 BEGIN
 
@@ -108,14 +110,34 @@ BEGIN
          word_byte => word_byte
 	 );
 	 
+	 -- Salts
+	jmp <= ALU_OUT when (ir_actual(2 downto 0) = "000" and z = '1') or -- JZ
+							 (ir_actual(2 downto 0) = "001" and z = '0') or -- JNZ
+							 (ir_actual(2 downto 0) = "011")				  or -- JMP
+							 (ir_actual(2 downto 0) = "100") else PC2;
+							 
+	tknbr <= INI when boot = '1' else  	 -- BOOT
+				PC_ACT when ldpc = '0' else -- NO ES CARREGA PC
+				BR when ir_actual(15 downto 12) = "0110" and (ir_actual(8) xor z) = '1' else -- HI HA UN BRANCH TAKEN 
+				jmp when ir_actual(15 downto 12) = "1010" else PC2;  -- Els jmp tenen una logica complicada que es calcula a part.
 	 
 	 -- Logica Program Counter
-	 nou_pc <= nou_pc+2 when rising_edge(clk) and ldpc = '1' and boot = '0' else
-				nou_pc when rising_edge(clk) and ldpc = '0' and boot = '0' else
-				x"C000" when rising_edge(clk) and boot = '1';
-				
-	 pc <= nou_pc;
 	 
+	 pc_saltat <= (nou_PC+2)+("0000000"&ir_actual(7 downto 0)&'0');   -- pc + 2 + ir[7:0]*2 
+	 
+	 with tknbr select nou_pc <=
+		x"C000"   when INI,
+		nou_pc 	 when PC_ACT,
+		nou_pc+2	 when PC2,
+		pc_saltat when BR,
+		aluout 	 when others;  -- Cas del JMP que ve d'un registre.
+	 
+--	 nou_pc <= x"C000" when rising_edge(clk) and boot = '1' else   -- amb boot
+--						nou_pc when rising_edge(clk) and ldpc = '0' else    -- No hi ha nou PC
+--						nou_pc+2 when rising_edge(clk) and tknbr = PC2 else
+--						pc_saltat;  
+--				
+	 pc <= nou_pc when rising_edge(clk);
 	 
 --	 process (clk)
 --	 begin

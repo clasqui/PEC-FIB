@@ -32,7 +32,8 @@ ARCHITECTURE Structure OF proc IS
 	 signal in_d : std_logic;
 	 signal ins_dad : std_logic;
 	 signal Rb_N : std_LOGIC;
-	 
+	 signal z	 : std_logic;	
+	 signal aluout: std_logic_vector(15 downto 0);  -- Per que arribi el PC a control.
 	 
 	COMPONENT driver7Segmentos IS
 		PORT (
@@ -58,7 +59,9 @@ ARCHITECTURE Structure OF proc IS
           in_d     : IN  STD_LOGIC;
           addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 Rb_N		 : IN STD_LOGIC);
+			 Rb_N		 : IN STD_LOGIC;
+			 z 		 : OUT STD_LOGIC;
+			 aluout	 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
 	END COMPONENT;
 	
 	COMPONENT unidad_control IS
@@ -77,7 +80,9 @@ ARCHITECTURE Structure OF proc IS
           immed_x2  : OUT STD_LOGIC;
           wr_m      : OUT STD_LOGIC;
           word_byte : OUT STD_LOGIC;
-			 Rb_N		  : OUT STD_LOGIC);
+			 Rb_N		  : OUT STD_LOGIC;
+			 z 		  : IN STD_LOGIC;
+			 aluout	  : IN STD_LOGIC_VECTOR(15 DOWNTO 0));
 END COMPONENT;
 
 BEGIN
@@ -107,7 +112,8 @@ BEGIN
 		data_wr => data_wr,
 		immed_x2 => immed_x2,
 		addr_m => addr_m,
-		Rb_N => Rb_N
+		Rb_N => Rb_N,
+		z => z
 	);
 	
 	c0 : unidad_control PORT MAP (
@@ -126,6 +132,8 @@ BEGIN
 		wr_m => wr_m,
 		word_byte => word_byte,
 		immed_x2 => immed_x2,
-		Rb_N => Rb_N
+		Rb_N => Rb_N,
+		z => z,
+		aluout => aluout
 	);
 END Structure;

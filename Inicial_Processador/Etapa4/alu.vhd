@@ -8,7 +8,8 @@ ENTITY alu IS
     PORT (x  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           y  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           op : IN  STD_LOGIC_VECTOR(4 DOWNTO 0);
-          w  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+          w  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 z	 : OUT STD_LOGIC);
 END alu;
 
 -- CODIS D'OPERACIÓ
@@ -105,9 +106,13 @@ BEGIN
 	--	10001 MULHU
 	--	10010 DIV
 	-- 10011	DIVU
+	-- 10100 JMP --> fa passar el registre a la sortida.
 
 	
 -- Sortida
+
+	z <= '1' when y = 0 else '0';
+	
 	with op select w <=
 		y when "00000",													-- MOVI
 		y(7 DOWNTO 0) & x(7 DOWNTO 0) when "00001",				-- MOVHI
@@ -129,7 +134,7 @@ BEGIN
 		alt_unsig when "10001", -- MULHU
 		std_logic_vector(signed(x)/signed(y)) when "10010", -- DIV
 		std_LOGIC_VECTOR(unsigned(x)/unsigned(y)) when "10011", --DIVU
-		
+		x when "10100",
 		(others=>'0') when others;	
 
 END Structure;

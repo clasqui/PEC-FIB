@@ -18,7 +18,7 @@ L7
 VbWP`REA4RbgO:EbeP[QV[3
 Z9 OV;C;10.1d;51
 32
-Z10 !s108 1617905396.625000
+Z10 !s108 1617906024.626000
 Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/alu.vhd|
 Z12 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/alu.vhd|
 Z13 o-work work -2002 -explicit -O0
@@ -45,7 +45,7 @@ R14
 !s100 LYnCGRLK518R2R_`a]=9X1
 !i10b 1
 Easync_64kx16
-Z15 w1617903814
+Z15 w1617905965
 Z16 DPx4 work 15 package_utility 0 22 abW^FY0na:iFW@RR:Fofg0
 Z17 DPx4 work 14 package_timing 0 22 ]QljGNTG0EJQ?X:f3a>TX1
 Z18 DPx4 ieee 16 std_logic_textio 0 22 ?Il0a149GV276[?[UMDWh2
@@ -61,7 +61,7 @@ L22
 Vz7=:g106kSL^?zZa1_k1i2
 R9
 32
-Z21 !s108 1617905397.297000
+Z21 !s108 1617906024.996000
 Z22 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/async_64Kx16.vhd|
 Z23 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/async_64Kx16.vhd|
 R13
@@ -79,7 +79,7 @@ R5
 DEx4 work 12 async_64kx16 0 22 z7=:g106kSL^?zZa1_k1i2
 l86
 L50
-VI<TXYb0X]_H72]l5;U^=V2
+VAJ7N2U7Oz?8b=Rk:ei_Pn2
 R9
 32
 R21
@@ -87,7 +87,7 @@ R22
 R23
 R13
 R14
-!s100 6M9JREUVj6^enI;0hE4AC0
+!s100 ;PMTN0Wle:CWX6W[Y:e7_2
 !i10b 1
 Econtrol_l
 Z24 w1617903114
@@ -102,7 +102,7 @@ L5
 V5_fO_cRdzNFKz5=FCgdW]3
 R9
 32
-Z27 !s108 1617905397.774000
+Z27 !s108 1617906025.330000
 Z28 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/control_l.vhd|
 Z29 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/control_l.vhd|
 R13
@@ -139,7 +139,7 @@ L5
 VhYdBWOa1AQHaA@mEK955i2
 R9
 32
-Z33 !s108 1617905398.079000
+Z33 !s108 1617906025.628000
 Z34 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/datapath.vhd|
 Z35 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/datapath.vhd|
 R13
@@ -175,7 +175,7 @@ L3
 V^PK8o7]enIEmd`=UzfK^33
 R9
 32
-Z39 !s108 1617905398.405000
+Z39 !s108 1617906026.030000
 Z40 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/driver7Segmentos.vhd|
 Z41 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/driver7Segmentos.vhd|
 R13
@@ -212,7 +212,7 @@ L6
 VPLoMf0oj;RB<P=VUa6jkS2
 R9
 32
-Z45 !s108 1617905398.996000
+Z45 !s108 1617906026.415000
 Z46 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/MemoryController.vhd|
 Z47 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/MemoryController.vhd|
 R13
@@ -249,7 +249,7 @@ L4
 V14NBh5f7z`nUY<]C1Om_?2
 R9
 32
-Z51 !s108 1617905399.331000
+Z51 !s108 1617906026.800000
 Z52 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/multi.vhd|
 Z53 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/multi.vhd|
 R13
@@ -285,7 +285,7 @@ L5
 V96Ba1@[@jUoHjH2R8>>6<3
 R9
 32
-Z57 !s108 1617905399.664000
+Z57 !s108 1617906027.164000
 Z58 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/multiplicador.vhd|
 Z59 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/multiplicador.vhd|
 R13
@@ -324,7 +324,7 @@ L17
 V]QljGNTG0EJQ?X:f3a>TX1
 R9
 32
-Z63 !s108 1617905400.033000
+Z63 !s108 1617906027.563000
 Z64 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/package_timing.vhd|
 Z65 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/package_timing.vhd|
 R13
@@ -366,7 +366,7 @@ VabW^FY0na:iFW@RR:Fofg0
 R9
 32
 b1
-Z68 !s108 1617905400.714000
+Z68 !s108 1617906027.981000
 Z69 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/package_utility.vhd|
 Z70 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/package_utility.vhd|
 R13
@@ -404,7 +404,7 @@ L4
 V1mz1K@b>3i<@N4FKY`JQE3
 R9
 32
-Z74 !s108 1617905401.117000
+Z74 !s108 1617906028.423000
 Z75 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/proc.vhd|
 Z76 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/proc.vhd|
 R13
@@ -442,7 +442,7 @@ L11
 Vb;XVM[dGKQ9]@QTHWYIBA0
 R9
 32
-Z80 !s108 1617905401.417000
+Z80 !s108 1617906029.057000
 Z81 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/Reductora.vhd|
 Z82 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/Reductora.vhd|
 R13
@@ -483,7 +483,7 @@ L6
 VB9TYiE64XkLY?K`=7b@:X1
 R9
 32
-Z86 !s108 1617905401.803000
+Z86 !s108 1617906029.543000
 Z87 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/regfile.vhd|
 Z88 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/regfile.vhd|
 R13
@@ -523,7 +523,7 @@ L6
 V@?_9AnbeQ5mXQGX68a:OI1
 R9
 32
-Z92 !s108 1617905402.219000
+Z92 !s108 1617906029.976000
 Z93 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/sisa.vhd|
 Z94 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/sisa.vhd|
 R13
@@ -563,7 +563,7 @@ L7
 Vjjn044l<>f1hjRRH94@o;0
 R9
 32
-Z98 !s108 1617905402.705000
+Z98 !s108 1617906030.300000
 Z99 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/SRAMController.vhd|
 Z100 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/SRAMController.vhd|
 R13
@@ -601,7 +601,7 @@ L5
 VkAdhfn89W5`mY_=KPlfV]3
 R9
 32
-Z103 !s108 1617905403.044000
+Z103 !s108 1617906030.633000
 Z104 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/test_sisa.vhd|
 Z105 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/test_sisa.vhd|
 R13
@@ -641,7 +641,7 @@ Vn1[Q_]H`eHIU:UUzLS2?S0
 R9
 32
 !i10b 1
-Z109 !s108 1617905403.362000
+Z109 !s108 1617906030.966000
 Z110 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/unidad_control.vhd|
 Z111 !s107 Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/unidad_control.vhd|
 R13

@@ -41,6 +41,7 @@ BEGIN
 		'1' when "0001", -- comparacions
 		'1' when "0010", -- ADDI
 		'1' when "1000", -- muls i divs
+		'1' and ir(0) and ir(1) when "1010",   -- CAL CANVIAR AIXO
 		'0'when others; -- CASOS ST LD
 	
 -- CODIS D'OPERACIÓ
@@ -64,6 +65,8 @@ BEGIN
 	--	10001 MULHU
 	--	10010 DIV
 	-- 10011	DIVU
+	-- 10100 JMP --> fa passar el registre a la sortida.
+	-- 10101 JAL 
 	
 -- Senyals funció
 	 with ir(5 downto 3) select arit <=
@@ -106,11 +109,12 @@ BEGIN
 		arit 				when "0000", -- Aritmeticologiques.
 		cmp				when "0001", -- Comparacions.
 		mult				when "1000", -- Multiplicacions i divisions
-		"00110"			when others; -- ADDI, Loads, Stores i altres coses que passin per aquí.
+		"10100"			when "1010", -- JMP
+ 		"00110"			when others; -- ADDI, Loads, Stores.
 		
 	 -- ATENCIO QUE CAL LA SENYAL Rb_N !!!!
-	 Rb_N <= '0' when ir(15 downto 12) = "0010" 
-							or ir(15 downto 12) = "0101" 
+	 Rb_N <= '0' when ir(15 downto 12) = "0010" -- MOVHI/MOVI
+							or ir(15 downto 12) = "0101" -- 
 							or ir(15 downto 12) = "0011" 
 							or ir(15 downto 12) = "0100" 
 							or ir(15 downto 12) = "1101" 
@@ -120,10 +124,12 @@ BEGIN
 	 addr_d <= ir(11 downto 9);  -- Rd sempre està al mateix lloc
 	 addr_a <= ir(11 downto 9) when ir(15 downto 12) = "0101"
 					else ir(8 downto 6); 
-	 addr_b <= ir(2 downto 0) when ir(15 downto 12) = "0000" or ir(15 downto 12) = "0001" or ir(15 downto 12) = "1000" -- Esta al darrere en arit. cmp. i mul.
+	 addr_b <= ir(2 downto 0) when ir(15 downto 12) = "0000" 
+											or ir(15 downto 12) = "0001" 
+											or ir(15 downto 12) = "1000" -- Esta al darrere en arit. cmp. i mul.
 					else ir(11 downto 9);  -- Rb canvia de lloc.
 	 
-	 -- wrd <= ir(12);
+	
 	 wr_m <= '1' when ir(15 downto 12) = "0100" or ir(15 downto 12) = "1110" else '0';  -- Nomes els store han d'escriure memoria
 	 
 	 in_d <= '1' when ir(15 downto 12) = "0011" or ir(15 downto 12) = "1101" else '0';
@@ -134,4 +140,6 @@ BEGIN
 	 
 	 immed <= std_logic_vector(resize(signed(ir(7 downto 0)), 16)) when ir(15 downto 12) = "0101" -- en les dimmediat, son 8 bits
 					else std_logic_vector(resize(signed(ir(5 downto 0)), 16)); -- en les altres, son 6 bits
+					
+	
 END Structure;

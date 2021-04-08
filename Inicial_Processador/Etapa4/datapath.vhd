@@ -17,7 +17,9 @@ ENTITY datapath IS
           in_d     : IN  STD_LOGIC;
           addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 Rb_N		 : IN STD_LOGIC);
+			 Rb_N		 : IN STD_LOGIC;
+			 z 		 : OUT STD_LOGIC;
+			 aluout	 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
 END datapath;
 
 ARCHITECTURE Structure OF datapath IS
@@ -26,7 +28,8 @@ COMPONENT alu IS
     PORT (x  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           y  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           op : IN  STD_LOGIC_VECTOR(4 DOWNTO 0);
-          w  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+          w  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 z  : OUT STD_LOGIC);
 END COMPONENT;
 
 COMPONENT regfile IS
@@ -52,7 +55,7 @@ BEGIN
 	reg0 : regfile
 		PORT MAP (clk => clk, wrd => wrd, addr_a => addr_a, addr_b => addr_b, addr_d => addr_d, d => d, a => a, b => b);
 	alu0 : alu
-		PORT MAP (x => x, y => y, op => op, w => alu_out);
+		PORT MAP (x => x, y => y, op => op, w => alu_out, z => z);
 	
 	-- ENTRADA DEL BANC DE REGISTRES.	
 	d <= datard_m when in_d = '1' else alu_out when in_d = '0' else (others=>'0');
@@ -60,6 +63,7 @@ BEGIN
 	-- SORTIDES DEL DATAPATH
 	addr_m <= alu_out when ins_dad = '1' else pc when ins_dad = '0' else (others=>'0');
 	data_wr <= b;
+	aluout <= alu_out; -- Per que hi vagi el PC en cas de JMP.
 
 	-- MUX DE LES ENTRADES DE LA ALU
 	x <= a;
