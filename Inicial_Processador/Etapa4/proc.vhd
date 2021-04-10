@@ -113,7 +113,8 @@ BEGIN
 		immed_x2 => immed_x2,
 		addr_m => addr_m,
 		Rb_N => Rb_N,
-		z => z
+		z => z,
+		aluout => aluout
 	);
 	
 	c0 : unidad_control PORT MAP (
