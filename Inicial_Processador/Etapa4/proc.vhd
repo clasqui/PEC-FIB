@@ -29,7 +29,7 @@ ARCHITECTURE Structure OF proc IS
 	 signal immed_x2 : std_logic;
 	 signal addr_b : std_logic_vector(2 downto 0);
 	 signal pc : std_logic_vector(15 downto 0);
-	 signal in_d : std_logic;
+	 signal in_d : std_logic_vector(1 DOWNTO 0);
 	 signal ins_dad : std_logic;
 	 signal Rb_N : std_LOGIC;
 	 signal z	 : std_logic;	
@@ -56,7 +56,7 @@ ARCHITECTURE Structure OF proc IS
           datard_m : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           ins_dad  : IN  STD_LOGIC;
           pc       : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-          in_d     : IN  STD_LOGIC;
+          in_d     : IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
           addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 Rb_N		 : IN STD_LOGIC;
@@ -76,7 +76,7 @@ ARCHITECTURE Structure OF proc IS
           immed     : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           pc        : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           ins_dad   : OUT STD_LOGIC;
-          in_d      : OUT STD_LOGIC;
+          in_d      : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
           immed_x2  : OUT STD_LOGIC;
           wr_m      : OUT STD_LOGIC;
           word_byte : OUT STD_LOGIC;

@@ -1,6 +1,7 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 USE ieee.numeric_std.all;
+USE ieee.std_logic_unsigned.ALL;
 
 ENTITY datapath IS
     PORT (clk      : IN  STD_LOGIC;
@@ -14,7 +15,7 @@ ENTITY datapath IS
           datard_m : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           ins_dad  : IN  STD_LOGIC;
           pc       : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-          in_d     : IN  STD_LOGIC;
+          in_d     : IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
           addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 Rb_N		 : IN STD_LOGIC;
@@ -58,7 +59,7 @@ BEGIN
 		PORT MAP (x => x, y => y, op => op, w => alu_out, z => z);
 	
 	-- ENTRADA DEL BANC DE REGISTRES.	
-	d <= datard_m when in_d = '1' else alu_out when in_d = '0' else (others=>'0');
+	d <= datard_m when in_d = "01" else alu_out when in_d = "00" else pc+2 when in_d = "10" else (others=>'0');
 	
 	-- SORTIDES DEL DATAPATH
 	addr_m <= alu_out when ins_dad = '1' else pc when ins_dad = '0' else (others=>'0');
