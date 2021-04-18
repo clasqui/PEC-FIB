@@ -40,14 +40,6 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity SRAMController
 -- Compiling architecture comportament of SRAMController
 
-} {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/driver7Segmentos.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/driver7Segmentos.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity driver7Segmentos
--- Compiling architecture Structure of driver7Segmentos
-
 } {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/Reductora.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/Reductora.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -142,6 +134,14 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity alu
 -- Compiling architecture Structure of alu
 
+} {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/multi.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/multi.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity multi
+-- Compiling architecture Structure of multi
+
 } {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/package_timing.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/package_timing.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -153,14 +153,6 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling package package_timing
 -- Compiling package body package_timing
 -- Loading package package_timing
-
-} {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/multi.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/multi.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity multi
--- Compiling architecture Structure of multi
 
 } {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/control_l.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/control_l.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
