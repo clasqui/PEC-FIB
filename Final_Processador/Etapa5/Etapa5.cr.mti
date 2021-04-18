@@ -18,17 +18,6 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling architecture comportament of test_sisa
 ** Warning: [4] Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/test_sisa.vhd(70): (vcom-1207) An abstract literal and an identifier must have a separator between them.
 
-} {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/SRAMController.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/SRAMController.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Loading package NUMERIC_STD
--- Compiling entity SRAMController
--- Compiling architecture comportament of SRAMController
-
 } {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/datapath.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/datapath.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -39,6 +28,17 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STD_LOGIC_UNSIGNED
 -- Compiling entity datapath
 -- Compiling architecture Structure of datapath
+
+} {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/SRAMController.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/SRAMController.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity SRAMController
+-- Compiling architecture comportament of SRAMController
 
 } {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/Reductora.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/Reductora.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -73,6 +73,14 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity multiplicador
 -- Compiling architecture Structure of multiplicador
 
+} {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/proc.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/proc.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity proc
+-- Compiling architecture Structure of proc
+
 } {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/MemoryController.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/MemoryController.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -82,6 +90,17 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STD_LOGIC_UNSIGNED
 -- Compiling entity MemoryController
 -- Compiling architecture comportament of MemoryController
+
+} {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/controladores_IO.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/controladores_IO.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity controladores_IO
+-- Compiling architecture Structure of controladores_IO
 
 } {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/package_utility.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/package_utility.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -93,6 +112,16 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling package package_utility
 -- Compiling package body package_utility
 -- Loading package package_utility
+
+} {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/sisa.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/sisa.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity sisa
+-- Compiling architecture Structure of sisa
 
 } {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/alu.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa5/alu.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012

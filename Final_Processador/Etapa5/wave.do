@@ -6,6 +6,10 @@ add wave -noupdate -radix hexadecimal /test_sisa/SoC/CLOCK_50
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/SW
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/LEDG
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/LEDR
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/HEX0
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/HEX1
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/HEX2
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/HEX3
 add wave -noupdate -divider {Unitat de Control}
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/c0/boot
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/c0/ac/estat
@@ -48,6 +52,7 @@ add wave -noupdate -radix hexadecimal /test_sisa/SoC/io0/wr_io
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/io0/rd_io
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/io0/wr_out
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/io0/rd_in
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/io0/io_ports
 add wave -noupdate -divider {Banc de Registres}
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/reg0/wrd
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/reg0/d
@@ -58,7 +63,7 @@ add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/reg0/a
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/reg0/b
 add wave -noupdate -radix hexadecimal -childformat {{/test_sisa/SoC/pro0/e0/reg0/registres(0) -radix hexadecimal} {/test_sisa/SoC/pro0/e0/reg0/registres(1) -radix hexadecimal} {/test_sisa/SoC/pro0/e0/reg0/registres(2) -radix hexadecimal} {/test_sisa/SoC/pro0/e0/reg0/registres(3) -radix hexadecimal} {/test_sisa/SoC/pro0/e0/reg0/registres(4) -radix hexadecimal} {/test_sisa/SoC/pro0/e0/reg0/registres(5) -radix hexadecimal} {/test_sisa/SoC/pro0/e0/reg0/registres(6) -radix hexadecimal} {/test_sisa/SoC/pro0/e0/reg0/registres(7) -radix hexadecimal}} -expand -subitemconfig {/test_sisa/SoC/pro0/e0/reg0/registres(0) {-height 15 -radix hexadecimal} /test_sisa/SoC/pro0/e0/reg0/registres(1) {-height 15 -radix hexadecimal} /test_sisa/SoC/pro0/e0/reg0/registres(2) {-height 15 -radix hexadecimal} /test_sisa/SoC/pro0/e0/reg0/registres(3) {-height 15 -radix hexadecimal} /test_sisa/SoC/pro0/e0/reg0/registres(4) {-height 15 -radix hexadecimal} /test_sisa/SoC/pro0/e0/reg0/registres(5) {-height 15 -radix hexadecimal} /test_sisa/SoC/pro0/e0/reg0/registres(6) {-height 15 -radix hexadecimal} /test_sisa/SoC/pro0/e0/reg0/registres(7) {-height 15 -radix hexadecimal}} /test_sisa/SoC/pro0/e0/reg0/registres
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {3939587 ps} 0}
+WaveRestoreCursors {{Cursor 1} {1016000 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 253
 configure wave -valuecolwidth 54
@@ -74,4 +79,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {3908245 ps} {5057461 ps}
+WaveRestoreZoom {804440 ps} {1953656 ps}

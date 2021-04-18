@@ -131,7 +131,7 @@ BEGIN
 	 
 	 -- Logica Program Counter
 	 
-	 pc_saltat <= (nou_PC+2)+("0000000"&ir_actual(7 downto 0)&'0');   -- pc + 2 + ir[7:0]*2 
+	 pc_saltat <= nou_PC+2+std_logic_vector(resize(signed(ir_actual(7 downto 0)&'0'), 16));
 
 	 process(clk)
 	 begin

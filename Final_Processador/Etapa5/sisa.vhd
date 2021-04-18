@@ -68,7 +68,12 @@ COMPONENT controladores_IO IS
 			 led_verdes  : OUT STD_LOGIC_VECTOR(7 DOWNTO 0); 
 			 led_rojos   : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 			 KEY : IN std_logic_vector(3 downto 0);
-			 SW : IN std_LOGIC_VECTOR(7 downto 0)); 
+			 SW : IN std_LOGIC_VECTOR(7 downto 0);
+			 HEX0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			 HEX1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			 HEX2 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			 HEX3 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
+			 ); 
 END COMPONENT;
 
 COMPONENT Reductora IS
@@ -143,7 +148,11 @@ io0 : Controladores_IO
 		led_verdes  => LEDG, 
 		led_rojos => LEDR,
 		KEY => KEY,
-		SW => SW(7 downto 0)
+		SW => SW(7 downto 0),
+		HEX0 => HEX0,
+		HEX1 => HEX1,
+		HEX2 => HEX2,
+		HEX3 => HEX3
 	);
 	
 -- Amb tres cicles ja tenim escrit. De fet podriem escriure en 2 segurament.

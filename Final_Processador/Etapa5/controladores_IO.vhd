@@ -11,8 +11,8 @@ ENTITY controladores_IO IS
 			 rd_io  : out std_logic_vector(15 downto 0); 
 			 wr_out : in  std_logic; 
 			 rd_in  : in  std_logic; 
-			 led_verdes  : OUT STD_LOGIC_VECTOR(7 DOWNTO 0); 
-			 led_rojos   : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+			 led_verdes  : OUT STD_LOGIC_VECTOR(7 DOWNTO 0) := "11111111"; 
+			 led_rojos   : OUT STD_LOGIC_VECTOR(7 DOWNTO 0) := "11111111";
 			 KEY : IN std_logic_vector(3 downto 0);
 			 SW : IN std_LOGIC_VECTOR(7 downto 0);
 			 HEX0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
@@ -29,7 +29,7 @@ ARCHITECTURE Structure OF controladores_IO IS
 	COMPONENT driver7Segmentos IS
 		PORT (
 			codiNum : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-			HEX0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+			HEX0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0) := "0000000";
 			HEX1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			HEX2 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			HEX3 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
@@ -64,10 +64,10 @@ BEGIN
 	entrada_botons <= "000000000000"&KEY(3 downto 0);
 
 -- Port 8 --> Switches
-	entrada_switches <="00000000"&sw;
+	entrada_switches <="00000000"&SW;
 
 -- Port 9 --> Visors encesos/apagats.
-	visor_enable <= io_ports(9);
+	visor_enable <= io_ports(9)(3 downto 0);
 	
 -- Port 10 --> Visors
 	codiNum <= io_ports(10);

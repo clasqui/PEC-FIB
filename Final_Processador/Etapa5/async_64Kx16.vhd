@@ -66,7 +66,7 @@ SIGNAL mem_array: mem_array_type;
     -- Instructions to read a text file into RAM --
     procedure Load_FitxerDadesMemoria (signal data_word :inout mem_array_type) is
         -- Open File in Read Mode
-        file romfile   :text open read_mode is "./jps/jp-leds.hex";
+        file romfile   :text open read_mode is "./jps/jp-io.hex";
         variable lbuf  :line;
         --variable i     :integer := 49152;  -- X"C000" ==> 49152 adreca inicial S.O.
         variable i     :integer := 24576;  -- X"C000" ==> 49152 adreca inicial S.O., pero como la memoria se direcciona a nivel de word (dos bytes) ==>  X"6000" ==> 24576 es la direccion inicial del S.O.

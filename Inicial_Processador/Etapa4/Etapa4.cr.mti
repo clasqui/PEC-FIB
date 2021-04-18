@@ -70,6 +70,17 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity regfile
 -- Compiling architecture Structure of regfile
 
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa4/datapath.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa4/datapath.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity datapath
+-- Compiling architecture Structure of datapath
+
 } {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa4/test_sisa.vhd {2 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa4/test_sisa.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -98,18 +109,14 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity driver7Segmentos
 -- Compiling architecture Structure of driver7Segmentos
 
-} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa4/async_64Kx16.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa4/async_64Kx16.vhd
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa4/multiplicador.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa4/multiplicador.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Loading package std_logic_textio
--- Loading package package_timing
--- Loading package package_utility
--- Compiling entity async_64Kx16
--- Compiling architecture behave_arch of async_64Kx16
+-- Loading package NUMERIC_STD
+-- Compiling entity multiplicador
+-- Compiling architecture Structure of multiplicador
 
 } {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa4/Reductora.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa4/Reductora.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -122,14 +129,18 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity Reductora
 -- Compiling architecture Structure of Reductora
 
-} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa4/multiplicador.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa4/multiplicador.vhd
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa4/async_64Kx16.vhd {1 {vcom -work work -2002 -explicit {Z:\UPC\PEC\PEC-FIB\Inicial_Processador\Etapa4\async_64Kx16.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity multiplicador
--- Compiling architecture Structure of multiplicador
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package std_logic_textio
+-- Loading package package_timing
+-- Loading package package_utility
+-- Compiling entity async_64Kx16
+-- Compiling architecture behave_arch of async_64Kx16
 
 } {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa4/proc.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa4/proc.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012

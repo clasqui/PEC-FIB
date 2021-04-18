@@ -102,13 +102,13 @@ begin
 	  
 
 		addr_mem (15 downto 0) <= addr_SOC (15 downto 0);
-		botones(9) <= reset_proc;
+		botones <= reset_proc&"000000000";
 		
    -- Descripcio del comportament
 	clk <= not clk after 10 ns;
 	reset_ram <= '1' after 15 ns, '0' after 50 ns;    -- reseteamos la RAm en el primer ciclo
 	reset_proc <= '1' after 25 ns, '0' after 320 ns;  -- reseteamos el procesador en el segundo ciclo
-	--keys <= "1001" after 35 ns; -- per fer aixi un test; 
+	keys <= "1001" after 3000 ns; -- per fer aixi un test; 
 
 	
 end comportament;

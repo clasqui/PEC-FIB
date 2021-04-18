@@ -117,16 +117,14 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity unidad_control
 -- Compiling architecture Structure of unidad_control
 
-} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/package_utility.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/package_utility.vhd
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/datapath.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/datapath.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package std_logic_textio
--- Compiling package package_utility
--- Compiling package body package_utility
--- Loading package package_utility
+-- Loading package NUMERIC_STD
+-- Compiling entity datapath
+-- Compiling architecture Structure of datapath
 
 } {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/SRAMController.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/SRAMController.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -139,14 +137,16 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity SRAMController
 -- Compiling architecture comportament of SRAMController
 
-} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/datapath.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/datapath.vhd
+} {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/package_utility.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/package_utility.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity datapath
--- Compiling architecture Structure of datapath
+-- Loading package std_logic_arith
+-- Loading package std_logic_textio
+-- Compiling package package_utility
+-- Compiling package body package_utility
+-- Loading package package_utility
 
 } {} {}} Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/driver7Segmentos.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Inicial_Processador/Etapa3/driver7Segmentos.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
