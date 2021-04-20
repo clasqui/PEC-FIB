@@ -40,7 +40,7 @@ architecture comportament of test_sisa is
 				SW : in std_logic_vector(9 downto 0);
 				KEY : in std_logic_vector(3 downto 0);
 				 ps2_clk  : inout std_logic; 
-			    ps2_data : inout std_logic
+			    ps2_dat : inout std_logic
 				);
    end component;
 
@@ -88,7 +88,7 @@ begin
 			
 			KEY => keys,
 			ps2_clk => ps2_clk,
-			ps2_data => ps2_data
+			ps2_dat => ps2_data
       );
 
    mem0 : async_64Kx16

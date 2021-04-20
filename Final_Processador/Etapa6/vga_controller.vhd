@@ -111,6 +111,17 @@ architecture vga_controller_rtl of vga_controller is
 
 
     begin
+	 
+--	 blank_out <= '0';   --  : out std_logic; -- vga control signal
+--         csync_out <='0';  --   : out std_logic; -- vga control signal
+--         red_out  <="00000000";   --   : out std_logic_vector(7 downto 0); -- vga red pixel value
+--         green_out <= "00000000";   --  : out std_logic_vector(7 downto 0); -- vga green pixel value
+--         blue_out  <="00000000";  --   : out std_logic_vector(7 downto 0); -- vga blue pixel value
+--         horiz_sync_out <= '0'; --: out std_logic; -- vga control signal
+--         vert_sync_out <= '0';-- : out std_logic; -- vga control signal
+--	          rd_data  <= "0000000000000000" ;   --     : out std_logic_vector(15 downto 0);
+
+	 
         --Clock divider /2. Pixel clock is 25MHz
         clk_25mhz <= '0'           when reset = '1' else
                      not clk_25mhz when rising_edge(clk_50mhz);
@@ -206,4 +217,3 @@ architecture vga_controller_rtl of vga_controller is
     csync_out <= '1';
 
 end vga_controller_rtl;
-

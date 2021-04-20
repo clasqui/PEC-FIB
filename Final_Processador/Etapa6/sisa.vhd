@@ -26,8 +26,8 @@ ENTITY sisa IS
 			 VGA_R     : OUT std_logic_vector(3 downto 0);
 			 VGA_G     : OUT std_logic_vector(3 downto 0);
 			 VGA_B     : OUT std_logic_vector(3 downto 0);
-			 VGA_HSYNC : OUT std_logic;
-			 VGA_VSYNC : OUT std_logic
+			 VGA_HS : OUT std_logic;
+			 VGA_VS : OUT std_logic
 			 );
 			 
 END sisa;
@@ -200,8 +200,8 @@ vga0 : vga_controller
          red_out        => vga_red_out,
          green_out      => vga_green_out,
          blue_out       => vga_blue_out,
-         horiz_sync_out => VGA_HSYNC,
-         vert_sync_out  => VGA_VSYNC,
+         horiz_sync_out => VGA_HS,
+         vert_sync_out  => VGA_VS,
          --
          addr_vga          => addr_vga,
          we                => vga_we,

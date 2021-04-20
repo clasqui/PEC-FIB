@@ -77,9 +77,9 @@ begin
 		
 		vga_addr <= addr(12 downto 0) when (addr >= x"A000" and addr < x"BFFF") else (others=>'0');
 		vga_we <= we when (addr >= x"A000" and addr < x"BFFF") else '0';
-		vga_wr_data <= wr_data when (addr >= x"A000" and addr < x"BFFF") else (others=>'0');
+		vga_wr_data <= wr_data ; --when (addr >= x"A000" and addr < x"BFFF") else (others=>'0');
 		vga_byte_m <= byte_m;
 		
-		rd_data <= vga_rd_data when (addr >= x"A000" and addr < x"BFFF") else rd_data_from_sram;
+		rd_data <= rd_data_from_sram;--vga_rd_data when (addr >= x"A000" and addr < x"BFFF") else rd_data_from_sram;
 
 end comportament;
