@@ -109,19 +109,19 @@ BEGIN
 	-- ntador_milisegundos <= io_ports(21);
 	
 -- Timer
-process(CLOCK_50) 
-begin 
-	if rising_edge(CLOCK_50) then
-		if contador_ciclos=0 then
-			contador_ciclos<=x"C350";   -- tiempo de ciclo=20ns(50Mhz) 1ms=50000ciclos 
-			if contador_milisegundos>0 then
-				contador_milisegundos <= contador_milisegundos-1; 
-			end if; 
-		else
-				contador_ciclos <= contador_ciclos-1; 
-			end if; 
-	end if;
-end process;
+--process(CLOCK_50) 
+--begin 
+--	if rising_edge(CLOCK_50) then
+--		if contador_ciclos=0 then
+--			contador_ciclos<=x"C350";   -- tiempo de ciclo=20ns(50Mhz) 1ms=50000ciclos 
+--			if contador_milisegundos>0 then
+--				contador_milisegundos <= contador_milisegundos-1; 
+--			end if; 
+--		else
+--				contador_ciclos <= contador_ciclos-1; 
+--			end if; 
+--	end if;
+--end process;
 
 
 -- BANC DE REGISTRES
@@ -132,6 +132,16 @@ end process;
 				io_ports(9) <= x"FFFF";
 			end if;
 			tecla_pillada <= '0';
+			-- Del joc snake
+			if contador_ciclos=0 then
+				contador_ciclos<=x"C350";   -- tiempo de ciclo=20ns(50Mhz) 1ms=50000ciclos 
+				if contador_milisegundos>0 then
+					contador_milisegundos <= contador_milisegundos-1; 
+				end if; 
+		   else
+				contador_ciclos <= contador_ciclos-1; 
+			end if;
+			-- end joc snake
 			if wr_out = '1' then
 				if addr_io = 16 then -- S'està escribint el clear de teclat
 					tecla_pillada <= '1';
@@ -154,3 +164,4 @@ end process;
 	rd_io <= io_ports(conv_integer(addr_io(4 downto 0)));  -- Lectura AQUI HEM DE BLOQUEJAR LA LECTURA!!
 
 END Structure; 
+
