@@ -59,6 +59,8 @@ ARCHITECTURE Structure OF controladores_IO IS
 	signal tecla_pulsada: std_LOGIC_VECTOR(7 DOWNTO 0);
 	signal tecla_pillada: std_LOGIC;
 	signal tecla_disponible: std_LOGIC;
+	signal contador_ciclos       : STD_LOGIC_VECTOR(15 downto 0):=x"0000"; 
+	signal contador_milisegundos : STD_LOGIC_VECTOR(15 downto 0):=x"0000";
 
 BEGIN
 
@@ -102,7 +104,24 @@ BEGIN
 
 -- Port 15 -- Ascii teclat
 -- Port 16 -- enquesta Teclat
+-- Port 20 -- nombre aleatori.
+-- Port 21 -- Timer
+	-- ntador_milisegundos <= io_ports(21);
 	
+-- Timer
+process(CLOCK_50) 
+begin 
+	if rising_edge(CLOCK_50) then
+		if contador_ciclos=0 then
+			contador_ciclos<=x"C350";   -- tiempo de ciclo=20ns(50Mhz) 1ms=50000ciclos 
+			if contador_milisegundos>0 then
+				contador_milisegundos <= contador_milisegundos-1; 
+			end if; 
+		else
+				contador_ciclos <= contador_ciclos-1; 
+			end if; 
+	end if;
+end process;
 
 
 -- BANC DE REGISTRES
@@ -116,6 +135,8 @@ BEGIN
 			if wr_out = '1' then
 				if addr_io = 16 then -- S'està escribint el clear de teclat
 					tecla_pillada <= '1';
+				elsif addr_io = 21 then
+					contador_milisegundos <= wr_io;
 				else
 					io_ports(conv_integer(addr_io)) <= wr_io;
 				end if;
@@ -124,11 +145,12 @@ BEGIN
 				io_ports(8) 	<= entrada_switches;
 				io_ports(15) 	<= "00000000"&tecla_pulsada;
 				io_ports(16)	<= "000000000000000"&tecla_disponible;
+				io_ports(20)   <= contador_ciclos;
 			end if;
 		end if;
 	end process;	
 	
 -- Altres sortides
-	rd_io <= io_ports(conv_integer(addr_io(4 downto 0)));
+	rd_io <= io_ports(conv_integer(addr_io(4 downto 0)));  -- Lectura AQUI HEM DE BLOQUEJAR LA LECTURA!!
 
 END Structure; 
