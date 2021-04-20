@@ -20,7 +20,9 @@ ENTITY controladores_IO IS
 			 HEX2 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 HEX3 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 ps2_clk  : inout std_logic; 
-			 ps2_data : inout std_logic
+			 ps2_data : inout std_logic;
+			 vga_cursor : out std_logic_vector(15 downto 0);
+			 vga_cursor_enable : out std_logic
 			 ); 
 END controladores_IO; 
 

@@ -22,7 +22,14 @@ ENTITY sisa IS
 			 LEDR  	  : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 			 KEY		  : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 			 PS2_CLK   : inout std_logic; 
-			 PS2_DAT	  : inout std_logic);
+			 PS2_DAT	  : inout std_logic;
+			 VGA_R     : OUT std_logic_vector(3 downto 0);
+			 VGA_G     : OUT std_logic_vector(3 downto 0);
+			 VGA_B     : OUT std_logic_vector(3 downto 0);
+			 VGA_HSYNC : OUT std_logic;
+			 VGA_VSYNC : OUT std_logic
+			 );
+			 
 END sisa;
 
 ARCHITECTURE Structure OF sisa IS
@@ -56,7 +63,15 @@ COMPONENT MemoryController is
           SRAM_LB_N : out   std_logic;
           SRAM_CE_N : out   std_logic := '1';
           SRAM_OE_N : out   std_logic := '1';
-          SRAM_WE_N : out   std_logic := '1');
+          SRAM_WE_N : out   std_logic := '1';
+			 -- Senyals del controlador VGA
+			 vga_addr  : out std_logic_vector(12 downto 0);
+			 vga_we    : out std_logic;
+			 vga_wr_data : out std_logic_vector(15 downto 0);
+			 vga_rd_data : in std_logic_vector(15 downto 0);
+			 vga_byte_m  : out std_logic
+			 );
+			 
 end COMPONENT;
 
 COMPONENT controladores_IO IS
@@ -80,6 +95,26 @@ COMPONENT controladores_IO IS
 			 ); 
 END COMPONENT;
 
+COMPONENT vga_controller IS
+	PORT  (clk_50mhz      : in  std_logic; -- system clock signal
+         reset          : in  std_logic; -- system reset
+         blank_out      : out std_logic; -- vga control signal
+         csync_out      : out std_logic; -- vga control signal
+         red_out        : out std_logic_vector(7 downto 0); -- vga red pixel value
+         green_out      : out std_logic_vector(7 downto 0); -- vga green pixel value
+         blue_out       : out std_logic_vector(7 downto 0); -- vga blue pixel value
+         horiz_sync_out : out std_logic; -- vga control signal
+         vert_sync_out  : out std_logic; -- vga control signal
+         --
+         addr_vga          : in std_logic_vector(12 downto 0);
+         we                : in std_logic;
+         wr_data           : in std_logic_vector(15 downto 0);
+         rd_data           : out std_logic_vector(15 downto 0);
+         byte_m            : in std_logic;
+         vga_cursor        : in std_logic_vector(15 downto 0);  -- simplemente lo ignoramos, este controlador no lo tiene implementado
+         vga_cursor_enable : in std_logic);
+END COMPONENT;
+
 COMPONENT Reductora IS
 GENERIC (reductora : integer := 1);
 PORT (
@@ -101,6 +136,17 @@ END COMPONENT;
 	signal rd_io  :  std_logic_vector(15 downto 0); 
 	signal wr_out :   std_logic;
 	signal rd_in :   std_logic;
+	
+	signal addr_vga : std_logic_vector(12 downto 0);
+	signal vga_we : std_logic;
+	signal vga_wr_data : std_logic_vector(15 downto 0);
+	signal vga_rd_data : std_logic_vector(15 downto 0);
+	signal vga_byte_m  : std_logic;
+	
+	signal vga_red_out : std_logic_vector(7 downto 0);
+	signal vga_green_out : std_logic_vector(7 downto 0);
+	signal vga_blue_out : std_logic_vector(7 downto 0);
+	
 	
 BEGIN
 
@@ -136,9 +182,39 @@ mem0 : MemoryController
         SRAM_LB_N => SRAM_LB_N,
         SRAM_CE_N => SRAM_CE_N,
         SRAM_OE_N => SRAM_OE_N,
-        SRAM_WE_N => SRAM_WE_N
-		  
+        SRAM_WE_N => SRAM_WE_N,
+-- Senyals controlador VGA
+			vga_addr  => addr_vga,
+			vga_we    => vga_we,
+			vga_wr_data => vga_wr_data,
+			vga_rd_data => vga_rd_data,
+			vga_byte_m  => vga_byte_m
    );
+	
+vga0 : vga_controller
+	port map (
+			clk_50mhz      => CLOCK_50,
+         reset          => SW(9),
+         blank_out      => open,
+         csync_out      => open,
+         red_out        => vga_red_out,
+         green_out      => vga_green_out,
+         blue_out       => vga_blue_out,
+         horiz_sync_out => VGA_HSYNC,
+         vert_sync_out  => VGA_VSYNC,
+         --
+         addr_vga          => addr_vga,
+         we                => vga_we,
+         wr_data           => vga_wr_data,
+         rd_data           => vga_rd_data,
+         byte_m            => vga_byte_m,
+         vga_cursor        => "0000000000000000",
+         vga_cursor_enable => '0'
+	);
+	
+VGA_R <= vga_red_out(3 downto 0);
+VGA_G <= vga_green_out(3 downto 0);
+VGA_B <= vga_blue_out(3 downto 0);
 
 io0 : Controladores_IO
 	port map (
