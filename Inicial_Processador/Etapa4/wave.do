@@ -8,8 +8,11 @@ add wave -noupdate -divider {Unitat de Control}
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/c0/boot
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/c0/ac/estat
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/c0/datard_m
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/c0/tknbr
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/c0/nou_pc
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/c0/pc
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/c0/wr_m
-add wave -noupdate /test_sisa/SoC/pro0/c0/ac/wr_m_l
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/c0/ac/wr_m_l
 add wave -noupdate -divider ControlMemoria
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/mem0/addr
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/mem0/wr_data
@@ -28,15 +31,15 @@ add wave -noupdate -radix hexadecimal /test_sisa/SoC/SRAM_WE_N
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/mem0/sram/dataReaded
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/mem0/sram/dataToWrite
 add wave -noupdate -divider Datapath
-add wave -noupdate /test_sisa/SoC/pro0/e0/a
-add wave -noupdate /test_sisa/SoC/pro0/e0/b
-add wave -noupdate /test_sisa/SoC/pro0/e0/Rb_N
-add wave -noupdate /test_sisa/SoC/pro0/e0/x
-add wave -noupdate /test_sisa/SoC/pro0/e0/y
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/a
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/b
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/Rb_N
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/x
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/y
 add wave -noupdate -divider Alu
-add wave -noupdate /test_sisa/SoC/pro0/e0/alu0/x
-add wave -noupdate /test_sisa/SoC/pro0/e0/alu0/y
-add wave -noupdate /test_sisa/SoC/pro0/e0/alu0/w
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/alu0/x
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/alu0/y
+add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/alu0/w
 add wave -noupdate -divider {Banc de Registres}
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/reg0/wrd
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/reg0/d
@@ -47,7 +50,7 @@ add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/reg0/a
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/reg0/b
 add wave -noupdate -radix hexadecimal -childformat {{/test_sisa/SoC/pro0/e0/reg0/registres(0) -radix hexadecimal} {/test_sisa/SoC/pro0/e0/reg0/registres(1) -radix hexadecimal} {/test_sisa/SoC/pro0/e0/reg0/registres(2) -radix hexadecimal} {/test_sisa/SoC/pro0/e0/reg0/registres(3) -radix hexadecimal} {/test_sisa/SoC/pro0/e0/reg0/registres(4) -radix hexadecimal} {/test_sisa/SoC/pro0/e0/reg0/registres(5) -radix hexadecimal} {/test_sisa/SoC/pro0/e0/reg0/registres(6) -radix hexadecimal} {/test_sisa/SoC/pro0/e0/reg0/registres(7) -radix hexadecimal}} -expand -subitemconfig {/test_sisa/SoC/pro0/e0/reg0/registres(0) {-height 15 -radix hexadecimal} /test_sisa/SoC/pro0/e0/reg0/registres(1) {-height 15 -radix hexadecimal} /test_sisa/SoC/pro0/e0/reg0/registres(2) {-height 15 -radix hexadecimal} /test_sisa/SoC/pro0/e0/reg0/registres(3) {-height 15 -radix hexadecimal} /test_sisa/SoC/pro0/e0/reg0/registres(4) {-height 15 -radix hexadecimal} /test_sisa/SoC/pro0/e0/reg0/registres(5) {-height 15 -radix hexadecimal} /test_sisa/SoC/pro0/e0/reg0/registres(6) {-height 15 -radix hexadecimal} /test_sisa/SoC/pro0/e0/reg0/registres(7) {-height 15 -radix hexadecimal}} /test_sisa/SoC/pro0/e0/reg0/registres
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {2857461 ps} 0}
+WaveRestoreCursors {{Cursor 1} {448897 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 253
 configure wave -valuecolwidth 54
@@ -63,4 +66,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {2191591 ps} {3340807 ps}
+WaveRestoreZoom {0 ps} {1149216 ps}

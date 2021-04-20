@@ -12,7 +12,7 @@ ENTITY control_l IS
           addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
           immed     : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           wr_m      : OUT STD_LOGIC;
-          in_d      : OUT STD_LOGIC;
+          in_d      : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
           immed_x2  : OUT STD_LOGIC;
           word_byte : OUT STD_LOGIC;
 			 Rb_N		  : OUT STD_LOGIC);
@@ -25,6 +25,7 @@ signal PC	: std_LOGIC_VECTOR(15 downto 0);
 signal arit	: std_LOGIC_VECTOR(4 downto 0);
 signal cmp	: std_LOGIC_VECTOR(4 downto 0);
 signal mult	: std_LOGIC_VECTOR(4 downto 0);
+signal jmp	: std_logic;
 
 BEGIN
 
@@ -33,16 +34,21 @@ BEGIN
 	 --op <= "01" when ir(15 downto 12) = "0011" or ir(15 downto 12) = "0100" or ir(15 downto 12) = "1101" or ir(15 downto 12) = "1110"
 				--else "0"&ir(8);
 	
+	
+	-- Senyal intermitja pel wrd dels jumps.
+	
+	jmp <= '1' when ir(2 downto 0) = "100" else '0';
+	
 	with ir(15 downto 12) select wrd <=      -- Marquem com a 1 els casos en els que s'esriu perque no hi hagi lios al implementar noves instructs
-		'1' when "0101", --	 MOVHI/MOVI
+		'1' when "0101", -- MOVHI/MOVI
 		'1' when "0011", -- LD
 		'1' when "1101", -- LDB
 		'1' when "0000", -- aritmeticologiques
 		'1' when "0001", -- comparacions
 		'1' when "0010", -- ADDI
 		'1' when "1000", -- muls i divs
-		'1' and ir(0) and ir(1) when "1010",   -- CAL CANVIAR AIXO
-		'0'when others; -- CASOS ST LD
+		jmp when "1010",   -- Pels jumps
+		'0' when others; -- CASOS ST LD
 	
 -- CODIS D'OPERACIÓ
 	--	00000 MOVI
@@ -66,7 +72,6 @@ BEGIN
 	--	10010 DIV
 	-- 10011	DIVU
 	-- 10100 JMP --> fa passar el registre a la sortida.
-	-- 10101 JAL 
 	
 -- Senyals funció
 	 with ir(5 downto 3) select arit <=
@@ -132,7 +137,8 @@ BEGIN
 	
 	 wr_m <= '1' when ir(15 downto 12) = "0100" or ir(15 downto 12) = "1110" else '0';  -- Nomes els store han d'escriure memoria
 	 
-	 in_d <= '1' when ir(15 downto 12) = "0011" or ir(15 downto 12) = "1101" else '0';
+	 in_d <= "01" when ir(15 downto 12) = "0011" or ir(15 downto 12) = "1101" 
+							else "10" when ir(15 downto 12) = "1010" and ir(2 downto 0) = "100" else "00";
 	 
 	 immed_x2 <= '1' when ir(15 downto 12) = "0011" or ir(15 downto 12) = "0100" else '0';
 	 
