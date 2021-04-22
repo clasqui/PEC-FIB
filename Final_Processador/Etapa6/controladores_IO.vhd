@@ -148,6 +148,7 @@ BEGIN
 				elsif addr_io = 21 then
 					contador_milisegundos <= wr_io;
 				else
+					-- falta encapsular això en un if que nomes deixi escriure si addr_io es un dels ports de sortida (out)
 					io_ports(conv_integer(addr_io)) <= wr_io;
 				end if;
 			else 
@@ -156,6 +157,7 @@ BEGIN
 				io_ports(15) 	<= "00000000"&tecla_pulsada;
 				io_ports(16)	<= "000000000000000"&tecla_disponible;
 				io_ports(20)   <= contador_ciclos;
+				io_ports(21)   <= contador_milisegundos;
 			end if;
 		end if;
 	end process;	

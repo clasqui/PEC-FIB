@@ -72,10 +72,10 @@ BEGIN
 
 
 -- Shifts
-	shift_a <= std_logic_vector(shift_left(signed(x), to_integer(unsigned(y)))) when y(15) = '0' else 
-						std_logic_vector(shift_right(signed(x), to_integer(unsigned((not y) + 1))));
-	shift_l <= std_logic_vector(shift_left(unsigned(x), to_integer(unsigned(y)))) when y(15) = '0' else -- SHL (esquerra, positiu)
-						std_logic_vector(shift_right(unsigned(x), to_integer(unsigned((not y) + 1)))); -- SHL (dreta, negatiu)
+	shift_a <= std_logic_vector(shift_left(signed(x), to_integer(unsigned(y(4 downto 0))))) when y(4) = '0' else 
+						std_logic_vector(shift_right(signed(x), to_integer(unsigned((not y(4 downto 0)) + 1))));
+	shift_l <= std_logic_vector(shift_left(unsigned(x), to_integer(unsigned(y(4 downto 0))))) when y(4) = '0' else -- SHL (esquerra, positiu)
+						std_logic_vector(shift_right(unsigned(x), to_integer(unsigned((not y(4 downto 0)) + 1)))); -- SHL (dreta, negatiu)
 						
 -- Comparacions
 	cmplt  <= "0000000000000001" when signed(x) < signed (y) else "0000000000000000";
