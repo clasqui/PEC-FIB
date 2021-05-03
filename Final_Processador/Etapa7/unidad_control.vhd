@@ -24,7 +24,12 @@ ENTITY unidad_control IS
 			 aluout	  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 addr_io	  : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 			 rd_in	  : OUT STD_LOGIC;
-			 wr_out    : OUT STD_LOGIC);
+			 wr_out    : OUT STD_LOGIC;
+			 d_sys  	  : OUT STD_LOGIC;
+			 a_sys  	  : OUT STD_LOGIC; 
+			 ei	  	  : OUT STD_LOGIC;  
+			 di     	  : OUT STD_LOGIC; 
+			 reti   	  : OUT STD_LOGIC);
 END unidad_control;
 
 ARCHITECTURE Structure OF unidad_control IS
@@ -42,6 +47,9 @@ signal wr_m_l : std_logic;
 signal ldir : std_logic;
 signal tknbr: tknbr_t := INI;
 signal jmp: tknbr_t;
+signal ei_l	  	  : STD_LOGIC;  
+signal di_l     	  : STD_LOGIC; 
+signal reti_l   	  : STD_LOGIC;
 	 
 COMPONENT control_l IS
     PORT (ir   	  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -59,7 +67,12 @@ COMPONENT control_l IS
 			 Rb_N		  : OUT STD_LOGIC;
 			 addr_io	  : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 			 rd_in	  : OUT STD_LOGIC;
-			 wr_out    : OUT STD_LOGIC);
+			 wr_out    : OUT STD_LOGIC;
+			 d_sys  	  : OUT  STD_LOGIC;
+			 a_sys  	  : OUT  STD_LOGIC; 
+			 ei	  	  : OUT STD_LOGIC;  
+			 di     	  : OUT STD_LOGIC; 
+			 reti   	  : OUT STD_LOGIC);
 END COMPONENT;
 
 COMPONENT multi IS
@@ -69,12 +82,18 @@ COMPONENT multi IS
          wrd_l     : IN  STD_LOGIC;
          wr_m_l    : IN  STD_LOGIC;
          w_b       : IN  STD_LOGIC;
+			ei_l	    : IN STD_LOGIC;  
+			di_l      : IN STD_LOGIC; 
+			reti_l    : IN STD_LOGIC;
          ldpc      : OUT STD_LOGIC;
          wrd       : OUT STD_LOGIC;
          wr_m      : OUT STD_LOGIC;
          ldir      : OUT STD_LOGIC;
          ins_dad   : OUT STD_LOGIC;
-         word_byte : OUT STD_LOGIC);
+         word_byte : OUT STD_LOGIC;
+			ei  	  	 : OUT STD_LOGIC;  
+			di     	 : OUT STD_LOGIC; 
+			reti   	 : OUT STD_LOGIC);
 END COMPONENT;
 
 
@@ -100,8 +119,12 @@ BEGIN
 		Rb_N => Rb_N,
 		addr_io => addr_io,
 		rd_in => rd_in,
-		wr_out => wr_out
-	 );
+		wr_out => wr_out,
+		d_sys => d_sys, 
+	   a_sys => a_sys,
+		ei	  	=> ei_l, 
+		di    => di_l, 
+		reti  => reti_l);
 	 
 	 ac : multi PORT MAP (
 			clk => clk,
@@ -109,6 +132,9 @@ BEGIN
          ldpc_l => ldpc_l,
          wrd_l => wrd_l,
          wr_m_l => wr_m_l,
+			ei_l => ei_l,
+			di_l => di_l,
+			reti => reti_l,
          w_b  => w_b,
          ldpc => ldpc,
          wrd => wrd,
@@ -116,7 +142,9 @@ BEGIN
          ldir => ldir,
          ins_dad => ins_dad,
          word_byte => word_byte
-	 );
+			ei => ei,
+			di => di,
+			reti => reti);
 	 
 	 -- Salts
 	jmp <= ALU_OUT when (ir_actual(2 downto 0) = "000" and z = '1') or -- JZ

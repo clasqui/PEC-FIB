@@ -36,6 +36,11 @@ ARCHITECTURE Structure OF proc IS
 	 signal Rb_N : std_LOGIC;
 	 signal z	 : std_logic;	
 	 signal aluout: std_logic_vector(15 downto 0);  -- Per que arribi el PC a control.	
+	 signal d_sys  : STD_LOGIC;
+	 signal a_sys  : STD_LOGIC; 
+	 signal ei	  	: STD_LOGIC;  
+	 signal di     : STD_LOGIC; 
+	 signal reti  	: STD_LOGIC;
 		 
 	 COMPONENT datapath IS
     PORT (clk    : IN STD_LOGIC;
@@ -56,7 +61,12 @@ ARCHITECTURE Structure OF proc IS
 			 z 		 : OUT STD_LOGIC;
 			 aluout	 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 rd_io	 : IN	 STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 wr_io	 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+			 wr_io	 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 d_sys  	  : IN  STD_LOGIC;
+			 a_sys  	  : IN  STD_LOGIC; 
+			 ei	  	  : IN STD_LOGIC;  
+			 di     	  : IN STD_LOGIC; 
+			 reti   	  : IN STD_LOGIC);
 	END COMPONENT;
 	
 	COMPONENT unidad_control IS
@@ -80,7 +90,12 @@ ARCHITECTURE Structure OF proc IS
 			 aluout	  : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 addr_io	  : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 			 rd_in	  : OUT STD_LOGIC;
-			 wr_out    : OUT STD_LOGIC);
+			 wr_out    : OUT STD_LOGIC;
+			 d_sys  	  : OUT  STD_LOGIC;
+			 a_sys  	  : OUT  STD_LOGIC; 
+			 ei	  	  : OUT STD_LOGIC;  
+			 di     	  : OUT STD_LOGIC; 
+			 reti   	  : OUT STD_LOGIC);
 END COMPONENT;
 
 BEGIN
@@ -132,6 +147,11 @@ BEGIN
 		aluout => aluout,
 		wr_out => wr_out,
 		rd_in => rd_in,
-		addr_io => addr_io
+		addr_io => addr_io,
+		ei => ei,
+		di => di,
+		reti => reti,
+		a_sys => a_sys,
+		d_sys => s_sys
 	);
 END Structure;

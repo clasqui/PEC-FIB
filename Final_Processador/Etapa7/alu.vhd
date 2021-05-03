@@ -12,30 +12,6 @@ ENTITY alu IS
 			 z	 : OUT STD_LOGIC);
 END alu;
 
--- CODIS D'OPERACIÓ
-	--	00000 MOVI
-	--	00001	MOVHI
-	--	00010	AND
-	--	00011 OR
-	--	00100 XOR
-	--	00101 NOT
-	--	00110 ADD/ADDI/LOAD/STORE
-	--	00111 SUB
-	--	01000 SHA
-	--	01001 SHL
-	--	01010 CMPLT
-	--	01011 CMPLE
-	--	01100 CMPEQ
-	--	01101 CMPLTU
-	--	01110 CMPLEU
-	--	01111 MUL
-	--	10000 MULH
-	--	10001 MULHU
-	--	10010 DIV
-	-- 10011	DIVU
-
-
-
 ARCHITECTURE Structure OF alu IS
 
 signal shift_l 	: std_LOGIC_VECTOR (15 downto 0);
@@ -106,7 +82,7 @@ BEGIN
 	--	10001 MULHU
 	--	10010 DIV
 	-- 10011	DIVU
-	-- 10100 JMP --> fa passar el registre a la sortida.
+	-- 10100 JMP --> fa passar el registre A la sortida.
 
 	
 -- Sortida

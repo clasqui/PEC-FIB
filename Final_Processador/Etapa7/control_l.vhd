@@ -18,7 +18,12 @@ ENTITY control_l IS
 			 Rb_N		  : OUT STD_LOGIC;
 			 addr_io	  : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 			 rd_in	  : OUT STD_LOGIC;
-			 wr_out    : OUT STD_LOGIC);
+			 wr_out    : OUT STD_LOGIC;
+			 d_sys  	  : OUT  STD_LOGIC; -- no depen del cicle
+			 a_sys  	  : OUT  STD_LOGIC; -- no depen del cicle
+			 ei	  	  : OUT STD_LOGIC;  -- SI depen del cicle
+			 di     	  : OUT STD_LOGIC;  -- SI depen del cicle
+			 reti   	  : OUT STD_LOGIC); -- SI depen del cicle
 END control_l;
 
 
@@ -30,32 +35,17 @@ signal cmp	: std_LOGIC_VECTOR(4 downto 0);
 signal mult	: std_LOGIC_VECTOR(4 downto 0);
 signal jmp	: std_logic;
 signal io	: std_logic;
+signal int	: std_logic;
 
 BEGIN
 
     -- Aqui iria la generacion de las senales de control del datapath
 	 ldpc <= '0' when ir = "1111111111111111" else '1';
-	 --op <= "01" when ir(15 downto 12) = "0011" or ir(15 downto 12) = "0100" or ir(15 downto 12) = "1101" or ir(15 downto 12) = "1110"
-				--else "0"&ir(8);
 	
 	
-	-- Senyal intermitja pel wrd.
 	
-	jmp <= '1' when ir(2 downto 0) = "100" else '0';
-	io <= not ir(8);
-	
-	with ir(15 downto 12) select wrd <=      -- Marquem com a 1 els casos en els que s'esriu perque no hi hagi lios al implementar noves instructs
-		'1' when "0101", -- MOVHI/MOVI
-		'1' when "0011", -- LD
-		'1' when "1101", -- LDB
-		'1' when "0000", -- aritmeticologiques
-		'1' when "0001", -- comparacions
-		'1' when "0010", -- ADDI
-		'1' when "1000", -- muls i divs
-		jmp when "1010",   -- Pels jumps
-		io  when "0111",
-		'0' when others; -- CASOS ST LD
-	
+-- ALU	
+
 -- CODIS D'OPERACIÓ
 	--	00000 MOVI
 	--	00001	MOVHI
@@ -120,10 +110,53 @@ BEGIN
 		arit 				when "0000", -- Aritmeticologiques.
 		cmp				when "0001", -- Comparacions.
 		mult				when "1000", -- Multiplicacions i divisions
-		"10100"			when "1010", -- JMP
+		"10100"			when "1010" or "1111", -- JMP i Interrupcions --> Registre A cap a la sortida.
  		"00110"			when others; -- ADDI, Loads, Stores.
 		
-	 -- ATENCIO QUE CAL LA SENYAL Rb_N !!!!
+ -- Senyals pe Banc de registres
+	 
+	jmp <= '1' when ir(2 downto 0) = "100" else '0';
+	io <= not ir(8);
+	int <= '1' when ir(5 downto 0) = "110000" else '0';
+	
+	with ir(15 downto 12) select wrd <=      -- Marquem com a 1 els casos en els que s'esriu perque no hi hagi lios al implementar noves instructs
+		'1' when "0101", -- MOVHI/MOVI
+		'1' when "0011", -- LD
+		'1' when "1101", -- LDB
+		'1' when "0000", -- aritmeticologiques
+		'1' when "0001", -- comparacions
+		'1' when "0010", -- ADDI
+		'1' when "1000", -- muls i divs
+		jmp when "1010",   -- Pels jumps
+		io  when "0111",
+		int when "1111", -- interrupts
+		'0' when others; -- CASOS ST LD
+	
+	 addr_d <= ir(11 downto 9);  -- Rd sempre està al mateix lloc
+	 addr_a <= ir(11 downto 9) when ir(15 downto 12) = "0101"
+					else ir(8 downto 6); 
+	 addr_b <= ir(2 downto 0) when ir(15 downto 12) = "0000" 
+											or ir(15 downto 12) = "0001" 
+											or ir(15 downto 12) = "1000" -- Esta al darrere en arit. cmp. i mul.
+					else ir(11 downto 9);  -- Rb canvia de lloc.
+				
+	d_sys <= '1' when ir(15 downto 12) = "1111" and ir(5 downto 0) = "110000";
+	a_sys <= '1' when ir(15 downto 12) = "1111" and ir(5 downto 0) = "101100";
+	
+	ei 	<= '1' when ir(15 downto 12) = "1111" and ir(5 downto 0) = "100000";
+	di 	<= '1' when ir(15 downto 12) = "1111" and ir(5 downto 0) = "100001";
+	reti	<= '1' when ir(15 downto 12) = "1111" and ir(5 downto 0) = "100100";
+	 
+	-- Memoria
+	 wr_m <= '1' when ir(15 downto 12) = "0100" or ir(15 downto 12) = "1110" else '0';  -- Nomes els store han d'escriure memoria
+	  
+	
+	-- Senyals per a l'I/O
+	 addr_io <= ir(7 downto 0);
+	 rd_in <= '1' when ir(15 downto 12) = "0111" and ir(8) = '0' else '0';
+	 wr_out <= '1' when ir(15 downto 12) = "0111" and ir(8) = '1' else '0';
+	 
+	 -- Senyals pel datapath
 	 Rb_N <= '0' when ir(15 downto 12) = "0010" -- MOVHI/MOVI
 							or ir(15 downto 12) = "0101" -- 
 							or ir(15 downto 12) = "0011" 
@@ -132,27 +165,10 @@ BEGIN
 							or ir(15 downto 12) = "1110" 
 						else '1'; 
 	 
-	 addr_d <= ir(11 downto 9);  -- Rd sempre està al mateix lloc
-	 addr_a <= ir(11 downto 9) when ir(15 downto 12) = "0101"
-					else ir(8 downto 6); 
-	 addr_b <= ir(2 downto 0) when ir(15 downto 12) = "0000" 
-											or ir(15 downto 12) = "0001" 
-											or ir(15 downto 12) = "1000" -- Esta al darrere en arit. cmp. i mul.
-					else ir(11 downto 9);  -- Rb canvia de lloc.
-	 
-	
-	 wr_m <= '1' when ir(15 downto 12) = "0100" or ir(15 downto 12) = "1110" else '0';  -- Nomes els store han d'escriure memoria
-	 
 	 in_d <= "01" when ir(15 downto 12) = "0011" or ir(15 downto 12) = "1101" 
 							else "10" when ir(15 downto 12) = "1010" and ir(2 downto 0) = "100" 
 							else "11" when ir(15 downto 12) = "0111" else "00";
-	
-	-- Senyals per a l'I/O
-	 addr_io <= ir(7 downto 0);
-	 rd_in <= '1' when ir(15 downto 12) = "0111" and ir(8) = '0' else '0';
-	 wr_out <= '1' when ir(15 downto 12) = "0111" and ir(8) = '1' else '0';
 	 
-	 -- Altres
 	 immed_x2 <= '1' when ir(15 downto 12) = "0011" or ir(15 downto 12) = "0100" else '0';
 	 
 	 word_byte <= ir(15);
