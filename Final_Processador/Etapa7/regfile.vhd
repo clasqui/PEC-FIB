@@ -38,7 +38,7 @@ BEGIN
 	begin
 		if(rising_edge(clk)) then
 			if boot = '1' then
-				registres_sistema(2) <= "000000000000000";
+				registres_sistema(2) <= "0000000000000000";
 				registres_sistema(5) <= x"0000"; -- AQUI HA D-ANAR EL CODI DE LA RSG.
 			elsif wrd_dades = '1' then
 				registres(conv_integer(addr_d)) <= d;

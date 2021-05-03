@@ -134,14 +134,14 @@ BEGIN
          wr_m_l => wr_m_l,
 			ei_l => ei_l,
 			di_l => di_l,
-			reti => reti_l,
+			reti_l => reti_l,
          w_b  => w_b,
          ldpc => ldpc,
          wrd => wrd,
          wr_m => wr_m,
          ldir => ldir,
          ins_dad => ins_dad,
-         word_byte => word_byte
+         word_byte => word_byte,
 			ei => ei,
 			di => di,
 			reti => reti);

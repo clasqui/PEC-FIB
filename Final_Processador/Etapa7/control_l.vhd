@@ -110,7 +110,8 @@ BEGIN
 		arit 				when "0000", -- Aritmeticologiques.
 		cmp				when "0001", -- Comparacions.
 		mult				when "1000", -- Multiplicacions i divisions
-		"10100"			when "1010" or "1111", -- JMP i Interrupcions --> Registre A cap a la sortida.
+		"10100"			when "1010", -- JMP i Interrupcions --> Registre A cap a la sortida.
+		"10100"			when "1111", -- JMP i Interrupcions --> Registre A cap a la sortida.
  		"00110"			when others; -- ADDI, Loads, Stores.
 		
  -- Senyals pe Banc de registres

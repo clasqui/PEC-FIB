@@ -66,7 +66,8 @@ ARCHITECTURE Structure OF proc IS
 			 a_sys  	  : IN  STD_LOGIC; 
 			 ei	  	  : IN STD_LOGIC;  
 			 di     	  : IN STD_LOGIC; 
-			 reti   	  : IN STD_LOGIC);
+			 reti   	  : IN STD_LOGIC;
+			 boot      : IN STD_LOGIC);
 	END COMPONENT;
 	
 	COMPONENT unidad_control IS
@@ -106,6 +107,7 @@ BEGIN
 	
 	e0 : datapath PORT MAP (
 		clk => clk,
+		boot => boot,
 		op => op,
 		wrd => wrd,
 		addr_a => addr_a,
@@ -123,7 +125,12 @@ BEGIN
 		z => z,
 		aluout => aluout,
 		wr_io => wr_io,
-		rd_io => rd_io
+		rd_io => rd_io,
+		d_sys => d_sys,
+		a_sys => a_sys,
+		ei => ei,
+		di => di,
+		reti => reti
 	);
 	
 	c0 : unidad_control PORT MAP (
@@ -152,6 +159,6 @@ BEGIN
 		di => di,
 		reti => reti,
 		a_sys => a_sys,
-		d_sys => s_sys
+		d_sys => d_sys
 	);
 END Structure;
