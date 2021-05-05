@@ -118,7 +118,7 @@ BEGIN
 	 
 	jmp <= '1' when ir(2 downto 0) = "100" else '0';
 	io <= not ir(8);
-	int <= '1' when ir(5 downto 0) = "110000" else '0';
+	int <= '1' when ir(5 downto 0) = "110000" or ir(5 downto 0) = "101100" else '0';
 	
 	with ir(15 downto 12) select wrd <=      -- Marquem com a 1 els casos en els que s'esriu perque no hi hagi lios al implementar noves instructs
 		'1' when "0101", -- MOVHI/MOVI
@@ -128,7 +128,7 @@ BEGIN
 		'1' when "0001", -- comparacions
 		'1' when "0010", -- ADDI
 		'1' when "1000", -- muls i divs
-		jmp when "1010",   -- Pels jumps
+		jmp when "1010", -- Pels jumps
 		io  when "0111",
 		int when "1111", -- interrupts
 		'0' when others; -- CASOS ST LD

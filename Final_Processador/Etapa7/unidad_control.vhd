@@ -155,7 +155,9 @@ BEGIN
 	tknbr <= INI when boot = '1' else  	 -- BOOT
 				PC_ACT when ldpc = '0' else -- NO ES CARREGA PC
 				BR when ir_actual(15 downto 12) = "0110" and (ir_actual(8) xor z) = '1' else -- HI HA UN BRANCH TAKEN 
-				jmp when ir_actual(15 downto 12) = "1010" else PC2;  -- Els jmp tenen una logica complicada que es calcula a part.
+				jmp when ir_actual(15 downto 12) = "1010" else  -- Els jmp tenen una logica complicada que es calcula a part.
+				ALU_OUT when ir_actual(15 downto 12) = "1111" and ir_actual(5 downto 0) = "100100" -- reti
+						else PC2;  
 	 
 	 -- Logica Program Counter
 	 

@@ -40,20 +40,21 @@ BEGIN
 			if boot = '1' then
 				registres_sistema(2) <= "0000000000000000";
 				registres_sistema(5) <= x"0000"; -- AQUI HA D-ANAR EL CODI DE LA RSG.
+				registres_sistema(7) <= x"0000";
 			elsif wrd_dades = '1' then
 				registres(conv_integer(addr_d)) <= d;
 			elsif wrd_sistema = '1' then
 				registres_sistema(conv_integer(addr_d)) <= d;
 			elsif ei = '1' then
-				registres_sistema(0)(0) <= '1'; 
+				registres_sistema(7)(1) <= '1'; 
 			elsif di = '1' then 
-				registres_sistema(0)(0) <= '0';
+				registres_sistema(7)(1) <= '0';
 			elsif reti = '1' then
 				registres_sistema(7) <= registres_sistema(0);
 			end if;
 		end if;
 	end process;
-	a <= registres_sistema(conv_integer(addr_a)) when a_sys = '1' else registres(conv_integer(addr_a));
+	a <= registres_sistema(conv_integer(addr_a)) when a_sys = '1' else registres_sistema(1) when reti = '1' else registres(conv_integer(addr_a));
 	b <= registres(conv_integer(addr_b));
 	 
 END Structure;

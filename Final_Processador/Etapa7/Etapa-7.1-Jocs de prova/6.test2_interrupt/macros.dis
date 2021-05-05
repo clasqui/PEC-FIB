@@ -1,0 +1,35 @@
+
+macros.exe:     file format elf32-sisa
+macros.exe
+architecture: sisa:3, flags 0x00000012:
+EXEC_P, HAS_SYMS
+start address 0x0000c000
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn  Flags
+  0 .stab         00000024  00000000  00000000  00000034  2**2  CONTENTS, READONLY, DEBUGGING
+  1 .stabstr      00000069  00000000  00000000  00000058  2**0  CONTENTS, READONLY, DEBUGGING
+SYMBOL TABLE:
+00000000 l    d  .stab	00000000 .stab
+00000000 l    d  .stabstr	00000000 .stabstr
+00000000 l    d  *ABS*	00000000 .shstrtab
+00000000 l    d  *ABS*	00000000 .symtab
+00000000 l    d  *ABS*	00000000 .strtab
+0000c000 g       *ABS*	00000000 __entry_point
+0000c000 g       *ABS*	00000000 _etext
+0000c000 g       *ABS*	00000000 __data_load_end
+0000c000 g       *ABS*	00000000 __data_load_start
+0000c000 g       *ABS*	00000000 __dtors_end
+0000c000 g       *ABS*	00000000 __ctors_start
+0000c000 g       *ABS*	00000000 __dtors_start
+0000c000 g       *ABS*	00000000 __ctors_end
+00008000 g       *ABS*	00000000 _edata
+00008000 g       *ABS*	00000000 _end
+
+
+
+macros.exe:     file format elf32-sisa
+
+
+macros.exe:     file format elf32-sisa
+
