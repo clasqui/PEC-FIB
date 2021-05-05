@@ -141,12 +141,12 @@ BEGIN
 											or ir(15 downto 12) = "1000" -- Esta al darrere en arit. cmp. i mul.
 					else ir(11 downto 9);  -- Rb canvia de lloc.
 				
-	d_sys <= '1' when ir(15 downto 12) = "1111" and ir(5 downto 0) = "110000";
-	a_sys <= '1' when ir(15 downto 12) = "1111" and ir(5 downto 0) = "101100";
+	d_sys <= '1' when ir(15 downto 12) = "1111" and ir(5 downto 0) = "110000" else '0';
+	a_sys <= '1' when ir(15 downto 12) = "1111" and ir(5 downto 0) = "101100" else '0';
 	
-	ei 	<= '1' when ir(15 downto 12) = "1111" and ir(5 downto 0) = "100000";
-	di 	<= '1' when ir(15 downto 12) = "1111" and ir(5 downto 0) = "100001";
-	reti	<= '1' when ir(15 downto 12) = "1111" and ir(5 downto 0) = "100100";
+	ei 	<= '1' when ir(15 downto 12) = "1111" and ir(5 downto 0) = "100000" else '0';
+	di 	<= '1' when ir(15 downto 12) = "1111" and ir(5 downto 0) = "100001" else '0';
+	reti	<= '1' when ir(15 downto 12) = "1111" and ir(5 downto 0) = "100100" else '0';
 	 
 	-- Memoria
 	 wr_m <= '1' when ir(15 downto 12) = "0100" or ir(15 downto 12) = "1110" else '0';  -- Nomes els store han d'escriure memoria
