@@ -119,7 +119,7 @@ architecture vga_controller_rtl of vga_controller is
          blue_out  <="00000000";  --   : out std_logic_vector(7 downto 0); -- vga blue pixel value
          horiz_sync_out <= '0'; --: out std_logic; -- vga control signal
          vert_sync_out <= '0';-- : out std_logic; -- vga control signal
-	          rd_data  <= "0000000000000000" ;   --     : out std_logic_vector(15 downto 0);
+	      rd_data  <= "0000000000000000" ;   --     : out std_logic_vector(15 downto 0);
 
 --	 
 --        --Clock divider /2. Pixel clock is 25MHz

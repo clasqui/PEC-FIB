@@ -87,8 +87,8 @@ BEGIN
 	led_verdes <= io_ports(5)(7 downto 0);
 	
 -- Port 6 --> Leds vermells
-	--led_rojos <= io_ports(6)(7 downto 0);
-	led_rojos <= tecla_pulsada; --debug
+	led_rojos <= io_ports(6)(7 downto 0);
+	--led_rojos <= tecla_pulsada; --debug
 	
 -- Port 7 --> Botons
 	entrada_botons <= "000000000000"&KEY(3 downto 0);
@@ -106,22 +106,7 @@ BEGIN
 -- Port 16 -- enquesta Teclat
 -- Port 20 -- nombre aleatori.
 -- Port 21 -- Timer
-	-- ntador_milisegundos <= io_ports(21);
-	
--- Timer
---process(CLOCK_50) 
---begin 
---	if rising_edge(CLOCK_50) then
---		if contador_ciclos=0 then
---			contador_ciclos<=x"C350";   -- tiempo de ciclo=20ns(50Mhz) 1ms=50000ciclos 
---			if contador_milisegundos>0 then
---				contador_milisegundos <= contador_milisegundos-1; 
---			end if; 
---		else
---				contador_ciclos <= contador_ciclos-1; 
---			end if; 
---	end if;
---end process;
+
 
 
 -- BANC DE REGISTRES
