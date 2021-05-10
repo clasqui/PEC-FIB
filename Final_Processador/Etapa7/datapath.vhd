@@ -32,7 +32,9 @@ ENTITY datapath IS
 			 ei	  	  : IN STD_LOGIC;  
 			 di     	  : IN STD_LOGIC; 
 			 reti   	  : IN STD_LOGIC;
-			 boot      : IN STD_LOGIC);
+			 boot      : IN STD_LOGIC;
+			 reg_intr : IN STD_LOGIC;
+			 int_e  : OUT STD_LOGIC);
 END datapath;
 
 ARCHITECTURE Structure OF datapath IS
@@ -59,7 +61,9 @@ COMPONENT regfile IS
 			 ei	  : IN STD_LOGIC;
 			 di     : IN STD_LOGIC;
 			 reti   : IN STD_LOGIC;
-			 boot	  : IN STD_LOGIC);
+			 boot	  : IN STD_LOGIC;
+			 reg_intr : IN STD_LOGIC;
+			 int_e  : OUT STD_LOGIC);
 END COMPONENT;
 
 signal d : STD_LOGIC_VECTOR(15 DOWNTO 0);

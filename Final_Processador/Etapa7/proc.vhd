@@ -67,7 +67,9 @@ ARCHITECTURE Structure OF proc IS
 			 ei	  	  : IN STD_LOGIC;  
 			 di     	  : IN STD_LOGIC; 
 			 reti   	  : IN STD_LOGIC;
-			 boot      : IN STD_LOGIC);
+			 boot      : IN STD_LOGIC;
+			 reg_intr : IN STD_LOGIC;
+			 int_e  : OUT STD_LOGIC);
 	END COMPONENT;
 	
 	COMPONENT unidad_control IS
@@ -96,7 +98,9 @@ ARCHITECTURE Structure OF proc IS
 			 a_sys  	  : OUT  STD_LOGIC; 
 			 ei	  	  : OUT STD_LOGIC;  
 			 di     	  : OUT STD_LOGIC; 
-			 reti   	  : OUT STD_LOGIC);
+			 reti   	  : OUT STD_LOGIC;
+			 reg_intr : OUT STD_LOGIC;
+			 int_e  : IN STD_LOGIC);
 END COMPONENT;
 
 BEGIN

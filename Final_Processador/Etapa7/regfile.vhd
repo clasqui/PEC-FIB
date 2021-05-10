@@ -17,7 +17,9 @@ ENTITY regfile IS
 			 reti   : IN STD_LOGIC;
 			 boot	  : IN STD_LOGIC;
           a      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 b      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+			 b      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 reg_intr : IN STD_LOGIC;
+			 int_e  : OUT STD_LOGIC);
 END regfile;
 
 
@@ -41,6 +43,11 @@ BEGIN
 				registres_sistema(2) <= "0000000000000000";
 				registres_sistema(5) <= x"0000"; -- AQUI HA D-ANAR EL CODI DE LA RSG.
 				registres_sistema(7) <= x"0000";
+			elsif reg_intr = '1' then  -- estat SYSTEM
+				registres_sistema(0) <= registres_sistema(7);
+				registres_sistema(1) <= d;
+				registres_sistema(2) <= x"000F";
+				registres_sistema(7)(1) <= '0';
 			elsif wrd_dades = '1' then
 				registres(conv_integer(addr_d)) <= d;
 			elsif wrd_sistema = '1' then
@@ -51,10 +58,13 @@ BEGIN
 				registres_sistema(7)(1) <= '0';
 			elsif reti = '1' then
 				registres_sistema(7) <= registres_sistema(0);
+				registres_sistema(7)(1) <= '1';
 			end if;
 		end if;
 	end process;
+	
 	a <= registres_sistema(conv_integer(addr_a)) when a_sys = '1' else registres_sistema(1) when reti = '1' else registres(conv_integer(addr_a));
 	b <= registres(conv_integer(addr_b));
+	int_e <= registres_sistema(7)(1);
 	 
 END Structure;
