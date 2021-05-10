@@ -35,30 +35,38 @@ BEGIN
 	begin
 		if rising_edge(clk) then
 -- S'ordenen els ifs per prioritats
-			if timer_intr <= '1' then
-				interrupt_tractant <= x"00";
-			elsif key_intr <= '1' then
-				interrupt_tractant <= x"01";
-			elsif sw_intr <= '1' then
-				interrupt_tractant <= x"02";
-			elsif ps2_intr <= '1' then
-				interrupt_tractant <= x"03";
-			end if;
-			if inta = '1' then
-				if interrupt_tractant = x"00" then
-					timer_inta <= '0';
-				elsif interrupt_tractant = x"01" then
-					key_inta <= '0';
-				elsif interrupt_tractant = x"02" then
-					sw_inta <= '0';
-				elsif interrupt_tractant = x"03" then
-					ps2_inta <= '0';
+			if boot = '1' then
+				--intr <= '0';
+				key_inta <= '0';
+				ps2_inta <= '0';
+				sw_inta <= '0';
+				timer_inta <= '0';		
+			else
+				if timer_intr <= '1' then
+					interrupt_tractant <= x"00";
+				elsif key_intr <= '1' then
+					interrupt_tractant <= x"01";
+				elsif sw_intr <= '1' then
+					interrupt_tractant <= x"02";
+				elsif ps2_intr <= '1' then
+					interrupt_tractant <= x"03";
+				end if;
+				if inta = '1' then
+					if interrupt_tractant = x"00" then
+						timer_inta <= '0';
+					elsif interrupt_tractant = x"01" then
+						key_inta <= '0';
+					elsif interrupt_tractant = x"02" then
+						sw_inta <= '0';
+					elsif interrupt_tractant = x"03" then
+						ps2_inta <= '0';
+					end if;
 				end if;
 			end if;
 		end if;
 	end process;
 	
-	intr <= ps2_intr or timer_intr or sw_intr or key_intr;
+	intr <= (ps2_intr or timer_intr or sw_intr or key_intr) when boot = '0' else '0';
 	iid <= interrupt_tractant(7 downto 0); 
 	
 END Structure;

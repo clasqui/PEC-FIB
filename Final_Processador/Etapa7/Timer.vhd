@@ -26,9 +26,9 @@ BEGIN
 	process (CLOCK_50)
 	BEGIN
 		if rising_edge(CLOCK_50) then
-			if contador = 0 then
+			if contador = 0 or boot = '1' then
 				contador <= std_logic_vector(to_unsigned(micros*50,32));
-				intr_b <= '0';
+				intr_b <= '1';
 			else 
 				contador <= contador - 1;
 			end if;

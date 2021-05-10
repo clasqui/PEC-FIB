@@ -27,21 +27,27 @@ BEGIN
 	process(clk)
 	begin
 		if rising_edge(clk) then
-			if nou_key_out /= key_out then  -- cas de hi ha hagut canvi.
-				if intr_b = '1' then  -- no s'ha tractat lanterior canvi. s'ignoren els canvis.
-					nested_canvi <= '1';
-				else
-					intr_b <= '1';
-					nou_key_out <= SW;
-				end if;				
-			end if;
-			if intr_b = '0' and nested_canvi = '1' then -- hi ha hagut un canvi mentre estavem tractant un altre.
-				intr_b <= '1';
-				nested_canvi <= '0';
+			if boot = '1' then
 				nou_key_out <= SW;
-			end if;
-			if inta = '1' then
+				nested_canvi <= '0';
 				intr_b <= '0';
+			else
+				if nou_key_out /= key_out then  -- cas de hi ha hagut canvi.
+					if intr_b = '1' then  -- no s'ha tractat lanterior canvi. s'ignoren els canvis.
+						nested_canvi <= '1';
+					else
+						intr_b <= '1';
+						nou_key_out <= SW;
+					end if;				
+				end if;
+				if intr_b = '0' and nested_canvi = '1' then -- hi ha hagut un canvi mentre estavem tractant un altre.
+					intr_b <= '1';
+					nested_canvi <= '0';
+					nou_key_out <= SW;
+				end if;
+				if inta = '1' then
+					intr_b <= '0';
+				end if;
 			end if;
 		end if;
 	end process;	

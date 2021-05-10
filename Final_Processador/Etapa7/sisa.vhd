@@ -77,6 +77,7 @@ end COMPONENT;
 COMPONENT controladores_IO IS
     PORT (boot   : IN  STD_LOGIC;
 			 CLOCK_50    : IN  std_logic; 
+			 clk    : IN std_LOGIC;
 			 addr_io     : IN  std_logic_vector(7 downto 0); 
 			 wr_io  : in  std_logic_vector(15 downto 0); 
 			 rd_io  : out std_logic_vector(15 downto 0); 
@@ -220,6 +221,7 @@ io0 : Controladores_IO
 	port map (
 		boot => SW(9),
 		CLOCK_50 => CLOCK_50,
+		clk       => clk_proc,
 	   addr_io => addr_io,
 		wr_io  => wr_io, 
 		rd_io  => rd_io, 
