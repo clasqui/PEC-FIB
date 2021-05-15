@@ -42,13 +42,13 @@ BEGIN
 				sw_inta <= '0';
 				timer_inta <= '0';		
 			else
-				if timer_intr <= '1' then
+				if timer_intr = '1' then
 					interrupt_tractant <= x"00";
-				elsif key_intr <= '1' then
+				elsif key_intr = '1' then
 					interrupt_tractant <= x"01";
-				elsif sw_intr <= '1' then
+				elsif sw_intr = '1' then
 					interrupt_tractant <= x"02";
-				elsif ps2_intr <= '1' then
+				elsif ps2_intr = '1' then
 					interrupt_tractant <= x"03";
 				end if;
 				if inta = '1' then

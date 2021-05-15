@@ -520,7 +520,6 @@ set_global_assignment -name VHDL_FILE control_l.vhd
 set_global_assignment -name VHDL_FILE alu.vhd
 set_global_assignment -name VHDL_FILE multiplicador.vhd
 set_global_assignment -name VHDL_FILE controladores_IO.vhd
-set_global_assignment -name VHDL_FILE constants_pkg.vhd
 set_global_assignment -name VHDL_FILE Pulsadors.vhd
 set_global_assignment -name VHDL_FILE Interruptors.vhd
 set_global_assignment -name ENABLE_SIGNALTAP ON
