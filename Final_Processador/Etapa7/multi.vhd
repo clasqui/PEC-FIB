@@ -56,7 +56,7 @@ begin
 			case estat is
 				when FETCH =>
 					estat <= DEMW;
-				when DEMW=>
+				when DEMW =>
 					if intr = '1' and int_e = '1' then
 						estat <= SYSTEM;
 					else
@@ -81,7 +81,7 @@ begin
 	reti <= reti_l when estat = DEMW else '0';		-- Return interrupt
 	reg_intr <= reg_intr_l	when estat = SYSTEM else '0';
 	op <= "10100" when estat = SYSTEM else op_l;     -- OP coode ha de fer passar la A al PC.
-	in_d <= "00" when estat = SYSTEM else in_d_l;    -- Per guardar pcUP al banc de reg
+	in_d <= "10" when estat = SYSTEM else in_d_l;    -- Per guardar pcUP al banc de reg
 	d_sys <= '1' when estat = SYSTEM else d_sys_l;
 	inta <= inta_l when estat = DEMW else '0';
 	

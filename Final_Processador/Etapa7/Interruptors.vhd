@@ -23,12 +23,11 @@ ARCHITECTURE Structure OF Interruptors IS
 	signal intr_b : std_logic := '0';
 
 BEGIN
-	
+	nou_key_out <= SW;
 	process(clk)
 	begin
 		if rising_edge(clk) then
 			if boot = '1' then
-				nou_key_out <= SW;
 				nested_canvi <= '0';
 				intr_b <= '0';
 			else
@@ -37,13 +36,14 @@ BEGIN
 						nested_canvi <= '1';
 					else
 						intr_b <= '1';
-						nou_key_out <= SW;
+						--nou_key_out <= SW;
+						key_out <= nou_key_out;
 					end if;				
 				end if;
 				if intr_b = '0' and nested_canvi = '1' then -- hi ha hagut un canvi mentre estavem tractant un altre.
 					intr_b <= '1';
 					nested_canvi <= '0';
-					nou_key_out <= SW;
+					--nou_key_out <= SW;
 				end if;
 				if inta = '1' then
 					intr_b <= '0';
@@ -52,7 +52,7 @@ BEGIN
 		end if;
 	end process;	
 	
-	key_out <= nou_key_out;
+	
 	sw_read <= key_out;
 	intr <= intr_b;
 END Structure;

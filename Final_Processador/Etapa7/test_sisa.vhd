@@ -68,6 +68,8 @@ architecture comportament of test_sisa is
 
 	 signal ps2_clk  : std_logic; 
 	 signal ps2_data : std_logic;
+	 
+	 signal sw : std_logic_vector(3 downto 0);
 	
 begin
    
@@ -108,13 +110,13 @@ begin
 	  
 
 		addr_mem (15 downto 0) <= addr_SOC (15 downto 0);
-		botones <= reset_proc&"000000000";
+		botones <= reset_proc&"00000"&sw;
 		
    -- Descripcio del comportament
 	clk <= not clk after 10 ns;
 	reset_ram <= '1' after 15 ns, '0' after 50 ns;    -- reseteamos la RAm en el primer ciclo
 	reset_proc <= '1' after 25 ns, '0' after 320 ns;  -- reseteamos el procesador en el segundo ciclo
-	keys <= "1001" after 3000 ns; -- per fer aixi un test; 
+	sw <= "1001" after 25000 ns, "1111" after 26000 ns; -- per fer aixi un test; 
 
 	
 end comportament;

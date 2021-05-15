@@ -5,7 +5,7 @@ USE ieee.std_logic_unsigned.ALL;
 use ieee.numeric_std.all;
 
 ENTITY Timer IS
-GENERIC (micros : integer := 50);
+GENERIC (micros : integer := 50000);
 PORT (
 		CLOCK_50 : IN std_logic;
 		boot : IN STD_logic;

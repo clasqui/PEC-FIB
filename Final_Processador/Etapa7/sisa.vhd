@@ -48,7 +48,8 @@ COMPONENT proc IS
 			 wr_io	  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 rd_io	  : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 inta 	  : OUT std_logic;
-			 intr 	  : IN std_logic);
+			 intr 	  : IN std_logic;
+			 int_e : OUT std_LOGIC);
 END COMPONENT;
 
 COMPONENT MemoryController is
@@ -96,7 +97,8 @@ COMPONENT controladores_IO IS
 			 ps2_clk  : inout std_logic; 
 			 ps2_data : inout std_logic;
 			 inta : in std_logic;
-			 intr : out std_logic); 
+			 intr : out std_logic;
+			 int_e : in std_LOGIC); 
 END COMPONENT;
 
 COMPONENT vga_controller IS
@@ -153,7 +155,8 @@ END COMPONENT;
 	
 	signal inta : std_logic;
 	signal intr : std_logic;
-	signal iid  : std_LOGIC_VECTOR(7 downto 0);
+	signal int_e  : std_LOGIC;
+	
 	
 	
 BEGIN
@@ -174,7 +177,8 @@ pro0 : proc
 		wr_out => wr_out,
 		rd_in => rd_in,
 		inta => inta,
-		intr => intr
+		intr => intr,
+		int_e => int_e
 	);
 
 mem0 : MemoryController
@@ -247,7 +251,8 @@ io0 : Controladores_IO
 		ps2_clk => PS2_CLK,
 		ps2_data => PS2_DAT,
 		inta => inta,
-		intr => intr
+		intr => intr,
+		int_e => int_e
 	);
 	
 -- Amb tres cicles ja tenim escrit. De fet podriem escriure en 2 segurament.

@@ -45,7 +45,7 @@ BEGIN
 				registres_sistema(7) <= x"0000";
 			elsif reg_intr = '1' then  -- estat SYSTEM
 				registres_sistema(0) <= registres_sistema(7);
-				registres_sistema(1) <= d;
+				registres_sistema(1) <= d-2;
 				registres_sistema(2) <= x"000F";
 				registres_sistema(7)(1) <= '0';
 			elsif wrd_dades = '1' then

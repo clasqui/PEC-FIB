@@ -5,7 +5,6 @@ USE ieee.std_logic_unsigned.ALL;
 use ieee.numeric_std.all;
 
 ENTITY Interrupt_controller IS
-GENERIC (micros : integer := 50);
 PORT (
 		clk : IN std_logic;
 		boot : IN STD_logic;
@@ -37,10 +36,10 @@ BEGIN
 -- S'ordenen els ifs per prioritats
 			if boot = '1' then
 				--intr <= '0';
-				key_inta <= '0';
-				ps2_inta <= '0';
-				sw_inta <= '0';
-				timer_inta <= '0';		
+--				key_inta <= '0';
+--				ps2_inta <= '0';
+--				sw_inta <= '0';
+--				timer_inta <= '0';		
 			else
 				if timer_intr = '1' then
 					interrupt_tractant <= x"00";
@@ -51,22 +50,17 @@ BEGIN
 				elsif ps2_intr = '1' then
 					interrupt_tractant <= x"03";
 				end if;
-				if inta = '1' then
-					if interrupt_tractant = x"00" then
-						timer_inta <= '0';
-					elsif interrupt_tractant = x"01" then
-						key_inta <= '0';
-					elsif interrupt_tractant = x"02" then
-						sw_inta <= '0';
-					elsif interrupt_tractant = x"03" then
-						ps2_inta <= '0';
-					end if;
-				end if;
 			end if;
 		end if;
 	end process;
 	
+	timer_inta <= '1' when inta = '1' and interrupt_tractant = x"00" else '0';
+	key_inta <= '1' when inta = '1' and interrupt_tractant = x"01" else '0';
+	ps2_inta <= '1' when inta = '1' and interrupt_tractant = x"03" else '0';
+	sw_inta <= '1' when inta = '1' and interrupt_tractant = x"02" else '0';
+	
 	intr <= (ps2_intr or timer_intr or sw_intr or key_intr) when boot = '0' else '0';
+	-- intr <= (ps2_intr or sw_intr or key_intr) when boot = '0' else '0';
 	iid <= interrupt_tractant(7 downto 0); 
 	
 END Structure;

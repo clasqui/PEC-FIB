@@ -16,7 +16,8 @@ ENTITY proc IS
 			 wr_io	 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 rd_io	 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 inta 	  : OUT std_logic;
-			 intr 	  : IN std_logic);
+			 intr 	  : IN std_logic;
+			 int_e : OUT std_LOGIC);
 END proc;
 
 
@@ -44,7 +45,7 @@ ARCHITECTURE Structure OF proc IS
 	 signal di     : STD_LOGIC; 
 	 signal reti  	: STD_LOGIC;
 	 signal reg_intr : STD_LOGIC;
-	 signal int_e : std_LOGIC;
+	 signal int_e_b : std_LOGIC;
 		 
 	 COMPONENT datapath IS
     PORT (clk    : IN STD_LOGIC;
@@ -142,7 +143,7 @@ BEGIN
 		di => di,
 		reti => reti,
 		reg_intr => reg_intr,
-		int_e => int_e
+		int_e => int_e_b
 	);
 	
 	c0 : unidad_control PORT MAP (
@@ -175,6 +176,6 @@ BEGIN
 		inta => inta,
 		intr => intr,
 		reg_intr => reg_intr,
-		int_e => int_e
+		int_e => int_e_b
 	);
 END Structure;

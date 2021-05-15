@@ -25,7 +25,8 @@ ENTITY controladores_IO IS
 			 vga_cursor : out std_logic_vector(15 downto 0);
 			 vga_cursor_enable : out std_logic;
 			 inta : in std_logic;
-			 intr : out std_logic
+			 intr : out std_logic;
+			 int_e : in std_LOGIC
 			 ); 
 END controladores_IO; 
 
@@ -54,7 +55,7 @@ ARCHITECTURE Structure OF controladores_IO IS
 	end COMPONENT;
 	
 	COMPONENT Timer IS
-	GENERIC (micros : integer := 50);
+	GENERIC (micros : integer := 50000);
 	PORT (
 		CLOCK_50 : IN std_logic;
 		boot : IN STD_logic;
@@ -64,7 +65,6 @@ ARCHITECTURE Structure OF controladores_IO IS
 	end COMPONENT;
 	
 COMPONENT Interrupt_controller IS
-	GENERIC (micros : integer := 50);
 	PORT (
 		clk : IN std_logic;
 		boot : IN STD_logic;
@@ -79,6 +79,7 @@ COMPONENT Interrupt_controller IS
 		sw_inta : out std_logic;
 		timer_inta : out std_logic;
 		iid : out std_logic_vector(7 downto 0)
+		
 	);
 	END COMPONENT;
 	
@@ -200,10 +201,10 @@ BEGIN
 	--led_rojos <= tecla_pulsada; --debug
 	
 -- Port 7 --> Botons
-	entrada_botons <= "000000000000"&KEY(3 downto 0); -- cal afegir dada d'interrupts
+	entrada_botons <= "000000000000"&KEY(3 downto 0) when int_e = '0' else "000000000000"&key_read; 
 
 -- Port 8 --> Switches
-	entrada_switches <="00000000"&SW;  -- cal afegir dada d'interrupts
+	entrada_switches <="00000000"&SW when int_e = '0' else "00000000"&sw_read;  
 
 -- Port 9 --> Visors encesos/apagats.
 	visor_enable <= io_ports(9)(3 downto 0);
@@ -250,12 +251,14 @@ BEGIN
 				io_ports(15) 	<= "00000000"&tecla_pulsada;
 				io_ports(16)	<= "000000000000000"&tecla_disponible;
 				io_ports(20)   <= contador_ciclos;
+				io_ports(21)   <= contador_milisegundos;
 			end if;
 		end if;
 	end process;	
 	
 -- Altres sortides
-	rd_io <= "00000000"&iid when inta = '1' else io_ports(conv_integer(addr_io(4 downto 0)));  -- Lectura AQUI HEM DE BLOQUEJAR LA LECTURA!!
-
+	 rd_io <= "00000000"&iid when inta = '1' else io_ports(conv_integer(addr_io(4 downto 0)));  -- Lectura AQUI HEM DE BLOQUEJAR LA LECTURA!!
+	--	rd_io <= io_ports(conv_integer(addr_io(4 downto 0)));
+		
 END Structure; 
 

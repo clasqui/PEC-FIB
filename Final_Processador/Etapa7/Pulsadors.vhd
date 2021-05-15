@@ -24,12 +24,12 @@ ARCHITECTURE Structure OF Pulsadors IS
 
 BEGIN
 	
+	nou_key_out <= KEY;
 	process(clk)
 	begin
-		if rising_edge(clk) then
-			-- nou_key_out <= KEY;
+		if rising_edge(clk) then   
 			if boot = '1' then
-				nou_key_out <= KEY;
+				-- nou_key_out <= KEY;
 				nested_canvi <= '0';
 				intr_b <= '0';
 			else
@@ -38,13 +38,14 @@ BEGIN
 						nested_canvi <= '1';
 					else
 						intr_b <= '1';
-						nou_key_out <= KEY;
-					end if;				
+						key_out <= nou_key_out;
+						-- nou_key_out <= KEY;
+					end if;
 				end if;
 				if intr_b = '0' and nested_canvi = '1' then -- hi ha hagut un canvi mentre estavem tractant un altre.
 					intr_b <= '1';
 					nested_canvi <= '0';
-					nou_key_out <= KEY;
+					-- nou_key_out <= KEY;
 				end if;
 				if inta = '1' then
 					intr_b <= '0';
@@ -52,8 +53,8 @@ BEGIN
 			end if;
 		end if;
 	end process;	
+
 	
-	key_out <= nou_key_out;
 	key_read <= key_out;
 	intr <= intr_b;
 END Structure;
