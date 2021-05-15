@@ -19,6 +19,9 @@ add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/c0/nou_pc
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/c0/pc
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/c0/wr_m
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/c0/ac/wr_m_l
+add wave -noupdate -divider {Interrupt controller}
+add wave -noupdate /test_sisa/SoC/io0/intctrl0/intr
+add wave -noupdate /test_sisa/SoC/io0/intctrl0/inta
 add wave -noupdate -divider ControlMemoria
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/mem0/addr
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/mem0/wr_data
@@ -63,7 +66,7 @@ add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/reg0/a
 add wave -noupdate -radix hexadecimal /test_sisa/SoC/pro0/e0/reg0/b
 add wave -noupdate -radix hexadecimal -childformat {{/test_sisa/SoC/pro0/e0/reg0/registres(0) -radix hexadecimal} {/test_sisa/SoC/pro0/e0/reg0/registres(1) -radix hexadecimal} {/test_sisa/SoC/pro0/e0/reg0/registres(2) -radix hexadecimal} {/test_sisa/SoC/pro0/e0/reg0/registres(3) -radix hexadecimal} {/test_sisa/SoC/pro0/e0/reg0/registres(4) -radix hexadecimal} {/test_sisa/SoC/pro0/e0/reg0/registres(5) -radix hexadecimal} {/test_sisa/SoC/pro0/e0/reg0/registres(6) -radix hexadecimal} {/test_sisa/SoC/pro0/e0/reg0/registres(7) -radix hexadecimal}} -expand -subitemconfig {/test_sisa/SoC/pro0/e0/reg0/registres(0) {-height 15 -radix hexadecimal} /test_sisa/SoC/pro0/e0/reg0/registres(1) {-height 15 -radix hexadecimal} /test_sisa/SoC/pro0/e0/reg0/registres(2) {-height 15 -radix hexadecimal} /test_sisa/SoC/pro0/e0/reg0/registres(3) {-height 15 -radix hexadecimal} /test_sisa/SoC/pro0/e0/reg0/registres(4) {-height 15 -radix hexadecimal} /test_sisa/SoC/pro0/e0/reg0/registres(5) {-height 15 -radix hexadecimal} /test_sisa/SoC/pro0/e0/reg0/registres(6) {-height 15 -radix hexadecimal} /test_sisa/SoC/pro0/e0/reg0/registres(7) {-height 15 -radix hexadecimal}} /test_sisa/SoC/pro0/e0/reg0/registres
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {1016000 ps} 0}
+WaveRestoreCursors {{Cursor 1} {4135249 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 253
 configure wave -valuecolwidth 54
@@ -79,4 +82,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {804440 ps} {1953656 ps}
+WaveRestoreZoom {0 ps} {1149216 ps}
