@@ -33,8 +33,8 @@ ENTITY datapath IS
 			 di     	  : IN STD_LOGIC; 
 			 reti   	  : IN STD_LOGIC;
 			 boot      : IN STD_LOGIC;
-			 reg_intr : IN STD_LOGIC;
-			 int_e  : OUT STD_LOGIC);
+			 reg_intr  : IN STD_LOGIC;
+			 int_e     : OUT STD_LOGIC);
 END datapath;
 
 ARCHITECTURE Structure OF datapath IS
@@ -76,9 +76,28 @@ signal alu_out : STD_LOGIC_VECTOR(15 DOWNTO 0);
 BEGIN
 
 	reg0 : regfile
-		PORT MAP (clk => clk, wrd => wrd, addr_a => addr_a, addr_b => addr_b, addr_d => addr_d, d => d, a => a, b => b, a_sys => a_sys, d_sys => d_sys, ei => ei, di => di, reti => reti, boot => boot);
+		PORT MAP (clk => clk, 
+					 wrd => wrd, 
+					 addr_a => addr_a, 
+					 addr_b => addr_b, 
+					 addr_d => addr_d, 
+					 d => d, 
+					 a => a, 
+					 b => b, 
+					 a_sys => a_sys, 
+					 d_sys => d_sys, 
+					 ei => ei, 
+					 di => di, 
+					 reti => reti, 
+					 boot => boot,
+					 int_e => int_e,
+					 reg_intr => reg_intr);
 	alu0 : alu
-		PORT MAP (x => x, y => y, op => op, w => alu_out, z => z);
+		PORT MAP (x => x, 
+					 y => y, 
+					 op => op, 
+					 w => alu_out, 
+					 z => z);
 	
 	-- ENTRADA DEL BANC DE REGISTRES.	
 	d <= datard_m when in_d = "01" else alu_out when in_d = "00" else pc+2 when in_d = "10" else rd_io when in_d = "11" else (others=>'0');

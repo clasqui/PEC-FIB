@@ -45,8 +45,10 @@ COMPONENT proc IS
 			 addr_io	  : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 			 rd_in	  : OUT STD_LOGIC;
 			 wr_out    : OUT STD_LOGIC;
-			 wr_io	 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 rd_io	 : IN STD_LOGIC_VECTOR(15 DOWNTO 0));
+			 wr_io	  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 rd_io	  : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 inta 	  : OUT std_logic;
+			 intr 	  : IN std_logic);
 END COMPONENT;
 
 COMPONENT MemoryController is
@@ -92,8 +94,9 @@ COMPONENT controladores_IO IS
 			 HEX2 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 HEX3 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 			 ps2_clk  : inout std_logic; 
-			 ps2_data : inout std_logic
-			 ); 
+			 ps2_data : inout std_logic;
+			 inta : in std_logic;
+			 intr : out std_logic); 
 END COMPONENT;
 
 COMPONENT vga_controller IS
@@ -148,6 +151,10 @@ END COMPONENT;
 	signal vga_green_out : std_logic_vector(7 downto 0);
 	signal vga_blue_out : std_logic_vector(7 downto 0);
 	
+	signal inta : std_logic;
+	signal intr : std_logic;
+	signal iid  : std_LOGIC_VECTOR(7 downto 0);
+	
 	
 BEGIN
 
@@ -165,7 +172,9 @@ pro0 : proc
 		wr_io  => wr_io, 
 		rd_io  => rd_io, 
 		wr_out => wr_out,
-		rd_in => rd_in
+		rd_in => rd_in,
+		inta => inta,
+		intr => intr
 	);
 
 mem0 : MemoryController
@@ -236,7 +245,9 @@ io0 : Controladores_IO
 		HEX2 => HEX2,
 		HEX3 => HEX3,
 		ps2_clk => PS2_CLK,
-		ps2_data => PS2_DAT
+		ps2_data => PS2_DAT,
+		inta => inta,
+		intr => intr
 	);
 	
 -- Amb tres cicles ja tenim escrit. De fet podriem escriure en 2 segurament.

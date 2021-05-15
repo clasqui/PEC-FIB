@@ -63,7 +63,10 @@ BEGIN
 		end if;
 	end process;
 	
-	a <= registres_sistema(conv_integer(addr_a)) when a_sys = '1' else registres_sistema(1) when reti = '1' else registres(conv_integer(addr_a));
+	a <= 	registres_sistema(5) when reg_intr = '1' -- Estem en cicle system.
+				else registres_sistema(1) when reti = '1' 
+				else registres_sistema(conv_integer(addr_a)) when a_sys = '1'
+				else registres(conv_integer(addr_a));
 	b <= registres(conv_integer(addr_b));
 	int_e <= registres_sistema(7)(1);
 	 

@@ -23,7 +23,10 @@ ENTITY control_l IS
 			 a_sys  	  : OUT  STD_LOGIC; -- no depen del cicle
 			 ei	  	  : OUT STD_LOGIC;  -- SI depen del cicle
 			 di     	  : OUT STD_LOGIC;  -- SI depen del cicle
-			 reti   	  : OUT STD_LOGIC); -- SI depen del cicle
+			 reti   	  : OUT STD_LOGIC;  -- SI depen del cicle
+			 reg_intr  : OUT STD_LOGIC;  -- SI depen del cicle
+			 inta 	  : OUT std_logic   -- SI depen del cicle --> perque nomes ha destar amunt un cicle!!!
+			 ); 
 END control_l;
 
 
@@ -39,8 +42,8 @@ signal int	: std_logic;
 
 BEGIN
 
-    -- Aqui iria la generacion de las senales de control del datapath
 	 ldpc <= '0' when ir = "1111111111111111" else '1';
+	 reg_intr <= '0' when ir = "1111111111111111" else '1';
 	
 	
 	
@@ -118,7 +121,7 @@ BEGIN
 	 
 	jmp <= '1' when ir(2 downto 0) = "100" else '0';
 	io <= not ir(8);
-	int <= '1' when ir(5 downto 0) = "110000" or ir(5 downto 0) = "101100" else '0';
+	int <= '1' when ir(5 downto 0) = "110000" or ir(5 downto 0) = "101100" or ir(5 downto 0) = "101000" else '0';
 	
 	with ir(15 downto 12) select wrd <=      -- Marquem com a 1 els casos en els que s'esriu perque no hi hagi lios al implementar noves instructs
 		'1' when "0101", -- MOVHI/MOVI
@@ -168,7 +171,7 @@ BEGIN
 	 
 	 in_d <= "01" when ir(15 downto 12) = "0011" or ir(15 downto 12) = "1101" 
 							else "10" when ir(15 downto 12) = "1010" and ir(2 downto 0) = "100" 
-							else "11" when ir(15 downto 12) = "0111" else "00";
+							else "11" when ir(15 downto 12) = "0111" or (ir(15 downto 12) = "1111" and ir(5 downto 0) = "101000") else "00";
 	 
 	 immed_x2 <= '1' when ir(15 downto 12) = "0011" or ir(15 downto 12) = "0100" else '0';
 	 

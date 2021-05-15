@@ -11,7 +11,7 @@ PORT (
 		inta : IN std_logic;
 		intr : OUT std_logic;
 		SW  : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-		sw_read : OUT STD_LOGIC_VECTOR(7 DOWNTO 0) := SW	
+		sw_read : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
 	);
 END Interruptors;
 

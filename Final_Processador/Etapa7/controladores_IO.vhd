@@ -25,8 +25,7 @@ ENTITY controladores_IO IS
 			 vga_cursor : out std_logic_vector(15 downto 0);
 			 vga_cursor_enable : out std_logic;
 			 inta : in std_logic;
-			 intr : out std_logic;
-			 iid : out std_LOGIC_VECTOR(7 downto 0)
+			 intr : out std_logic
 			 ); 
 END controladores_IO; 
 
@@ -126,6 +125,8 @@ COMPONENT Interrupt_controller IS
 	signal key_intr : std_LOGIC;
 	signal key_read : std_LOGIC_VECTOR(3 DOWNTO 0);
 	signal sw_read : std_LOGIC_VECTOR(7 DOWNTO 0);
+	signal iid : std_LOGIC_VECTOR(7 DOWNTO 0);
+	signal clear_char_l : std_logic;
 	
 
 BEGIN
@@ -137,9 +138,10 @@ BEGIN
 		ps2_clk => ps2_clk, -- Sortida del modul sisa
 		ps2_data => ps2_data,
 		read_char => tecla_pulsada,
-		clear_char => tecla_pillada or ps2_inta,
+		clear_char => clear_char_l,
 		data_ready => tecla_disponible
 	);
+	clear_char_l <= (tecla_pillada or ps2_inta);
 	
 	driver : driver7Segmentos PORT MAP (
 		codiNum => codiNum, 
@@ -253,7 +255,7 @@ BEGIN
 	end process;	
 	
 -- Altres sortides
-	rd_io <= io_ports(conv_integer(addr_io(4 downto 0)));  -- Lectura AQUI HEM DE BLOQUEJAR LA LECTURA!!
+	rd_io <= "00000000"&iid when inta = '1' else io_ports(conv_integer(addr_io(4 downto 0)));  -- Lectura AQUI HEM DE BLOQUEJAR LA LECTURA!!
 
 END Structure; 
 

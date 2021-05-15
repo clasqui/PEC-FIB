@@ -11,7 +11,7 @@ PORT (
 		inta : IN std_logic;
 		intr : OUT std_logic;
 		KEY  : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-		key_read : OUT STD_LOGIC_VECTOR(3 DOWNTO 0) := KEY	
+		key_read : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
 	);
 END Pulsadors;
 
