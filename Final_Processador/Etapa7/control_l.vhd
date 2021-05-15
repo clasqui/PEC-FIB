@@ -159,6 +159,7 @@ BEGIN
 	 addr_io <= ir(7 downto 0);
 	 rd_in <= '1' when ir(15 downto 12) = "0111" and ir(8) = '0' else '0';
 	 wr_out <= '1' when ir(15 downto 12) = "0111" and ir(8) = '1' else '0';
+	 inta <= '1' when ir(15 downto 12) = "1111" and ir(5 downto 0) = "101000" else '0';
 	 
 	 -- Senyals pel datapath
 	 Rb_N <= '0' when ir(15 downto 12) = "0010" -- MOVHI/MOVI
