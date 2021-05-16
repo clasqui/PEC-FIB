@@ -19,7 +19,10 @@ ENTITY regfile IS
           a      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 b      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 reg_intr : IN STD_LOGIC;
-			 int_e  : OUT STD_LOGIC);
+			 reg_excep: IN STD_LOGIC;
+			 int_e  : OUT STD_LOGIC;
+			 excep_num : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 d_efect : IN STD_LOGIC_VECTOR(15 DOWNTO 0));
 END regfile;
 
 
@@ -43,6 +46,12 @@ BEGIN
 				registres_sistema(2) <= "0000000000000000";
 				registres_sistema(5) <= x"0000"; -- AQUI HA D-ANAR EL CODI DE LA RSG.
 				registres_sistema(7) <= x"0000";
+			elsif reg_excep = '1' then
+				registres_sistema(0) <= registres_sistema(7);
+				registres_sistema(1) <= d-2;
+				registres_sistema(2) <= excep_num;
+				registres_sistema(3) <= d_efect;
+				registres_sistema(7)(1) <= '0';
 			elsif reg_intr = '1' then  -- estat SYSTEM
 				registres_sistema(0) <= registres_sistema(7);
 				registres_sistema(1) <= d-2;
@@ -59,11 +68,12 @@ BEGIN
 			elsif reti = '1' then
 				registres_sistema(7) <= registres_sistema(0);
 				registres_sistema(7)(1) <= '1';
+				registres_sistema(2) <= "0000000000000000";
 			end if;
 		end if;
 	end process;
 	
-	a <= 	registres_sistema(5) when reg_intr = '1' -- Estem en cicle system.
+	a <= 	registres_sistema(5) when reg_intr = '1' or reg_excep = '1' -- Estem en cicle system.
 				else registres_sistema(1) when reti = '1' 
 				else registres_sistema(conv_integer(addr_a)) when a_sys = '1'
 				else registres(conv_integer(addr_a));
