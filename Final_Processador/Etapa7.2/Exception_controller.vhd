@@ -48,7 +48,7 @@ BEGIN
 	
 	
 	
-	excpr <= '0' when boot = '1' else '0' when excpa = '1' else (ps2_intr or timer_intr or sw_intr or key_intr); -- Quedara el flag aixecat fins que hi hagi un excpta
-	eid <= interrupt_tractant; 
+	excpr <= '0' when boot = '1' else '0' when excpa = '1' else (i_ilegal or a_impar or zero_div); -- Quedara el flag aixecat fins que hi hagi un excpta
+	excp_id <= except_tractant; 
 	
 END Structure;
