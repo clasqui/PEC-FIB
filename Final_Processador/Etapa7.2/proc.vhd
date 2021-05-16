@@ -49,7 +49,6 @@ ARCHITECTURE Structure OF proc IS
 	 signal int_e_b : std_LOGIC;
 	 
 	 signal flag_div_zero : std_logic;
-	 signal flag_excp_ack : std_logic;
 	 signal flag_excp_recv: std_logic;
 	 signal flag_i_inst   : std_logic;
 	 signal flag_odd_addr : std_logic;
@@ -134,7 +133,6 @@ PORT (
 		i_ilegal : in std_logic;
 		a_impar : in std_logic;
 		zero_div : in std_logic;
-		excpa : IN std_logic;
 		excpr : OUT std_logic;
 		excp_id : out std_logic_vector(7 downto 0);
 		excp_of_fp_e : IN std_logic
@@ -177,6 +175,7 @@ BEGIN
 		reg_excp => flag_reg_excp,
 		int_e => int_e_b,
 		excep_num => exception_number,
+		div_zero => flag_div_zero,
 		excp_of_fp_e => flag_excp_of_fp_e
 	);
 	
@@ -224,7 +223,6 @@ BEGIN
 		i_ilegal => flag_i_inst,
 		a_impar => flag_odd_addr,
 		zero_div => flag_div_zero,
-		excpa => flag_excp_ack,
 		excpr => flag_excp_recv,
 		excp_id => exception_number,
 		excp_of_fp_e => flag_excp_of_fp_e -- si les excepcions overflow floating point estan activades

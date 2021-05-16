@@ -11,7 +11,6 @@ PORT (
 		i_ilegal : in std_logic;
 		a_impar : in std_logic;
 		zero_div : in std_logic;
-		excpa : IN std_logic;
 		excpr : OUT std_logic;
 		excp_id : out std_logic_vector(7 downto 0);
 		excp_of_fp_e : in std_logic
@@ -49,7 +48,7 @@ BEGIN
 	
 	
 	
-	excpr <= '0' when boot = '1' else '0' when excpa = '1' else (i_ilegal or a_impar or zero_div); -- Quedara el flag aixecat fins que hi hagi un excpta
+	excpr <= '0' when boot = '1' else (i_ilegal or a_impar or zero_div); 
 	excp_id <= except_tractant; 
 	
 END Structure;

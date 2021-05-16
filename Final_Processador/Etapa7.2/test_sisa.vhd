@@ -116,7 +116,7 @@ begin
 	clk <= not clk after 10 ns;
 	reset_ram <= '1' after 15 ns, '0' after 50 ns;    -- reseteamos la RAm en el primer ciclo
 	reset_proc <= '1' after 25 ns, '0' after 320 ns;  -- reseteamos el procesador en el segundo ciclo
-	sw <= "1001" after 25000 ns, "1111" after 26000 ns; -- per fer aixi un test; 
+	--sw <= "1001" after 25000 ns, "1111" after 26000 ns; -- per fer aixi un test; 
 
 	
 end comportament;
