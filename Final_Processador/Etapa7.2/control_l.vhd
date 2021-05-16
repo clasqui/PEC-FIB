@@ -25,8 +25,9 @@ ENTITY control_l IS
 			 di     	  : OUT STD_LOGIC;  -- SI depen del cicle
 			 reti   	  : OUT STD_LOGIC;  -- SI depen del cicle
 			 reg_intr  : OUT STD_LOGIC;  -- SI depen del cicle
-			 inta 	  : OUT std_logic   -- SI depen del cicle --> perque nomes ha destar amunt un cicle!!!
-			 ); 
+			 reg_excp  : OUT STD_LOGIC;
+			 inta 	  : OUT std_logic;   -- SI depen del cicle --> perque nomes ha destar amunt un cicle!!!
+			 il_inst   : OUT std_logic); 
 END control_l;
 
 
@@ -44,6 +45,7 @@ BEGIN
 
 	 ldpc <= '0' when ir = "1111111111111111" else '1';
 	 reg_intr <= '0' when ir = "1111111111111111" else '1';
+	 reg_excp <= '0' when ir = "1111111111111111" else '1';
 	
 	
 	
@@ -181,5 +183,20 @@ BEGIN
 	 immed <= std_logic_vector(resize(signed(ir(7 downto 0)), 16)) when ir(15 downto 12) = "0101" -- en les dimmediat, son 8 bits
 					else std_logic_vector(resize(signed(ir(5 downto 0)), 16)); -- en les altres, son 6 bits
 					
+		with ir(15 downto 12) select il_inst <=      -- Marquem com a 1 els casos en els que s'esriu perque no hi hagi lios al implementar noves instructs
+		'0' when "0101", -- MOVHI/MOVI
+		'0' when "0011", -- LD
+		'0' when "1101", -- LDB
+		'0' when "0100", -- ST
+		'0' when "1110", -- STB
+		'0' when "0000", -- aritmeticologiques
+		'0' when "0001", -- comparacions
+		'0' when "0010", -- ADDI
+		'0' when "1000", -- muls i divs
+		'0' when "1010", -- Pels jumps
+		'0' when "0110", -- Pels Branches
+		'0' when "0111", -- I/O
+		'0' when "1111", -- interrupts
+		'1' when others; -- NO EXISTEIX, ILEGAL
 	
 END Structure;

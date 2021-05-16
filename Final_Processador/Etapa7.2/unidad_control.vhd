@@ -31,9 +31,12 @@ ENTITY unidad_control IS
 			 di     	  : OUT STD_LOGIC; 
 			 reti   	  : OUT STD_LOGIC;
 			 reg_intr  : OUT STD_LOGIC;
+			 reg_excp : OUT STD_LOGIC;
 			 int_e     : IN STD_LOGIC; 
 			 inta 	  : OUT std_logic;
-			 intr 	  : IN std_logic);
+			 intr 	  : IN std_logic;
+			 excpr     : IN std_logic;
+			 il_inst   : OUT std_logic);
 END unidad_control;
 
 ARCHITECTURE Structure OF unidad_control IS
@@ -56,10 +59,12 @@ signal di_l     	  : STD_LOGIC;
 signal reti_l   	  : STD_LOGIC;
 signal d_sys_l : STD_LOGIC;
 signal reg_intr_l : STD_LOGIC;
+signal reg_excp_l : STD_LOGIC;
 signal op_l : STD_LOGIC_VECTOR(4 DOWNTO 0);
 signal inta_l : STD_LOGIC;
 signal in_d_l : STD_LOGIC_VECTOR(1 DOWNTO 0);
-signal system_cicle : std_LOGIC;
+signal system_cicle_int : std_LOGIC;
+signal system_cicle_exc : std_LOGIC;
 	 
 COMPONENT control_l IS
     PORT (ir   	  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -84,7 +89,9 @@ COMPONENT control_l IS
 			 di     	  : OUT STD_LOGIC; 
 			 reti   	  : OUT STD_LOGIC;
 			 reg_intr  : OUT STD_LOGIC;
-			 inta 	  : OUT std_logic);
+			 reg_excp  : out STD_LOGIC;
+			 inta 	  : OUT std_logic;
+			 il_inst   : OUT std_logic);
 END COMPONENT;
 
 COMPONENT multi IS
@@ -99,6 +106,7 @@ COMPONENT multi IS
 			reti_l    : IN STD_LOGIC;
 			d_sys_l 	 : IN  STD_LOGIC;
 			reg_intr_l: IN STD_LOGIC;
+			reg_excp_l: IN STD_LOGIC;
 			op_l		 : IN std_LOGIC_VECTOR(4 downto 0);
 			in_d_l    : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
 			inta_l    : IN std_logic;
@@ -113,11 +121,13 @@ COMPONENT multi IS
 			di     	 : OUT STD_LOGIC; 
 			reti   	 : OUT STD_LOGIC;
 			reg_intr  : OUT STD_LOGIC;
+			reg_excp  : OUT STD_LOGIC;
 			op			 : OUT std_LOGIC_VECTOR(4 downto 0);
 			in_d      : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
 			inta 	 	 : OUT std_logic;
 			intr 	  	 : IN std_logic;
-			int_e     : IN STD_LOGIC );
+			int_e     : IN STD_LOGIC;
+			excpr     : IN STD_LOGIC);
 END COMPONENT;
 
 
@@ -150,7 +160,9 @@ BEGIN
 		reti  => reti_l,
 		d_sys => d_sys_l,
 		reg_intr => reg_intr_l,
-		inta => inta_l);
+		inta => inta_l,
+		reg_excp => reg_excp_l,
+		il_inst => il_inst);
 	 
 	 ac : multi PORT MAP (
 			clk => clk,
@@ -162,6 +174,7 @@ BEGIN
 			di_l => di_l,
 			reti_l => reti_l,
 			reg_intr_l => reg_intr_l,
+			reg_excp_l => reg_excp_l,
 			inta_l => inta_l,
 			d_sys_l => d_sys_l,
 			in_d_l => in_d_l,
@@ -177,14 +190,17 @@ BEGIN
 			di => di,
 			reti => reti,
 			d_sys => d_sys,
-			reg_intr => system_cicle,
+			reg_intr => system_cicle_int,
+			reg_excp => system_cicle_exc,
 			in_d => in_d,
 			inta => inta,
 			intr => intr,
 			int_e => int_e,
-			op => op);
+			op => op,
+			excpr => excpr);
 			
-	reg_intr <= system_cicle;
+	reg_intr <= system_cicle_int;
+	reg_excp <= system_cicle_exc;
 	
 	 -- Salts
 	jmp <= ALU_OUT when (ir_actual(2 downto 0) = "000" and z = '1') or -- JZ
@@ -194,7 +210,7 @@ BEGIN
 								else PC2;
 							 
 	tknbr <= INI when boot = '1' else  	 -- BOOT
-				ALU_OUT when system_cicle = '1' else  -- ESTAT SYSTEM
+				ALU_OUT when (system_cicle_int = '1' or system_cicle_exc = '1') else  -- ESTAT SYSTEM
 				PC_ACT when ldpc = '0' else -- NO ES CARREGA PC
 				BR when ir_actual(15 downto 12) = "0110" and (ir_actual(8) xor z) = '1' else -- HI HA UN BRANCH TAKEN 
 				jmp when ir_actual(15 downto 12) = "1010" else  -- Els jmp tenen una logica complicada que es calcula a part.

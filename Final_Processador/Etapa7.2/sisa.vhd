@@ -49,7 +49,8 @@ COMPONENT proc IS
 			 rd_io	  : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 inta 	  : OUT std_logic;
 			 intr 	  : IN std_logic;
-			 int_e : OUT std_LOGIC);
+			 int_e     : OUT std_LOGIC;
+			 no_align  : IN std_logic);
 END COMPONENT;
 
 COMPONENT MemoryController is
@@ -59,6 +60,7 @@ COMPONENT MemoryController is
           rd_data   : out std_logic_vector(15 downto 0);
           we        : in  std_logic;
           byte_m    : in  std_logic;
+			 no_align  : out std_logic;
           -- se�ales para la placa de desarrollo
           SRAM_ADDR : out   std_logic_vector(17 downto 0);
           SRAM_DQ   : inout std_logic_vector(15 downto 0);
@@ -157,7 +159,7 @@ END COMPONENT;
 	signal intr : std_logic;
 	signal int_e  : std_LOGIC;
 	
-	
+	signal flag_no_align : std_logic;
 	
 BEGIN
 
@@ -178,7 +180,8 @@ pro0 : proc
 		rd_in => rd_in,
 		inta => inta,
 		intr => intr,
-		int_e => int_e
+		int_e => int_e,
+		no_align => flag_no_align
 	);
 
 mem0 : MemoryController
@@ -189,6 +192,7 @@ mem0 : MemoryController
         rd_data  => rd_data,
         we       => we,
         byte_m   => byte_m,
+		  no_align => flag_no_align,
 -- Senyals de la memoria
 		  SRAM_ADDR => SRAM_ADDR,
         SRAM_DQ   => SRAM_DQ,

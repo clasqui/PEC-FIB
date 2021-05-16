@@ -34,7 +34,11 @@ ENTITY datapath IS
 			 reti   	  : IN STD_LOGIC;
 			 boot      : IN STD_LOGIC;
 			 reg_intr  : IN STD_LOGIC;
-			 int_e     : OUT STD_LOGIC);
+			 reg_excp  : IN STD_LOGIC;
+			 int_e     : OUT STD_LOGIC;
+			 div_zero  : OUT STD_LOGIC;
+			 excep_num : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+			 excp_of_fp_e : OUT STD_LOGIC);
 END datapath;
 
 ARCHITECTURE Structure OF datapath IS
@@ -44,7 +48,8 @@ COMPONENT alu IS
           y  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           op : IN  STD_LOGIC_VECTOR(4 DOWNTO 0);
           w  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 z  : OUT STD_LOGIC);
+			 z  : OUT STD_LOGIC;
+			 div_zero : OUT STD_LOGIC);
 END COMPONENT;
 
 COMPONENT regfile IS
@@ -63,7 +68,11 @@ COMPONENT regfile IS
 			 reti   : IN STD_LOGIC;
 			 boot	  : IN STD_LOGIC;
 			 reg_intr : IN STD_LOGIC;
-			 int_e  : OUT STD_LOGIC);
+			 reg_excep: IN STD_LOGIC;
+			 int_e  : OUT STD_LOGIC;
+			 excep_num : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+			 d_efect : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 excp_of_fp_e : OUT STD_LOGIC);
 END COMPONENT;
 
 signal d : STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -72,6 +81,7 @@ signal y : STD_LOGIC_VECTOR(15 DOWNTO 0);  -- la poso aqui perque despres ens se
 signal a : STD_LOGIC_VECTOR(15 DOWNTO 0);
 signal b : STD_LOGIC_VECTOR(15 DOWNTO 0);
 signal alu_out : STD_LOGIC_VECTOR(15 DOWNTO 0);
+signal dir_efectiva : STD_LOGIC_VECTOR(15 DOWNTO 0);
 
 BEGIN
 
@@ -91,19 +101,25 @@ BEGIN
 					 reti => reti, 
 					 boot => boot,
 					 int_e => int_e,
-					 reg_intr => reg_intr);
+					 reg_intr => reg_intr,
+					 reg_excep => reg_excp,
+					 d_efect => dir_efectiva,
+					 excep_num => excep_num,
+					 excp_of_fp_e => excp_of_fp_e);
 	alu0 : alu
 		PORT MAP (x => x, 
 					 y => y, 
 					 op => op, 
 					 w => alu_out, 
-					 z => z);
+					 z => z,
+					 div_zero => div_zero);
 	
 	-- ENTRADA DEL BANC DE REGISTRES.	
 	d <= datard_m when in_d = "01" else alu_out when in_d = "00" else pc+2 when in_d = "10" else rd_io when in_d = "11" else (others=>'0');
 	
 	-- SORTIDES DEL DATAPATH
-	addr_m <= alu_out when ins_dad = '1' else pc when ins_dad = '0' else (others=>'0');
+	dir_efectiva <= alu_out when ins_dad = '1' else pc when ins_dad = '0' else (others=>'0');
+	addr_m <= dir_efectiva;
 	data_wr <= b;
 	aluout <= alu_out; -- Per que hi vagi el PC en cas de JMP.
 	wr_io <= b;
@@ -113,5 +129,6 @@ BEGIN
 	y <= b when Rb_N = '1' else immed when immed_x2 = '0' else 
 			immed(14 DOWNTO 0) & '0' when immed_x2 = '1' else 
 			(others=>'0'); 
+			
 	
 END Structure;

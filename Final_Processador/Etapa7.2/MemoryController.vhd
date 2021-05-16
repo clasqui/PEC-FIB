@@ -10,6 +10,7 @@ entity MemoryController is
           rd_data   : out std_logic_vector(15 downto 0);
           we        : in  std_logic;
           byte_m    : in  std_logic;
+			 no_align  : out std_logic;
           -- se�ales para la placa de desarrollo
           SRAM_ADDR : out   std_logic_vector(17 downto 0);
           SRAM_DQ   : inout std_logic_vector(15 downto 0);
@@ -81,5 +82,7 @@ begin
 		vga_byte_m <= byte_m;
 		
 		rd_data <= rd_data_from_sram;--vga_rd_data when (addr >= x"A000" and addr < x"BFFF") else rd_data_from_sram;
+		
+		no_align <= not byte_m and addr(0);
 
 end comportament;

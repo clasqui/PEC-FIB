@@ -5,11 +5,12 @@ USE ieee.numeric_std.all;
 USE ieee.std_logic_unsigned.ALL;
 
 ENTITY alu IS
-    PORT (x  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-          y  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-          op : IN  STD_LOGIC_VECTOR(4 DOWNTO 0);
-          w  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 z	 : OUT STD_LOGIC);
+    PORT (x        : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+          y        : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+          op       : IN  STD_LOGIC_VECTOR(4 DOWNTO 0);
+          w        : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 z	       : OUT STD_LOGIC;
+			 div_zero : OUT STD_LOGIC);
 END alu;
 
 ARCHITECTURE Structure OF alu IS
@@ -88,6 +89,7 @@ BEGIN
 -- Sortida
 
 	z <= '1' when y = 0 else '0';
+	div_zero <= '1' when (op = "10010" or op = "10011") and y = x"0000" else '0';
 	
 	with op select w <=
 		y when "00000",													-- MOVI

@@ -14,9 +14,10 @@ entity multi is
          w_b       : IN  STD_LOGIC;
 			d_sys_l   : IN  STD_LOGIC;
 			reg_intr_l: IN  STD_LOGIC;
-			op_l		 : IN std_LOGIC_VECTOR(4 downto 0);
-			in_d_l    : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-			inta_l    : IN std_logic;
+			reg_excp_l: IN  STD_LOGIC;
+			op_l		 : IN  std_LOGIC_VECTOR(4 downto 0);
+			in_d_l    : IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
+			inta_l    : IN  std_logic;
          ldpc      : OUT STD_LOGIC;
          wrd       : OUT STD_LOGIC;
          wr_m      : OUT STD_LOGIC;
@@ -27,12 +28,14 @@ entity multi is
 			di     	 : OUT STD_LOGIC; 
 			reti   	 : OUT STD_LOGIC;
 			reg_intr  : OUT STD_LOGIC;
+			reg_excp  : OUT STD_LOGIC;
 			int_e     : IN STD_LOGIC;
 			d_sys  	 : OUT  STD_LOGIC;
 			op			 : OUT std_LOGIC_VECTOR(4 downto 0);
 			in_d	    : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
 			inta 	    : OUT std_logic;
-			intr 	    : IN std_logic);
+			intr 	    : IN std_logic;
+			excpr     : IN std_logic);
 end entity;
 
 architecture Structure of multi is
@@ -55,9 +58,13 @@ begin
 		elsif (rising_edge(clk)) then
 			case estat is
 				when FETCH =>
-					estat <= DEMW;
+					if excpr = '1' then -- saltem tambe a systema en cicle fetch si intentem accedir a un pc no alineat.
+						estat <= SYSTEM;
+					else 
+						estat <= DEMW;
+					end if;
 				when DEMW =>
-					if intr = '1' and int_e = '1' then
+					if (intr = '1' and int_e = '1') or excpr = '1' then -- aqui no comprobo si excp enabled, ho comprovo al controlador excepcions
 						estat <= SYSTEM;
 					else
 						estat <= FETCH;
@@ -80,6 +87,7 @@ begin
 	di <= di_l when estat = DEMW else '0';          -- Interrupt disable
 	reti <= reti_l when estat = DEMW else '0';		-- Return interrupt
 	reg_intr <= reg_intr_l	when estat = SYSTEM else '0';
+	reg_excp <= reg_excp_l  when estat = SYSTEM else '0';
 	op <= "10100" when estat = SYSTEM else op_l;     -- OP coode ha de fer passar la A al PC.
 	in_d <= "10" when estat = SYSTEM else in_d_l;    -- Per guardar pcUP al banc de reg
 	d_sys <= '1' when estat = SYSTEM else d_sys_l;

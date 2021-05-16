@@ -13,7 +13,8 @@ PORT (
 		zero_div : in std_logic;
 		excpa : IN std_logic;
 		excpr : OUT std_logic;
-		excp_id : out std_logic_vector(7 downto 0)
+		excp_id : out std_logic_vector(7 downto 0);
+		excp_of_fp_e : in std_logic
 	);
 END Exception_controller;
 

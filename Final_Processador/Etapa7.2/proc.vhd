@@ -13,11 +13,12 @@ ENTITY proc IS
 			 rd_in	  : OUT STD_LOGIC;
 			 wr_out    : OUT STD_LOGIC;
 			 
-			 wr_io	 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 rd_io	 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 wr_io	  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 rd_io	  : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 inta 	  : OUT std_logic;
 			 intr 	  : IN std_logic;
-			 int_e : OUT std_LOGIC);
+			 int_e     : OUT std_LOGIC;
+			 no_align  : IN std_logic);
 END proc;
 
 
@@ -46,6 +47,15 @@ ARCHITECTURE Structure OF proc IS
 	 signal reti  	: STD_LOGIC;
 	 signal reg_intr : STD_LOGIC;
 	 signal int_e_b : std_LOGIC;
+	 
+	 signal flag_div_zero : std_logic;
+	 signal flag_excp_ack : std_logic;
+	 signal flag_excp_recv: std_logic;
+	 signal flag_i_inst   : std_logic;
+	 signal flag_odd_addr : std_logic;
+	 signal exception_number : std_logic_vector(7 downto 0);
+	 signal flag_reg_excp    : std_logic;
+	 signal flag_excp_of_fp_e : std_logic;
 		 
 	 COMPONENT datapath IS
     PORT (clk    : IN STD_LOGIC;
@@ -74,7 +84,11 @@ ARCHITECTURE Structure OF proc IS
 			 reti   	  : IN STD_LOGIC;
 			 boot      : IN STD_LOGIC;
 			 reg_intr  : IN STD_LOGIC;
-			 int_e     : OUT STD_LOGIC);
+			 reg_excp  : IN STD_LOGIC;
+			 int_e     : OUT STD_LOGIC;
+			 div_zero   : OUT STD_LOGIC;
+			 excep_num : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+			 excp_of_fp_e : OUT STD_LOGIC);
 	END COMPONENT;
 	
 	COMPONENT unidad_control IS
@@ -105,9 +119,26 @@ ARCHITECTURE Structure OF proc IS
 			 di     	  : OUT STD_LOGIC; 
 			 reti   	  : OUT STD_LOGIC;
 			 reg_intr  : OUT STD_LOGIC;
+			 reg_excp  : OUT STD_LOGIC;
 			 int_e     : IN STD_LOGIC;
 			 inta 	  : OUT std_logic;
-			 intr 	  : IN std_logic);
+			 intr 	  : IN std_logic;
+			 excpr     : IN STD_LOGIC;
+			 il_inst   : OUT STD_LOGIC);
+END COMPONENT;
+
+COMPONENT Exception_controller IS
+PORT (
+		clk : IN std_logic;
+		boot : IN STD_logic;
+		i_ilegal : in std_logic;
+		a_impar : in std_logic;
+		zero_div : in std_logic;
+		excpa : IN std_logic;
+		excpr : OUT std_logic;
+		excp_id : out std_logic_vector(7 downto 0);
+		excp_of_fp_e : IN std_logic
+	);
 END COMPONENT;
 
 BEGIN
@@ -143,7 +174,10 @@ BEGIN
 		di => di,
 		reti => reti,
 		reg_intr => reg_intr,
-		int_e => int_e_b
+		reg_excp => flag_reg_excp,
+		int_e => int_e_b,
+		excep_num => exception_number,
+		excp_of_fp_e => flag_excp_of_fp_e
 	);
 	
 	c0 : unidad_control PORT MAP (
@@ -176,6 +210,23 @@ BEGIN
 		inta => inta,
 		intr => intr,
 		reg_intr => reg_intr,
-		int_e => int_e_b
+		reg_excp => flag_reg_excp,
+		int_e => int_e_b,
+		excpr => flag_excp_recv,
+		il_inst => flag_i_inst
+	);
+	
+	flag_odd_addr <= no_align;
+	
+	exc0 : Exception_controller PORT MAP (
+		clk => clk,
+		boot => boot,
+		i_ilegal => flag_i_inst,
+		a_impar => flag_odd_addr,
+		zero_div => flag_div_zero,
+		excpa => flag_excp_ack,
+		excpr => flag_excp_recv,
+		excp_id => exception_number,
+		excp_of_fp_e => flag_excp_of_fp_e -- si les excepcions overflow floating point estan activades
 	);
 END Structure;

@@ -21,8 +21,9 @@ ENTITY regfile IS
 			 reg_intr : IN STD_LOGIC;
 			 reg_excep: IN STD_LOGIC;
 			 int_e  : OUT STD_LOGIC;
-			 excep_num : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 d_efect : IN STD_LOGIC_VECTOR(15 DOWNTO 0));
+			 excep_num : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+			 d_efect : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 excp_of_fp_e : OUT STD_LOGIC);
 END regfile;
 
 
@@ -46,11 +47,13 @@ BEGIN
 				registres_sistema(2) <= "0000000000000000";
 				registres_sistema(5) <= x"0000"; -- AQUI HA D-ANAR EL CODI DE LA RSG.
 				registres_sistema(7) <= x"0000";
-			elsif reg_excep = '1' then
+			elsif reg_excep = '1' then -- estat SYSTEM tambe
 				registres_sistema(0) <= registres_sistema(7);
 				registres_sistema(1) <= d-2;
-				registres_sistema(2) <= excep_num;
-				registres_sistema(3) <= d_efect;
+				registres_sistema(2) <= x"00"&excep_num;
+				if excep_num = x"01" then	
+					registres_sistema(3) <= d_efect;
+				end if;
 				registres_sistema(7)(1) <= '0';
 			elsif reg_intr = '1' then  -- estat SYSTEM
 				registres_sistema(0) <= registres_sistema(7);
@@ -79,5 +82,6 @@ BEGIN
 				else registres(conv_integer(addr_a));
 	b <= registres(conv_integer(addr_b));
 	int_e <= registres_sistema(7)(1);
+	excp_of_fp_e <= registres_sistema(7)(2);
 	 
 END Structure;
