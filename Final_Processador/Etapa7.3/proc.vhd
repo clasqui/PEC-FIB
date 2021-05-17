@@ -18,7 +18,9 @@ ENTITY proc IS
 			 inta 	  : OUT std_logic;
 			 intr 	  : IN std_logic;
 			 int_e     : OUT std_LOGIC;
-			 no_align  : IN std_logic);
+			 no_align  : IN std_logic;
+			 exec_mode: OUT STD_LOGIC;
+			 addr_no_ok : IN std_logic);
 END proc;
 
 
@@ -56,8 +58,9 @@ ARCHITECTURE Structure OF proc IS
 	 signal flag_reg_excp    : std_logic;
 	 signal flag_excp_of_fp_e : std_logic;
 	 signal e_no_align:  std_LOGIC;
-	 signal exec_mode: STD_LOGIC;
+	 signal exec_mode_b: STD_LOGIC;
 	 signal no_priv	  :  STD_LOGIC;
+	 signal calls     :  STD_LOGIC;
 		 
 	 COMPONENT datapath IS
     PORT (clk    : IN STD_LOGIC;
@@ -131,7 +134,8 @@ ARCHITECTURE Structure OF proc IS
 			 excep_num : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 			 e_no_align: OUT std_LOGIC;
 			 exec_mode : IN STD_LOGIC;
-			 no_priv	  : OUT STD_LOGIC);
+			 no_priv	  : OUT STD_LOGIC;
+			 calls     : OUT STD_LOGIC);
 END COMPONENT;
 
 COMPONENT Exception_controller IS
@@ -145,7 +149,9 @@ PORT (
 		excp_id : out std_logic_vector(7 downto 0);
 		excp_of_fp_e : IN std_logic;
 		e_no_align: IN std_LOGIC;
-		no_priv	  : IN STD_LOGIC
+		no_priv	  : IN STD_LOGIC;
+		calls     : IN STD_LOGIC;
+		addr_no_ok : IN std_logic
 	);
 END COMPONENT;
 
@@ -187,7 +193,7 @@ BEGIN
 		excep_num => exception_number,
 		div_zero => flag_div_zero,
 		excp_of_fp_e => flag_excp_of_fp_e,
-		exec_mode => exec_mode
+		exec_mode => exec_mode_b
 	);
 	
 	c0 : unidad_control PORT MAP (
@@ -226,10 +232,12 @@ BEGIN
 		il_inst => flag_i_inst,
 		excep_num => exception_number,
 		e_no_align => e_no_align,
-		exec_mode => exec_mode
+		exec_mode => exec_mode_b,
+		calls => calls
 	);
 	
 	flag_odd_addr <= no_align;
+	exec_mode <= exec_mode_b;
 	
 	exc0 : Exception_controller PORT MAP (
 		clk => clk,
@@ -241,6 +249,8 @@ BEGIN
 		excp_id => exception_number,
 		excp_of_fp_e => flag_excp_of_fp_e, -- si les excepcions overflow floating point estan activades
 		e_no_align => e_no_align,  -- 1 quan pot haver excepcions dacces no alineat.
-		no_priv => no_priv
+		no_priv => no_priv,
+		calls => calls,
+		addr_no_ok => addr_no_ok
 	);
 END Structure;

@@ -54,8 +54,12 @@ BEGIN
 				registres_sistema(0) <= registres_sistema(7);
 				registres_sistema(1) <= d-2;
 				registres_sistema(2) <= x"00"&excep_num;
+				registres_sistema(7)(1) <= '0';
 				if excep_num = x"01" then	
 					registres_sistema(3) <= desakoplo_d_efectiva;
+				elsif excep_num = x"0E" then
+					registres_sistema(3) <= registres(conv_integer(addr_a));
+					registres_sistema(7)(0) <= '1';     -- Es canvia a mode sistema
 				end if;
 				registres_sistema(7)(1) <= '0';
 			elsif reg_intr = '1' then  -- estat SYSTEM
@@ -75,6 +79,9 @@ BEGIN
 				registres_sistema(7) <= registres_sistema(0);
 				registres_sistema(7)(1) <= '1';
 				registres_sistema(2) <= "0000000000000000";
+				if registres_sistema(2) = x"000E" then -- crida a sistema
+					registres_sistema(7)(0) <= '1';     -- es torna a mode usuari
+				end if;
 			end if;
 			if boot /= '1' then
 				desakoplo_d_efectiva <= d_efect;
