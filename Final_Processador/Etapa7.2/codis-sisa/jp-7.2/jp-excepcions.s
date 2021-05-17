@@ -28,7 +28,7 @@ inici:
     addi r4, r4, 1
 
 ; Acces mal alineat load
-    addi r2, r2, 1
+    movi r2, 0x05
     ld r1, (r2) ; no shauria de produir
     addi r4, r4, 1
 
