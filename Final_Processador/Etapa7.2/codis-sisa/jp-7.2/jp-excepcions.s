@@ -72,7 +72,7 @@ __unaligned:
     st 0(r2), r3 ; Aixo hauria de guardar la direccio efectiva a memoria 
     movi r2, 0x00
     movhi r2, 0xC0
-    cmple r2, r3, r2
+    cmpleu r2, r3, r2
     bnz r2, __final_rsg
     $movei r2, retorn_unalign
     wrs s1, r2
