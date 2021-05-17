@@ -91,8 +91,7 @@ ARCHITECTURE Structure OF proc IS
 			 div_zero   : OUT STD_LOGIC;
 			 excep_num : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 			 excp_of_fp_e : OUT STD_LOGIC;
-			 exec_mode: OUT STD_LOGIC;
-			 no_priv	  : OUT STD_LOGIC);
+			 exec_mode: OUT STD_LOGIC);
 	END COMPONENT;
 	
 	COMPONENT unidad_control IS
@@ -131,7 +130,8 @@ ARCHITECTURE Structure OF proc IS
 			 il_inst   : OUT STD_LOGIC;
 			 excep_num : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 			 e_no_align: OUT std_LOGIC;
-			 exec_mode: IN STD_LOGIC);
+			 exec_mode : IN STD_LOGIC;
+			 no_priv	  : OUT STD_LOGIC);
 END COMPONENT;
 
 COMPONENT Exception_controller IS

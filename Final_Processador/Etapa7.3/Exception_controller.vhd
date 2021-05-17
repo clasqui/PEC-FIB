@@ -15,7 +15,7 @@ PORT (
 		excp_id : out std_logic_vector(7 downto 0);
 		excp_of_fp_e : in std_logic;
 		e_no_align: IN std_LOGIC;
-		no_priv	  : OUT STD_LOGIC
+		no_priv	  : IN STD_LOGIC
 	);
 END Exception_controller;
 

@@ -205,7 +205,7 @@ BEGIN
 		-- Altres senyals
 		e_no_align <= '1' when ir(15 downto 12) = "0011" or ir(15 downto 12) = "0100" else '0'; -- Per detectar acessos no alineats.
 		no_priv <= '1' when ir /= x"FFFF" and ir(15 downto 12) = "1111" and
-							(ir(5 downto 0) = "101100" or ir(5 downto 0) = "110000" or ir(5 downto 0) = "100000" or ir(5 downto 0) = "100001" ir(5 downto 0) = "100100")
+							(ir(5 downto 0) = "101100" or ir(5 downto 0) = "110000" or ir(5 downto 0) = "100000" or ir(5 downto 0) = "100001" or ir(5 downto 0) = "100100")
 							 and exec_mode = '0' else '0';
 	
 END Structure;
