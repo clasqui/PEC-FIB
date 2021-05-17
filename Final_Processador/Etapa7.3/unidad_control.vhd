@@ -39,7 +39,8 @@ ENTITY unidad_control IS
 			 il_inst   : OUT std_logic;
 			 excep_num : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 			 e_no_align: OUT std_LOGIC;
-			 exec_mode : IN STD_LOGIC);
+			 exec_mode : IN STD_LOGIC;
+			 no_priv	  : OUT STD_LOGIC);
 END unidad_control;
 
 ARCHITECTURE Structure OF unidad_control IS
@@ -97,7 +98,8 @@ COMPONENT control_l IS
 			 inta 	  : OUT std_logic;
 			 il_inst   : OUT std_logic;
 			 e_no_align: OUT std_LOGIC;
-			 exec_mode : IN STD_LOGIC);
+			 exec_mode : IN STD_LOGIC;
+			 no_priv	  : OUT STD_LOGIC);
 END COMPONENT;
 
 COMPONENT multi IS
@@ -173,7 +175,8 @@ BEGIN
 		reg_excp => reg_excp_l,
 		il_inst => il_inst,
 		e_no_align => e_no_align_l,
-		exec_mode => exec_mode);
+		exec_mode => exec_mode,
+		no_priv => no_priv);
 	 
 	 ac : multi PORT MAP (
 			clk => clk,

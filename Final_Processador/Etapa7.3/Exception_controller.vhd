@@ -14,7 +14,8 @@ PORT (
 		excpr : OUT std_logic;
 		excp_id : out std_logic_vector(7 downto 0);
 		excp_of_fp_e : in std_logic;
-		e_no_align: IN std_LOGIC
+		e_no_align: IN std_LOGIC;
+		no_priv	  : OUT STD_LOGIC
 	);
 END Exception_controller;
 
@@ -45,6 +46,8 @@ BEGIN
 					except_tractant <= x"01";
 				elsif zero_div = '1' then
 					except_tractant <= x"04";
+				elsif no_priv = '1' then
+					except_tractant <= x"0D";
 				end if;
 			end if;
 		end if;
@@ -52,7 +55,7 @@ BEGIN
 	
 	
 	
-	excpr <= '0' when boot = '1' else (i_ilegal or acces_no_alineat or zero_div); 
+	excpr <= '0' when boot = '1' else (i_ilegal or acces_no_alineat or zero_div or no_priv); 
 	excp_id <= except_tractant; 
 	
 END Structure;

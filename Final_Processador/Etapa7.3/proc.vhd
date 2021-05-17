@@ -57,6 +57,7 @@ ARCHITECTURE Structure OF proc IS
 	 signal flag_excp_of_fp_e : std_logic;
 	 signal e_no_align:  std_LOGIC;
 	 signal exec_mode: STD_LOGIC;
+	 signal no_priv	  :  STD_LOGIC;
 		 
 	 COMPONENT datapath IS
     PORT (clk    : IN STD_LOGIC;
@@ -90,7 +91,8 @@ ARCHITECTURE Structure OF proc IS
 			 div_zero   : OUT STD_LOGIC;
 			 excep_num : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 			 excp_of_fp_e : OUT STD_LOGIC;
-			 exec_mode: OUT STD_LOGIC);
+			 exec_mode: OUT STD_LOGIC;
+			 no_priv	  : OUT STD_LOGIC);
 	END COMPONENT;
 	
 	COMPONENT unidad_control IS
@@ -142,7 +144,8 @@ PORT (
 		excpr : OUT std_logic;
 		excp_id : out std_logic_vector(7 downto 0);
 		excp_of_fp_e : IN std_logic;
-		e_no_align: IN std_LOGIC
+		e_no_align: IN std_LOGIC;
+		no_priv	  : IN STD_LOGIC
 	);
 END COMPONENT;
 
@@ -237,6 +240,7 @@ BEGIN
 		excpr => flag_excp_recv,
 		excp_id => exception_number,
 		excp_of_fp_e => flag_excp_of_fp_e, -- si les excepcions overflow floating point estan activades
-		e_no_align => e_no_align  -- 1 quan pot haver excepcions dacces no alineat.
+		e_no_align => e_no_align,  -- 1 quan pot haver excepcions dacces no alineat.
+		no_priv => no_priv
 	);
 END Structure;
