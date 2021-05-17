@@ -37,6 +37,7 @@ inici:
     movhi r2, hi(inici)
     addi  r2, r2, 1
     jmp r2 ; no hauria de saltar
+retorn_unalign:
     addi r4, r4, 1
 
 ; Instruccio ilegal
@@ -69,6 +70,12 @@ __unaligned:
     rds r3, s3 ; pillem ladreça efectiva desalineada del registre de sistema
     $movei r2, addr_unaligned
     st 0(r2), r3 ; Aixo hauria de guardar la direccio efectiva a memoria 
+    movi r2, 0x00
+    movhi r2, 0xC0
+    cmple r2, r3, r2
+    bnz r2, __final_rsg
+    $movei r2, retorn_unalign
+    wrs s1, r2
 __final_rsg:
     reti
 
