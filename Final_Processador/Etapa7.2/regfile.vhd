@@ -34,11 +34,13 @@ ARCHITECTURE Structure OF regfile IS
 	 signal registres_sistema: regfile_t;
 	 signal wrd_sistema: std_logic;
 	 signal wrd_dades: std_logic;
+	 signal desakoplo_d_efectiva : std_LOGIC_vector(15 downto 0); -- Per mantenir el valor de la senyal daddr no alineada i no perdrela quan estiguem en cicle de system.
 	 
 BEGIN
 	
    wrd_dades <= wrd and not d_sys;
 	wrd_sistema <= wrd and d_sys;
+	
 	 
 	process (clk)
 	begin
@@ -52,7 +54,7 @@ BEGIN
 				registres_sistema(1) <= d-2;
 				registres_sistema(2) <= x"00"&excep_num;
 				if excep_num = x"01" then	
-					registres_sistema(3) <= d_efect;
+					registres_sistema(3) <= desakoplo_d_efectiva;
 				end if;
 				registres_sistema(7)(1) <= '0';
 			elsif reg_intr = '1' then  -- estat SYSTEM
@@ -73,6 +75,9 @@ BEGIN
 				registres_sistema(7)(1) <= '1';
 				registres_sistema(2) <= "0000000000000000";
 			end if;
+			if boot /= '1' then
+				desakoplo_d_efectiva <= d_efect;
+			end if;	
 		end if;
 	end process;
 	

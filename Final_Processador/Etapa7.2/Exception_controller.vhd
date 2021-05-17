@@ -13,7 +13,8 @@ PORT (
 		zero_div : in std_logic;
 		excpr : OUT std_logic;
 		excp_id : out std_logic_vector(7 downto 0);
-		excp_of_fp_e : in std_logic
+		excp_of_fp_e : in std_logic;
+		e_no_align: IN std_LOGIC
 	);
 END Exception_controller;
 
@@ -22,8 +23,11 @@ END Exception_controller;
 ARCHITECTURE Structure OF Exception_controller IS 
 	
 	signal except_tractant : std_logic_vector (7 downto 0);
+	signal acces_no_alineat : std_LOGIC;
 	
 BEGIN
+	
+	acces_no_alineat <= e_no_align and a_impar; -- hi ha un acces no alineat si es una situacio on es pot donar i la direccio a la que saccedeix es impar.
 	
 	process(clk)
 	begin
@@ -37,7 +41,7 @@ BEGIN
 			else
 				if i_ilegal = '1' then
 					except_tractant <= x"00";
-				elsif a_impar = '1' then
+				elsif acces_no_alineat = '1' then
 					except_tractant <= x"01";
 				elsif zero_div = '1' then
 					except_tractant <= x"04";
@@ -48,7 +52,7 @@ BEGIN
 	
 	
 	
-	excpr <= '0' when boot = '1' else (i_ilegal or a_impar or zero_div); 
+	excpr <= '0' when boot = '1' else (i_ilegal or acces_no_alineat or zero_div); 
 	excp_id <= except_tractant; 
 	
 END Structure;

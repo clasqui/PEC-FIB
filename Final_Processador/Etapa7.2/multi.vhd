@@ -18,6 +18,7 @@ entity multi is
 			op_l		 : IN  std_LOGIC_VECTOR(4 downto 0);
 			in_d_l    : IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
 			inta_l    : IN  std_logic;
+			e_no_align_l: IN std_LOGIC;
          ldpc      : OUT STD_LOGIC;
          wrd       : OUT STD_LOGIC;
          wr_m      : OUT STD_LOGIC;
@@ -35,7 +36,9 @@ entity multi is
 			in_d	    : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
 			inta 	    : OUT std_logic;
 			intr 	    : IN std_logic;
-			excpr     : IN std_logic);
+			excpr     : IN std_logic;
+			excep_num : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+			e_no_align: OUT std_LOGIC);
 end entity;
 
 architecture Structure of multi is
@@ -58,7 +61,7 @@ begin
 		elsif (rising_edge(clk)) then
 			case estat is
 				when FETCH =>
-					if excpr = '1' then -- saltem tambe a systema en cicle fetch si intentem accedir a un pc no alineat.
+					if excpr = '1' and excep_num = x"01" then -- saltem tambe a systema en cicle fetch si intentem accedir a un pc no alineat.
 						estat <= SYSTEM;
 					else 
 						estat <= DEMW;
@@ -92,6 +95,7 @@ begin
 	in_d <= "10" when estat = SYSTEM else in_d_l;    -- Per guardar pcUP al banc de reg
 	d_sys <= '1' when estat = SYSTEM else d_sys_l;
 	inta <= inta_l when estat = DEMW else '0';
+	e_no_align <= e_no_align_l when estat = DEMW else '1' when estat = FETCH else '0';
 	
 
 end Structure;

@@ -27,7 +27,8 @@ ENTITY control_l IS
 			 reg_intr  : OUT STD_LOGIC;  -- SI depen del cicle
 			 reg_excp  : OUT STD_LOGIC;
 			 inta 	  : OUT std_logic;   -- SI depen del cicle --> perque nomes ha destar amunt un cicle!!!
-			 il_inst   : OUT std_logic); 
+			 il_inst   : OUT std_logic;
+			 e_no_align: OUT std_LOGIC); 
 END control_l;
 
 
@@ -198,5 +199,8 @@ BEGIN
 		'0' when "0111", -- I/O
 		'0' when "1111", -- interrupts
 		'1' when others; -- NO EXISTEIX, ILEGAL
+		
+		-- Altres senyals
+		e_no_align <= '1' when ir(15 downto 12) = "0011" or ir(15 downto 12) = "0100" else '0'; -- Per detectar acessos no alineats.
 	
 END Structure;
