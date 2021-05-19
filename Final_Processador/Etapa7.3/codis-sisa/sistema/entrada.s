@@ -103,6 +103,7 @@ syscall_default:
     ; Per exemple escriure a posicions de memoria del sistema.
     $movei r1, codi_crida
     st (r1), r4 ; guardem el codi de la crida
+    jmp r6
     
 RSE_mem_protegida: ; posem el flag per comprovar
     $movei r1, flag_dades
