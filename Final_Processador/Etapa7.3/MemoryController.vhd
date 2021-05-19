@@ -87,6 +87,6 @@ begin
 		
 		no_align <= not byte_m and addr(0);
 		
-		addr_no_ok <= '1' when exec_mode = '0' and addr >= x"8000" else '0';
+		addr_no_ok <= '0' when addr >= x"A000" and addr < x"BFFF" else '1' when exec_mode = '0' and addr >= x"8000" else '0';
 
 end comportament;

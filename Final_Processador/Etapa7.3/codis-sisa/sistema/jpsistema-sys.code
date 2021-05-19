@@ -1,5 +1,5 @@
 
-jp-sistema.o:     format de fixer elf32-sisa
+jp-sistema.o:     file format elf32-sisa
 
 Disassembly of section .sistema:
 
@@ -19,7 +19,7 @@ Disassembly of section .sistema:
     c018:	5c02 	movi	r6, 2
     c01a:	f1b0 	wrs	s0, r6
     c01c:	5600 	movi	r3, 0
-    c01e:	5750 	movhi	r3, 80
+    c01e:	5710 	movhi	r3, 16
     c020:	f024 	reti	
     c022:	5406 	movi	r2, 6
     c024:	5580 	movhi	r2, -128

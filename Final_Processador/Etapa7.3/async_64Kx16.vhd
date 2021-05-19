@@ -64,12 +64,66 @@ constant tSD_dataskew : time := tSD - 1 ns;
 SIGNAL mem_array: mem_array_type;
 
     -- Instructions to read a text file into RAM --
-    procedure Load_FitxerDadesMemoria (signal data_word :inout mem_array_type) is
+    procedure Load_FitxerDadesMemoriaSistema (signal data_word :inout mem_array_type) is
         -- Open File in Read Mode
-        file romfile   :text open read_mode is "./jps/jp-excepcions.code.rom";
+        file romfile   :text open read_mode is "./codis-sisa/sistema/jpsistema-sys.data.rom";
+        variable lbuf  :line;
+        --variable i     :integer := 49152;  -- X"C000" ==> 49152 adreca inicial S.O.
+        variable i     :integer := 16384;  -- X"C000" ==> 49152 adreca inicial S.O., pero como la memoria se direcciona a nivel de word (dos bytes) ==>  X"6000" ==> 24576 es la direccion inicial del S.O.
+        variable fdata :std_logic_vector (15 downto 0);
+    begin
+        while not endfile(romfile) loop
+            -- read data from input file
+            readline(romfile, lbuf);
+            --read(lbuf, fdata);
+            hread(lbuf, fdata);
+            data_word(i) <= fdata;
+            i := i+1;
+        end loop;
+    end procedure;
+    
+    procedure Load_FitxerCodiMemoriaSistema (signal data_word :inout mem_array_type) is
+        -- Open File in Read Mode
+        file romfile   :text open read_mode is "./codis-sisa/sistema/jpsistema-sys.code.rom";
         variable lbuf  :line;
         --variable i     :integer := 49152;  -- X"C000" ==> 49152 adreca inicial S.O.
         variable i     :integer := 24576;  -- X"C000" ==> 49152 adreca inicial S.O., pero como la memoria se direcciona a nivel de word (dos bytes) ==>  X"6000" ==> 24576 es la direccion inicial del S.O.
+        variable fdata :std_logic_vector (15 downto 0);
+    begin
+        while not endfile(romfile) loop
+            -- read data from input file
+            readline(romfile, lbuf);
+            --read(lbuf, fdata);
+            hread(lbuf, fdata);
+            data_word(i) <= fdata;
+            i := i+1;
+        end loop;
+    end procedure;
+    
+    procedure Load_FitxerDadesMemoriaUsuari (signal data_word :inout mem_array_type) is
+        -- Open File in Read Mode
+        file romfile   :text open read_mode is "./codis-sisa/sistema/jpsistema-user.data.rom";
+        variable lbuf  :line;
+        --variable i     :integer := 49152;  -- X"C000" ==> 49152 adreca inicial S.O.
+        variable i     :integer := 10240;  -- X"C000" ==> 49152 adreca inicial S.O., pero como la memoria se direcciona a nivel de word (dos bytes) ==>  X"6000" ==> 24576 es la direccion inicial del S.O.
+        variable fdata :std_logic_vector (15 downto 0);
+    begin
+        while not endfile(romfile) loop
+            -- read data from input file
+            readline(romfile, lbuf);
+            --read(lbuf, fdata);
+            hread(lbuf, fdata);
+            data_word(i) <= fdata;
+            i := i+1;
+        end loop;
+    end procedure;
+    
+    procedure Load_FitxerCodiMemoriaUsuari (signal data_word :inout mem_array_type) is
+        -- Open File in Read Mode
+        file romfile   :text open read_mode is "./codis-sisa/sistema/jpsistema-user.code.rom";
+        variable lbuf  :line;
+        --variable i     :integer := 49152;  -- X"C000" ==> 49152 adreca inicial S.O.
+        variable i     :integer := 8192;  -- X"C000" ==> 49152 adreca inicial S.O., pero como la memoria se direcciona a nivel de word (dos bytes) ==>  X"6000" ==> 24576 es la direccion inicial del S.O.
         variable fdata :std_logic_vector (15 downto 0);
     begin
         while not endfile(romfile) loop
@@ -142,7 +196,11 @@ begin
 
 if (boot'event and boot = '1') then
 	-- Procedural Call --
-	Load_FitxerDadesMemoria(mem_array);
+	Load_FitxerDadesMemoriaSistema(mem_array);
+	Load_FitxerCodiMemoriaSistema(mem_array);
+	Load_FitxerDadesMemoriaUsuari(mem_array);
+	Load_FitxerCodiMemoriaUsuari(mem_array);
+	
 	--mem_array (65500) <= X"ABCD";
 	
 else

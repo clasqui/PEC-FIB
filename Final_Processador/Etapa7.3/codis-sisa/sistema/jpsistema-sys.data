@@ -1,5 +1,5 @@
 
-jp-sistema.o:     format de fixer elf32-sisa
+jp-sistema.o:     file format elf32-sisa
 
 Contents of section .sysdata:
  8000 00000000 00000000 22c022c0 22c022c0  ........".".".".

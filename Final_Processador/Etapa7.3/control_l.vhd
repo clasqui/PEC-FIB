@@ -31,7 +31,8 @@ ENTITY control_l IS
 			 e_no_align: OUT std_LOGIC;
 			 exec_mode : IN STD_LOGIC;
 			 no_priv	  : OUT STD_LOGIC;
-			 calls     : OUT STD_LOGIC);   -- Excepcio de instruccio privilegiada. 
+			 calls     : OUT STD_LOGIC;
+			 excep_num : IN STD_LOGIC_VECTOR(7 DOWNTO 0));   -- Excepcio de instruccio privilegiada. 
 END control_l;
 
 
@@ -49,8 +50,8 @@ signal ilegal_jmp : std_LOGIC;
 BEGIN
 
 	 ldpc <= '0'     when ir = "1111111111111111" else '1';
-	 reg_intr <= '0' when ir = "1111111111111111" else '1';
-	 reg_excp <= '0' when ir = "1111111111111111" else '1';
+	 reg_intr <= '0' when ir = "1111111111111111" else '1' when excep_num = x"0F" else '0';
+	 reg_excp <= '0' when ir = "1111111111111111" else '1' when excep_num /= x"0F" else '0';
 	
 	
 	
@@ -214,7 +215,7 @@ BEGIN
 		no_priv <= '1' when ir /= x"FFFF" and ir(15 downto 12) = "1111" and
 							(ir(5 downto 0) = "101100" or ir(5 downto 0) = "110000" or ir(5 downto 0) = "100000" or ir(5 downto 0) = "100001" or ir(5 downto 0) = "100100")
 							 and exec_mode = '0' else '0';
-		calls <= '1' when ir(15 downto 0) = "1010" and ir(5 downto 0) = "000111" and exec_mode = '0' else '0';  -- nomes s'executa en mode usuari.
+		calls <= '1' when ir(15 downto 12) = "1010" and ir(5 downto 0) = "000111" and exec_mode = '0' else '0';  -- nomes s'executa en mode usuari.
 			
 	
 END Structure;

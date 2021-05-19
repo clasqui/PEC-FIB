@@ -1,5 +1,5 @@
 
-jp-sistema.o:     format de fixer elf32-sisa
+jp-sistema.o:     file format elf32-sisa
 
 Disassembly of section .user:
 

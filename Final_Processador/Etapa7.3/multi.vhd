@@ -38,9 +38,10 @@ entity multi is
 			inta 	    : OUT std_logic;
 			intr 	    : IN std_logic;
 			excpr     : IN std_logic;
-			excep_num : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 			e_no_align: OUT std_LOGIC;
-			calls     : OUT STD_LOGIC);
+			calls     : OUT STD_LOGIC;
+			no_align  : IN std_logic;
+			addr_no_ok: IN std_logic);
 end entity;
 
 architecture Structure of multi is
@@ -63,7 +64,7 @@ begin
 		elsif (rising_edge(clk)) then
 			case estat is
 				when FETCH =>
-					if excpr = '1' and excep_num = x"01" then -- saltem tambe a systema en cicle fetch si intentem accedir a un pc no alineat.
+					if excpr = '1' and (no_align = '1' or addr_no_ok = '1') then -- saltem tambe a systema en cicle fetch si intentem accedir a un pc no alineat.
 						estat <= SYSTEM;
 					else 
 						estat <= DEMW;
@@ -83,8 +84,8 @@ begin
 	
 	
 	ldpc <= ldpc_l when estat = DEMW else '0'; 		-- Carrego o no el NOU PC
-	wrd <= wrd_l when estat = DEMW else '1' when estat = SYSTEM else '0'; -- Escriure al banc de reg
-	wr_m <= wr_m_l when estat = DEMW else '0'; 		-- Escriure a memoria
+	wrd <= '0' when excpr = '1' else wrd_l when estat = DEMW else '1' when estat = SYSTEM else '0'; -- Escriure al banc de reg
+	wr_m <= '0' when excpr = '1' else wr_m_l when estat = DEMW else '0'; 		-- Escriure a memoria
 	word_byte <=  w_b when estat = DEMW else '0';	-- Escriure word o byte a memoria
 	ins_dad <= '0' when estat = FETCH else '1';		-- Mem address ve de alu o de memoria
 	ldir <= '1' when estat = FETCH else '0';			

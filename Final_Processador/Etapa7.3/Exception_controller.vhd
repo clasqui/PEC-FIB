@@ -17,7 +17,8 @@ PORT (
 		e_no_align: IN std_LOGIC;
 		no_priv	  : IN STD_LOGIC;
 		calls     : IN STD_LOGIC;
-		addr_no_ok : IN std_logic
+		addr_no_ok : IN std_logic;
+		intr : IN std_logic
 	);
 END Exception_controller;
 
@@ -56,6 +57,8 @@ BEGIN
 					except_tractant <= x"0E";
 				elsif direccio_protegida = '1' then
 					except_tractant <= x"0B";
+				elsif intr = '1' then
+					except_tractant <= x"0F";
 				end if;
 			end if;
 		end if;

@@ -135,7 +135,9 @@ ARCHITECTURE Structure OF proc IS
 			 e_no_align: OUT std_LOGIC;
 			 exec_mode : IN STD_LOGIC;
 			 no_priv	  : OUT STD_LOGIC;
-			 calls     : OUT STD_LOGIC);
+			 calls     : OUT STD_LOGIC;
+			 no_align  : IN std_logic;
+			 addr_no_ok : IN std_logic);
 END COMPONENT;
 
 COMPONENT Exception_controller IS
@@ -151,7 +153,8 @@ PORT (
 		e_no_align: IN std_LOGIC;
 		no_priv	  : IN STD_LOGIC;
 		calls     : IN STD_LOGIC;
-		addr_no_ok : IN std_logic
+		addr_no_ok : IN std_logic;
+		intr : IN std_logic
 	);
 END COMPONENT;
 
@@ -233,7 +236,10 @@ BEGIN
 		excep_num => exception_number,
 		e_no_align => e_no_align,
 		exec_mode => exec_mode_b,
-		calls => calls
+		calls => calls,
+		no_priv => no_priv,
+		no_align => no_align,
+		addr_no_ok => addr_no_ok
 	);
 	
 	flag_odd_addr <= no_align;
@@ -251,6 +257,7 @@ BEGIN
 		e_no_align => e_no_align,  -- 1 quan pot haver excepcions dacces no alineat.
 		no_priv => no_priv,
 		calls => calls,
-		addr_no_ok => addr_no_ok
+		addr_no_ok => addr_no_ok,
+		intr => intr
 	);
 END Structure;

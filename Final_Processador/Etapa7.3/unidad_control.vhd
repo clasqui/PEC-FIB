@@ -41,7 +41,9 @@ ENTITY unidad_control IS
 			 e_no_align: OUT std_LOGIC;
 			 exec_mode : IN STD_LOGIC;
 			 no_priv	  : OUT STD_LOGIC;
-			 calls     : OUT STD_LOGIC);
+			 calls     : OUT STD_LOGIC;
+			 no_align  : IN std_logic;
+			 addr_no_ok : IN std_logic);
 END unidad_control;
 
 ARCHITECTURE Structure OF unidad_control IS
@@ -102,7 +104,8 @@ COMPONENT control_l IS
 			 e_no_align: OUT std_LOGIC;
 			 exec_mode : IN STD_LOGIC;
 			 no_priv	  : OUT STD_LOGIC;
-			 calls     : OUT STD_LOGIC);
+			 calls     : OUT STD_LOGIC;
+			 excep_num : IN STD_LOGIC_VECTOR(7 DOWNTO 0));
 END COMPONENT;
 
 COMPONENT multi IS
@@ -143,7 +146,8 @@ COMPONENT multi IS
 			intr 	  	 : IN std_logic;
 			int_e     : IN STD_LOGIC;
 			excpr     : IN STD_LOGIC;
-			excep_num : IN STD_LOGIC_VECTOR(7 DOWNTO 0));
+			no_align  : IN std_logic;
+			addr_no_ok: IN std_logic);
 END COMPONENT;
 
 
@@ -182,6 +186,7 @@ BEGIN
 		e_no_align => e_no_align_l,
 		exec_mode => exec_mode,
 		no_priv => no_priv,
+		excep_num => excep_num,
 		calls => calls_l);
 	 
 	 ac : multi PORT MAP (
@@ -220,9 +225,10 @@ BEGIN
 			int_e => int_e,
 			op => op,
 			excpr => excpr,
-			excep_num => excep_num,
 			e_no_align => e_no_align,
-			calls => calls);
+			calls => calls,
+			no_align => no_align,
+			addr_no_ok => addr_no_ok);
 			
 	reg_intr <= system_cicle_int;
 	reg_excp <= system_cicle_exc;
