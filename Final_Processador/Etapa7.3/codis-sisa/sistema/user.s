@@ -2,6 +2,9 @@
 
 .set PILA_USUARI, 0x5000
 
+.global main
+.global PILA_USUARI
+
 .text
 
 main: ; punt d'entrada d'usuari

@@ -12,8 +12,8 @@ SECTIONS
   /* text space */
   .sistema :
   {
-    entrada.o(.text) main.o(.text)
-    entrada.o(.rodata) main.o(.rodata)
+    entrada.o(.text) 
+    entrada.o(.rodata) 
     . = ALIGN(2);
   }
   __entry_point = LOADADDR(.sistema);
@@ -39,5 +39,5 @@ SECTIONS
    /* Ens situem en la part de sistema */
   . = 0x8000 ;
 
-  .sysdata : {  entrada.o(.data) lib_sisa.o(.data) fruit.o(.data) engine.o(.data) nsnake.o(.data) player.o(.data) main.o(.data) }
+  .sysdata : {  entrada.o(.data) }
 }

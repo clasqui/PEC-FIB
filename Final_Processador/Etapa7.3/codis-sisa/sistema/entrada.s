@@ -123,9 +123,14 @@ __exit:
 
 RSG:
     rds r7, s6
-    $pst r7, r2 ;salvem nomes r2, r3 i r6 per utilitzarlos de forma segura
-    $pst r7, r3
-    $pst r7, r6
+    ;salvem nomes r2, r3 i r6 per utilitzarlos de forma segura
+    st (r7), r2
+    addi r7, r7, -2
+    st (r7), r3
+    addi r7, r7, -2
+    st (r7), r6
+    addi r7, r7, -2
+
 
     ; Comencem rutina segons tipus 
     rds r1, s2
@@ -137,7 +142,7 @@ RSG:
     bnz r3, __interrupcion
 __excepcion:
     $movei r2, exceptions_vector
-    add r1, r1 r1 ; utilitzarem el num dexcepcio com a index, per tant multipliquem per2
+    add r1, r1, r1 ; utilitzarem el num dexcepcio com a index, per tant multipliquem per2
     add r2, r2, r1
     ld r2, (r2)
     jal r6, r2 ; saltem a la gestio de la excepcio corresponent
@@ -161,7 +166,7 @@ __interrupcion:
     ld r2, (r2)
     jal r6, r2
 
-__finalrsg:
+__finrsg:
     ; Restaurem els 3 registres abans de tornar
     $ppt r7, r6
     $ppt r7, r3
