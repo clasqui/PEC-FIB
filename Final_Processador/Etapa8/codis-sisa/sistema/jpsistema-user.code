@@ -1,0 +1,19 @@
+
+jp-sistema.o:     file format elf32-sisa
+
+Disassembly of section .user:
+
+00004000 <.user>:
+    4000:	5205 	movi	r1, 5
+    4002:	a047 	calls	r1
+    4004:	5200 	movi	r1, 0
+    4006:	5380 	movhi	r1, -128
+    4008:	3440 	ld	r2, 0(r1)
+    400a:	f021 	di	
+    400c:	5200 	movi	r1, 0
+    400e:	53f0 	movhi	r1, -16
+    4010:	5000 	movi	r0, 0
+    4012:	2001 	addi	r0, r0, 1
+    4014:	1429 	cmpleu	r2, r0, r1
+    4016:	63fa 	bnz	r1, -10
+    4018:	ffff 	halt	

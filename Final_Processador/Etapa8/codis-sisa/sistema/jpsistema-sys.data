@@ -1,0 +1,8 @@
+
+jp-sistema.o:     file format elf32-sisa
+
+Contents of section .sysdata:
+ 8000 00000000 00000000 22c022c0 22c022c0  ........".".".".
+ 8010 2ec02ec0 2cc02cc0 2ec02ec0 30c030c0  ....,.,.....0.0.
+ 8020 30c030c0 2ec03ac0 2ec044c0 32c032c0  0.0...:...D.2.2.
+ 8030 32c032c0 32c032c0 32c032c0           2.2.2.2.2.2.    

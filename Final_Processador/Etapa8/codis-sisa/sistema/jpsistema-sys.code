@@ -1,0 +1,93 @@
+
+jp-sistema.o:     file format elf32-sisa
+
+Disassembly of section .sistema:
+
+0000c000 <.sistema>:
+    c000:	f021 	di	
+    c002:	5e00 	movi	r7, 0
+    c004:	5f90 	movhi	r7, -112
+    c006:	fdf0 	wrs	s6, r7
+    c008:	5c50 	movi	r6, 80
+    c00a:	5dc0 	movhi	r6, -64
+    c00c:	fbb0 	wrs	s5, r6
+    c00e:	5a4e 	movi	r5, 78
+    c010:	5bc0 	movhi	r5, -64
+    c012:	5c00 	movi	r6, 0
+    c014:	5d40 	movhi	r6, 64
+    c016:	f3b0 	wrs	s1, r6
+    c018:	5c02 	movi	r6, 2
+    c01a:	f1b0 	wrs	s0, r6
+    c01c:	5600 	movi	r3, 0
+    c01e:	5710 	movhi	r3, 16
+    c020:	f024 	reti	
+    c022:	5406 	movi	r2, 6
+    c024:	5580 	movhi	r2, -128
+    c026:	5201 	movi	r1, 1
+    c028:	4280 	st	0(r2), r1
+    c02a:	a183 	jmp	r6
+    c02c:	a183 	jmp	r6
+    c02e:	ffff 	halt	
+    c030:	ffff 	halt	
+    c032:	5200 	movi	r1, 0
+    c034:	5380 	movhi	r1, -128
+    c036:	4840 	st	0(r1), r4
+    c038:	a183 	jmp	r6
+    c03a:	5202 	movi	r1, 2
+    c03c:	5380 	movhi	r1, -128
+    c03e:	5401 	movi	r2, 1
+    c040:	4440 	st	0(r1), r2
+    c042:	a183 	jmp	r6
+    c044:	5204 	movi	r1, 4
+    c046:	5380 	movhi	r1, -128
+    c048:	5401 	movi	r2, 1
+    c04a:	4440 	st	0(r1), r2
+    c04c:	a183 	jmp	r6
+    c04e:	ffff 	halt	
+    c050:	ffac 	rds	r7, s6
+    c052:	45c0 	st	0(r7), r2
+    c054:	2ffe 	addi	r7, r7, -2
+    c056:	47c0 	st	0(r7), r3
+    c058:	2ffe 	addi	r7, r7, -2
+    c05a:	4dc0 	st	0(r7), r6
+    c05c:	2ffe 	addi	r7, r7, -2
+    c05e:	f2ac 	rds	r1, s2
+    c060:	540e 	movi	r2, 14
+    c062:	1699 	cmpeq	r3, r2, r1
+    c064:	670a 	bnz	r3, 22
+    c066:	540f 	movi	r2, 15
+    c068:	1699 	cmpeq	r3, r2, r1
+    c06a:	6712 	bnz	r3, 38
+    c06c:	5410 	movi	r2, 16
+    c06e:	5580 	movhi	r2, -128
+    c070:	0261 	add	r1, r1, r1
+    c072:	04a1 	add	r2, r2, r1
+    c074:	3480 	ld	r2, 0(r2)
+    c076:	ac84 	jal	r6, r2
+    c078:	6612 	bz	r3, 38
+    c07a:	f2ec 	rds	r1, s3
+    c07c:	f8ec 	rds	r4, s3
+    c07e:	5407 	movi	r2, 7
+    c080:	0242 	and	r1, r1, r2
+    c082:	0261 	add	r1, r1, r1
+    c084:	542c 	movi	r2, 44
+    c086:	5580 	movhi	r2, -128
+    c088:	04a1 	add	r2, r2, r1
+    c08a:	3480 	ld	r2, 0(r2)
+    c08c:	ac84 	jal	r6, r2
+    c08e:	6707 	bnz	r3, 16
+    c090:	f228 	getiid	r1
+    c092:	0261 	add	r1, r1, r1
+    c094:	5408 	movi	r2, 8
+    c096:	5580 	movhi	r2, -128
+    c098:	04a1 	add	r2, r2, r1
+    c09a:	3480 	ld	r2, 0(r2)
+    c09c:	ac84 	jal	r6, r2
+    c09e:	3dc0 	ld	r6, 0(r7)
+    c0a0:	2fc2 	addi	r7, r7, 2
+    c0a2:	37c0 	ld	r3, 0(r7)
+    c0a4:	2fc2 	addi	r7, r7, 2
+    c0a6:	35c0 	ld	r2, 0(r7)
+    c0a8:	2fc2 	addi	r7, r7, 2
+    c0aa:	fdf0 	wrs	s6, r7
+    c0ac:	f024 	reti	
