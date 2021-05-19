@@ -50,7 +50,9 @@ COMPONENT proc IS
 			 inta 	  : OUT std_logic;
 			 intr 	  : IN std_logic;
 			 int_e     : OUT std_LOGIC;
-			 no_align  : IN std_logic);
+			 no_align  : IN std_logic;
+			 exec_mode : OUT STD_LOGIC;
+			 addr_no_ok : IN std_logic);
 END COMPONENT;
 
 COMPONENT MemoryController is
@@ -74,7 +76,9 @@ COMPONENT MemoryController is
 			 vga_we    : out std_logic;
 			 vga_wr_data : out std_logic_vector(15 downto 0);
 			 vga_rd_data : in std_logic_vector(15 downto 0);
-			 vga_byte_m  : out std_logic
+			 vga_byte_m  : out std_logic;
+			 exec_mode : IN STD_LOGIC;
+			 addr_no_ok : OUT std_logic
 			 );
 			 
 end COMPONENT;
@@ -161,6 +165,9 @@ END COMPONENT;
 	
 	signal flag_no_align : std_logic;
 	
+	signal exec_mode: STD_LOGIC;
+	signal addr_no_ok : std_logic;
+	
 BEGIN
 
 -- Instanciament
@@ -181,7 +188,9 @@ pro0 : proc
 		inta => inta,
 		intr => intr,
 		int_e => int_e,
-		no_align => flag_no_align
+		no_align => flag_no_align,
+		exec_mode => exec_mode,
+		addr_no_ok => addr_no_ok
 	);
 
 mem0 : MemoryController
@@ -206,7 +215,12 @@ mem0 : MemoryController
 			vga_we    => vga_we,
 			vga_wr_data => vga_wr_data,
 			vga_rd_data => vga_rd_data,
-			vga_byte_m  => vga_byte_m
+			vga_byte_m  => vga_byte_m,
+			
+			exec_mode => exec_mode,
+			addr_no_ok => addr_no_ok
+			
+			
    );
 	
 vga0 : vga_controller

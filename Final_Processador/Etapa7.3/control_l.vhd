@@ -30,7 +30,8 @@ ENTITY control_l IS
 			 il_inst   : OUT std_logic;
 			 e_no_align: OUT std_LOGIC;
 			 exec_mode : IN STD_LOGIC;
-			 no_priv	  : OUT STD_LOGIC);   -- Excepcio de instruccio privilegiada. 
+			 no_priv	  : OUT STD_LOGIC;
+			 calls     : OUT STD_LOGIC);   -- Excepcio de instruccio privilegiada. 
 END control_l;
 
 
@@ -43,6 +44,7 @@ signal mult	: std_LOGIC_VECTOR(4 downto 0);
 signal jmp	: std_logic;
 signal io	: std_logic;
 signal int	: std_logic;
+signal ilegal_jmp : std_LOGIC;
 
 BEGIN
 
@@ -186,6 +188,12 @@ BEGIN
 	 immed <= std_logic_vector(resize(signed(ir(7 downto 0)), 16)) when ir(15 downto 12) = "0101" -- en les dimmediat, son 8 bits
 					else std_logic_vector(resize(signed(ir(5 downto 0)), 16)); -- en les altres, son 6 bits
 					
+		
+		
+		
+		-- Altres senyals
+		ilegal_jmp <= '1' when ir(5 downto 0) = "000111" and exec_mode = '1' else '0';  -- No s'executa calls en mode sistema.
+					
 		with ir(15 downto 12) select il_inst <=      -- Marquem com a 1 els casos en els que s'esriu perque no hi hagi lios al implementar noves instructs
 		'0' when "0101", -- MOVHI/MOVI
 		'0' when "0011", -- LD
@@ -196,16 +204,17 @@ BEGIN
 		'0' when "0001", -- comparacions
 		'0' when "0010", -- ADDI
 		'0' when "1000", -- muls i divs
-		'0' when "1010", -- Pels jumps
+		ilegal_jmp when "1010", -- Pels jumps
 		'0' when "0110", -- Pels Branches
 		'0' when "0111", -- I/O
 		'0' when "1111", -- interrupts
 		'1' when others; -- NO EXISTEIX, ILEGAL
 		
-		-- Altres senyals
 		e_no_align <= '1' when ir(15 downto 12) = "0011" or ir(15 downto 12) = "0100" else '0'; -- Per detectar acessos no alineats.
 		no_priv <= '1' when ir /= x"FFFF" and ir(15 downto 12) = "1111" and
-							(ir(5 downto 0) = "101100" or ir(5 downto 0) = "110000" or ir(5 downto 0) = "100000" or ir(5 downto 0) = "100001" ir(5 downto 0) = "100100")
+							(ir(5 downto 0) = "101100" or ir(5 downto 0) = "110000" or ir(5 downto 0) = "100000" or ir(5 downto 0) = "100001" or ir(5 downto 0) = "100100")
 							 and exec_mode = '0' else '0';
+		calls <= '1' when ir(15 downto 0) = "1010" and ir(5 downto 0) = "000111" and exec_mode = '0' else '0';  -- nomes s'executa en mode usuari.
+			
 	
 END Structure;

@@ -19,6 +19,7 @@ entity multi is
 			in_d_l    : IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
 			inta_l    : IN  std_logic;
 			e_no_align_l: IN std_LOGIC;
+			calls_l   : IN STD_LOGIC;
          ldpc      : OUT STD_LOGIC;
          wrd       : OUT STD_LOGIC;
          wr_m      : OUT STD_LOGIC;
@@ -38,7 +39,8 @@ entity multi is
 			intr 	    : IN std_logic;
 			excpr     : IN std_logic;
 			excep_num : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-			e_no_align: OUT std_LOGIC);
+			e_no_align: OUT std_LOGIC;
+			calls     : OUT STD_LOGIC);
 end entity;
 
 architecture Structure of multi is
@@ -96,6 +98,7 @@ begin
 	d_sys <= '1' when estat = SYSTEM else d_sys_l;
 	inta <= inta_l when estat = DEMW else '0';
 	e_no_align <= e_no_align_l when estat = DEMW else '1' when estat = FETCH else '0';
+	calls <= calls_l when estat = DEMW else '0';
 	
 
 end Structure;

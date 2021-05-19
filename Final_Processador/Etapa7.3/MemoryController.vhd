@@ -24,7 +24,9 @@ entity MemoryController is
 			 vga_we    : out std_logic;
 			 vga_wr_data : out std_logic_vector(15 downto 0);
 			 vga_rd_data : in std_logic_vector(15 downto 0);
-			 vga_byte_m  : out std_logic);
+			 vga_byte_m  : out std_logic;
+			 exec_mode : IN STD_LOGIC;
+			 addr_no_ok : OUT std_logic);
 			 
 end MemoryController;
 
@@ -53,7 +55,7 @@ signal rd_data_from_sram: std_logic_vector(15 downto 0); -- Necessitem senyal au
 
 begin
 	
-	wr_sram <= we when addr < "1100000000000000" else '0';
+	wr_sram <= we when addr < x"8000" or (addr >= x"8000" and addr < x"C000" and exec_mode = '1') else '0';
 	-- wr_sram <= '1' when addr(15 DOWNTO 14) = "00" else '0';
 	
 	sram : SRAMController
@@ -81,8 +83,10 @@ begin
 		vga_wr_data <= wr_data ; --when (addr >= x"A000" and addr < x"BFFF") else (others=>'0');
 		vga_byte_m <= byte_m;
 		
-		rd_data <= rd_data_from_sram;--vga_rd_data when (addr >= x"A000" and addr < x"BFFF") else rd_data_from_sram;
+		rd_data <= rd_data_from_sram when addr < x"8000" or (addr >= x"8000" and exec_mode = '1') else x"0000" ;--vga_rd_data when (addr >= x"A000" and addr < x"BFFF") else rd_data_from_sram;
 		
 		no_align <= not byte_m and addr(0);
+		
+		addr_no_ok <= '1' when exec_mode = '0' and addr >= x"8000" else '0';
 
 end comportament;
