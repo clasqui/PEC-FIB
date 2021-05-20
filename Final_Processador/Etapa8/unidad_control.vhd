@@ -51,7 +51,8 @@ ENTITY unidad_control IS
 			 flush : OUT STD_LOGIC;
 			 miss_i : IN STD_LOGIC;
 			 inv_pg_i : IN STD_LOGIC;
-			 pr_pg_i : IN STD_LOGIC);
+			 pr_pg_i : IN STD_LOGIC;
+			 store 	  : OUT STD_LOGIC);
 END unidad_control;
 
 ARCHITECTURE Structure OF unidad_control IS
@@ -86,6 +87,7 @@ signal we_tlb_l : STD_LOGIC;
 signal v_p_l : STD_LOGIC;
 signal flush_l : STD_LOGIC;
 signal i_d_l		: STD_LOGIC;
+signal store_l 	  : STD_LOGIC;
 	 
 COMPONENT control_l IS
     PORT (ir   	  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -121,7 +123,8 @@ COMPONENT control_l IS
 			 we_tlb 	  : OUT STD_LOGIC;
 			 v_p 		  : OUT STD_LOGIC;
 			 i_d		  : OUT STD_LOGIC;
-			 flush 	  : OUT STD_LOGIC);
+			 flush 	  : OUT STD_LOGIC;
+			 store 	  : OUT STD_LOGIC);
 END COMPONENT;
 
 COMPONENT multi IS
@@ -145,6 +148,7 @@ COMPONENT multi IS
 			we_tlb_l  : IN STD_LOGIC;
 			v_p_l 	 : IN STD_LOGIC;
 			flush_l   : IN STD_LOGIC;
+			store_l 	 : IN STD_LOGIC;
          ldpc      : OUT STD_LOGIC;
          wrd       : OUT STD_LOGIC;
          wr_m      : OUT STD_LOGIC;
@@ -173,7 +177,8 @@ COMPONENT multi IS
 			flush 	 : OUT STD_LOGIC;
 			miss_i : IN STD_LOGIC;
 			inv_pg_i : IN STD_LOGIC;
-			pr_pg_i : IN STD_LOGIC);
+			pr_pg_i : IN STD_LOGIC;
+			store 	  : OUT STD_LOGIC);
 END COMPONENT;
 
 
@@ -217,7 +222,8 @@ BEGIN
 		v_p => v_p_l,
 		we_tlb => we_tlb_l,
 		i_d => i_d,
-		flush => flush_l);
+		flush => flush_l,
+		store => store_l);
 	 
 	 ac : multi PORT MAP (
 			clk => clk,
@@ -239,6 +245,7 @@ BEGIN
 			v_p_l => v_p_l,
 			we_tlb_l => we_tlb_l,
 			flush_l => flush_l,
+			store_l => store_l,
          w_b  => w_b,
          ldpc => ldpc,
          wrd => wrd,
@@ -268,7 +275,8 @@ BEGIN
 			flush => flush,
 			miss_i => miss_i,
 			inv_pg_i => inv_pg_i,
-			pr_pg_i => pr_pg_i);
+			pr_pg_i => pr_pg_i,
+			store => store);
 			
 	reg_intr <= system_cicle_int;
 	reg_excp <= system_cicle_exc;

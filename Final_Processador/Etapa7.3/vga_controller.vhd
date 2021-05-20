@@ -112,108 +112,108 @@ architecture vga_controller_rtl of vga_controller is
 
     begin
 	 
-			blank_out <= '0';   --  : out std_logic; -- vga control signal
-         csync_out <='0';  --   : out std_logic; -- vga control signal
-         red_out  <="00000000";   --   : out std_logic_vector(7 downto 0); -- vga red pixel value
-         green_out <= "00000000";   --  : out std_logic_vector(7 downto 0); -- vga green pixel value
-         blue_out  <="00000000";  --   : out std_logic_vector(7 downto 0); -- vga blue pixel value
-         horiz_sync_out <= '0'; --: out std_logic; -- vga control signal
-         vert_sync_out <= '0';-- : out std_logic; -- vga control signal
-	      rd_data  <= "0000000000000000" ;   --     : out std_logic_vector(15 downto 0);
+--			blank_out <= '0';   --  : out std_logic; -- vga control signal
+--         csync_out <='0';  --   : out std_logic; -- vga control signal
+--         red_out  <="00000000";   --   : out std_logic_vector(7 downto 0); -- vga red pixel value
+--         green_out <= "00000000";   --  : out std_logic_vector(7 downto 0); -- vga green pixel value
+--         blue_out  <="00000000";  --   : out std_logic_vector(7 downto 0); -- vga blue pixel value
+--         horiz_sync_out <= '0'; --: out std_logic; -- vga control signal
+--         vert_sync_out <= '0';-- : out std_logic; -- vga control signal
+--	      rd_data  <= "0000000000000000" ;   --     : out std_logic_vector(15 downto 0);
 
---	 
---        --Clock divider /2. Pixel clock is 25MHz
---        clk_25mhz <= '0'           when reset = '1' else
---                     not clk_25mhz when rising_edge(clk_50mhz);
---
---        u_vga_sync : vga_sync
---        port map (
---            clk_25mhz      => clk_25mhz,
---            reset          => reset,
---            video_on       => video_on,
---            horiz_sync_out => horiz_sync_out,
---            vert_sync_out  => vert_sync_out,
---            pixel_row      => pixel_row,
---            pixel_column   => pixel_column
---        );
---
---        u_font_rom : vga_font_rom
---        port map (
---            clk  => clk_25mhz,
---            addr => rom_addr,
---            data => rom_data
---        );
---
---        U_MonitorRam: vga_ram_dual
---        generic map (d_width    => 16,
---                     addr_width => 12)  -- 12 bits ==> 4096 words ==> 8192 bytes ==> Mem_VGA[0xA000-0xBFFF]
---        port map (
---            clk    => clk_25mhz ,
---            --write
---            we1    => we,
---            d1     => wr_data,
---            addr1  => unsigned(addr_vga),
---            byte_m => byte_m,
---            --read
---            o2     => ram_q2,
---            addr2  => unsigned(ram_addr2)
---        );
---
---
---
---    -- allow the display of rgb color pixel
---    red_out   <= color_rojo  when pixel='1' and  video_on = '1' and valid_screen = '1' else (others=>'0');
---    green_out <= color_verde when pixel='1' and  video_on = '1' and valid_screen = '1' else (others=>'0');
---    blue_out  <= color_azul  when pixel='1' and  video_on = '1' and valid_screen = '1' else (others=>'0');
---
---    valid_screen <= '1' when (pixel_column(9  downto 3)<= 79) else '0';
---
---    -- get char that must be displayed on this region
---    -- calcula la @ de memoria de la pantalla multiplicanco la fila por 80 (80=5*16) y sumandole la columna
---    aux1_ram_addr2 <= "00000"&pixel_column(9  downto 3) when (pixel_column(9  downto 3)<= 79) else (others=>'0'); -- calcula la columna
---    aux2_ram_addr2 <="00"&std_logic_vector(unsigned(pixel_row(8  downto 4)) * 5);        -- calcula @ parcial de la fila actual multiplicandola por 5
---    ram_addr2 <= (aux2_ram_addr2(7  downto 0)&"0000") + aux1_ram_addr2;                 -- calcula @ final multiplicando de @parcial de la fila actual por 16 y sumandole la columna
---
---    -- decode the ram char to displayed it on the screen
---    rom_addr <=  ram_q2(7 downto 0) & pixel_row(3 downto 0) ;
---
---    -- ????? No se puede leer el contenido de la memoria de la VGA desde el procasador SISA a no ser que arreglemos esto
---    rd_data <= ram_q2;
---
---    -- display the row : data rom data pixel by pixel
---    pixel <= rom_data(0) when pixel_column(2 downto 0) = "000" else
---             rom_data(7) when pixel_column(2 downto 0) = "001" else
---             rom_data(6) when pixel_column(2 downto 0) = "010" else
---             rom_data(5) when pixel_column(2 downto 0) = "011" else
---             rom_data(4) when pixel_column(2 downto 0) = "100" else
---             rom_data(3) when pixel_column(2 downto 0) = "101" else
---             rom_data(2) when pixel_column(2 downto 0) = "110" else
---             rom_data(1) when pixel_column(2 downto 0) = "111" else
---             '0' ;
---
---    --formato color almacenado en la memoria de la VGA (se usan solo 6 bits, 2 por color)
---    bitsRojo  <= ram_q2(9 downto 8);
---    bitsVerde <= ram_q2(11 downto 10);
---    bitsAzul  <= ram_q2(13 downto 12);
---
---    --DE1 (solo usa los bits del '3 downto 0')
---    color_rojo <= "00000000" when bitsRojo="00" else     -- valor 0  (0%)
---                  "00000101" when bitsRojo="01" else     -- valor 5  (33%)
---                  "00001010" when bitsRojo="10" else     -- valor 10 (66%)
---                  "00001111";                            -- valor 15 (100%)
---
---    color_verde <= "00000000" when bitsverde="00" else     -- valor 0  (0%)
---                   "00000101" when bitsverde="01" else     -- valor 5  (33%)
---                   "00001010" when bitsverde="10" else     -- valor 10 (66%)
---                   "00001111";                             -- valor 15 (100%)
---
---    color_azul <= "00000000" when bitsAzul="00" else     -- valor 0  (0%)
---                  "00000101" when bitsAzul="01" else     -- valor 5  (33%)
---                  "00001010" when bitsAzul="10" else     -- valor 10 (66%)
---                  "00001111";                            -- valor 15 (100%)
---
---    -- we not use blank_out and csync_out
---    blank_out <= '1';
---    csync_out <= '1';
+	 
+        --Clock divider /2. Pixel clock is 25MHz
+        clk_25mhz <= '0'           when reset = '1' else
+                     not clk_25mhz when rising_edge(clk_50mhz);
+
+        u_vga_sync : vga_sync
+        port map (
+            clk_25mhz      => clk_25mhz,
+            reset          => reset,
+            video_on       => video_on,
+            horiz_sync_out => horiz_sync_out,
+            vert_sync_out  => vert_sync_out,
+            pixel_row      => pixel_row,
+            pixel_column   => pixel_column
+        );
+
+        u_font_rom : vga_font_rom
+        port map (
+            clk  => clk_25mhz,
+            addr => rom_addr,
+            data => rom_data
+        );
+
+        U_MonitorRam: vga_ram_dual
+        generic map (d_width    => 16,
+                     addr_width => 12)  -- 12 bits ==> 4096 words ==> 8192 bytes ==> Mem_VGA[0xA000-0xBFFF]
+        port map (
+            clk    => clk_25mhz ,
+            --write
+            we1    => we,
+            d1     => wr_data,
+            addr1  => unsigned(addr_vga),
+            byte_m => byte_m,
+            --read
+            o2     => ram_q2,
+            addr2  => unsigned(ram_addr2)
+        );
+
+
+
+    -- allow the display of rgb color pixel
+    red_out   <= color_rojo  when pixel='1' and  video_on = '1' and valid_screen = '1' else (others=>'0');
+    green_out <= color_verde when pixel='1' and  video_on = '1' and valid_screen = '1' else (others=>'0');
+    blue_out  <= color_azul  when pixel='1' and  video_on = '1' and valid_screen = '1' else (others=>'0');
+
+    valid_screen <= '1' when (pixel_column(9  downto 3)<= 79) else '0';
+
+    -- get char that must be displayed on this region
+    -- calcula la @ de memoria de la pantalla multiplicanco la fila por 80 (80=5*16) y sumandole la columna
+    aux1_ram_addr2 <= "00000"&pixel_column(9  downto 3) when (pixel_column(9  downto 3)<= 79) else (others=>'0'); -- calcula la columna
+    aux2_ram_addr2 <="00"&std_logic_vector(unsigned(pixel_row(8  downto 4)) * 5);        -- calcula @ parcial de la fila actual multiplicandola por 5
+    ram_addr2 <= (aux2_ram_addr2(7  downto 0)&"0000") + aux1_ram_addr2;                 -- calcula @ final multiplicando de @parcial de la fila actual por 16 y sumandole la columna
+
+    -- decode the ram char to displayed it on the screen
+    rom_addr <=  ram_q2(7 downto 0) & pixel_row(3 downto 0) ;
+
+    -- ????? No se puede leer el contenido de la memoria de la VGA desde el procasador SISA a no ser que arreglemos esto
+    rd_data <= ram_q2;
+
+    -- display the row : data rom data pixel by pixel
+    pixel <= rom_data(0) when pixel_column(2 downto 0) = "000" else
+             rom_data(7) when pixel_column(2 downto 0) = "001" else
+             rom_data(6) when pixel_column(2 downto 0) = "010" else
+             rom_data(5) when pixel_column(2 downto 0) = "011" else
+             rom_data(4) when pixel_column(2 downto 0) = "100" else
+             rom_data(3) when pixel_column(2 downto 0) = "101" else
+             rom_data(2) when pixel_column(2 downto 0) = "110" else
+             rom_data(1) when pixel_column(2 downto 0) = "111" else
+             '0' ;
+
+    --formato color almacenado en la memoria de la VGA (se usan solo 6 bits, 2 por color)
+    bitsRojo  <= ram_q2(9 downto 8);
+    bitsVerde <= ram_q2(11 downto 10);
+    bitsAzul  <= ram_q2(13 downto 12);
+
+    --DE1 (solo usa los bits del '3 downto 0')
+    color_rojo <= "00000000" when bitsRojo="00" else     -- valor 0  (0%)
+                  "00000101" when bitsRojo="01" else     -- valor 5  (33%)
+                  "00001010" when bitsRojo="10" else     -- valor 10 (66%)
+                  "00001111";                            -- valor 15 (100%)
+
+    color_verde <= "00000000" when bitsverde="00" else     -- valor 0  (0%)
+                   "00000101" when bitsverde="01" else     -- valor 5  (33%)
+                   "00001010" when bitsverde="10" else     -- valor 10 (66%)
+                   "00001111";                             -- valor 15 (100%)
+
+    color_azul <= "00000000" when bitsAzul="00" else     -- valor 0  (0%)
+                  "00000101" when bitsAzul="01" else     -- valor 5  (33%)
+                  "00001010" when bitsAzul="10" else     -- valor 10 (66%)
+                  "00001111";                            -- valor 15 (100%)
+
+    -- we not use blank_out and csync_out
+    blank_out <= '1';
+    csync_out <= '1';
 
 end vga_controller_rtl;

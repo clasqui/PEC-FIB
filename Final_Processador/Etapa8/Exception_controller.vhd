@@ -27,7 +27,8 @@ PORT (
 		pr_pg_i : IN STD_LOGIC;
 		pr_pg_d : IN STD_LOGIC;
 		ro_pg : IN STD_LOGIC;
-		exec_mode : IN std_LOGIC
+		exec_mode : IN std_LOGIC;
+		store 	  : IN STD_LOGIC
 	);
 END Exception_controller;
 
@@ -54,7 +55,7 @@ BEGIN
 	miss_instr <= '1' when miss_i = '1' and e_fetch = '1' else '0';
 	inv_dir_d <= '1' when inv_pg_d = '1' and load_store = '1' else '0';
 	inv_dir_i <= '1' when inv_pg_i = '1' and e_fetch = '1' else '0';
- 	ro_pg_excep <= '1' when ro_pg_excep = '1' and load_store = '1' else '0';
+ 	ro_pg_excep <= '1' when ro_pg_excep = '1' and store = '1' else '0';
 	
 	process(clk)
 	begin
@@ -86,7 +87,7 @@ BEGIN
 					except_tractant <= x"0B";
 				elsif ro_pg_excep = '1' then
 					except_tractant <= x"0C";
-				elsif no_priv = '1' then
+				elsif no_priv = '1' and exec_mode = '0' then
 					except_tractant <= x"0D";
 				elsif calls = '1' then
 					except_tractant <= x"0E";
@@ -100,7 +101,7 @@ BEGIN
 	
 	
 	excpr <= '0' when boot = '1' else (i_ilegal or acces_no_alineat or zero_div
-													or no_priv or calls or direccio_protegida_d or miss_instr or miss_dades or
+													or (no_priv and not exec_mode) or calls or direccio_protegida_d or miss_instr or miss_dades or
 													direccio_protegida_i or ro_pg_excep or inv_dir_d or inv_dir_i); 
 	excp_id <= except_tractant; 
 	

@@ -23,6 +23,7 @@ entity multi is
 			we_tlb_l	 : IN STD_LOGIC;
 			v_p_l	    : IN STD_LOGIC;
 			flush_l 	 : IN STD_LOGIC;
+			store_l 	 : IN STD_LOGIC;
          ldpc      : OUT STD_LOGIC;
          wrd       : OUT STD_LOGIC;
          wr_m      : OUT STD_LOGIC;
@@ -51,7 +52,8 @@ entity multi is
 			flush     : OUT STD_LOGIC;
 			miss_i : IN STD_LOGIC;
 			inv_pg_i : IN STD_LOGIC;
-			pr_pg_i : IN STD_LOGIC);
+			pr_pg_i : IN STD_LOGIC;
+			store 	  : OUT STD_LOGIC);
 end entity;
 
 architecture Structure of multi is
@@ -114,6 +116,6 @@ begin
 	v_p <= v_p_l when estat = DEMW else '0';
 	flush <= '0' when excpr = '1' else flush_l when estat = DEMW else '0';
 	we_tlb <= '0' when excpr = '1' else we_tlb_l when estat = DEMW else '0';
-	
+	store <= store_l when estat = DEMW else '0';
 
 end Structure;

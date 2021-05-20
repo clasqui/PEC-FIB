@@ -46,6 +46,9 @@ signal jmp	: std_logic;
 signal io	: std_logic;
 signal int	: std_logic;
 signal ilegal_jmp : std_LOGIC;
+signal ilegal_cmp : std_LOGIC;
+signal ilegal_mul : std_LOGIC;
+signal priv : std_LOGIC;
 
 BEGIN
 
@@ -193,7 +196,33 @@ BEGIN
 		
 		
 		-- Altres senyals
-		ilegal_jmp <= '1' when ir(5 downto 0) = "000111" and exec_mode = '1' else '0';  -- No s'executa calls en mode sistema.
+		ilegal_jmp <= '1' when (ir(5 downto 0) = "000111" and exec_mode = '1') or
+		ir(5 downto 0) = "000010" or ir(5 downto 0) = "000101" or ir(5 downto 0) = "000110"	else '0'; 
+		
+		with ir(5 downto 3) select ilegal_cmp <= 
+		'0' when "000", -- CMPLT
+		'0' when "001", -- CMPLE
+		'0' when "011", -- CMPEQ
+		'0' when "100", -- CMPLTU
+		'0' when "101", -- CMPLEU
+		'1' when others;
+		
+		with ir(5 downto 3) select ilegal_mul <=
+		'0' when "000", -- MUL
+		'0' when "001", -- MULH
+		'0' when "010", -- MULHU
+		'0' when "100", -- DIV
+		'0' when "101", -- DIVU
+		'1' when others;
+		
+		with ir (5 downto 0) select priv <=
+		'0' when "101100",
+		'0' when "110000",
+		'0' when "100000",
+		'0' when "100001",
+		'0' when "100100",
+		'0' when "101000",
+		'1' when others;
 					
 		with ir(15 downto 12) select il_inst <=      -- Marquem com a 1 els casos en els que s'esriu perque no hi hagi lios al implementar noves instructs
 		'0' when "0101", -- MOVHI/MOVI
@@ -202,13 +231,13 @@ BEGIN
 		'0' when "0100", -- ST
 		'0' when "1110", -- STB
 		'0' when "0000", -- aritmeticologiques
-		'0' when "0001", -- comparacions
+		ilegal_cmp when "0001", -- comparacions
 		'0' when "0010", -- ADDI
-		'0' when "1000", -- muls i divs
+		ilegal_mul when "1000", -- muls i divs
 		ilegal_jmp when "1010", -- Pels jumps
 		'0' when "0110", -- Pels Branches
 		'0' when "0111", -- I/O
-		'0' when "1111", -- interrupts
+		priv when "1111", -- interrupts
 		'1' when others; -- NO EXISTEIX, ILEGAL
 		
 		e_no_align <= '1' when ir(15 downto 12) = "0011" or ir(15 downto 12) = "0100" else '0'; -- Per detectar acessos no alineats.

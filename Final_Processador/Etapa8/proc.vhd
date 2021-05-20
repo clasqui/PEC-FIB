@@ -75,6 +75,7 @@ ARCHITECTURE Structure OF proc IS
 	 signal pr_pg_i : STD_LOGIC;
 	 signal pr_pg_d : STD_LOGIC;
 	 signal ro_pg : STD_LOGIC;
+	 signal store 	  :  STD_LOGIC;
 	 
 	 
 	 
@@ -174,7 +175,8 @@ ARCHITECTURE Structure OF proc IS
 			 flush : OUT STD_LOGIC;
 			 miss_i : IN STD_LOGIC;
 			 inv_pg_i : IN STD_LOGIC;
-			 pr_pg_i : IN STD_LOGIC);
+			 pr_pg_i : IN STD_LOGIC;
+			 store 	  : OUT STD_LOGIC);
 END COMPONENT;
 
 
@@ -202,7 +204,8 @@ PORT (
 		pr_pg_i : IN STD_LOGIC;
 		pr_pg_d : IN STD_LOGIC;
 		ro_pg : IN STD_LOGIC;
-		exec_mode : IN std_LOGIC
+		exec_mode : IN std_LOGIC;
+		store 	  : IN STD_LOGIC
 	);
 END COMPONENT;
 
@@ -301,13 +304,17 @@ BEGIN
 		no_align => no_align,
 		addr_no_ok => addr_no_ok,
 		i_d => i_d,
+		v_p => v_p,
 		miss_i => miss_i,
 		inv_pg_i => inv_pg_i,
-		pr_pg_i => pr_pg_i
+		pr_pg_i => pr_pg_i,
+		we_tlb => we_tlb,
+		store => store
 	);
 	
 	flag_odd_addr <= no_align;
 	exec_mode <= exec_mode_b;
+	int_e <= int_e_b;
 	
 	exc0 : Exception_controller PORT MAP (
 		clk => clk,
@@ -331,7 +338,8 @@ BEGIN
 		pr_pg_i => pr_pg_i,
 		pr_pg_d => pr_pg_d,
 		ro_pg => ro_pg,
-		exec_mode => exec_mode_b
+		exec_mode => exec_mode_b,
+		store => store
 	);
 	
 	

@@ -1,0 +1,255 @@
+{//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/test_sisa.vhd} {2 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/test_sisa.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity test_sisa
+-- Compiling architecture comportament of test_sisa
+** Warning: [4] //vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/test_sisa.vhd(76): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+
+} {} {}} {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/sisa.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/sisa.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity sisa
+-- Compiling architecture Structure of sisa
+
+} {} {}} {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/Interrupt_controller.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/Interrupt_controller.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity Interrupt_controller
+-- Compiling architecture Structure of Interrupt_controller
+
+} {} {}} {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/Reductora.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/Reductora.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity Reductora
+-- Compiling architecture Structure of Reductora
+
+} {} {}} {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/multiplicador.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/multiplicador.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity multiplicador
+-- Compiling architecture Structure of multiplicador
+
+} {} {}} {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/Interruptors.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/Interruptors.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity Interruptors
+-- Compiling architecture Structure of Interruptors
+
+} {} {}} {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/package_timing.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/package_timing.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package std_logic_textio
+-- Compiling package package_timing
+-- Compiling package body package_timing
+-- Loading package package_timing
+
+} {} {}} {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/Pulsadors.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/Pulsadors.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity Pulsadors
+-- Compiling architecture Structure of Pulsadors
+
+} {} {}} {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/datapath.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/datapath.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity datapath
+-- Compiling architecture Structure of datapath
+
+} {} {}} {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/SRAMController.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/SRAMController.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity SRAMController
+-- Compiling architecture comportament of SRAMController
+
+} {} {}} {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/package_utility.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/package_utility.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package std_logic_textio
+-- Compiling package package_utility
+-- Compiling package body package_utility
+-- Loading package package_utility
+
+} {} {}} {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/driver7Segmentos.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/driver7Segmentos.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity driver7Segmentos
+-- Compiling architecture Structure of driver7Segmentos
+
+} {} {}} {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/vga_font_rom.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/vga_font_rom.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity vga_font_rom
+-- Compiling architecture vga_font_rom_arch of vga_font_rom
+
+} {} {}} {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/vga_controller.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/vga_controller.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity vga_controller
+-- Compiling architecture vga_controller_rtl of vga_controller
+
+} {} {}} {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/Timer.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/Timer.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity Timer
+-- Compiling architecture Structure of Timer
+
+} {} {}} {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/async_64Kx16.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/async_64Kx16.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package std_logic_textio
+-- Loading package package_timing
+-- Loading package package_utility
+-- Compiling entity async_64Kx16
+-- Compiling architecture behave_arch of async_64Kx16
+
+} {} {}} {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/TLB.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/TLB.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity TLB
+-- Compiling architecture Structure of TLB
+
+} {} {}} {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/vga_sync.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/vga_sync.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity vga_sync
+-- Compiling architecture vga_sync_arch of vga_sync
+
+} {} {}} {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/vga_ram_dual.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/vga_ram_dual.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity vga_ram_dual
+-- Compiling architecture vga_ram_dual_arch of vga_ram_dual
+
+} {} {}} {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/alu.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/alu.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity alu
+-- Compiling architecture Structure of alu
+
+} {} {}} {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/keyboard_controller.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/keyboard_controller.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity keyboard_controller
+-- Compiling architecture Behavioral of keyboard_controller
+
+} {} {}} {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/ps2_keyboard.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/ps2_keyboard.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity ps2_keyboard_interface
+-- Compiling architecture trans of ps2_keyboard_interface
+
+} {} {}} {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/MemoryController.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/MemoryController.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity MemoryController
+-- Compiling architecture comportament of MemoryController
+
+} {} {}} {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/controladores_IO.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/UPC/PEC/PEC-FIB/Final_Processador/Etapa8/controladores_IO.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity controladores_IO
+-- Compiling architecture Structure of controladores_IO
+
+} {} {}}

@@ -11,7 +11,7 @@ PORT (
 		vtag : IN std_logic_vector (3 downto 0);
 		--p : OUT std_logic;
 		--v : OUT std_logic;
-		tag_in : IN std_logic_vector(15 downto 0);
+		tag_in : IN std_logic_vector(5 downto 0);
 		addr : IN std_logic_vector(2 downto 0);
 		v_p : IN std_logic;
 		we : IN std_logic;

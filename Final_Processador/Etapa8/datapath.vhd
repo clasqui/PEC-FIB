@@ -50,7 +50,7 @@ ENTITY datapath IS
 			 we_tlb : IN STD_LOGIC;
 			 v_p : IN STD_LOGIC;
 			 flush : IN STD_LOGIC;
-			 i_d		  : IN STD_LOGIC);
+			 i_d	 : IN STD_LOGIC);
 END datapath;
 
 ARCHITECTURE Structure OF datapath IS
@@ -95,7 +95,7 @@ PORT (
 		vtag : IN std_logic_vector (3 downto 0);
 		--p : OUT std_logic;
 		--v : OUT std_logic;
-		tag_in : IN std_logic_vector(15 downto 0);
+		tag_in : IN std_logic_vector(5 downto 0);
 		addr : IN std_logic_vector(2 downto 0);
 		v_p : IN std_logic;
 		we : IN std_logic;
@@ -123,7 +123,7 @@ signal dir_efectiva : STD_LOGIC_VECTOR(15 DOWNTO 0);
  signal ptag_i : std_logic_vector(3 downto 0);
  signal addr_w_tlb : std_LOGIC_VECTOR(2 downto 0);
  signal vtag : std_logic_vector(3 downto 0);
- signal tag_in : std_logic_vector(15 downto 0);
+ signal tag_in : std_logic_vector(5 downto 0);
  signal ptag : std_logic_vector(3 downto 0);
  signal we_tlb_d : std_LOGIC;
  signal we_tlb_i : std_LOGIC;
@@ -205,7 +205,7 @@ BEGIN
 		vtag <= addr_virt(15 downto 12);
 		ptag <= ptag_i when ins_dad = '0' else ptag_d;
 		addr_m <=  ptag&addr_virt(11 downto 0);
-		tag_in <= b;
+		tag_in <= b(5 downto 0);
 		addr_w_tlb <= a(2 downto 0);
 		we_tlb_d <= '1' when i_d = '1' and we_tlb = '1' else '0';
 		we_tlb_i <= '1' when i_d = '0' and we_tlb = '1' else '0';

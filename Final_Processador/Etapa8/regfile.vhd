@@ -56,7 +56,7 @@ BEGIN
 				registres_sistema(2) <= x"00"&excep_num;
 				registres_sistema(7)(1) <= '0';
 				registres_sistema(7)(0) <= '1';     -- Es canvia a mode sistema
-				if excep_num = x"01" then	
+				if excep_num = x"01" or excep_num = x"06" or excep_num = x"07" or excep_num = x"08" or excep_num = x"09" then	
 					registres_sistema(3) <= desakoplo_d_efectiva;
 				elsif excep_num = x"0E" then
 					registres_sistema(3) <= registres(conv_integer(addr_a));

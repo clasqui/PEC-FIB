@@ -244,6 +244,7 @@ BEGIN
 	
 	flag_odd_addr <= no_align;
 	exec_mode <= exec_mode_b;
+	int_e <= int_e_b;
 	
 	exc0 : Exception_controller PORT MAP (
 		clk => clk,

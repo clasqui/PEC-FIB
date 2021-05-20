@@ -84,7 +84,7 @@ SIGNAL mem_array: mem_array_type;
     
     procedure Load_FitxerCodiMemoriaSistema (signal data_word :inout mem_array_type) is
         -- Open File in Read Mode
-        file romfile   :text open read_mode is "./codis-sisa/sistema/jpsistema-sys.code.rom";
+        file romfile   :text open read_mode is "./Joc_de_prova_TLB/TLB_con_hexdump/TLB.rom";
         variable lbuf  :line;
         --variable i     :integer := 49152;  -- X"C000" ==> 49152 adreca inicial S.O.
         variable i     :integer := 24576;  -- X"C000" ==> 49152 adreca inicial S.O., pero como la memoria se direcciona a nivel de word (dos bytes) ==>  X"6000" ==> 24576 es la direccion inicial del S.O.

@@ -36,7 +36,8 @@ ENTITY control_l IS
 			 we_tlb 	  : OUT STD_LOGIC;
 			 v_p 		  : OUT STD_LOGIC;
 			 i_d		  : OUT STD_LOGIC;
-			 flush 	  : OUT STD_LOGIC);
+			 flush 	  : OUT STD_LOGIC;
+			 store 	  : OUT STD_LOGIC);
 END control_l;
 
 
@@ -237,7 +238,8 @@ BEGIN
 		'1' when others; -- NO EXISTEIX, ILEGAL
 		
 		e_no_align <= '1' when ir(15 downto 12) = "0011" or ir(15 downto 12) = "0100" else '0'; -- Per detectar acessos no alineats.
-		no_priv <= '1' when ir /= x"FFFF" and ir(15 downto 12) = "1111";-- and     
+		store <= '1' when ir(15 downto 12) = "0100" else '0'; 
+		no_priv <= '1' when ir /= x"FFFF" and ir(15 downto 12) = "1111" else '0';-- and     
 							--(ir(5 downto 0) = "101100" or ir(5 downto 0) = "110000" or ir(5 downto 0) = "100000" or ir(5 downto 0) = "100001" or ir(5 downto 0) = "100100")
 							 --and exec_mode = '0' else '0';
 		calls <= '1' when ir(15 downto 12) = "1010" and ir(5 downto 0) = "000111" and exec_mode = '0' else '0';  -- nomes s'executa en mode usuari.
