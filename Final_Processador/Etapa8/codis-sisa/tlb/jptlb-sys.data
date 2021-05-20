@@ -1,0 +1,9 @@
+
+jp-tlb.o:     format de fixer elf32-sisa
+
+Contents of section .sysdata:
+ 8000 00000000 00000000 00000000 000046c0  ..............F.
+ 8010 46c046c0 46c052c0 52c050c0 50c052c0  F.F.F.R.R.P.P.R.
+ 8020 52c084c0 5ec084c0 5ec0b4c0 aac0c0c0  R...^...^.......
+ 8030 e2c056c0 cac056c0 56c056c0 56c056c0  ..V...V.V.V.V.V.
+ 8040 56c0                                 V.              

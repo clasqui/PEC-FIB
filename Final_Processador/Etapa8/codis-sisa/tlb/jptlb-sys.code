@@ -1,0 +1,198 @@
+
+jp-tlb.o:     format de fixer elf32-sisa
+
+Disassembly of section .sistema:
+
+0000c000 <.sistema>:
+    c000:	f021 	di	
+    c002:	520a 	movi	r1, 10
+    c004:	5404 	movi	r2, 4
+    c006:	f2b7 	wrvd	r2, r1
+    c008:	522a 	movi	r1, 42
+    c00a:	f2b6 	wrpd	r2, r1
+    c00c:	520b 	movi	r1, 11
+    c00e:	2481 	addi	r2, r2, 1
+    c010:	f2b7 	wrvd	r2, r1
+    c012:	522b 	movi	r1, 43
+    c014:	f2b6 	wrpd	r2, r1
+    c016:	520a 	movi	r1, 10
+    c018:	5380 	movhi	r1, -128
+    c01a:	5406 	movi	r2, 6
+    c01c:	4440 	st	0(r1), r2
+    c01e:	5402 	movi	r2, 2
+    c020:	f4b7 	wrvd	r2, r2
+    c022:	5232 	movi	r1, 50
+    c024:	f2b6 	wrpd	r2, r1
+    c026:	5e00 	movi	r7, 0
+    c028:	5f8e 	movhi	r7, -114
+    c02a:	fdf0 	wrs	s6, r7
+    c02c:	5cee 	movi	r6, -18
+    c02e:	5dc0 	movhi	r6, -64
+    c030:	fbb0 	wrs	s5, r6
+    c032:	5aec 	movi	r5, -20
+    c034:	5bc0 	movhi	r5, -64
+    c036:	5c00 	movi	r6, 0
+    c038:	5d40 	movhi	r6, 64
+    c03a:	f3b0 	wrs	s1, r6
+    c03c:	5c02 	movi	r6, 2
+    c03e:	f1b0 	wrs	s0, r6
+    c040:	5e00 	movi	r7, 0
+    c042:	5f10 	movhi	r7, 16
+    c044:	f024 	reti	
+    c046:	5408 	movi	r2, 8
+    c048:	5580 	movhi	r2, -128
+    c04a:	5201 	movi	r1, 1
+    c04c:	4280 	st	0(r2), r1
+    c04e:	a183 	jmp	r6
+    c050:	a183 	jmp	r6
+    c052:	ffff 	halt	
+    c054:	ffff 	halt	
+    c056:	5200 	movi	r1, 0
+    c058:	5380 	movhi	r1, -128
+    c05a:	4840 	st	0(r1), r4
+    c05c:	a183 	jmp	r6
+    c05e:	f2ec 	rds	r1, s3
+    c060:	5414 	movi	r2, 20
+    c062:	067a 	shl	r3, r1, r2
+    c064:	520a 	movi	r1, 10
+    c066:	5380 	movhi	r1, -128
+    c068:	3840 	ld	r4, 0(r1)
+    c06a:	f737 	wrvd	r4, r3
+    c06c:	5420 	movi	r2, 32
+    c06e:	06e2 	add	r3, r3, r2
+    c070:	f736 	wrpd	r4, r3
+    c072:	2901 	addi	r4, r4, 1
+    c074:	5407 	movi	r2, 7
+    c076:	0902 	and	r4, r4, r2
+    c078:	4840 	st	0(r1), r4
+    c07a:	ffac 	rds	r7, s6
+    c07c:	33c0 	ld	r1, 0(r7)
+    c07e:	227e 	addi	r1, r1, -2
+    c080:	43c0 	st	0(r7), r1
+    c082:	a183 	jmp	r6
+    c084:	f2ec 	rds	r1, s3
+    c086:	5414 	movi	r2, 20
+    c088:	067a 	shl	r3, r1, r2
+    c08a:	520c 	movi	r1, 12
+    c08c:	5380 	movhi	r1, -128
+    c08e:	3840 	ld	r4, 0(r1)
+    c090:	f735 	wrvi	r4, r3
+    c092:	5430 	movi	r2, 48
+    c094:	06e2 	add	r3, r3, r2
+    c096:	f734 	wrpi	r4, r3
+    c098:	2901 	addi	r4, r4, 1
+    c09a:	5403 	movi	r2, 3
+    c09c:	0902 	and	r4, r4, r2
+    c09e:	4840 	st	0(r1), r4
+    c0a0:	ffac 	rds	r7, s6
+    c0a2:	33c0 	ld	r1, 0(r7)
+    c0a4:	227e 	addi	r1, r1, -2
+    c0a6:	43c0 	st	0(r7), r1
+    c0a8:	a183 	jmp	r6
+    c0aa:	5202 	movi	r1, 2
+    c0ac:	5380 	movhi	r1, -128
+    c0ae:	5401 	movi	r2, 1
+    c0b0:	4440 	st	0(r1), r2
+    c0b2:	a183 	jmp	r6
+    c0b4:	5204 	movi	r1, 4
+    c0b6:	5380 	movhi	r1, -128
+    c0b8:	5401 	movi	r2, 1
+    c0ba:	4440 	st	0(r1), r2
+    c0bc:	ffff 	halt	
+    c0be:	a183 	jmp	r6
+    c0c0:	5206 	movi	r1, 6
+    c0c2:	5380 	movhi	r1, -128
+    c0c4:	5401 	movi	r2, 1
+    c0c6:	4440 	st	0(r1), r2
+    c0c8:	a183 	jmp	r6
+    c0ca:	5202 	movi	r1, 2
+    c0cc:	f078 	flush	r1
+    c0ce:	5208 	movi	r1, 8
+    c0d0:	5400 	movi	r2, 0
+    c0d2:	f2b7 	wrvd	r2, r1
+    c0d4:	5228 	movi	r1, 40
+    c0d6:	f2b6 	wrpd	r2, r1
+    c0d8:	520a 	movi	r1, 10
+    c0da:	5380 	movhi	r1, -128
+    c0dc:	5001 	movi	r0, 1
+    c0de:	4040 	st	0(r1), r0
+    c0e0:	a183 	jmp	r6
+    c0e2:	5206 	movi	r1, 6
+    c0e4:	5380 	movhi	r1, -128
+    c0e6:	5401 	movi	r2, 1
+    c0e8:	4440 	st	0(r1), r2
+    c0ea:	a183 	jmp	r6
+    c0ec:	ffff 	halt	
+    c0ee:	f9f0 	wrs	s4, r7
+    c0f0:	ffac 	rds	r7, s6
+    c0f2:	2ffe 	addi	r7, r7, -2
+    c0f4:	43c0 	st	0(r7), r1
+    c0f6:	2ffe 	addi	r7, r7, -2
+    c0f8:	45c0 	st	0(r7), r2
+    c0fa:	2ffe 	addi	r7, r7, -2
+    c0fc:	47c0 	st	0(r7), r3
+    c0fe:	2ffe 	addi	r7, r7, -2
+    c100:	49c0 	st	0(r7), r4
+    c102:	2ffe 	addi	r7, r7, -2
+    c104:	4dc0 	st	0(r7), r6
+    c106:	f22c 	rds	r1, s0
+    c108:	2ffe 	addi	r7, r7, -2
+    c10a:	43c0 	st	0(r7), r1
+    c10c:	f26c 	rds	r1, s1
+    c10e:	2ffe 	addi	r7, r7, -2
+    c110:	43c0 	st	0(r7), r1
+    c112:	fdf0 	wrs	s6, r7
+    c114:	f020 	ei	
+    c116:	f2ac 	rds	r1, s2
+    c118:	540e 	movi	r2, 14
+    c11a:	1699 	cmpeq	r3, r2, r1
+    c11c:	670a 	bnz	r3, 22
+    c11e:	540f 	movi	r2, 15
+    c120:	1699 	cmpeq	r3, r2, r1
+    c122:	6712 	bnz	r3, 38
+    c124:	5416 	movi	r2, 22
+    c126:	5580 	movhi	r2, -128
+    c128:	0261 	add	r1, r1, r1
+    c12a:	04a1 	add	r2, r2, r1
+    c12c:	3480 	ld	r2, 0(r2)
+    c12e:	ac84 	jal	r6, r2
+    c130:	6612 	bz	r3, 38
+    c132:	f2ec 	rds	r1, s3
+    c134:	f8ec 	rds	r4, s3
+    c136:	5407 	movi	r2, 7
+    c138:	0242 	and	r1, r1, r2
+    c13a:	0261 	add	r1, r1, r1
+    c13c:	5432 	movi	r2, 50
+    c13e:	5580 	movhi	r2, -128
+    c140:	04a1 	add	r2, r2, r1
+    c142:	3480 	ld	r2, 0(r2)
+    c144:	ac84 	jal	r6, r2
+    c146:	6707 	bnz	r3, 16
+    c148:	f228 	getiid	r1
+    c14a:	0261 	add	r1, r1, r1
+    c14c:	540e 	movi	r2, 14
+    c14e:	5580 	movhi	r2, -128
+    c150:	04a1 	add	r2, r2, r1
+    c152:	3480 	ld	r2, 0(r2)
+    c154:	ac84 	jal	r6, r2
+    c156:	f021 	di	
+    c158:	ffac 	rds	r7, s6
+    c15a:	33c0 	ld	r1, 0(r7)
+    c15c:	2fc2 	addi	r7, r7, 2
+    c15e:	f270 	wrs	s1, r1
+    c160:	33c0 	ld	r1, 0(r7)
+    c162:	2fc2 	addi	r7, r7, 2
+    c164:	f070 	wrs	s0, r1
+    c166:	3dc0 	ld	r6, 0(r7)
+    c168:	2fc2 	addi	r7, r7, 2
+    c16a:	39c0 	ld	r4, 0(r7)
+    c16c:	2fc2 	addi	r7, r7, 2
+    c16e:	37c0 	ld	r3, 0(r7)
+    c170:	2fc2 	addi	r7, r7, 2
+    c172:	35c0 	ld	r2, 0(r7)
+    c174:	2fc2 	addi	r7, r7, 2
+    c176:	33c0 	ld	r1, 0(r7)
+    c178:	2fc2 	addi	r7, r7, 2
+    c17a:	fdf0 	wrs	s6, r7
+    c17c:	ff2c 	rds	r7, s4
+    c17e:	f024 	reti	

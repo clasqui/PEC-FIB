@@ -1,0 +1,438 @@
+
+temp_tlb.o:     format de fixer elf32-sisa
+temp_tlb.o
+arquitectura: sisa:3, senyaladors 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+adreça d'inici 0x00000000
+
+Program Header:
+    LOAD off    0x00000000 vaddr 0x00003f6c paddr 0x00003f6c align 2**0
+         filesz 0x000000c4 memsz 0x000000c4 flags r-x
+    LOAD off    0x000000c4 vaddr 0x00008000 paddr 0x00008000 align 2**0
+         filesz 0x00000042 memsz 0x00000042 flags rw-
+    LOAD off    0x00000106 vaddr 0x0000c000 paddr 0x0000c000 align 2**0
+         filesz 0x00000180 memsz 0x00000180 flags r-x
+
+Seccions:
+Idx Name          Size      VMA       LMA       File off  Algn  Senyaladors
+  0 .sistema      00000180  0000c000  0000c000  00000106  2**0  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .user         00000030  00004000  00004000  00000094  2**0  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .sysdata      00000042  00008000  00008000  000000c4  2**1  CONTENTS, ALLOC, LOAD, DATA
+SYMBOL TABLE:
+0000c000 l    d  .sistema	00000000 .sistema
+0000c046 l       .sistema	00000000 RSI_default_resume
+0000c052 l       .sistema	00000000 RSE_default_halt
+0000c050 l       .sistema	00000000 RSE_default_resume
+0000c084 l       .sistema	00000000 RSE_TLB_miss_i
+0000c05e l       .sistema	00000000 RSE_TLB_miss_d
+0000c0b4 l       .sistema	00000000 RSE_TLB_pro_i
+0000c0aa l       .sistema	00000000 RSE_TLB_pro_d
+0000c0c0 l       .sistema	00000000 RSE_TLB_readonly
+0000c0e2 l       .sistema	00000000 RSE_inst_protegida
+0000c056 l       .sistema	00000000 syscall_default
+0000c0ca l       .sistema	00000000 syscall_flush
+0000c0ee l       .sistema	00000000 RSG
+0000c0ec l       .sistema	00000000 __exit
+0000c054 l       .sistema	00000000 RSE_excepcio_TLB
+0000c132 l       .sistema	00000000 __call_sistema
+0000c148 l       .sistema	00000000 __interrupcion
+0000c124 l       .sistema	00000000 __excepcion
+0000c156 l       .sistema	00000000 __finrsg
+0000c000 g       .sistema	00000000 __entry_point
+
+
+Disassembly of section .sistema:
+
+0000c000 <__entry_point>:
+    c000:	f021 	di	
+    c002:	520a 	movi	r1, 10
+    c004:	5404 	movi	r2, 4
+    c006:	f2b7 	wrvd	r2, r1
+    c008:	522a 	movi	r1, 42
+    c00a:	f2b6 	wrpd	r2, r1
+    c00c:	520b 	movi	r1, 11
+    c00e:	2481 	addi	r2, r2, 1
+    c010:	f2b7 	wrvd	r2, r1
+    c012:	522b 	movi	r1, 43
+    c014:	f2b6 	wrpd	r2, r1
+    c016:	520a 	movi	r1, 10
+    c018:	5380 	movhi	r1, -128
+    c01a:	5406 	movi	r2, 6
+    c01c:	4440 	st	0(r1), r2
+    c01e:	5402 	movi	r2, 2
+    c020:	f4b7 	wrvd	r2, r2
+    c022:	5232 	movi	r1, 50
+    c024:	f2b6 	wrpd	r2, r1
+    c026:	5e00 	movi	r7, 0
+    c028:	5f8e 	movhi	r7, -114
+    c02a:	fdf0 	wrs	s6, r7
+    c02c:	5cee 	movi	r6, -18
+    c02e:	5dc0 	movhi	r6, -64
+    c030:	fbb0 	wrs	s5, r6
+    c032:	5aec 	movi	r5, -20
+    c034:	5bc0 	movhi	r5, -64
+    c036:	5c00 	movi	r6, 0
+    c038:	5d40 	movhi	r6, 64
+    c03a:	f3b0 	wrs	s1, r6
+    c03c:	5c02 	movi	r6, 2
+    c03e:	f1b0 	wrs	s0, r6
+    c040:	5e00 	movi	r7, 0
+    c042:	5f10 	movhi	r7, 16
+    c044:	f024 	reti	
+
+0000c046 <RSI_default_resume>:
+    c046:	5408 	movi	r2, 8
+    c048:	5580 	movhi	r2, -128
+    c04a:	5201 	movi	r1, 1
+    c04c:	4280 	st	0(r2), r1
+    c04e:	a183 	jmp	r6
+
+0000c050 <RSE_default_resume>:
+    c050:	a183 	jmp	r6
+
+0000c052 <RSE_default_halt>:
+    c052:	ffff 	halt	
+
+0000c054 <RSE_excepcio_TLB>:
+    c054:	ffff 	halt	
+
+0000c056 <syscall_default>:
+    c056:	5200 	movi	r1, 0
+    c058:	5380 	movhi	r1, -128
+    c05a:	4840 	st	0(r1), r4
+    c05c:	a183 	jmp	r6
+
+0000c05e <RSE_TLB_miss_d>:
+    c05e:	f2ec 	rds	r1, s3
+    c060:	5414 	movi	r2, 20
+    c062:	067a 	shl	r3, r1, r2
+    c064:	520a 	movi	r1, 10
+    c066:	5380 	movhi	r1, -128
+    c068:	3840 	ld	r4, 0(r1)
+    c06a:	f737 	wrvd	r4, r3
+    c06c:	5420 	movi	r2, 32
+    c06e:	06e2 	add	r3, r3, r2
+    c070:	f736 	wrpd	r4, r3
+    c072:	2901 	addi	r4, r4, 1
+    c074:	5407 	movi	r2, 7
+    c076:	0902 	and	r4, r4, r2
+    c078:	4840 	st	0(r1), r4
+    c07a:	ffac 	rds	r7, s6
+    c07c:	33c0 	ld	r1, 0(r7)
+    c07e:	227e 	addi	r1, r1, -2
+    c080:	43c0 	st	0(r7), r1
+    c082:	a183 	jmp	r6
+
+0000c084 <RSE_TLB_miss_i>:
+    c084:	f2ec 	rds	r1, s3
+    c086:	5414 	movi	r2, 20
+    c088:	067a 	shl	r3, r1, r2
+    c08a:	520c 	movi	r1, 12
+    c08c:	5380 	movhi	r1, -128
+    c08e:	3840 	ld	r4, 0(r1)
+    c090:	f735 	wrvi	r4, r3
+    c092:	5430 	movi	r2, 48
+    c094:	06e2 	add	r3, r3, r2
+    c096:	f734 	wrpi	r4, r3
+    c098:	2901 	addi	r4, r4, 1
+    c09a:	5403 	movi	r2, 3
+    c09c:	0902 	and	r4, r4, r2
+    c09e:	4840 	st	0(r1), r4
+    c0a0:	ffac 	rds	r7, s6
+    c0a2:	33c0 	ld	r1, 0(r7)
+    c0a4:	227e 	addi	r1, r1, -2
+    c0a6:	43c0 	st	0(r7), r1
+    c0a8:	a183 	jmp	r6
+
+0000c0aa <RSE_TLB_pro_d>:
+    c0aa:	5202 	movi	r1, 2
+    c0ac:	5380 	movhi	r1, -128
+    c0ae:	5401 	movi	r2, 1
+    c0b0:	4440 	st	0(r1), r2
+    c0b2:	a183 	jmp	r6
+
+0000c0b4 <RSE_TLB_pro_i>:
+    c0b4:	5204 	movi	r1, 4
+    c0b6:	5380 	movhi	r1, -128
+    c0b8:	5401 	movi	r2, 1
+    c0ba:	4440 	st	0(r1), r2
+    c0bc:	ffff 	halt	
+    c0be:	a183 	jmp	r6
+
+0000c0c0 <RSE_TLB_readonly>:
+    c0c0:	5206 	movi	r1, 6
+    c0c2:	5380 	movhi	r1, -128
+    c0c4:	5401 	movi	r2, 1
+    c0c6:	4440 	st	0(r1), r2
+    c0c8:	a183 	jmp	r6
+
+0000c0ca <syscall_flush>:
+    c0ca:	5202 	movi	r1, 2
+    c0cc:	f078 	flush	r1
+    c0ce:	5208 	movi	r1, 8
+    c0d0:	5400 	movi	r2, 0
+    c0d2:	f2b7 	wrvd	r2, r1
+    c0d4:	5228 	movi	r1, 40
+    c0d6:	f2b6 	wrpd	r2, r1
+    c0d8:	520a 	movi	r1, 10
+    c0da:	5380 	movhi	r1, -128
+    c0dc:	5001 	movi	r0, 1
+    c0de:	4040 	st	0(r1), r0
+    c0e0:	a183 	jmp	r6
+
+0000c0e2 <RSE_inst_protegida>:
+    c0e2:	5206 	movi	r1, 6
+    c0e4:	5380 	movhi	r1, -128
+    c0e6:	5401 	movi	r2, 1
+    c0e8:	4440 	st	0(r1), r2
+    c0ea:	a183 	jmp	r6
+
+0000c0ec <__exit>:
+    c0ec:	ffff 	halt	
+
+0000c0ee <RSG>:
+    c0ee:	f9f0 	wrs	s4, r7
+    c0f0:	ffac 	rds	r7, s6
+    c0f2:	2ffe 	addi	r7, r7, -2
+    c0f4:	43c0 	st	0(r7), r1
+    c0f6:	2ffe 	addi	r7, r7, -2
+    c0f8:	45c0 	st	0(r7), r2
+    c0fa:	2ffe 	addi	r7, r7, -2
+    c0fc:	47c0 	st	0(r7), r3
+    c0fe:	2ffe 	addi	r7, r7, -2
+    c100:	49c0 	st	0(r7), r4
+    c102:	2ffe 	addi	r7, r7, -2
+    c104:	4dc0 	st	0(r7), r6
+    c106:	f22c 	rds	r1, s0
+    c108:	2ffe 	addi	r7, r7, -2
+    c10a:	43c0 	st	0(r7), r1
+    c10c:	f26c 	rds	r1, s1
+    c10e:	2ffe 	addi	r7, r7, -2
+    c110:	43c0 	st	0(r7), r1
+    c112:	fdf0 	wrs	s6, r7
+    c114:	f020 	ei	
+    c116:	f2ac 	rds	r1, s2
+    c118:	540e 	movi	r2, 14
+    c11a:	1699 	cmpeq	r3, r2, r1
+    c11c:	670a 	bnz	r3, 22
+    c11e:	540f 	movi	r2, 15
+    c120:	1699 	cmpeq	r3, r2, r1
+    c122:	6712 	bnz	r3, 38
+
+0000c124 <__excepcion>:
+    c124:	5416 	movi	r2, 22
+    c126:	5580 	movhi	r2, -128
+    c128:	0261 	add	r1, r1, r1
+    c12a:	04a1 	add	r2, r2, r1
+    c12c:	3480 	ld	r2, 0(r2)
+    c12e:	ac84 	jal	r6, r2
+    c130:	6612 	bz	r3, 38
+
+0000c132 <__call_sistema>:
+    c132:	f2ec 	rds	r1, s3
+    c134:	f8ec 	rds	r4, s3
+    c136:	5407 	movi	r2, 7
+    c138:	0242 	and	r1, r1, r2
+    c13a:	0261 	add	r1, r1, r1
+    c13c:	5432 	movi	r2, 50
+    c13e:	5580 	movhi	r2, -128
+    c140:	04a1 	add	r2, r2, r1
+    c142:	3480 	ld	r2, 0(r2)
+    c144:	ac84 	jal	r6, r2
+    c146:	6707 	bnz	r3, 16
+
+0000c148 <__interrupcion>:
+    c148:	f228 	getiid	r1
+    c14a:	0261 	add	r1, r1, r1
+    c14c:	540e 	movi	r2, 14
+    c14e:	5580 	movhi	r2, -128
+    c150:	04a1 	add	r2, r2, r1
+    c152:	3480 	ld	r2, 0(r2)
+    c154:	ac84 	jal	r6, r2
+
+0000c156 <__finrsg>:
+    c156:	f021 	di	
+    c158:	ffac 	rds	r7, s6
+    c15a:	33c0 	ld	r1, 0(r7)
+    c15c:	2fc2 	addi	r7, r7, 2
+    c15e:	f270 	wrs	s1, r1
+    c160:	33c0 	ld	r1, 0(r7)
+    c162:	2fc2 	addi	r7, r7, 2
+    c164:	f070 	wrs	s0, r1
+    c166:	3dc0 	ld	r6, 0(r7)
+    c168:	2fc2 	addi	r7, r7, 2
+    c16a:	39c0 	ld	r4, 0(r7)
+    c16c:	2fc2 	addi	r7, r7, 2
+    c16e:	37c0 	ld	r3, 0(r7)
+    c170:	2fc2 	addi	r7, r7, 2
+    c172:	35c0 	ld	r2, 0(r7)
+    c174:	2fc2 	addi	r7, r7, 2
+    c176:	33c0 	ld	r1, 0(r7)
+    c178:	2fc2 	addi	r7, r7, 2
+    c17a:	fdf0 	wrs	s6, r7
+    c17c:	ff2c 	rds	r7, s4
+    c17e:	f024 	reti	
+
+temp_tlb.o:     format de fixer elf32-sisa
+temp_tlb.o
+arquitectura: sisa:3, senyaladors 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+adreça d'inici 0x00000000
+
+Program Header:
+    LOAD off    0x00000000 vaddr 0x00003f6c paddr 0x00003f6c align 2**0
+         filesz 0x000000c4 memsz 0x000000c4 flags r-x
+    LOAD off    0x000000c4 vaddr 0x00008000 paddr 0x00008000 align 2**0
+         filesz 0x00000042 memsz 0x00000042 flags rw-
+    LOAD off    0x00000106 vaddr 0x0000c000 paddr 0x0000c000 align 2**0
+         filesz 0x00000180 memsz 0x00000180 flags r-x
+
+Seccions:
+Idx Name          Size      VMA       LMA       File off  Algn  Senyaladors
+  0 .sistema      00000180  0000c000  0000c000  00000106  2**0  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .user         00000030  00004000  00004000  00000094  2**0  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .sysdata      00000042  00008000  00008000  000000c4  2**1  CONTENTS, ALLOC, LOAD, DATA
+SYMBOL TABLE:
+00008000 l    d  .sysdata	00000000 .sysdata
+00008000 l       .sysdata	00000000 codi_crida
+00008002 l       .sysdata	00000000 flag_dades_pro
+00008004 l       .sysdata	00000000 flag_inst_pro
+00008006 l       .sysdata	00000000 flag_readonly
+00008006 l       .sysdata	00000000 flag_inst_ill
+00008008 l       .sysdata	00000000 flag_int
+0000800a l       .sysdata	00000000 tlbd_index_count
+0000800c l       .sysdata	00000000 tlbi_index_count
+0000800e l       .sysdata	00000000 interrupts_vector
+00008016 l       .sysdata	00000000 exceptions_vector
+00008032 l       .sysdata	00000000 call_sys_vector
+
+
+Disassembly of section .sysdata:
+
+00008000 <codi_crida>:
+	...
+
+00008002 <flag_dades_pro>:
+	...
+
+00008004 <flag_inst_pro>:
+	...
+
+00008006 <flag_inst_ill>:
+	...
+
+00008008 <flag_int>:
+	...
+
+0000800a <tlbd_index_count>:
+	...
+
+0000800c <tlbi_index_count>:
+	...
+
+0000800e <interrupts_vector>:
+    800e:	c046 	stf	12(r1), f0
+    8010:	c046 	stf	12(r1), f0
+    8012:	c046 	stf	12(r1), f0
+    8014:	c046 	stf	12(r1), f0
+
+00008016 <exceptions_vector>:
+    8016:	c052 	stf	36(r1), f0
+    8018:	c052 	stf	36(r1), f0
+    801a:	c050 	stf	32(r1), f0
+    801c:	c050 	stf	32(r1), f0
+    801e:	c052 	stf	36(r1), f0
+    8020:	c052 	stf	36(r1), f0
+    8022:	c084 	stf	8(r2), f0
+    8024:	c05e 	stf	60(r1), f0
+    8026:	c084 	stf	8(r2), f0
+    8028:	c05e 	stf	60(r1), f0
+    802a:	c0b4 	stf	-24(r2), f0
+    802c:	c0aa 	stf	-44(r2), f0
+    802e:	c0c0 	stf	0(r3), f0
+    8030:	c0e2 	stf	-60(r3), f0
+
+00008032 <call_sys_vector>:
+    8032:	c056 	stf	44(r1), f0
+    8034:	c0ca 	stf	20(r3), f0
+    8036:	c056 	stf	44(r1), f0
+    8038:	c056 	stf	44(r1), f0
+    803a:	c056 	stf	44(r1), f0
+    803c:	c056 	stf	44(r1), f0
+    803e:	c056 	stf	44(r1), f0
+    8040:	c056 	stf	44(r1), f0
+
+temp_tlb.o:     format de fixer elf32-sisa
+temp_tlb.o
+arquitectura: sisa:3, senyaladors 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+adreça d'inici 0x00000000
+
+Program Header:
+    LOAD off    0x00000000 vaddr 0x00003f6c paddr 0x00003f6c align 2**0
+         filesz 0x000000c4 memsz 0x000000c4 flags r-x
+    LOAD off    0x000000c4 vaddr 0x00008000 paddr 0x00008000 align 2**0
+         filesz 0x00000042 memsz 0x00000042 flags rw-
+    LOAD off    0x00000106 vaddr 0x0000c000 paddr 0x0000c000 align 2**0
+         filesz 0x00000180 memsz 0x00000180 flags r-x
+
+Seccions:
+Idx Name          Size      VMA       LMA       File off  Algn  Senyaladors
+  0 .sistema      00000180  0000c000  0000c000  00000106  2**0  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .user         00000030  00004000  00004000  00000094  2**0  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .sysdata      00000042  00008000  00008000  000000c4  2**1  CONTENTS, ALLOC, LOAD, DATA
+SYMBOL TABLE:
+00004000 l    d  .user	00000000 .user
+00004000 g       .user	00000000 main
+
+
+Disassembly of section .user:
+
+00004000 <main>:
+    4000:	500f 	movi	r0, 15
+    4002:	2ffe 	addi	r7, r7, -2
+    4004:	41c0 	st	0(r7), r0
+    4006:	5600 	movi	r3, 0
+    4008:	5730 	movhi	r3, 48
+    400a:	58aa 	movi	r4, -86
+    400c:	e8c3 	stb	3(r3), r4
+    400e:	5200 	movi	r1, 0
+    4010:	5380 	movhi	r1, -128
+    4012:	3440 	ld	r2, 0(r1)
+    4014:	2804 	addi	r4, r0, 4
+    4016:	5201 	movi	r1, 1
+    4018:	5404 	movi	r2, 4
+    401a:	5520 	movhi	r2, 32
+    401c:	4280 	st	0(r2), r1
+    401e:	2904 	addi	r4, r4, 4
+    4020:	a047 	calls	r1
+    4022:	52aa 	movi	r1, -86
+    4024:	2ffe 	addi	r7, r7, -2
+    4026:	43c0 	st	0(r7), r1
+    4028:	5200 	movi	r1, 0
+    402a:	53c0 	movhi	r1, -64
+    402c:	a043 	jmp	r1
+    402e:	ffff 	halt	
+
+temp_tlb.o:     format de fixer elf32-sisa
+temp_tlb.o
+arquitectura: sisa:3, senyaladors 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+adreça d'inici 0x00000000
+
+Program Header:
+    LOAD off    0x00000000 vaddr 0x00003f6c paddr 0x00003f6c align 2**0
+         filesz 0x000000c4 memsz 0x000000c4 flags r-x
+    LOAD off    0x000000c4 vaddr 0x00008000 paddr 0x00008000 align 2**0
+         filesz 0x00000042 memsz 0x00000042 flags rw-
+    LOAD off    0x00000106 vaddr 0x0000c000 paddr 0x0000c000 align 2**0
+         filesz 0x00000180 memsz 0x00000180 flags r-x
+
+Seccions:
+Idx Name          Size      VMA       LMA       File off  Algn  Senyaladors
+  0 .sistema      00000180  0000c000  0000c000  00000106  2**0  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .user         00000030  00004000  00004000  00000094  2**0  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .sysdata      00000042  00008000  00008000  000000c4  2**1  CONTENTS, ALLOC, LOAD, DATA
+SYMBOL TABLE:
+
+

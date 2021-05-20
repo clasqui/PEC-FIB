@@ -1,0 +1,30 @@
+
+jp-tlb.o:     format de fixer elf32-sisa
+
+Disassembly of section .user:
+
+00004000 <.user>:
+    4000:	500f 	movi	r0, 15
+    4002:	2ffe 	addi	r7, r7, -2
+    4004:	41c0 	st	0(r7), r0
+    4006:	5600 	movi	r3, 0
+    4008:	5730 	movhi	r3, 48
+    400a:	58aa 	movi	r4, -86
+    400c:	e8c3 	stb	3(r3), r4
+    400e:	5200 	movi	r1, 0
+    4010:	5380 	movhi	r1, -128
+    4012:	3440 	ld	r2, 0(r1)
+    4014:	2804 	addi	r4, r0, 4
+    4016:	5201 	movi	r1, 1
+    4018:	5404 	movi	r2, 4
+    401a:	5520 	movhi	r2, 32
+    401c:	4280 	st	0(r2), r1
+    401e:	2904 	addi	r4, r4, 4
+    4020:	a047 	calls	r1
+    4022:	52aa 	movi	r1, -86
+    4024:	2ffe 	addi	r7, r7, -2
+    4026:	43c0 	st	0(r7), r1
+    4028:	5200 	movi	r1, 0
+    402a:	53c0 	movhi	r1, -64
+    402c:	a043 	jmp	r1
+    402e:	ffff 	halt	
