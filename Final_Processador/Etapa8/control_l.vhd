@@ -32,7 +32,11 @@ ENTITY control_l IS
 			 exec_mode : IN STD_LOGIC;
 			 no_priv	  : OUT STD_LOGIC;
 			 calls     : OUT STD_LOGIC;
-			 excep_num : IN STD_LOGIC_VECTOR(7 DOWNTO 0));   -- Excepcio de instruccio privilegiada. 
+			 excep_num : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+			 we_tlb 	  : OUT STD_LOGIC;
+			 v_p 		  : OUT STD_LOGIC;
+			 i_d		  : OUT STD_LOGIC;
+			 flush 	  : OUT STD_LOGIC);
 END control_l;
 
 
@@ -190,7 +194,13 @@ BEGIN
 	 immed <= std_logic_vector(resize(signed(ir(7 downto 0)), 16)) when ir(15 downto 12) = "0101" -- en les dimmediat, son 8 bits
 					else std_logic_vector(resize(signed(ir(5 downto 0)), 16)); -- en les altres, son 6 bits
 					
-		
+	-- Senyals pel TLB.
+	we_tlb <= '1' when ir(15 downto 12) = "1111" and 
+					(ir(5 downto 0) = "110100" or ir(5 downto 0) = "110101" or ir(5 downto 0) = "110110" or
+					 ir(5 downto 0) = "110111") else '0';
+	i_d <= '1' when ir(5 downto 0) = "110110" or ir(5 downto 0) = "110111" else '0';
+	v_p <= '1' when ir(5 downto 0) = "110100" or ir(5 downto 0) = "110110" else '0';
+	flush <= '1' when ir(15 downto 12) = "1111"  or ir(5 downto 0) = "111000" else '0';
 		
 		
 		-- Altres senyals

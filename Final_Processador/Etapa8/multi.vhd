@@ -20,6 +20,9 @@ entity multi is
 			inta_l    : IN  std_logic;
 			e_no_align_l: IN std_LOGIC;
 			calls_l   : IN STD_LOGIC;
+			we_tlb_l	 : IN STD_LOGIC;
+			v_p_l	    : IN STD_LOGIC;
+			flush_l 	 : IN STD_LOGIC;
          ldpc      : OUT STD_LOGIC;
          wrd       : OUT STD_LOGIC;
          wr_m      : OUT STD_LOGIC;
@@ -38,10 +41,17 @@ entity multi is
 			inta 	    : OUT std_logic;
 			intr 	    : IN std_logic;
 			excpr     : IN std_logic;
-			e_no_align: OUT std_LOGIC;
+			load_store: OUT std_LOGIC;
+			e_fetch	 : OUT std_LOGIC;
 			calls     : OUT STD_LOGIC;
 			no_align  : IN std_logic;
-			addr_no_ok: IN std_logic);
+			addr_no_ok: IN std_logic;
+			we_tlb 	 : OUT STD_LOGIC;
+			v_p 	    : OUT STD_LOGIC;
+			flush     : OUT STD_LOGIC;
+			miss_i : IN STD_LOGIC;
+			inv_pg_i : IN STD_LOGIC;
+			pr_pg_i : IN STD_LOGIC);
 end entity;
 
 architecture Structure of multi is
@@ -64,7 +74,7 @@ begin
 		elsif (rising_edge(clk)) then
 			case estat is
 				when FETCH =>
-					if excpr = '1' and (no_align = '1' or addr_no_ok = '1') then -- saltem tambe a systema en cicle fetch si intentem accedir a un pc no alineat.
+					if excpr = '1' and (no_align = '1' or pr_pg_i = '1' or miss_i = '1' or inv_pg_i = '1') then -- saltem tambe a systema en cicle fetch si intentem accedir a un pc no alineat.
 						estat <= SYSTEM;
 					else 
 						estat <= DEMW;
@@ -98,8 +108,12 @@ begin
 	in_d <= "10" when estat = SYSTEM else in_d_l;    -- Per guardar pcUP al banc de reg
 	d_sys <= '1' when estat = SYSTEM else d_sys_l;
 	inta <= inta_l when estat = DEMW else '0';
-	e_no_align <= e_no_align_l when estat = DEMW else '1' when estat = FETCH else '0';
+	load_store <= e_no_align_l when estat = DEMW else '0';
+	e_fetch <= '1' when estat = FETCH else '0';
 	calls <= calls_l when estat = DEMW else '0';
+	v_p <= v_p_l when estat = DEMW else '0';
+	flush <= '0' when excpr = '1' else flush_l when estat = DEMW else '0';
+	we_tlb <= '0' when excpr = '1' else we_tlb_l when estat = DEMW else '0';
 	
 
 end Structure;

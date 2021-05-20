@@ -38,12 +38,20 @@ ENTITY unidad_control IS
 			 excpr     : IN std_logic;
 			 il_inst   : OUT std_logic;
 			 excep_num : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-			 e_no_align: OUT std_LOGIC;
+			 load_store: OUT std_LOGIC;
+			 e_fetch	  : OUT std_LOGIC;
 			 exec_mode : IN STD_LOGIC;
 			 no_priv	  : OUT STD_LOGIC;
 			 calls     : OUT STD_LOGIC;
 			 no_align  : IN std_logic;
-			 addr_no_ok : IN std_logic);
+			 addr_no_ok : IN std_logic;
+			 we_tlb : OUT STD_LOGIC;
+			 v_p : OUT STD_LOGIC;
+			 i_d		  : OUT STD_LOGIC;
+			 flush : OUT STD_LOGIC;
+			 miss_i : IN STD_LOGIC;
+			 inv_pg_i : IN STD_LOGIC;
+			 pr_pg_i : IN STD_LOGIC);
 END unidad_control;
 
 ARCHITECTURE Structure OF unidad_control IS
@@ -74,6 +82,10 @@ signal system_cicle_int : std_LOGIC;
 signal system_cicle_exc : std_LOGIC;
 signal e_no_align_l : std_LOGIC;
 signal calls_l     : STD_LOGIC;
+signal we_tlb_l : STD_LOGIC;
+signal v_p_l : STD_LOGIC;
+signal flush_l : STD_LOGIC;
+signal i_d_l		: STD_LOGIC;
 	 
 COMPONENT control_l IS
     PORT (ir   	  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -105,7 +117,11 @@ COMPONENT control_l IS
 			 exec_mode : IN STD_LOGIC;
 			 no_priv	  : OUT STD_LOGIC;
 			 calls     : OUT STD_LOGIC;
-			 excep_num : IN STD_LOGIC_VECTOR(7 DOWNTO 0));
+			 excep_num : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+			 we_tlb 	  : OUT STD_LOGIC;
+			 v_p 		  : OUT STD_LOGIC;
+			 i_d		  : OUT STD_LOGIC;
+			 flush 	  : OUT STD_LOGIC);
 END COMPONENT;
 
 COMPONENT multi IS
@@ -126,6 +142,9 @@ COMPONENT multi IS
 			inta_l    : IN std_logic;
 			e_no_align_l: IN std_LOGIC;
 			calls_l   : IN STD_LOGIC;
+			we_tlb_l  : IN STD_LOGIC;
+			v_p_l 	 : IN STD_LOGIC;
+			flush_l   : IN STD_LOGIC;
          ldpc      : OUT STD_LOGIC;
          wrd       : OUT STD_LOGIC;
          wr_m      : OUT STD_LOGIC;
@@ -141,13 +160,20 @@ COMPONENT multi IS
 			op			 : OUT std_LOGIC_VECTOR(4 downto 0);
 			in_d      : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
 			inta 	 	 : OUT std_logic;
-			e_no_align: OUT std_LOGIC;
+			load_store: OUT std_LOGIC;
+			e_fetch	 : OUT std_LOGIC;
 			calls     : OUT STD_LOGIC;
 			intr 	  	 : IN std_logic;
 			int_e     : IN STD_LOGIC;
 			excpr     : IN STD_LOGIC;
 			no_align  : IN std_logic;
-			addr_no_ok: IN std_logic);
+			addr_no_ok: IN std_logic;
+			we_tlb 	 : OUT STD_LOGIC;
+			v_p 	 	 : OUT STD_LOGIC;
+			flush 	 : OUT STD_LOGIC;
+			miss_i : IN STD_LOGIC;
+			inv_pg_i : IN STD_LOGIC;
+			pr_pg_i : IN STD_LOGIC);
 END COMPONENT;
 
 
@@ -187,7 +213,11 @@ BEGIN
 		exec_mode => exec_mode,
 		no_priv => no_priv,
 		excep_num => excep_num,
-		calls => calls_l);
+		calls => calls_l,
+		v_p => v_p_l,
+		we_tlb => we_tlb_l,
+		i_d => i_d,
+		flush => flush_l);
 	 
 	 ac : multi PORT MAP (
 			clk => clk,
@@ -206,6 +236,9 @@ BEGIN
 			op_l => op_l,
 			e_no_align_l => e_no_align_l,
 			calls_l => calls_l,
+			v_p_l => v_p_l,
+			we_tlb_l => we_tlb_l,
+			flush_l => flush_l,
          w_b  => w_b,
          ldpc => ldpc,
          wrd => wrd,
@@ -225,10 +258,17 @@ BEGIN
 			int_e => int_e,
 			op => op,
 			excpr => excpr,
-			e_no_align => e_no_align,
+			load_store => load_store,
+			e_fetch => e_fetch,
 			calls => calls,
 			no_align => no_align,
-			addr_no_ok => addr_no_ok);
+			addr_no_ok => addr_no_ok,
+			v_p => v_p,
+			we_tlb => we_tlb,
+			flush => flush,
+			miss_i => miss_i,
+			inv_pg_i => inv_pg_i,
+			pr_pg_i => pr_pg_i);
 			
 	reg_intr <= system_cicle_int;
 	reg_excp <= system_cicle_exc;

@@ -57,10 +57,28 @@ ARCHITECTURE Structure OF proc IS
 	 signal exception_number : std_logic_vector(7 downto 0);
 	 signal flag_reg_excp    : std_logic;
 	 signal flag_excp_of_fp_e : std_logic;
-	 signal e_no_align:  std_LOGIC;
+	 signal load_store:  std_LOGIC;
+	 signal e_fetch	 : std_LOGIC;
 	 signal exec_mode_b: STD_LOGIC;
 	 signal no_priv	  :  STD_LOGIC;
 	 signal calls     :  STD_LOGIC;
+	 
+	
+	 signal we_tlb : STD_LOGIC;
+	 signal v_p : STD_LOGIC;
+	 signal flush : STD_LOGIC;
+	 signal i_d  : STD_LOGIC;
+	 signal miss_i : STD_LOGIC;
+	 signal miss_d : STD_LOGIC;
+	 signal inv_pg_i : STD_LOGIC;
+	 signal inv_pg_d : STD_LOGIC;
+	 signal pr_pg_i : STD_LOGIC;
+	 signal pr_pg_d : STD_LOGIC;
+	 signal ro_pg : STD_LOGIC;
+	 
+	 
+	 
+	
 		 
 	 COMPONENT datapath IS
     PORT (clk    : IN STD_LOGIC;
@@ -94,7 +112,18 @@ ARCHITECTURE Structure OF proc IS
 			 div_zero   : OUT STD_LOGIC;
 			 excep_num : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 			 excp_of_fp_e : OUT STD_LOGIC;
-			 exec_mode: OUT STD_LOGIC);
+			 exec_mode: OUT STD_LOGIC;
+			 we_tlb : IN STD_LOGIC;
+			 v_p : IN STD_LOGIC;
+			 i_d : IN STD_LOGIC;
+			 flush : IN STD_LOGIC;
+			 miss_i : OUT STD_LOGIC;
+			 miss_d : OUT STD_LOGIC;
+			 inv_pg_i : OUT STD_LOGIC;
+			 inv_pg_d : OUT STD_LOGIC;
+			 pr_pg_i : OUT STD_LOGIC;
+			 pr_pg_d : OUT STD_LOGIC;
+			 ro_pg : OUT STD_LOGIC);
 	END COMPONENT;
 	
 	COMPONENT unidad_control IS
@@ -132,13 +161,23 @@ ARCHITECTURE Structure OF proc IS
 			 excpr     : IN STD_LOGIC;
 			 il_inst   : OUT STD_LOGIC;
 			 excep_num : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-			 e_no_align: OUT std_LOGIC;
+			 load_store: OUT std_LOGIC;
+			 e_fetch	 : OUT std_LOGIC;
 			 exec_mode : IN STD_LOGIC;
 			 no_priv	  : OUT STD_LOGIC;
 			 calls     : OUT STD_LOGIC;
 			 no_align  : IN std_logic;
-			 addr_no_ok : IN std_logic);
+			 addr_no_ok : IN std_logic;
+			 we_tlb : OUT STD_LOGIC;
+			 v_p : OUT STD_LOGIC;
+			 i_d		  : OUT STD_LOGIC;
+			 flush : OUT STD_LOGIC;
+			 miss_i : IN STD_LOGIC;
+			 inv_pg_i : IN STD_LOGIC;
+			 pr_pg_i : IN STD_LOGIC);
 END COMPONENT;
+
+
 
 COMPONENT Exception_controller IS
 PORT (
@@ -150,11 +189,20 @@ PORT (
 		excpr : OUT std_logic;
 		excp_id : out std_logic_vector(7 downto 0);
 		excp_of_fp_e : IN std_logic;
-		e_no_align: IN std_LOGIC;
+		load_store: IN std_LOGIC;
+		e_fetch	 : IN std_LOGIC;
 		no_priv	  : IN STD_LOGIC;
 		calls     : IN STD_LOGIC;
 		addr_no_ok : IN std_logic;
-		intr : IN std_logic
+		intr : IN std_logic;
+		miss_i : IN STD_LOGIC;
+		miss_d : IN STD_LOGIC;
+		inv_pg_i : IN STD_LOGIC;
+		inv_pg_d : IN STD_LOGIC;
+		pr_pg_i : IN STD_LOGIC;
+		pr_pg_d : IN STD_LOGIC;
+		ro_pg : IN STD_LOGIC;
+		exec_mode : IN std_LOGIC
 	);
 END COMPONENT;
 
@@ -196,7 +244,18 @@ BEGIN
 		excep_num => exception_number,
 		div_zero => flag_div_zero,
 		excp_of_fp_e => flag_excp_of_fp_e,
-		exec_mode => exec_mode_b
+		exec_mode => exec_mode_b,
+		v_p => v_p,
+		we_tlb => we_tlb,
+		flush => flush,
+		i_d => i_d,
+		miss_i => miss_i,
+	   miss_d => miss_d,
+		inv_pg_i => inv_pg_i,
+		inv_pg_d => inv_pg_d,
+		pr_pg_i => pr_pg_i,
+		pr_pg_d => pr_pg_d,
+		ro_pg => ro_pg
 	);
 	
 	c0 : unidad_control PORT MAP (
@@ -234,12 +293,17 @@ BEGIN
 		excpr => flag_excp_recv,
 		il_inst => flag_i_inst,
 		excep_num => exception_number,
-		e_no_align => e_no_align,
+		load_store => load_store,
+		e_fetch => e_fetch,
 		exec_mode => exec_mode_b,
 		calls => calls,
 		no_priv => no_priv,
 		no_align => no_align,
-		addr_no_ok => addr_no_ok
+		addr_no_ok => addr_no_ok,
+		i_d => i_d,
+		miss_i => miss_i,
+		inv_pg_i => inv_pg_i,
+		pr_pg_i => pr_pg_i
 	);
 	
 	flag_odd_addr <= no_align;
@@ -254,10 +318,24 @@ BEGIN
 		excpr => flag_excp_recv,
 		excp_id => exception_number,
 		excp_of_fp_e => flag_excp_of_fp_e, -- si les excepcions overflow floating point estan activades
-		e_no_align => e_no_align,  -- 1 quan pot haver excepcions dacces no alineat.
+		load_store => load_store,
+		e_fetch => e_fetch,
 		no_priv => no_priv,
 		calls => calls,
 		addr_no_ok => addr_no_ok,
-		intr => intr
+		intr => intr,
+		miss_i => miss_i,
+	   miss_d => miss_d,
+		inv_pg_i => inv_pg_i,
+		inv_pg_d => inv_pg_d,
+		pr_pg_i => pr_pg_i,
+		pr_pg_d => pr_pg_d,
+		ro_pg => ro_pg,
+		exec_mode => exec_mode_b
 	);
+	
+	
+	
+	
+	
 END Structure;
