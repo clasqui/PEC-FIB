@@ -79,6 +79,30 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity driver7Segmentos
 -- Compiling architecture Structure of driver7Segmentos
 
+} {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/vga_controller.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/vga_controller.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity vga_controller
+-- Compiling architecture vga_controller_rtl of vga_controller
+
+} {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/async_64Kx16.vhd {1 {vcom -work work -2002 -explicit {Z:\UPC\PEC\PEC-FIB\Final_Processador\Etapa7\async_64Kx16.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package std_logic_textio
+-- Loading package package_timing
+-- Loading package package_utility
+-- Compiling entity async_64Kx16
+-- Compiling architecture behave_arch of async_64Kx16
+
 } {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/vga_font_rom.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/vga_font_rom.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -108,18 +132,15 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity multiplicador
 -- Compiling architecture Structure of multiplicador
 
-} {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/async_64Kx16.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/async_64Kx16.vhd
+} {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/vga_ram_dual.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/vga_ram_dual.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_UNSIGNED
--- Loading package std_logic_textio
--- Loading package package_timing
--- Loading package package_utility
--- Compiling entity async_64Kx16
--- Compiling architecture behave_arch of async_64Kx16
+-- Compiling entity vga_ram_dual
+-- Compiling architecture vga_ram_dual_arch of vga_ram_dual
 
 } {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/vga_sync.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/vga_sync.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -131,16 +152,6 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity vga_sync
 -- Compiling architecture vga_sync_arch of vga_sync
 
-} {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/vga_ram_dual.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/vga_ram_dual.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity vga_ram_dual
--- Compiling architecture vga_ram_dual_arch of vga_ram_dual
-
 } {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/proc.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/proc.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -148,27 +159,6 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package std_logic_1164
 -- Compiling entity proc
 -- Compiling architecture Structure of proc
-
-} {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/ps2_keyboard.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/ps2_keyboard.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity ps2_keyboard_interface
--- Compiling architecture trans of ps2_keyboard_interface
-
-} {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/MemoryController.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/MemoryController.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Compiling entity MemoryController
--- Compiling architecture comportament of MemoryController
 
 } {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/Pulsadors.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/Pulsadors.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -181,6 +171,38 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity Pulsadors
 -- Compiling architecture Structure of Pulsadors
 
+} {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/MemoryController.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/MemoryController.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity MemoryController
+-- Compiling architecture comportament of MemoryController
+
+} {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/ps2_keyboard.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/ps2_keyboard.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity ps2_keyboard_interface
+-- Compiling architecture trans of ps2_keyboard_interface
+
+} {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/controladores_IO.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/controladores_IO.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity controladores_IO
+-- Compiling architecture Structure of controladores_IO
+
 } {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/package_utility.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/package_utility.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -192,6 +214,17 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling package body package_utility
 -- Loading package package_utility
 
+} {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/Interrupt_controller.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/Interrupt_controller.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity Interrupt_controller
+-- Compiling architecture Structure of Interrupt_controller
+
 } {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/sisa.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/sisa.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -201,6 +234,17 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STD_LOGIC_UNSIGNED
 -- Compiling entity sisa
 -- Compiling architecture Structure of sisa
+
+} {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/Timer.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/Timer.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity Timer
+-- Compiling architecture Structure of Timer
 
 } {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/Interruptors.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/Interruptors.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
@@ -224,6 +268,14 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity alu
 -- Compiling architecture Structure of alu
 
+} {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/multi.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/multi.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity multi
+-- Compiling architecture Structure of multi
+
 } {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/package_timing.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/package_timing.vhd
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -235,13 +287,5 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling package package_timing
 -- Compiling package body package_timing
 -- Loading package package_timing
-
-} {} {}} Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/multi.vhd {1 {vcom -work work -2002 -explicit Z:/UPC/PEC/PEC-FIB/Final_Processador/Etapa7/multi.vhd
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity multi
--- Compiling architecture Structure of multi
 
 } {} {}}
